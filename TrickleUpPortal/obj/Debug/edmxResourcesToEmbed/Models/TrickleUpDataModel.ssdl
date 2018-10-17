@@ -1,0 +1,603 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TrickleUpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Crop">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CropName" Type="nvarchar(max)" />
+    <Property Name="FilePath" Type="nvarchar(max)" />
+    <Property Name="Ready" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="CropSteps_Material">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Step_Id" Type="int" Nullable="false" />
+    <Property Name="Material_Name" Type="nvarchar(max)" />
+    <Property Name="Material_Transaction" Type="nvarchar(max)" />
+    <Property Name="Per_Decimal_Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Quantity" Type="nvarchar(max)" />
+    <Property Name="Image_Path" Type="nvarchar(max)" />
+    <Property Name="Audio_Path" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Cultivation_Steps">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Crop_Id" Type="int" Nullable="false" />
+    <Property Name="Step_Name" Type="nvarchar(max)" />
+    <Property Name="MediaURL" Type="nvarchar(max)" />
+    <Property Name="Step_Description" Type="nvarchar(max)" />
+    <Property Name="Description_audio" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="District">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DistrictName" Type="nvarchar(max)" />
+    <Property Name="State" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GenderName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LanguageCode" Type="nvarchar(max)" />
+    <Property Name="LanguageName" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="MediaContent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LanguageId" Type="int" />
+    <Property Name="Category" Type="int" />
+    <Property Name="SubCategory" Type="int" />
+    <Property Name="MediaType" Type="nvarchar(max)" />
+    <Property Name="MediaURL" Type="nvarchar(max)" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="FileSize" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar(max)" />
+    <Property Name="RoleName" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="StateName" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TrickleUp.dbo.UserCredential' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="UserCredential">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="varchar(max)" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Gender" Type="int" />
+    <Property Name="State" Type="int" />
+    <Property Name="District" Type="int" />
+    <Property Name="Village" Type="int" />
+    <Property Name="Grampanchayat" Type="int" />
+    <Property Name="Aadhaar" Type="nvarchar(max)" />
+    <Property Name="IMEI1" Type="nvarchar(max)" />
+    <Property Name="IMEI2" Type="nvarchar(max)" />
+    <Property Name="Role" Type="int" />
+    <Property Name="Language" Type="int" />
+    <Property Name="FCMToken" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <Association Name="FK_Crop_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Crop" Type="Self.Crop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Crop">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Crop_Users1">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Crop" Type="Self.Crop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Crop">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Crop_Users2">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Crop" Type="Self.Crop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Crop">
+        <PropertyRef Name="ActiveBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CropSteps_Material_Cultivation_Steps">
+    <End Role="Cultivation_Steps" Type="Self.Cultivation_Steps" Multiplicity="1" />
+    <End Role="CropSteps_Material" Type="Self.CropSteps_Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cultivation_Steps">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CropSteps_Material">
+        <PropertyRef Name="Step_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cultivation_Steps_Crop">
+    <End Role="Crop" Type="Self.Crop" Multiplicity="1" />
+    <End Role="Cultivation_Steps" Type="Self.Cultivation_Steps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Crop">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cultivation_Steps">
+        <PropertyRef Name="Crop_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_District_State">
+    <End Role="State" Type="Self.State" Multiplicity="0..1" />
+    <End Role="District" Type="Self.District" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="District">
+        <PropertyRef Name="State" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_District_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="District" Type="Self.District" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="District">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_District_Users1">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="District" Type="Self.District" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="District">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_District_Users2">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="District" Type="Self.District" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="District">
+        <PropertyRef Name="ActiveBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gender_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Gender" Type="Self.Gender" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gender">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gender_Users1">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Gender" Type="Self.Gender" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gender">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gender_Users2">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Gender" Type="Self.Gender" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gender">
+        <PropertyRef Name="ActiveBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Language_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Language" Type="Self.Language" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Language">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Language_Users1">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Language" Type="Self.Language" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Language">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Language_Users2">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Language" Type="Self.Language" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Language">
+        <PropertyRef Name="ActiveBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Roles_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Roles" Type="Self.Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Roles">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Roles_Users1">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Roles" Type="Self.Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Roles">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Roles_Users2">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Roles" Type="Self.Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Roles">
+        <PropertyRef Name="ActiveBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_State_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="State" Type="Self.State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="State">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_State_Users1">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="State" Type="Self.State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="State">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_State_Users2">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="State" Type="Self.State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="State">
+        <PropertyRef Name="ActiveBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Users1" Type="Self.Users" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Users_Gender">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="Gender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Users_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Users_State">
+    <End Role="State" Type="Self.State" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="State" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UsersLogin">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserCredential" Type="Self.UserCredential" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserCredential">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TrickleUpModelStoreContainer">
+    <EntitySet Name="Crop" EntityType="Self.Crop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CropSteps_Material" EntityType="Self.CropSteps_Material" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cultivation_Steps" EntityType="Self.Cultivation_Steps" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MediaContent" EntityType="Self.MediaContent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserCredential" EntityType="Self.UserCredential" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [UserCredential].[Id] AS [Id], 
+    [UserCredential].[UserName] AS [UserName], 
+    [UserCredential].[Password] AS [Password]
+    FROM [dbo].[UserCredential] AS [UserCredential]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Crop_Users" Association="Self.FK_Crop_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Crop" EntitySet="Crop" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Crop_Users1" Association="Self.FK_Crop_Users1">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Crop" EntitySet="Crop" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Crop_Users2" Association="Self.FK_Crop_Users2">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Crop" EntitySet="Crop" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CropSteps_Material_Cultivation_Steps" Association="Self.FK_CropSteps_Material_Cultivation_Steps">
+      <End Role="Cultivation_Steps" EntitySet="Cultivation_Steps" />
+      <End Role="CropSteps_Material" EntitySet="CropSteps_Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cultivation_Steps_Crop" Association="Self.FK_Cultivation_Steps_Crop">
+      <End Role="Crop" EntitySet="Crop" />
+      <End Role="Cultivation_Steps" EntitySet="Cultivation_Steps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_District_State" Association="Self.FK_District_State">
+      <End Role="State" EntitySet="State" />
+      <End Role="District" EntitySet="District" />
+    </AssociationSet>
+    <AssociationSet Name="FK_District_Users" Association="Self.FK_District_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="District" EntitySet="District" />
+    </AssociationSet>
+    <AssociationSet Name="FK_District_Users1" Association="Self.FK_District_Users1">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="District" EntitySet="District" />
+    </AssociationSet>
+    <AssociationSet Name="FK_District_Users2" Association="Self.FK_District_Users2">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="District" EntitySet="District" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gender_Users" Association="Self.FK_Gender_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Gender" EntitySet="Gender" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gender_Users1" Association="Self.FK_Gender_Users1">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Gender" EntitySet="Gender" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gender_Users2" Association="Self.FK_Gender_Users2">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Gender" EntitySet="Gender" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Language_Users" Association="Self.FK_Language_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Language" EntitySet="Language" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Language_Users1" Association="Self.FK_Language_Users1">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Language" EntitySet="Language" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Language_Users2" Association="Self.FK_Language_Users2">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Language" EntitySet="Language" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Roles_Users" Association="Self.FK_Roles_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Roles" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Roles_Users1" Association="Self.FK_Roles_Users1">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Roles" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Roles_Users2" Association="Self.FK_Roles_Users2">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Roles" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_State_Users" Association="Self.FK_State_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="State" EntitySet="State" />
+    </AssociationSet>
+    <AssociationSet Name="FK_State_Users1" Association="Self.FK_State_Users1">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="State" EntitySet="State" />
+    </AssociationSet>
+    <AssociationSet Name="FK_State_Users2" Association="Self.FK_State_Users2">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="State" EntitySet="State" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Users" Association="Self.FK_Users_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Users1" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="Users_Gender" Association="Self.Users_Gender">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="Users_Roles" Association="Self.Users_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="Users_State" Association="Self.Users_State">
+      <End Role="State" EntitySet="State" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="UsersLogin" Association="Self.UsersLogin">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserCredential" EntitySet="UserCredential" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

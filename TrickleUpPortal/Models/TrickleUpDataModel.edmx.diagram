@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="81d313913c2f401fb8f2b80523e9435f" Name="Diagram1" ZoomLevel="102">
+        <EntityTypeShape EntityType="TrickleUpModel.User" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrickleUpModel.UserCredential" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <AssociationConnector Association="TrickleUpModel.UsersLogin" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TrickleUpModel.Gender" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="TrickleUpModel.Role" Width="1.5" PointX="5.5" PointY="4.5" />
+        <EntityTypeShape EntityType="TrickleUpModel.State" Width="1.5" PointX="3.375" PointY="6.75" />
+        <AssociationConnector Association="TrickleUpModel.Users_Gender" />
+        <AssociationConnector Association="TrickleUpModel.Users_Roles" />
+        <AssociationConnector Association="TrickleUpModel.FK_Users_Users" />
+        <AssociationConnector Association="TrickleUpModel.Users_State" />
+        <EntityTypeShape EntityType="TrickleUpModel.District" Width="1.5" PointX="5.625" PointY="10.875" />
+        <EntityTypeShape EntityType="TrickleUpModel.Language" Width="1.5" PointX="7.375" PointY="0.75" />
+        <AssociationConnector Association="TrickleUpModel.FK_District_State" />
+        <EntityTypeShape EntityType="TrickleUpModel.MediaContent" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="TrickleUpModel.Crop" Width="1.5" PointX="7.375" PointY="4.625" />
+        <EntityTypeShape EntityType="TrickleUpModel.CropSteps_Material" Width="2.625" PointX="10.625" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrickleUpModel.Cultivation_Steps" Width="2.125" PointX="8.375" PointY="7.125" IsExpanded="true" />
+        <AssociationConnector Association="TrickleUpModel.FK_CropSteps_Material_Cultivation_Steps" />
+        <AssociationConnector Association="TrickleUpModel.FK_CropSteps_Material_Cultivation_Steps1" />
+        <AssociationConnector Association="TrickleUpModel.FK_Cultivation_Steps_Crop" />
+        <AssociationConnector Association="TrickleUpModel.FK_Crop_Users" />
+        <AssociationConnector Association="TrickleUpModel.FK_Crop_Users1" />
+        <AssociationConnector Association="TrickleUpModel.FK_Crop_Users2" />
+        <AssociationConnector Association="TrickleUpModel.FK_District_Users" />
+        <AssociationConnector Association="TrickleUpModel.FK_District_Users1" />
+        <AssociationConnector Association="TrickleUpModel.FK_District_Users2" />
+        <AssociationConnector Association="TrickleUpModel.FK_Gender_Users" />
+        <AssociationConnector Association="TrickleUpModel.FK_Gender_Users1" />
+        <AssociationConnector Association="TrickleUpModel.FK_Gender_Users2" />
+        <AssociationConnector Association="TrickleUpModel.FK_Language_Users" />
+        <AssociationConnector Association="TrickleUpModel.FK_Language_Users1" />
+        <AssociationConnector Association="TrickleUpModel.FK_Language_Users2" />
+        <AssociationConnector Association="TrickleUpModel.FK_Roles_Users" />
+        <AssociationConnector Association="TrickleUpModel.FK_Roles_Users1" />
+        <AssociationConnector Association="TrickleUpModel.FK_Roles_Users2" />
+        <AssociationConnector Association="TrickleUpModel.FK_State_Users" />
+        <AssociationConnector Association="TrickleUpModel.FK_State_Users1" />
+        <AssociationConnector Association="TrickleUpModel.FK_State_Users2" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
