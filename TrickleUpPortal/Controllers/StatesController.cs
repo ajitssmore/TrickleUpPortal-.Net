@@ -29,7 +29,7 @@ namespace TrickleUpPortal.Controllers
         public HttpResponseMessage GetStates()
         {
             var States = from State in db.States
-                         select new { State.Id, State.StateName, State.StateCode };
+                         select new { State.Id, State.StateName, State.StateCode, State.Active };
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { States }, success = true, error = string.Empty });
         }
 

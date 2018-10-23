@@ -20,7 +20,7 @@ namespace TrickleUpPortal.Controllers
     public class CropsController : ApiController
     {
         private TrickleUpEntities db = new TrickleUpEntities();
-
+        
         public object serializer { get; private set; }
 
         //// GET: api/Crops
@@ -32,30 +32,30 @@ namespace TrickleUpPortal.Controllers
         [HttpGet]
         public HttpResponseMessage GetCrops()
         {
-            string lang = "Hindi";
+            //string lang = "Hindi";
             var results = from Cropdata in db.Crops
-                          select new { Cropdata.Id, Cropdata.CropName, Cropdata.FilePath, Cropdata.Ready };
+                          select new { Cropdata.Id, Cropdata.CropName, Cropdata.FilePath, Cropdata.Ready, Cropdata.Active };
             List<Cropdata> Crops = new List<Cropdata>();
             foreach (var item in results)
             {
-                if (lang == "Hindi")
-                {
-                    Cropdata cropObj = new Cropdata();
-                    cropObj.Id = item.Id;
-                    cropObj.CropName = GetResxNameByValue(item.CropName);
-                    cropObj.FilePath = item.FilePath;
-                    cropObj.Ready = (bool)item.Ready;
-                    Crops.Add(cropObj);
-                }
-                else
-                {
+                //if (lang == "Hindi")
+                //{
+                //    Cropdata cropObj = new Cropdata();
+                //    cropObj.Id = item.Id;
+                //    cropObj.CropName = GetResxNameByValue(item.CropName);
+                //    cropObj.FilePath = item.FilePath;
+                //    cropObj.Ready = (bool)item.Ready;
+                //    Crops.Add(cropObj);
+                //}
+                //else
+                //{
                     Cropdata cropObj = new Cropdata();
                     cropObj.Id = item.Id;
                     cropObj.CropName = item.CropName;
                     cropObj.FilePath = item.FilePath;
                     cropObj.Ready = (bool)item.Ready;
                     Crops.Add(cropObj);
-                }
+                //}
             }
 
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { Crops }, success = true, error = string.Empty });
@@ -101,6 +101,10 @@ namespace TrickleUpPortal.Controllers
             try
             {
                 Crop crop = db.Crops.Find(id);
+                //var result = from Crop in db.Crops
+                //             join Cultivation_Step in db.Cultivation_Steps on Crop.Id equals Cultivation_Step.Crop_Id
+                //             where Crop.Id == id
+                //             select new { Crop.Id, Crop.CropName };
 
                 if (crop == null)
                 {

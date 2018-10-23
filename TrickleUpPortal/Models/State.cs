@@ -19,6 +19,8 @@ namespace TrickleUpPortal.Models
         {
             this.Users = new HashSet<User>();
             this.Districts = new HashSet<District>();
+            this.Grampanchayats = new HashSet<Grampanchayat>();
+            this.Villages = new HashSet<Village>();
         }
     
         public int Id { get; set; }
@@ -39,5 +41,9 @@ namespace TrickleUpPortal.Models
         public virtual User User { get; set; }
         public virtual User User1 { get; set; }
         public virtual User User2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Grampanchayat> Grampanchayats { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Village> Villages { get; set; }
     }
 }

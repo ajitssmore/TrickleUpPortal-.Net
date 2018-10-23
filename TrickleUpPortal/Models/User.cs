@@ -35,6 +35,15 @@ namespace TrickleUpPortal.Models
             this.States = new HashSet<State>();
             this.States1 = new HashSet<State>();
             this.States2 = new HashSet<State>();
+            this.Grampanchayats = new HashSet<Grampanchayat>();
+            this.Grampanchayats1 = new HashSet<Grampanchayat>();
+            this.Villages = new HashSet<Village>();
+            this.Villages1 = new HashSet<Village>();
+            this.MoneyManagers = new HashSet<MoneyManager>();
+            this.UserCredentials = new HashSet<UserCredential>();
+            this.VillageContacts = new HashSet<VillageContact>();
+            this.VillageContacts1 = new HashSet<VillageContact>();
+            this.VillageContacts2 = new HashSet<VillageContact>();
         }
     
         public int Id { get; set; }
@@ -60,8 +69,9 @@ namespace TrickleUpPortal.Models
         public Nullable<int> ActiveBy { get; set; }
         public Nullable<System.DateTime> ActiveOn { get; set; }
         public Nullable<bool> Active { get; set; }
+        public string ImagePath { get; set; }
+        public string BulkUploadId { get; set; }
     
-        public virtual UserCredential UserCredential { get; set; }
         public virtual Gender Gender1 { get; set; }
         public virtual Role Role1 { get; set; }
         public virtual User Users1 { get; set; }
@@ -103,5 +113,23 @@ namespace TrickleUpPortal.Models
         public virtual ICollection<State> States1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<State> States2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Grampanchayat> Grampanchayats { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Grampanchayat> Grampanchayats1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Village> Villages { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Village> Villages1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MoneyManager> MoneyManagers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserCredential> UserCredentials { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VillageContact> VillageContacts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VillageContact> VillageContacts1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VillageContact> VillageContacts2 { get; set; }
     }
 }

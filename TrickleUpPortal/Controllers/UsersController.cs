@@ -29,7 +29,8 @@ namespace TrickleUpPortal.Controllers
                          join Gender in db.Genders on User.Gender equals Gender.Id
                          join State in db.States on User.State equals State.Id
                          join Role in db.Roles on User.Role equals Role.Id
-                         select new { User.Id, User.UserId, User.Name, User.PhoneNumber, User.Age, Gender.GenderName, State.StateName, Role.RoleName};
+                         //select new { User.Id, User.UserId, User.Name, User.PhoneNumber, User.Age, Gender.GenderName, State.StateName, Role.RoleName};
+                         select new { User.Id, User.UserId, User.Name, User.PhoneNumber, User.Age, User.Gender, Gender.GenderName, User.State, State.StateName, User.District, User.Village, User.Grampanchayat, User.Aadhaar, User.Role, Role.RoleName, User.Language, User.IMEI1, User.IMEI2, User.FCMToken, User.Active, User.ImagePath };
 
 
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = result, success = true, error = string.Empty });
@@ -50,8 +51,8 @@ namespace TrickleUpPortal.Controllers
                          join State in db.States on User.State equals State.Id
                          join Role in db.Roles on User.Role equals Role.Id
                          where User.Id == id
-                         select new { User.Id, User.UserId, User.Name, User.PhoneNumber, User.Age, Gender.GenderName, State.StateName, Role.RoleName };
-                        
+                         select new { User.Id, User.UserId, User.Name, User.PhoneNumber, User.Age, User.Gender, Gender.GenderName, User.State, State.StateName, User.District, User.Village, User.Grampanchayat, User.Aadhaar, User.Role, Role.RoleName, User.Language, User.IMEI1, User.IMEI2, User.FCMToken, User.Active, User.ImagePath};
+
 
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = result, success = true, error = string.Empty });
         }
@@ -104,9 +105,28 @@ namespace TrickleUpPortal.Controllers
 
             db.Users.Add(user);
             db.SaveChanges();
-
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = user.Id }, success = true, error = string.Empty });
         }
+
+        [HttpPost]
+        public HttpResponseMessage BulkUploadUser(User[] userList)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
+
+            foreach (var userData in userList)
+            {
+                db.Users.Add(userData);
+                db.SaveChanges();
+            }
+
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { userList }, success = true, error = string.Empty });
+        }
+
+
 
         // DELETE: api/Users/5
         [ResponseType(typeof(User))]

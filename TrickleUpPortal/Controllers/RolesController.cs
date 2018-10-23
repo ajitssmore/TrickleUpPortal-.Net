@@ -26,7 +26,7 @@ namespace TrickleUpPortal.Controllers
         public HttpResponseMessage GetRoles()
         {
             var Roles = from role in db.Roles
-                         select new { role.Id, role.RoleName };
+                         select new { role.Id, role.RoleName, role.Active };
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { Roles }, success = true, error = string.Empty });
         }
 

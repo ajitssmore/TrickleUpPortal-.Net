@@ -46,9 +46,9 @@ namespace TrickleUpPortal.Controllers
                 //UserCredential userCredential = (UserCredential)db.UserCredentials.Where(a => a.UserName == userName && a.Password == userPassword).SingleOrDefault();
 
                 var result = from UserCredential in db.UserCredentials
-                             join User in db.Users on UserCredential.Id equals User.Id
+                             join User in db.Users on UserCredential.UserId equals User.Id
                              where UserCredential.UserName == userCredential.UserName && UserCredential.Password == userCredential.Password
-                             select new { UserCredential.Id, UserCredential.UserName, User.PhoneNumber};
+                             select new { UserCredential.UserId, UserCredential.UserName, User.PhoneNumber, UserCredential.Id };
 
                 dynamic UserVerification = new ExpandoObject();
                 //List<Object> dataList = new List<Object>();
@@ -56,6 +56,7 @@ namespace TrickleUpPortal.Controllers
                 foreach (var item in result)
                 {
                     Isauthenticated = true;
+                    UserVerification.UserId = item.UserId;
                     UserVerification.Id = item.Id;
                     UserVerification.UserName = item.UserName;
                     UserVerification.PhoneNumber = item.PhoneNumber;
@@ -77,6 +78,28 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = (string)null, success = true, error = ex.Message });
             }
 
+        }
+
+        [HttpPost]
+        public HttpResponseMessage ChangePassword(UserPasswordModel passwordData)
+        {
+            var result = from UserCredential in db.UserCredentials
+                         where ((UserCredential.UserId == passwordData.UserId) && (UserCredential.Password == passwordData.OldPassword))
+                         select new { UserCredential.Id, UserCredential.UserName};
+            if (result.Count() <= 0)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = "Old Password is incorrect" });
+            }
+            else
+            {
+                    db.UserCredentials.Where(x => x.UserId == passwordData.UserId).ToList().ForEach(x =>
+                    {
+                        x.Password = passwordData.NewPassword;
+                    });
+                    db.SaveChanges();
+                
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { passwordData }, success = true, error = string.Empty });
+            }
         }
 
         // PUT: api/UserCredentials/5

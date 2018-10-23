@@ -182,15 +182,22 @@
     <Compile Include="Controllers\CropsController.cs" />
     <Compile Include="Controllers\DistrictsController.cs" />
     <Compile Include="Controllers\GendersController.cs" />
+    <Compile Include="Controllers\GrampanchayatsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LanguagesController.cs" />
     <Compile Include="Controllers\MediaContentsController.cs" />
+    <Compile Include="Controllers\MoneyManagersController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\StatesController.cs" />
     <Compile Include="Controllers\UserCredentialsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\VillageContactsController.cs" />
+    <Compile Include="Controllers\VillagesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BulkUploadRef.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Crop.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
@@ -207,10 +214,16 @@
     <Compile Include="Models\Gender.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Grampanchayat.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Language.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MediaContent.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MoneyManager.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Role.cs">
@@ -241,6 +254,13 @@
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserDataModel.cs" />
+    <Compile Include="Models\UserPasswordModel.cs" />
+    <Compile Include="Models\Village.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VillageContact.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Lang_hindi.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -275,6 +295,14 @@
     <Content Include="Images\Crops\Cabbage.jpg" />
     <Content Include="Images\Crops\Cauliflower.jpg" />
     <Content Include="Images\Crops\Chilli.jpg" />
+    <Content Include="Images\Crops\Cucumber.jpg" />
+    <Content Include="Images\Crops\Lady_finger.jpg" />
+    <Content Include="Images\Crops\Onion.jpg" />
+    <Content Include="Images\Crops\Potatoe.jpg" />
+    <Content Include="Images\Crops\Pumpkin.jpg" />
+    <Content Include="Images\Crops\Radish.jpg" />
+    <Content Include="Images\Crops\Tomato.jpeg" />
+    <Content Include="Images\Crops\Tomato.jpg" />
     <Content Include="Images\Steps\IMG-101.jpeg" />
     <Content Include="Images\Steps\IMG-102.jpeg" />
     <Content Include="Images\Steps\IMG-104.jpeg" />
@@ -322,6 +350,8 @@
     <Content Include="Images\Steps\MIMG-136.jpeg" />
     <Content Include="Images\Steps\MIMG-137.jpeg" />
     <Content Include="Images\Steps\MIMG-139.jpeg" />
+    <Content Include="Images\Users\FemaleUser.jpg" />
+    <Content Include="Images\Users\UserImageMale.jpg" />
     <Content Include="MediaContent\Audios\OVOM-101.mp3" />
     <Content Include="MediaContent\Audios\OVOM-102.mp3" />
     <Content Include="MediaContent\Audios\OVOM-104.mp3" />
@@ -422,26 +452,40 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="static\css\main.47ae4f51.css" />
     <Content Include="static\css\main.9021f191.css" />
+    <Content Include="static\css\main.a6ff6bbb.css" />
     <Content Include="static\js\0.32267185.chunk.js" />
+    <Content Include="static\js\0.73416674.chunk.js" />
     <Content Include="static\js\0.d756999e.chunk.js" />
+    <Content Include="static\js\1.1ea3125e.chunk.js" />
     <Content Include="static\js\1.5297a781.chunk.js" />
     <Content Include="static\js\1.be4d1ec5.chunk.js" />
+    <Content Include="static\js\10.3648a025.chunk.js" />
+    <Content Include="static\js\11.3d9ffef2.chunk.js" />
     <Content Include="static\js\2.296882b4.chunk.js" />
     <Content Include="static\js\2.39cc0de9.chunk.js" />
+    <Content Include="static\js\2.9624d232.chunk.js" />
     <Content Include="static\js\3.5ddf8f9f.chunk.js" />
+    <Content Include="static\js\3.775cf155.chunk.js" />
     <Content Include="static\js\3.c9ef06ef.chunk.js" />
     <Content Include="static\js\4.012638e1.chunk.js" />
+    <Content Include="static\js\4.868931a2.chunk.js" />
     <Content Include="static\js\4.e78251e9.chunk.js" />
     <Content Include="static\js\5.1b798ac8.chunk.js" />
     <Content Include="static\js\5.fa1a6511.chunk.js" />
+    <Content Include="static\js\5.ff0c7703.chunk.js" />
+    <Content Include="static\js\6.481216e3.chunk.js" />
     <Content Include="static\js\6.7e0a28fd.chunk.js" />
     <Content Include="static\js\6.de24ee1c.chunk.js" />
     <Content Include="static\js\7.31996bcc.chunk.js" />
     <Content Include="static\js\7.3ca15a48.chunk.js" />
+    <Content Include="static\js\7.a3b3eadb.chunk.js" />
+    <Content Include="static\js\8.21388fca.chunk.js" />
     <Content Include="static\js\8.6e05dfb8.chunk.js" />
     <Content Include="static\js\8.f5ee9d45.chunk.js" />
+    <Content Include="static\js\9.54b2b9ea.chunk.js" />
     <Content Include="static\js\9.f2d27a71.chunk.js" />
     <Content Include="static\js\main.15735d14.js" />
+    <Content Include="static\js\main.7039cb66.js" />
     <Content Include="static\js\main.d93deed9.js" />
     <Content Include="static\media\ad.4fc7c4c1.svg" />
     <Content Include="static\media\ad.c2b27649.svg" />
@@ -1007,10 +1051,23 @@
     <Content Include="static\js\8.6e05dfb8.chunk.js.map" />
     <Content Include="static\js\9.f2d27a71.chunk.js.map" />
     <Content Include="static\js\main.d93deed9.js.map" />
+    <Content Include="static\css\main.a6ff6bbb.css.map" />
+    <Content Include="static\js\0.73416674.chunk.js.map" />
+    <Content Include="static\js\1.1ea3125e.chunk.js.map" />
+    <Content Include="static\js\10.3648a025.chunk.js.map" />
+    <Content Include="static\js\11.3d9ffef2.chunk.js.map" />
+    <Content Include="static\js\2.9624d232.chunk.js.map" />
+    <Content Include="static\js\3.775cf155.chunk.js.map" />
+    <Content Include="static\js\4.868931a2.chunk.js.map" />
+    <Content Include="static\js\5.ff0c7703.chunk.js.map" />
+    <Content Include="static\js\6.481216e3.chunk.js.map" />
+    <Content Include="static\js\7.a3b3eadb.chunk.js.map" />
+    <Content Include="static\js\8.21388fca.chunk.js.map" />
+    <Content Include="static\js\9.54b2b9ea.chunk.js.map" />
+    <Content Include="static\js\main.7039cb66.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\Users\" />
     <Folder Include="MediaContent\Videos\" />
   </ItemGroup>
   <ItemGroup>

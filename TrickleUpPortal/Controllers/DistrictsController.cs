@@ -25,8 +25,9 @@ namespace TrickleUpPortal.Controllers
         [HttpGet]
         public HttpResponseMessage GetDistricts()
         {
-            var Districts = from District in db.Districts join State in db.States on District.Id equals State.Id
-                select new { District.Id, District.DistrictName, District.State, State.StateName};
+            var Districts = from District in db.Districts
+                            join State in db.States on District.State equals State.Id
+                select new { District.Id, District.DistrictName, District.State, State.StateName, District.Active};
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { Districts }, success = true, error = string.Empty });
         }
 

@@ -26,7 +26,6 @@ namespace TrickleUpPortal.Models
         }
     
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<UserCredential> UserCredentials { get; set; }
         public virtual DbSet<Gender> Genders { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<State> States { get; set; }
@@ -36,5 +35,11 @@ namespace TrickleUpPortal.Models
         public virtual DbSet<Crop> Crops { get; set; }
         public virtual DbSet<CropSteps_Material> CropSteps_Material { get; set; }
         public virtual DbSet<Cultivation_Steps> Cultivation_Steps { get; set; }
+        public virtual DbSet<Grampanchayat> Grampanchayats { get; set; }
+        public virtual DbSet<Village> Villages { get; set; }
+        public virtual DbSet<MoneyManager> MoneyManagers { get; set; }
+        public virtual DbSet<BulkUploadRef> BulkUploadRefs { get; set; }
+        public virtual DbSet<UserCredential> UserCredentials { get; set; }
+        public virtual DbSet<VillageContact> VillageContacts { get; set; }
     }
 }

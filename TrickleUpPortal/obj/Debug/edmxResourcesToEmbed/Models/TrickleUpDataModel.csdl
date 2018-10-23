@@ -24,7 +24,6 @@
     <Property Name="CreatedOn" Type="DateTime" Precision="3" />
     <Property Name="UpdatedBy" Type="Int32" />
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="UserCredential" Relationship="Self.UsersLogin" FromRole="Users" ToRole="UserCredential" />
     <NavigationProperty Name="Gender1" Relationship="TrickleUpModel.Users_Gender" FromRole="User" ToRole="Gender" />
     <NavigationProperty Name="Role1" Relationship="TrickleUpModel.Users_Roles" FromRole="User" ToRole="Role" />
     <NavigationProperty Name="Users1" Relationship="TrickleUpModel.FK_Users_Users" FromRole="User" ToRole="User1" />
@@ -51,35 +50,20 @@
     <NavigationProperty Name="States" Relationship="TrickleUpModel.FK_State_Users" FromRole="User" ToRole="State" />
     <NavigationProperty Name="States1" Relationship="TrickleUpModel.FK_State_Users1" FromRole="User" ToRole="State" />
     <NavigationProperty Name="States2" Relationship="TrickleUpModel.FK_State_Users2" FromRole="User" ToRole="State" />
+    <NavigationProperty Name="Grampanchayats" Relationship="TrickleUpModel.FK_Grampanchayat_Users" FromRole="User" ToRole="Grampanchayat" />
+    <NavigationProperty Name="Grampanchayats1" Relationship="TrickleUpModel.FK_Grampanchayat_Users1" FromRole="User" ToRole="Grampanchayat" />
+    <NavigationProperty Name="Villages" Relationship="TrickleUpModel.FK_Village_Users" FromRole="User" ToRole="Village" />
+    <NavigationProperty Name="Villages1" Relationship="TrickleUpModel.FK_Village_Users1" FromRole="User" ToRole="Village" />
+    <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BulkUploadId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MoneyManagers" Relationship="TrickleUpModel.FK_MoneyManager_Users" FromRole="User" ToRole="MoneyManager" />
+    <NavigationProperty Name="UserCredentials" Relationship="TrickleUpModel.FK_UserCredential_Users" FromRole="User" ToRole="UserCredential" />
+    <NavigationProperty Name="VillageContacts" Relationship="TrickleUpModel.FK_VillageContact_Users" FromRole="User" ToRole="VillageContact" />
+    <NavigationProperty Name="VillageContacts1" Relationship="TrickleUpModel.FK_VillageContact_Users1" FromRole="User" ToRole="VillageContact" />
+    <NavigationProperty Name="VillageContacts2" Relationship="TrickleUpModel.FK_VillageContact_Users2" FromRole="User" ToRole="VillageContact" />
   </EntityType>
-  <EntityType Name="UserCredential">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="User" Relationship="Self.UsersLogin" FromRole="UserCredential" ToRole="Users" />
-  </EntityType>
-  <Association Name="UsersLogin">
-    <End Role="Users" Type="Self.User" Multiplicity="1" />
-    <End Role="UserCredential" Type="Self.UserCredential" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="UserCredential">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="TrickleUpEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Users" EntityType="Self.User" />
-    <EntitySet Name="UserCredentials" EntityType="Self.UserCredential" />
-    <AssociationSet Name="UsersLogin" Association="Self.UsersLogin">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="UserCredential" EntitySet="UserCredentials" />
-    </AssociationSet>
     <EntitySet Name="Genders" EntityType="TrickleUpModel.Gender" />
     <EntitySet Name="Roles" EntityType="TrickleUpModel.Role" />
     <EntitySet Name="States" EntityType="TrickleUpModel.State" />
@@ -193,6 +177,72 @@
       <End Role="User" EntitySet="Users" />
       <End Role="State" EntitySet="States" />
     </AssociationSet>
+    <EntitySet Name="Grampanchayats" EntityType="TrickleUpModel.Grampanchayat" />
+    <EntitySet Name="Villages" EntityType="TrickleUpModel.Village" />
+    <AssociationSet Name="FK_Grampanchayat_District" Association="TrickleUpModel.FK_Grampanchayat_District">
+      <End Role="District" EntitySet="Districts" />
+      <End Role="Grampanchayat" EntitySet="Grampanchayats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Village_District" Association="TrickleUpModel.FK_Village_District">
+      <End Role="District" EntitySet="Districts" />
+      <End Role="Village" EntitySet="Villages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grampanchayat_State" Association="TrickleUpModel.FK_Grampanchayat_State">
+      <End Role="State" EntitySet="States" />
+      <End Role="Grampanchayat" EntitySet="Grampanchayats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grampanchayat_Users" Association="TrickleUpModel.FK_Grampanchayat_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Grampanchayat" EntitySet="Grampanchayats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grampanchayat_Users1" Association="TrickleUpModel.FK_Grampanchayat_Users1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Grampanchayat" EntitySet="Grampanchayats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Village_Grampanchayat" Association="TrickleUpModel.FK_Village_Grampanchayat">
+      <End Role="Grampanchayat" EntitySet="Grampanchayats" />
+      <End Role="Village" EntitySet="Villages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Village_State" Association="TrickleUpModel.FK_Village_State">
+      <End Role="State" EntitySet="States" />
+      <End Role="Village" EntitySet="Villages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Village_Users" Association="TrickleUpModel.FK_Village_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Village" EntitySet="Villages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Village_Users1" Association="TrickleUpModel.FK_Village_Users1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Village" EntitySet="Villages" />
+    </AssociationSet>
+    <EntitySet Name="MoneyManagers" EntityType="TrickleUpModel.MoneyManager" />
+    <AssociationSet Name="FK_MoneyManager_Users" Association="TrickleUpModel.FK_MoneyManager_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="MoneyManager" EntitySet="MoneyManagers" />
+    </AssociationSet>
+    <EntitySet Name="BulkUploadRefs" EntityType="TrickleUpModel.BulkUploadRef" />
+    <EntitySet Name="UserCredentials" EntityType="TrickleUpModel.UserCredential" />
+    <AssociationSet Name="FK_UserCredential_Users" Association="TrickleUpModel.FK_UserCredential_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserCredential" EntitySet="UserCredentials" />
+    </AssociationSet>
+    <EntitySet Name="VillageContacts" EntityType="TrickleUpModel.VillageContact" />
+    <AssociationSet Name="FK_VillageContact_Users" Association="TrickleUpModel.FK_VillageContact_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="VillageContact" EntitySet="VillageContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VillageContact_Users1" Association="TrickleUpModel.FK_VillageContact_Users1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="VillageContact" EntitySet="VillageContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VillageContact_Users2" Association="TrickleUpModel.FK_VillageContact_Users2">
+      <End Role="User" EntitySet="Users" />
+      <End Role="VillageContact" EntitySet="VillageContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VillageContact_Village" Association="TrickleUpModel.FK_VillageContact_Village">
+      <End Role="Village" EntitySet="Villages" />
+      <End Role="VillageContact" EntitySet="VillageContacts" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Gender">
     <Key>
@@ -250,6 +300,8 @@
     <NavigationProperty Name="User" Relationship="TrickleUpModel.FK_State_Users" FromRole="State" ToRole="User" />
     <NavigationProperty Name="User1" Relationship="TrickleUpModel.FK_State_Users1" FromRole="State" ToRole="User" />
     <NavigationProperty Name="User2" Relationship="TrickleUpModel.FK_State_Users2" FromRole="State" ToRole="User" />
+    <NavigationProperty Name="Grampanchayats" Relationship="TrickleUpModel.FK_Grampanchayat_State" FromRole="State" ToRole="Grampanchayat" />
+    <NavigationProperty Name="Villages" Relationship="TrickleUpModel.FK_Village_State" FromRole="State" ToRole="Village" />
   </EntityType>
   <Association Name="Users_Gender">
     <End Type="TrickleUpModel.Gender" Role="Gender" Multiplicity="0..1" />
@@ -317,6 +369,8 @@
     <NavigationProperty Name="User" Relationship="TrickleUpModel.FK_District_Users" FromRole="District" ToRole="User" />
     <NavigationProperty Name="User1" Relationship="TrickleUpModel.FK_District_Users1" FromRole="District" ToRole="User" />
     <NavigationProperty Name="User2" Relationship="TrickleUpModel.FK_District_Users2" FromRole="District" ToRole="User" />
+    <NavigationProperty Name="Grampanchayats" Relationship="TrickleUpModel.FK_Grampanchayat_District" FromRole="District" ToRole="Grampanchayat" />
+    <NavigationProperty Name="Villages" Relationship="TrickleUpModel.FK_Village_District" FromRole="District" ToRole="Village" />
   </EntityType>
   <EntityType Name="Language">
     <Key>
@@ -377,9 +431,6 @@
     <Property Name="ActiveBy" Type="Int32" />
     <Property Name="ActiveOn" Type="DateTime" Precision="3" />
     <Property Name="Active" Type="Boolean" />
-    <NavigationProperty Name="User" Relationship="TrickleUpModel.FK_Crop_Users" FromRole="Crop" ToRole="User" />
-    <NavigationProperty Name="User1" Relationship="TrickleUpModel.FK_Crop_Users1" FromRole="Crop" ToRole="User" />
-    <NavigationProperty Name="User2" Relationship="TrickleUpModel.FK_Crop_Users2" FromRole="Crop" ToRole="User" />
   </EntityType>
   <EntityType Name="CropSteps_Material">
     <Key>
@@ -657,6 +708,277 @@
       </Principal>
       <Dependent Role="State">
         <PropertyRef Name="ActiveBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Grampanchayat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GrampanchayatName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="District" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="District1" Relationship="TrickleUpModel.FK_Grampanchayat_District" FromRole="Grampanchayat" ToRole="District" />
+    <NavigationProperty Name="State1" Relationship="TrickleUpModel.FK_Grampanchayat_State" FromRole="Grampanchayat" ToRole="State" />
+    <NavigationProperty Name="User" Relationship="TrickleUpModel.FK_Grampanchayat_Users" FromRole="Grampanchayat" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="TrickleUpModel.FK_Grampanchayat_Users1" FromRole="Grampanchayat" ToRole="User" />
+    <NavigationProperty Name="Villages" Relationship="TrickleUpModel.FK_Village_Grampanchayat" FromRole="Grampanchayat" ToRole="Village" />
+  </EntityType>
+  <EntityType Name="Village">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VillageName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Grampanchayat" Type="Int32" />
+    <Property Name="District" Type="Int32" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="District1" Relationship="TrickleUpModel.FK_Village_District" FromRole="Village" ToRole="District" />
+    <NavigationProperty Name="Grampanchayat1" Relationship="TrickleUpModel.FK_Village_Grampanchayat" FromRole="Village" ToRole="Grampanchayat" />
+    <NavigationProperty Name="State1" Relationship="TrickleUpModel.FK_Village_State" FromRole="Village" ToRole="State" />
+    <NavigationProperty Name="User" Relationship="TrickleUpModel.FK_Village_Users" FromRole="Village" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="TrickleUpModel.FK_Village_Users1" FromRole="Village" ToRole="User" />
+    <NavigationProperty Name="VillageContacts" Relationship="TrickleUpModel.FK_VillageContact_Village" FromRole="Village" ToRole="VillageContact" />
+  </EntityType>
+  <Association Name="FK_Grampanchayat_District">
+    <End Type="TrickleUpModel.District" Role="District" Multiplicity="0..1" />
+    <End Type="TrickleUpModel.Grampanchayat" Role="Grampanchayat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Grampanchayat">
+        <PropertyRef Name="District" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Village_District">
+    <End Type="TrickleUpModel.District" Role="District" Multiplicity="0..1" />
+    <End Type="TrickleUpModel.Village" Role="Village" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Village">
+        <PropertyRef Name="District" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grampanchayat_State">
+    <End Type="TrickleUpModel.State" Role="State" Multiplicity="0..1" />
+    <End Type="TrickleUpModel.Grampanchayat" Role="Grampanchayat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Grampanchayat">
+        <PropertyRef Name="State" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grampanchayat_Users">
+    <End Type="TrickleUpModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="TrickleUpModel.Grampanchayat" Role="Grampanchayat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Grampanchayat">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grampanchayat_Users1">
+    <End Type="TrickleUpModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="TrickleUpModel.Grampanchayat" Role="Grampanchayat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Grampanchayat">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Village_Grampanchayat">
+    <End Type="TrickleUpModel.Grampanchayat" Role="Grampanchayat" Multiplicity="0..1" />
+    <End Type="TrickleUpModel.Village" Role="Village" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grampanchayat">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Village">
+        <PropertyRef Name="Grampanchayat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Village_State">
+    <End Type="TrickleUpModel.State" Role="State" Multiplicity="0..1" />
+    <End Type="TrickleUpModel.Village" Role="Village" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Village">
+        <PropertyRef Name="State" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Village_Users">
+    <End Type="TrickleUpModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="TrickleUpModel.Village" Role="Village" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Village">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Village_Users1">
+    <End Type="TrickleUpModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="TrickleUpModel.Village" Role="Village" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Village">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="MoneyManager">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="User" Relationship="TrickleUpModel.FK_MoneyManager_Users" FromRole="MoneyManager" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_MoneyManager_Users">
+    <End Type="TrickleUpModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="TrickleUpModel.MoneyManager" Role="MoneyManager" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MoneyManager">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="BulkUploadRef">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BulkUploadId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="UserCredential">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" />
+    <NavigationProperty Name="User" Relationship="TrickleUpModel.FK_UserCredential_Users" FromRole="UserCredential" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_UserCredential_Users">
+    <End Type="TrickleUpModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="TrickleUpModel.UserCredential" Role="UserCredential" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserCredential">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="VillageContact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VillageId" Type="Int32" />
+    <Property Name="ContactName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNo" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="ActiveBy" Type="Int32" />
+    <Property Name="ActiveOn" Type="DateTime" Precision="3" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="User" Relationship="TrickleUpModel.FK_VillageContact_Users" FromRole="VillageContact" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="TrickleUpModel.FK_VillageContact_Users1" FromRole="VillageContact" ToRole="User" />
+    <NavigationProperty Name="User2" Relationship="TrickleUpModel.FK_VillageContact_Users2" FromRole="VillageContact" ToRole="User" />
+    <NavigationProperty Name="Village" Relationship="TrickleUpModel.FK_VillageContact_Village" FromRole="VillageContact" ToRole="Village" />
+  </EntityType>
+  <Association Name="FK_VillageContact_Users">
+    <End Type="TrickleUpModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="TrickleUpModel.VillageContact" Role="VillageContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VillageContact">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VillageContact_Users1">
+    <End Type="TrickleUpModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="TrickleUpModel.VillageContact" Role="VillageContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VillageContact">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VillageContact_Users2">
+    <End Type="TrickleUpModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="TrickleUpModel.VillageContact" Role="VillageContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VillageContact">
+        <PropertyRef Name="ActiveBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VillageContact_Village">
+    <End Type="TrickleUpModel.Village" Role="Village" Multiplicity="0..1" />
+    <End Type="TrickleUpModel.VillageContact" Role="VillageContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Village">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VillageContact">
+        <PropertyRef Name="VillageId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

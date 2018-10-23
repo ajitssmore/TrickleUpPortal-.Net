@@ -61,6 +61,7 @@ D:\Trickle Up\Trickleup\SourceCode\TrickleUpPortal\TrickleUpPortal\bin\System.We
 D:\Trickle Up\Trickleup\SourceCode\TrickleUpPortal\TrickleUpPortal\bin\System.Web.WebPages.Razor.xml
 D:\Trickle Up\Trickleup\SourceCode\TrickleUpPortal\TrickleUpPortal\bin\Antlr3.Runtime.pdb
 D:\Trickle Up\Trickleup\SourceCode\TrickleUpPortal\TrickleUpPortal\bin\Newtonsoft.Json.xml
+D:\Trickle Up\Trickleup\SourceCode\TrickleUpPortal\TrickleUpPortal\obj\Debug\TrickleUpPortal.csprojResolveAssemblyReference.cache
 D:\Trickle Up\Trickleup\SourceCode\TrickleUpPortal\TrickleUpPortal\obj\Debug\TrickleUpPortal.Resources.Lang_hindi.resources
 D:\Trickle Up\Trickleup\SourceCode\TrickleUpPortal\TrickleUpPortal\obj\Debug\TrickleUpPortal.csproj.GenerateResource.Cache
 D:\Trickle Up\Trickleup\SourceCode\TrickleUpPortal\TrickleUpPortal\obj\Debug\TrickleUpPortal.dll

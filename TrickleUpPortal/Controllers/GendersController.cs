@@ -26,7 +26,7 @@ namespace TrickleUpPortal.Controllers
         public HttpResponseMessage GetGenders()
         {
             var Genders = from Gender in db.Genders
-                         select new { Gender.Id, Gender.GenderName};
+                         select new { Gender.Id, Gender.GenderName, Gender.Active};
             //return Ok(result);
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { Genders }, success = true, error = string.Empty });
         }
