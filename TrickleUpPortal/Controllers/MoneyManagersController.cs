@@ -16,7 +16,8 @@ namespace TrickleUpPortal.Controllers
     {
         private TrickleUpEntities db = new TrickleUpEntities();
 
-        // GET: api/MoneyManagers
+        ////GET: api/MoneyManagers
+        //[HttpGet]
         //public IQueryable<MoneyManager> GetMoneyManagers()
         //{
         //    return db.MoneyManagers;
@@ -25,8 +26,15 @@ namespace TrickleUpPortal.Controllers
         [HttpGet]
         public HttpResponseMessage GetMoneyManagers()
         {
-            var transactions = from MoneyManager in db.MoneyManagers
-                         select new { MoneyManager.Id, MoneyManager.UserId, MoneyManager.Mode, MoneyManager.Type, MoneyManager.Amount };
+            //var transactions = from MoneyManager in db.MoneyManagers
+            //                   select new { MoneyManager.Id, MoneyManager.UserId, MoneyManager.Mode, MoneyManager.Type, MoneyManager.Amount };
+            var transactions = db.MoneyManagers;
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { transactions }, success = true, error = string.Empty });
+        }
+
+        public HttpResponseMessage GetMoneyManagersByUser(int userId)
+        {
+            var transactions = db.MoneyManagers.Where(a=>a.UserId == userId && a.Active == true);
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { transactions }, success = true, error = string.Empty });
         }
 
@@ -44,39 +52,65 @@ namespace TrickleUpPortal.Controllers
         }
 
         // PUT: api/MoneyManagers/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutMoneyManager(int id, MoneyManager moneyManager)
+        //[ResponseType(typeof(void))]
+        //public IHttpActionResult PutMoneyManager(int id, MoneyManager moneyManager)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    if (id != moneyManager.Id)
+        //    {
+        //        return BadRequest();
+        //    }
+
+        //    db.Entry(moneyManager).State = EntityState.Modified;
+
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!MoneyManagerExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
+
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
+        [HttpPost]
+        public HttpResponseMessage PutMoneyManager(MoneyManager[] moneyManager)
         {
-            if (!ModelState.IsValid)
+            foreach (var item in moneyManager)
             {
-                return BadRequest(ModelState);
-            }
+                //var moneyManagerdata = db.MoneyManagers.Where(a=>a.UID == item.UID).FirstOrDefault();
+                //db.Entry(item).State = EntityState.Modified;
+                //item.Id = moneyManagerdata.Id;
+                //try
+                //{
+                //    db.SaveChanges();
+                //}
+                //catch (DbUpdateConcurrencyException)
+                //{
+                //    throw;
+                //}
 
-            if (id != moneyManager.Id)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(moneyManager).State = EntityState.Modified;
-
-            try
-            {
+                //https://social.msdn.microsoft.com/Forums/sqlserver/en-US/401abdff-0bdb-41a0-948d-6a9593255e6f/quotthe-property-id-is-part-of-the-objects-key-information-and-cannot-be-modified?forum=silverlightgen
+                MoneyManager moneyManagerdata = db.MoneyManagers.Where(a => a.UID == item.UID).FirstOrDefault();
+                moneyManagerdata.Active = item.Active;
                 db.SaveChanges();
             }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!MoneyManagerExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { moneyManager }, success = true, error = string.Empty });
         }
+
 
         // POST: api/MoneyManagers
         //[ResponseType(typeof(MoneyManager))]

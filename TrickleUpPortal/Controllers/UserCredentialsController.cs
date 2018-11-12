@@ -39,16 +39,20 @@ namespace TrickleUpPortal.Controllers
 
         // GET: api/UserCredentials/AuthenticateUser/
         [HttpPost]
-       public HttpResponseMessage AuthenticateUser([FromBody]UserCredential userCredential)
+        public HttpResponseMessage AuthenticateUser(UserCredential userCredential)
         {
+            //public HttpResponseMessage AuthenticateUser([FromBody]UserCredential userCredential)
+            // {
             try
             {
                 //UserCredential userCredential = (UserCredential)db.UserCredentials.Where(a => a.UserName == userName && a.Password == userPassword).SingleOrDefault();
 
                 var result = from UserCredential in db.UserCredentials
                              join User in db.Users on UserCredential.UserId equals User.Id
-                             where UserCredential.UserName == userCredential.UserName && UserCredential.Password == userCredential.Password
-                             select new { UserCredential.UserId, UserCredential.UserName, User.PhoneNumber, UserCredential.Id };
+                             join Role in db.Roles on User.Role equals Role.Id
+                             where (UserCredential.UserName == userCredential.UserName || UserCredential.PhoneNumber == userCredential.UserName) && UserCredential.Password == userCredential.Password
+                             select new { UserCredential.UserId, UserCredential.UserName, User.PhoneNumber, UserCredential.Id, User.Name, User.Role, Role.RoleName, User.ImagePath };
+                
 
                 dynamic UserVerification = new ExpandoObject();
                 //List<Object> dataList = new List<Object>();
@@ -61,6 +65,10 @@ namespace TrickleUpPortal.Controllers
                     UserVerification.UserName = item.UserName;
                     UserVerification.PhoneNumber = item.PhoneNumber;
                     UserVerification.authenticated = true;
+                    UserVerification.Name = item.Name;
+                    UserVerification.role = item.Role;
+                    UserVerification.image = item.ImagePath;
+                    UserVerification.RoleName = item.RoleName;
                 }
                 if (Isauthenticated == false)
                 {

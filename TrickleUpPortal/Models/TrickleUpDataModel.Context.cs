@@ -25,21 +25,27 @@ namespace TrickleUpPortal.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Gender> Genders { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<State> States { get; set; }
         public virtual DbSet<District> Districts { get; set; }
         public virtual DbSet<Language> Languages { get; set; }
         public virtual DbSet<MediaContent> MediaContents { get; set; }
-        public virtual DbSet<Crop> Crops { get; set; }
         public virtual DbSet<CropSteps_Material> CropSteps_Material { get; set; }
         public virtual DbSet<Cultivation_Steps> Cultivation_Steps { get; set; }
         public virtual DbSet<Grampanchayat> Grampanchayats { get; set; }
         public virtual DbSet<Village> Villages { get; set; }
-        public virtual DbSet<MoneyManager> MoneyManagers { get; set; }
         public virtual DbSet<BulkUploadRef> BulkUploadRefs { get; set; }
         public virtual DbSet<UserCredential> UserCredentials { get; set; }
+        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<VillageContact> VillageContacts { get; set; }
+        public virtual DbSet<CurrencyStock> CurrencyStocks { get; set; }
+        public virtual DbSet<Audio> Audios { get; set; }
+        public virtual DbSet<MoneyManager> MoneyManagers { get; set; }
+        public virtual DbSet<Crop_AudioAllocation> Crop_AudioAllocation { get; set; }
+        public virtual DbSet<Crop> Crops { get; set; }
+        public virtual DbSet<Step_AudioAllocation> Step_AudioAllocation { get; set; }
+        public virtual DbSet<Video> Videos { get; set; }
+        public virtual DbSet<Image> Images { get; set; }
     }
 }

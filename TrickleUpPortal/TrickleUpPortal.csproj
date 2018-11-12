@@ -179,11 +179,19 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AudiosController.cs" />
+    <Compile Include="Controllers\BulkUploadRefsController.cs" />
+    <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\CropsController.cs" />
+    <Compile Include="Controllers\CropSteps_MaterialController.cs" />
+    <Compile Include="Controllers\Crop_AudioAllocationController.cs" />
+    <Compile Include="Controllers\Cultivation_StepsController.cs" />
     <Compile Include="Controllers\DistrictsController.cs" />
+    <Compile Include="Controllers\FileUploadController.cs" />
     <Compile Include="Controllers\GendersController.cs" />
     <Compile Include="Controllers\GrampanchayatsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\LanguagesController.cs" />
     <Compile Include="Controllers\MediaContentsController.cs" />
     <Compile Include="Controllers\MoneyManagersController.cs" />
@@ -191,21 +199,32 @@
     <Compile Include="Controllers\StatesController.cs" />
     <Compile Include="Controllers\UserCredentialsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\VideosController.cs" />
     <Compile Include="Controllers\VillageContactsController.cs" />
     <Compile Include="Controllers\VillagesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Audio.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\BulkUploadRef.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BulkUserDataModel.cs" />
     <Compile Include="Models\Crop.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CropSteps_Material.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Crop_AudioAllocation.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Cultivation_Steps.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CurrencyStock.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\District.cs">
@@ -215,6 +234,9 @@
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Grampanchayat.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Image.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Language.cs">
@@ -230,6 +252,9 @@
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\State.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Step_AudioAllocation.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TrickleUpDataModel.Context.cs">
@@ -253,8 +278,10 @@
     <Compile Include="Models\UserCredential.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UserDataModel.cs" />
     <Compile Include="Models\UserPasswordModel.cs" />
+    <Compile Include="Models\Video.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Village.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
@@ -267,16 +294,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Lang_hindi.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Lang_Oriya.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lang_Oriya.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\img\avatars\1.jpg" />
-    <Content Include="assets\img\avatars\2.jpg" />
-    <Content Include="assets\img\avatars\3.jpg" />
-    <Content Include="assets\img\avatars\4.jpg" />
-    <Content Include="assets\img\avatars\5.jpg" />
-    <Content Include="assets\img\avatars\6.jpg" />
-    <Content Include="assets\img\avatars\7.jpg" />
-    <Content Include="assets\img\avatars\8.jpg" />
     <Content Include="assets\img\avatars\user.png" />
     <Content Include="assets\img\backgroundImage.jpg" />
     <Content Include="assets\img\brand\logo.svg" />
@@ -290,6 +314,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Crops\Bean.jpg" />
     <Content Include="Images\Crops\bitter_gourd.jpg" />
     <Content Include="Images\Crops\brinjal.jpg" />
     <Content Include="Images\Crops\Cabbage.jpg" />
@@ -350,64 +375,81 @@
     <Content Include="Images\Steps\MIMG-136.jpeg" />
     <Content Include="Images\Steps\MIMG-137.jpeg" />
     <Content Include="Images\Steps\MIMG-139.jpeg" />
+    <Content Include="Images\Users\24390a45-1948-41bf-84c4-5802c6fed077_ChandanMishra.jpg" />
     <Content Include="Images\Users\FemaleUser.jpg" />
+    <Content Include="Images\Users\user.png" />
     <Content Include="Images\Users\UserImageMale.jpg" />
-    <Content Include="MediaContent\Audios\OVOM-101.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-102.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-104.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-105.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-107.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-109.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-110.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-111.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-112.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-113.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-115.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-118.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-120.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-121.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-124.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-126.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-128.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-132.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-133.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-134.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-135.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-136.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-137.mp3" />
-    <Content Include="MediaContent\Audios\OVOM-139.mp3" />
-    <Content Include="MediaContent\Audios\OVOS-1.mp3" />
-    <Content Include="MediaContent\Audios\OVOS-10.mp3" />
-    <Content Include="MediaContent\Audios\OVOS-11.mp3" />
-    <Content Include="MediaContent\Audios\OVOS-12.mp3" />
-    <Content Include="MediaContent\Audios\OVOS-13.mp3" />
-    <Content Include="MediaContent\Audios\OVOS-14.mp3" />
-    <Content Include="MediaContent\Audios\OVOS-15.mp3" />
-    <Content Include="MediaContent\Audios\OVOS-16.mp3" />
-    <Content Include="MediaContent\Audios\OVOS-2.mp3" />
-    <Content Include="MediaContent\Audios\OVOS-3.mp3" />
-    <Content Include="MediaContent\Audios\OVOS-4.mp3" />
-    <Content Include="MediaContent\Audios\OVOS-5.mp3" />
-    <Content Include="MediaContent\Audios\OVOS-6.mp3" />
-    <Content Include="MediaContent\Audios\OVOS-7.mp3" />
-    <Content Include="MediaContent\Audios\OVOS-8.mp3" />
-    <Content Include="MediaContent\Audios\OVOS-9.mp3" />
-    <Content Include="MediaContent\Audios\OVOSDD-1.mp3" />
-    <Content Include="MediaContent\Audios\OVOSDD-10.mp3" />
-    <Content Include="MediaContent\Audios\OVOSDD-11.mp3" />
-    <Content Include="MediaContent\Audios\OVOSDD-12.mp3" />
-    <Content Include="MediaContent\Audios\OVOSDD-13.mp3" />
-    <Content Include="MediaContent\Audios\OVOSDD-14.mp3" />
-    <Content Include="MediaContent\Audios\OVOSDD-2.mp3" />
-    <Content Include="MediaContent\Audios\OVOSDD-3.mp3" />
-    <Content Include="MediaContent\Audios\OVOSDD-4.mp3" />
-    <Content Include="MediaContent\Audios\OVOSDD-5.mp3" />
-    <Content Include="MediaContent\Audios\OVOSDD-6.mp3" />
-    <Content Include="MediaContent\Audios\OVOSDD-7.mp3" />
-    <Content Include="MediaContent\Audios\OVOSDD-8.mp3" />
-    <Content Include="MediaContent\Audios\OVOSDD-9.mp3" />
-    <Content Include="MediaContent\chilli_crop.mp4" />
+    <Content Include="MediaContent\Audios\BitterGourd_ENG.mp3" />
+    <Content Include="MediaContent\Audios\BitterGourd_HIN.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_Eng.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_Hin.mp3" />
+    <Content Include="MediaContent\Audios\Cucumber_ENG.mp3" />
+    <Content Include="MediaContent\Audios\Descriptionstep1_hindi.mp3" />
+    <Content Include="MediaContent\Audios\des_step1_english.mp3" />
+    <Content Include="MediaContent\Audios\des_step2_English.mp3" />
+    <Content Include="MediaContent\Audios\Des_Step2_hindi.mp3" />
+    <Content Include="MediaContent\Audios\des_step3_english.mp3" />
+    <Content Include="MediaContent\Audios\des_step3_hindi.mp3" />
+    <Content Include="MediaContent\Audios\des_step4_english.mp3" />
+    <Content Include="MediaContent\Audios\des_step4_hindi.mp3" />
+    <Content Include="MediaContent\Audios\des_step5_english.mp3" />
+    <Content Include="MediaContent\Audios\des_step5_hindi.mp3" />
+    <Content Include="MediaContent\Audios\des_step6_hindi.mp3" />
+    <Content Include="MediaContent\Audios\des_step7_english.mp3" />
+    <Content Include="MediaContent\Audios\des_step7_hindi.mp3" />
+    <Content Include="MediaContent\Audios\des_step8_english.mp3" />
+    <Content Include="MediaContent\Audios\des_step8_hindi.mp3" />
+    <Content Include="MediaContent\Audios\Ladyfinger_Eng.mp3" />
+    <Content Include="MediaContent\Audios\Ladyfinger_Hin.mp3" />
+    <Content Include="MediaContent\Audios\mat_step1_english.mp3" />
+    <Content Include="MediaContent\Audios\mat_step1_hindi.mp3" />
+    <Content Include="MediaContent\Audios\mat_step2_english.mp3" />
+    <Content Include="MediaContent\Audios\PloughingofLand_English.mp3" />
+    <Content Include="MediaContent\Audios\PloughingofLand_Hindi.mp3" />
+    <Content Include="MediaContent\Audios\Pumpkin_ENG.mp3" />
+    <Content Include="MediaContent\Audios\Step2_English.mp3" />
+    <Content Include="MediaContent\Audios\Step2_Hindi.mp3" />
+    <Content Include="MediaContent\Audios\Step3_English.mp3" />
+    <Content Include="MediaContent\Audios\Step3_Hindi.mp3" />
+    <Content Include="MediaContent\Audios\Step4_English.mp3" />
+    <Content Include="MediaContent\Audios\Step4_Hindi.mp3" />
+    <Content Include="MediaContent\Audios\Step5_English.mp3" />
+    <Content Include="MediaContent\Audios\Step5_Hindi.mp3" />
+    <Content Include="MediaContent\Audios\step6_english.mp3" />
+    <Content Include="MediaContent\Audios\step6_hindi.mp3" />
+    <Content Include="MediaContent\Audios\step7_english.mp3" />
+    <Content Include="MediaContent\Audios\step7_hindi.mp3" />
+    <Content Include="MediaContent\Audios\step8_english.mp3" />
+    <Content Include="MediaContent\Audios\step8_hindi.mp3" />
+    <Content Include="MediaContent\Audios\step9_english.mp3" />
+    <Content Include="MediaContent\Audios\step9_hindi.mp3" />
+    <Content Include="MediaContent\BitterGourdFarming.mp4" />
+    <Content Include="MediaContent\Brinjalfarm.mp4" />
+    <Content Include="MediaContent\Cabbage.mp4" />
+    <Content Include="MediaContent\Cauliflower.mp4" />
+    <Content Include="MediaContent\ChilliCrop.mp4" />
     <Content Include="MediaContent\CropVideo.3gp" />
+    <Content Include="MediaContent\CucumberHarvest.mp4" />
+    <Content Include="MediaContent\LadiesFingerFarming.mp4" />
+    <Content Include="MediaContent\LongBeans.mp4" />
+    <Content Include="MediaContent\Onion.mp4" />
+    <Content Include="MediaContent\Pumpkin.mp4" />
+    <Content Include="MediaContent\Radish.mp4" />
+    <Content Include="MediaContent\Tomato.mp4" />
+    <Content Include="MediaContent\Videos\BitterGourdFarming.mp4" />
+    <Content Include="MediaContent\Videos\Brinjalfarm.mp4" />
+    <Content Include="MediaContent\Videos\Cabbage.mp4" />
+    <Content Include="MediaContent\Videos\Cauliflower.mp4" />
+    <Content Include="MediaContent\Videos\ChilliCrop.mp4" />
+    <Content Include="MediaContent\Videos\chilli_crop.mp4" />
+    <Content Include="MediaContent\Videos\CropVideo.3gp" />
+    <Content Include="MediaContent\Videos\CucumberHarvest.mp4" />
+    <Content Include="MediaContent\Videos\LadiesFingerFarming.mp4" />
+    <Content Include="MediaContent\Videos\LongBeans.mp4" />
+    <Content Include="MediaContent\Videos\Onion.mp4" />
+    <Content Include="MediaContent\Videos\Pumpkin.mp4" />
+    <Content Include="MediaContent\Videos\Radish.mp4" />
+    <Content Include="MediaContent\Videos\Tomato.mp4" />
     <Content Include="Models\TrickleUpDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TrickleUpDataModel.edmx</DependentUpon>
@@ -450,43 +492,26 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="static\css\main.47ae4f51.css" />
-    <Content Include="static\css\main.9021f191.css" />
-    <Content Include="static\css\main.a6ff6bbb.css" />
-    <Content Include="static\js\0.32267185.chunk.js" />
-    <Content Include="static\js\0.73416674.chunk.js" />
-    <Content Include="static\js\0.d756999e.chunk.js" />
-    <Content Include="static\js\1.1ea3125e.chunk.js" />
-    <Content Include="static\js\1.5297a781.chunk.js" />
-    <Content Include="static\js\1.be4d1ec5.chunk.js" />
-    <Content Include="static\js\10.3648a025.chunk.js" />
-    <Content Include="static\js\11.3d9ffef2.chunk.js" />
-    <Content Include="static\js\2.296882b4.chunk.js" />
-    <Content Include="static\js\2.39cc0de9.chunk.js" />
-    <Content Include="static\js\2.9624d232.chunk.js" />
-    <Content Include="static\js\3.5ddf8f9f.chunk.js" />
-    <Content Include="static\js\3.775cf155.chunk.js" />
-    <Content Include="static\js\3.c9ef06ef.chunk.js" />
-    <Content Include="static\js\4.012638e1.chunk.js" />
-    <Content Include="static\js\4.868931a2.chunk.js" />
-    <Content Include="static\js\4.e78251e9.chunk.js" />
-    <Content Include="static\js\5.1b798ac8.chunk.js" />
-    <Content Include="static\js\5.fa1a6511.chunk.js" />
-    <Content Include="static\js\5.ff0c7703.chunk.js" />
-    <Content Include="static\js\6.481216e3.chunk.js" />
-    <Content Include="static\js\6.7e0a28fd.chunk.js" />
-    <Content Include="static\js\6.de24ee1c.chunk.js" />
-    <Content Include="static\js\7.31996bcc.chunk.js" />
-    <Content Include="static\js\7.3ca15a48.chunk.js" />
-    <Content Include="static\js\7.a3b3eadb.chunk.js" />
-    <Content Include="static\js\8.21388fca.chunk.js" />
-    <Content Include="static\js\8.6e05dfb8.chunk.js" />
-    <Content Include="static\js\8.f5ee9d45.chunk.js" />
-    <Content Include="static\js\9.54b2b9ea.chunk.js" />
-    <Content Include="static\js\9.f2d27a71.chunk.js" />
-    <Content Include="static\js\main.15735d14.js" />
-    <Content Include="static\js\main.7039cb66.js" />
-    <Content Include="static\js\main.d93deed9.js" />
+    <Content Include="static\css\main.dec9bd13.css" />
+    <Content Include="static\js\0.fa0898cd.chunk.js" />
+    <Content Include="static\js\1.ee43d05f.chunk.js" />
+    <Content Include="static\js\10.08cbf018.chunk.js" />
+    <Content Include="static\js\11.99c09fb2.chunk.js" />
+    <Content Include="static\js\12.19532d28.chunk.js" />
+    <Content Include="static\js\13.a4b38587.chunk.js" />
+    <Content Include="static\js\14.8a4e5331.chunk.js" />
+    <Content Include="static\js\15.af694227.chunk.js" />
+    <Content Include="static\js\16.f93418f3.chunk.js" />
+    <Content Include="static\js\17.28c31236.chunk.js" />
+    <Content Include="static\js\2.f2db1130.chunk.js" />
+    <Content Include="static\js\3.31328c8b.chunk.js" />
+    <Content Include="static\js\4.96e206d9.chunk.js" />
+    <Content Include="static\js\5.90a10f1a.chunk.js" />
+    <Content Include="static\js\6.e4bfb9cf.chunk.js" />
+    <Content Include="static\js\7.87b15483.chunk.js" />
+    <Content Include="static\js\8.571e1bcb.chunk.js" />
+    <Content Include="static\js\9.c9fad86e.chunk.js" />
+    <Content Include="static\js\main.7fd03ad3.js" />
     <Content Include="static\media\ad.4fc7c4c1.svg" />
     <Content Include="static\media\ad.c2b27649.svg" />
     <Content Include="static\media\ae.7847726d.svg" />
@@ -521,7 +546,6 @@
     <Content Include="static\media\az.451284ce.svg" />
     <Content Include="static\media\ba.71010dff.svg" />
     <Content Include="static\media\ba.a9dbadd7.svg" />
-    <Content Include="static\media\backgroundImage.434d6035.jpg" />
     <Content Include="static\media\bb.7bd8b0ac.svg" />
     <Content Include="static\media\bb.e08360ac.svg" />
     <Content Include="static\media\bd.5102bab0.svg" />
@@ -1003,7 +1027,9 @@
     <Content Include="static\media\zm.b7864d5c.svg" />
     <Content Include="static\media\zw.a21f533d.svg" />
     <Content Include="static\media\zw.ad4ad36d.svg" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -1017,17 +1043,26 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="static\css\main.47ae4f51.css.map" />
-    <Content Include="static\js\0.d756999e.chunk.js.map" />
-    <Content Include="static\js\1.5297a781.chunk.js.map" />
-    <Content Include="static\js\2.296882b4.chunk.js.map" />
-    <Content Include="static\js\3.5ddf8f9f.chunk.js.map" />
-    <Content Include="static\js\4.e78251e9.chunk.js.map" />
-    <Content Include="static\js\5.1b798ac8.chunk.js.map" />
-    <Content Include="static\js\6.7e0a28fd.chunk.js.map" />
-    <Content Include="static\js\7.3ca15a48.chunk.js.map" />
-    <Content Include="static\js\8.f5ee9d45.chunk.js.map" />
-    <Content Include="static\js\main.15735d14.js.map" />
+    <Content Include="static\css\main.dec9bd13.css.map" />
+    <Content Include="static\js\0.fa0898cd.chunk.js.map" />
+    <Content Include="static\js\1.ee43d05f.chunk.js.map" />
+    <Content Include="static\js\10.08cbf018.chunk.js.map" />
+    <Content Include="static\js\11.99c09fb2.chunk.js.map" />
+    <Content Include="static\js\12.19532d28.chunk.js.map" />
+    <Content Include="static\js\13.a4b38587.chunk.js.map" />
+    <Content Include="static\js\14.8a4e5331.chunk.js.map" />
+    <Content Include="static\js\15.af694227.chunk.js.map" />
+    <Content Include="static\js\16.f93418f3.chunk.js.map" />
+    <Content Include="static\js\17.28c31236.chunk.js.map" />
+    <Content Include="static\js\2.f2db1130.chunk.js.map" />
+    <Content Include="static\js\3.31328c8b.chunk.js.map" />
+    <Content Include="static\js\4.96e206d9.chunk.js.map" />
+    <Content Include="static\js\5.90a10f1a.chunk.js.map" />
+    <Content Include="static\js\6.e4bfb9cf.chunk.js.map" />
+    <Content Include="static\js\7.87b15483.chunk.js.map" />
+    <Content Include="static\js\8.571e1bcb.chunk.js.map" />
+    <Content Include="static\js\9.c9fad86e.chunk.js.map" />
+    <Content Include="static\js\main.7fd03ad3.js.map" />
     <Content Include="static\media\CoreUI-Icons-Linear-Free.0087dce4.woff" />
     <Content Include="static\media\CoreUI-Icons-Linear-Free.089ab3c1.eot" />
     <Content Include="static\media\CoreUI-Icons-Linear-Free.1bc37648.ttf" />
@@ -1039,36 +1074,9 @@
     <Content Include="static\media\Simple-Line-Icons.78f07e2c.woff" />
     <Content Include="static\media\Simple-Line-Icons.d2285965.ttf" />
     <Content Include="static\media\Simple-Line-Icons.f33df365.eot" />
-    <Content Include="static\css\main.9021f191.css.map" />
-    <Content Include="static\js\0.32267185.chunk.js.map" />
-    <Content Include="static\js\1.be4d1ec5.chunk.js.map" />
-    <Content Include="static\js\2.39cc0de9.chunk.js.map" />
-    <Content Include="static\js\3.c9ef06ef.chunk.js.map" />
-    <Content Include="static\js\4.012638e1.chunk.js.map" />
-    <Content Include="static\js\5.fa1a6511.chunk.js.map" />
-    <Content Include="static\js\6.de24ee1c.chunk.js.map" />
-    <Content Include="static\js\7.31996bcc.chunk.js.map" />
-    <Content Include="static\js\8.6e05dfb8.chunk.js.map" />
-    <Content Include="static\js\9.f2d27a71.chunk.js.map" />
-    <Content Include="static\js\main.d93deed9.js.map" />
-    <Content Include="static\css\main.a6ff6bbb.css.map" />
-    <Content Include="static\js\0.73416674.chunk.js.map" />
-    <Content Include="static\js\1.1ea3125e.chunk.js.map" />
-    <Content Include="static\js\10.3648a025.chunk.js.map" />
-    <Content Include="static\js\11.3d9ffef2.chunk.js.map" />
-    <Content Include="static\js\2.9624d232.chunk.js.map" />
-    <Content Include="static\js\3.775cf155.chunk.js.map" />
-    <Content Include="static\js\4.868931a2.chunk.js.map" />
-    <Content Include="static\js\5.ff0c7703.chunk.js.map" />
-    <Content Include="static\js\6.481216e3.chunk.js.map" />
-    <Content Include="static\js\7.a3b3eadb.chunk.js.map" />
-    <Content Include="static\js\8.21388fca.chunk.js.map" />
-    <Content Include="static\js\9.54b2b9ea.chunk.js.map" />
-    <Content Include="static\js\main.7039cb66.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="MediaContent\Videos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -1088,6 +1096,10 @@
     <EmbeddedResource Include="Resources\Lang_hindi.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang_hindi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Lang_Oriya.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Lang_Oriya.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="TrickleUpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Audios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="FilePath" Type="nvarchar(max)" />
+    <Property Name="FileSize" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
   <EntityType Name="BulkUploadRef">
     <Key>
       <PropertyRef Name="Id" />
@@ -24,6 +36,17 @@
     <Property Name="ActiveBy" Type="int" />
     <Property Name="ActiveOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
+    <Property Name="Title_Audio" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Crop_AudioAllocation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CropId" Type="int" />
+    <Property Name="LangId" Type="int" />
+    <Property Name="FieldType" Type="nvarchar(max)" />
+    <Property Name="AudioId" Type="int" />
   </EntityType>
   <EntityType Name="CropSteps_Material">
     <Key>
@@ -48,6 +71,15 @@
     <Property Name="MediaURL" Type="nvarchar(max)" />
     <Property Name="Step_Description" Type="nvarchar(max)" />
     <Property Name="Description_audio" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CurrencyStock">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MoneyManagerId" Type="int" />
+    <Property Name="Currency" Type="nvarchar" MaxLength="50" />
+    <Property Name="Count" Type="int" />
   </EntityType>
   <EntityType Name="District">
     <Key>
@@ -92,6 +124,18 @@
     <Property Name="UpdatedOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
   </EntityType>
+  <EntityType Name="Images">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImageName" Type="nvarchar(max)" />
+    <Property Name="FilePath" Type="nvarchar(max)" />
+    <Property Name="FileSize" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
   <EntityType Name="Language">
     <Key>
       <PropertyRef Name="Id" />
@@ -130,6 +174,8 @@
     <Property Name="Mode" Type="nvarchar(max)" />
     <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
     <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="UID" Type="uniqueidentifier" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
@@ -161,6 +207,16 @@
     <Property Name="ActiveOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
   </EntityType>
+  <EntityType Name="Step_AudioAllocation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StepId" Type="int" />
+    <Property Name="LangId" Type="int" />
+    <Property Name="FieldType" Type="nvarchar(max)" />
+    <Property Name="AudioId" Type="int" />
+  </EntityType>
   <EntityType Name="UserCredential">
     <Key>
       <PropertyRef Name="Id" />
@@ -169,6 +225,7 @@
     <Property Name="UserName" Type="nvarchar(max)" />
     <Property Name="Password" Type="nvarchar(max)" />
     <Property Name="UserId" Type="int" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -177,7 +234,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserId" Type="varchar(max)" />
     <Property Name="Name" Type="nvarchar(max)" />
-    <Property Name="PhoneNumber" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
     <Property Name="Age" Type="int" />
     <Property Name="Gender" Type="int" />
     <Property Name="State" Type="int" />
@@ -199,6 +256,18 @@
     <Property Name="Active" Type="bit" />
     <Property Name="ImagePath" Type="nvarchar(max)" />
     <Property Name="BulkUploadId" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Videos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VideoName" Type="nvarchar(max)" />
+    <Property Name="FilePath" Type="nvarchar(max)" />
+    <Property Name="FileSize" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
   </EntityType>
   <EntityType Name="Village">
     <Key>
@@ -230,43 +299,10 @@
     <Property Name="ActiveBy" Type="int" />
     <Property Name="ActiveOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
+    <Property Name="StateId" Type="int" />
+    <Property Name="DistrictId" Type="int" />
+    <Property Name="GrampanchayatId" Type="int" />
   </EntityType>
-  <Association Name="FK_Crop_Users">
-    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-    <End Role="Crop" Type="Self.Crop" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Crop">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Crop_Users1">
-    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-    <End Role="Crop" Type="Self.Crop" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Crop">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Crop_Users2">
-    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-    <End Role="Crop" Type="Self.Crop" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Crop">
-        <PropertyRef Name="ActiveBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_CropSteps_Material_Cultivation_Steps">
     <End Role="Cultivation_Steps" Type="Self.Cultivation_Steps" Multiplicity="1" />
     <End Role="CropSteps_Material" Type="Self.CropSteps_Material" Multiplicity="*" />
@@ -288,6 +324,18 @@
       </Principal>
       <Dependent Role="Cultivation_Steps">
         <PropertyRef Name="Crop_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CurrencyStock_MoneyManager">
+    <End Role="MoneyManager" Type="Self.MoneyManager" Multiplicity="0..1" />
+    <End Role="CurrencyStock" Type="Self.CurrencyStock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MoneyManager">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CurrencyStock">
+        <PropertyRef Name="MoneyManagerId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -456,18 +504,6 @@
       </Principal>
       <Dependent Role="Language">
         <PropertyRef Name="ActiveBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_MoneyManager_Users">
-    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-    <End Role="MoneyManager" Type="Self.MoneyManager" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="MoneyManager">
-        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -712,34 +748,28 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="TrickleUpModelStoreContainer">
+    <EntitySet Name="Audios" EntityType="Self.Audios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BulkUploadRef" EntityType="Self.BulkUploadRef" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Crop" EntityType="Self.Crop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Crop_AudioAllocation" EntityType="Self.Crop_AudioAllocation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CropSteps_Material" EntityType="Self.CropSteps_Material" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cultivation_Steps" EntityType="Self.Cultivation_Steps" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CurrencyStock" EntityType="Self.CurrencyStock" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Grampanchayat" EntityType="Self.Grampanchayat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MediaContent" EntityType="Self.MediaContent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MoneyManager" EntityType="Self.MoneyManager" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Step_AudioAllocation" EntityType="Self.Step_AudioAllocation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserCredential" EntityType="Self.UserCredential" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Village" EntityType="Self.Village" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VillageContact" EntityType="Self.VillageContact" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_Crop_Users" Association="Self.FK_Crop_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Crop" EntitySet="Crop" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Crop_Users1" Association="Self.FK_Crop_Users1">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Crop" EntitySet="Crop" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Crop_Users2" Association="Self.FK_Crop_Users2">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Crop" EntitySet="Crop" />
-    </AssociationSet>
     <AssociationSet Name="FK_CropSteps_Material_Cultivation_Steps" Association="Self.FK_CropSteps_Material_Cultivation_Steps">
       <End Role="Cultivation_Steps" EntitySet="Cultivation_Steps" />
       <End Role="CropSteps_Material" EntitySet="CropSteps_Material" />
@@ -747,6 +777,10 @@
     <AssociationSet Name="FK_Cultivation_Steps_Crop" Association="Self.FK_Cultivation_Steps_Crop">
       <End Role="Crop" EntitySet="Crop" />
       <End Role="Cultivation_Steps" EntitySet="Cultivation_Steps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CurrencyStock_MoneyManager" Association="Self.FK_CurrencyStock_MoneyManager">
+      <End Role="MoneyManager" EntitySet="MoneyManager" />
+      <End Role="CurrencyStock" EntitySet="CurrencyStock" />
     </AssociationSet>
     <AssociationSet Name="FK_District_State" Association="Self.FK_District_State">
       <End Role="State" EntitySet="State" />
@@ -803,10 +837,6 @@
     <AssociationSet Name="FK_Language_Users2" Association="Self.FK_Language_Users2">
       <End Role="Users" EntitySet="Users" />
       <End Role="Language" EntitySet="Language" />
-    </AssociationSet>
-    <AssociationSet Name="FK_MoneyManager_Users" Association="Self.FK_MoneyManager_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="MoneyManager" EntitySet="MoneyManager" />
     </AssociationSet>
     <AssociationSet Name="FK_Roles_Users" Association="Self.FK_Roles_Users">
       <End Role="Users" EntitySet="Users" />

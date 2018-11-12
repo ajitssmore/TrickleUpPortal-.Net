@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DDO-NA" xml:space="preserve">
+    <value>DDE-NA</value>
+  </data>
+  <data name="EMN-NA" xml:space="preserve">
+    <value>EMN-NA</value>
+  </data>
+  <data name="ଅମୃତଜାଲ" xml:space="preserve">
+    <value>Amrutjal</value>
+  </data>
+  <data name="ଅମୃତଜାଲ ସୋଲୁସନ" xml:space="preserve">
+    <value>Amrutjal Solution</value>
+  </data>
+  <data name="ଆଗ୍ନେୟାସ୍ତ୍ର ବିଠ ୱାଟର" xml:space="preserve">
+    <value>Agneyastra with Water</value>
+  </data>
+  <data name="ଉସେ  ଅ  ଅର୍ଗାନିକ  ପେସ୍ଟିସିଦେଶ  ଆଣ୍ଡ  ଫର୍ଟିଲାୱୀଜ଼ଏର୍ସ" xml:space="preserve">
+    <value>Use of Organic Pesticides and Fertilizers</value>
+  </data>
+  <data name="ଉସେ  ଅର୍ଗାନିକ  ପେସ୍ଟିସିଦେଶ   ଆଣ୍ଡ  ଫର୍ଟିଲାୱୀଜ଼ଏର୍ସ  ଅଃଫ୍ଟୱେର  ୪୦  ଦେଶ  ଅ  ସେଏଡ଼  ଫିଲଳିଙ୍ଗ, ସ୍ପ୍ରେ  ଅମୃତଜାଲ  ତ୍ୱ  ଟିମଏସ  (ଇଂ  ୨  - ୩  ଦେଶ  ଇଣ୍ଟେରବଲ ) - ଅମୃତଜାଲ  ଚାଁ  ନୋଟ  ବେ  ସ୍ଟ୍ରେଡ଼ , ଇଟା  ନୀଡ଼ସ  ତୋ  ବେ  ସ୍ପରଏଡ଼  ଜୁସତ  ଅଃଫ୍ଟୱେର  ଥେ  ପରିପାରସନ." xml:space="preserve">
+    <value>Use Organic Pesticides and Fertilizers after 40 days of seed filling, Spray Amrutjal two times (in 2 -3 days interval) - Amrutjal can not be stored, it needs to be sprayed just after the preparation.</value>
+  </data>
+  <data name="ଉସେ  ଅର୍ଗାନିକ  ପେସ୍ଟିସିଦେଶ  ଆଣ୍ଡ  ଫର୍ଟିଲାୱୀଜ଼ଏର୍ସ  ଅଃଫ୍ଟୱେର  ୫୦  ଦେଶ  ଅ  ସେଏଡ଼  ଫିଲଳିଙ୍ଗ, ସ୍ପ୍ରେ  ହାନ୍ଡିଖାତା  ସୋଲୁସନ  ଡ  ଆଗ୍ନେୟାସ୍ତ୍ର  ସୋଲୁସନ  ଆଣ୍ଡ  ସ୍ପ୍ରେ  ଅମୃତଜାଲ  ସୋଲୁସନ  - ଅଣେ  ର୍ଟମେ" xml:space="preserve">
+    <value>Use Organic Pesticides and Fertilizers after 50 days of seed filling, Spray Handikhata Solution or Agneyastra Solution and spray Amrutjal Solution - one time</value>
+  </data>
+  <data name="ଏ ବଉଳ/କଂଟିନଏର" xml:space="preserve">
+    <value>A bowl/Container</value>
+  </data>
+  <data name="ଓନିଅଁ" xml:space="preserve">
+    <value>Onion</value>
+  </data>
+  <data name="ଚାଉଳିଫ୍ଲୋବେର" xml:space="preserve">
+    <value>Cauliflower</value>
+  </data>
+  <data name="ଚି଼ଲ୍ଲୀ" xml:space="preserve">
+    <value>Chilli</value>
+  </data>
+  <data name="ଚୁଚୁମ୍ବର" xml:space="preserve">
+    <value>Cucumber</value>
+  </data>
+  <data name="ଚୋବ ୟୁରିନେ ସୋଲୁସନ" xml:space="preserve">
+    <value>Cow Urine Solution</value>
+  </data>
+  <data name="ଛାଵଗେ" xml:space="preserve">
+    <value>Cabbage</value>
+  </data>
+  <data name="ଟମାଟୋ" xml:space="preserve">
+    <value>Tomato</value>
+  </data>
+  <data name="ଡ ଆଗ୍ନେୟାସ୍ତ୍ର ବିଠ ୱାଟର" xml:space="preserve">
+    <value>Or Agneyastra with Water</value>
+  </data>
+  <data name="ଡ ପ୍ରଂଅମୃତ" xml:space="preserve">
+    <value>Or Pranamrita</value>
+  </data>
+  <data name="ନିମ ଚୋରେଟେଡ଼ ୟୁରିଆ (ଇଞ୍ଚୁବଟେଡ଼ ୟୁରିଆ) ବିଠ କମ୍ପୋଷ୍ଟ" xml:space="preserve">
+    <value>Neem Coated Urea (Incubated Urea) with Compost</value>
+  </data>
+  <data name="ନିମ ଚୋରେଟେଡ଼ ୟୁରିଆ (ଇଞ୍ଚୁବଟେଡ଼ ୟୁରିଆ) ବିଠ କମ୍ପୋଷ୍ଟ1" xml:space="preserve">
+    <value>Neem Coated Urea (Incubated Urea) with Compost</value>
+  </data>
+  <data name="ନୁଁମ୍ବର ଅ ପିସ୍ତା ୩କ୍ସ୩" xml:space="preserve">
+    <value>Number of Pits 3x3</value>
+  </data>
+  <data name="ପରିପାରସନ  ଅ  ପିତ , ସେଏଡ଼  ଆଣ୍ଡ  ନୁଁଟ୍ରିସନ  ରେକଇଁରେମେଣ୍ଟ" xml:space="preserve">
+    <value>Preparation of Pit, Seed and Nutrition Requirement</value>
+  </data>
+  <data name="ପଲୋଉଗିଙ୍ଗ ଅ ଲଣ୍ଡ" xml:space="preserve">
+    <value>Plouging of Land</value>
+  </data>
+  <data name="ପଲୋଉଗିଙ୍ଗ ବିଠ ଓସଏନ" xml:space="preserve">
+    <value>Plouging with Oxen</value>
+  </data>
+  <data name="ପଲୋଉଘ  ଲଣ୍ଡ  ୨ -୩  ଟିମଏସ  ଫୋର  ମାଇଁ  ଫାଇଲଡ  ପରିପାରସନ" xml:space="preserve">
+    <value>Plouging of Land 2-3 times for main field preparation</value>
+  </data>
+  <data name="ପୁଂପକିନ" xml:space="preserve">
+    <value>Pumpkin</value>
+  </data>
+  <data name="ପୁଟ  ଳ  ସୀଦଶ  ଈଂଟ  ଏ  ବଉଳ  ଅ  କଲଡ  ୱାଟର  ଆଣ୍ଡ  କେଇପ  ଇଟା  ଫୋର  ୧୫ -୨୦  ହୋଉଶ. ସୀଦଶ  ନୀଡ଼  ତୋ  ବେ  ଦ୍ରିଏଡ଼  ଇଂ  ଶଦଉ  ଓଂ  ଗଈଂନି  ବଗ . ସେଏଡ଼  ପରିମିଙ୍ଗ  ନୀଡ଼ସ  ତୋ  ବେ  ଦନେ  ଜୁସତ  ଅଣେ  ଦେ  ବେଫୋରେ  ସେଏଡ଼  ଟ୍ରେରେଟମେଣ୍ଟ  ଆଣ୍ଡ  ସ୍ଵୟଂ  ଇଂ  ଥେ  ପିତ." xml:space="preserve">
+    <value>Put all seeds into a bowl of cold water and keep it for 15-20 hours. Seeds need to be dried in shadow on ginni bag. Seed priming needs to be done just one day before seed treatment and sowing in the pit.</value>
+  </data>
+  <data name="ଫିରସ୍ତ  ୱେଇଡିଙ୍ଗ  ଆଣ୍ଡ  ହୋୱେଇଙ୍ଗ  ଅଃଫ୍ଟୱେର  ୧୦ ଦେଶ  ଅ  ସେଏଡ଼  ଫିଲଳିଙ୍ଗ  ଇଂ ଥେ  ପିତ. ପୁଟ  ବେରଂମିକମ୍ପସ୍ଟି  ଡ  ପ୍ରଂଅମୃତ  ଇଂ  ୱେଟ  ପିତ. ସ୍ପ୍ରେ  ହାନ୍ଡିଖାତା  ଅଃଫ୍ଟୱେର  ୧ - ୨  ଦେଶ  ଅ  ପୁଟ୍ଟୀଙ୍ଗ  ବେରଂମିକମ୍ପସ୍ଟି. ସ୍ପ୍ରେ  ଆଗ୍ନେୟାସ୍ତ୍ର, ଇଫ  ନୀଡ଼ଏଡ଼" xml:space="preserve">
+    <value>First Weeding and Hoeing after 10 days of Seed Filling in the Pit. Put Vermicompost or Pranamrita in each pit. Spray Handikhata after 1-2 days of putting Vermicompost. Spray Agneyastra, if needed</value>
+  </data>
+  <data name="ଫିରସ୍ତ ୱେଇଡିଙ୍ଗ ଆଣ୍ଡ ହୋୱେଇଙ୍ଗ" xml:space="preserve">
+    <value>First Weeding and Hoeing</value>
+  </data>
+  <data name="ବଋଂଜଳ" xml:space="preserve">
+    <value>Brinjal</value>
+  </data>
+  <data name="ବରପି  ସୀଦଶ  ଇଂ  ସର୍ତ୍ତନ  ସଲତ  ଆଣ୍ଡ  ଶାକ  ଇଟା, ଠେଁ  ଦୀପ  ଇଟା  ଈଂଟ  ଚୋବ  ୟୁରିନେ  ଆଣ୍ଡ  ୱାଟର  ସୋଲୁସନ  ଡ  ବୀଜମୃତ  ସୋଲୁସନ  ଫୋର  ୫  ମିନୁତେଷୁ. ଠେଁ  ଦରୀ  ଥେ  ସାକେଡ଼  ସୀଦଶ  ଇଂ  ଏ  ଷଡ଼େଡ଼  ଆରେଏ  ଉପତ୍ୟ  ୧ -୨  ହୋଉଶ  ଆଣ୍ଡ  ସ୍ଵ  ଇଂ  ଥେ  ପିସ୍ତା." xml:space="preserve">
+    <value>Wrap seeds in cotton cloth and soak it, then dip it into cow urine and water Solution or Beejamrita Solution for 5 minutes. Then dry the soaked seeds in a shaded area upto 1-2 hours and sow in the pits.</value>
+  </data>
+  <data name="ବିତ୍ତ୍ଵେର ଗୌରଡ଼" xml:space="preserve">
+    <value>Bitter Gourd</value>
+  </data>
+  <data name="ବିତ୍ତ୍ଵେର ଗୌରଡ଼ ହରବେଶଟିଙ୍ଗ" xml:space="preserve">
+    <value>Bitter Gourd Harvesting</value>
+  </data>
+  <data name="ବୀଜମୃତ ସୋଲୁସନ" xml:space="preserve">
+    <value>Beejamrita Solution</value>
+  </data>
+  <data name="ବେରଂମିକମ୍ପସ୍ଟି" xml:space="preserve">
+    <value>Vermicompost</value>
+  </data>
+  <data name="ବେରଂମିକମ୍ପସ୍ଟି1" xml:space="preserve">
+    <value>Vermicompost</value>
+  </data>
+  <data name="ମାଛ ଡ ସ୍ଟିସିକ" xml:space="preserve">
+    <value>Macha or Stick</value>
+  </data>
+  <data name="ଲଙ୍ଗ ବେଆନ୍ସ" xml:space="preserve">
+    <value>Long Beans</value>
+  </data>
+  <data name="ଲେଡି ଫିଙ୍ଗର" xml:space="preserve">
+    <value>Lady finger</value>
+  </data>
+  <data name="ଵାଦୀଶଃ" xml:space="preserve">
+    <value>Radish</value>
+  </data>
+  <data name="ସର୍ତ୍ତନ ସଲତ" xml:space="preserve">
+    <value>Cotton Cloth</value>
+  </data>
+  <data name="ସୀଦଶ" xml:space="preserve">
+    <value>Seeds</value>
+  </data>
+  <data name="ସୀଦଶ1" xml:space="preserve">
+    <value>Seeds</value>
+  </data>
+  <data name="ସେଏଡ଼  ଟ୍ରେରେଟମେଣ୍ଟ" xml:space="preserve">
+    <value>Seed Treatment</value>
+  </data>
+  <data name="ସେଏଡ଼ ପରିମିଙ୍ଗ, ସେଏଡ଼ ଟ୍ରେରେଟମେଣ୍ଟ ଆଣ୍ଡ ପରିପାରସନ ଅ  ପିତ, ସେଏଡ଼  ଆଣ୍ଡ  ନୁଁଟ୍ରିସନ  ରେକଇଁରେମେଣ୍ଟ" xml:space="preserve">
+    <value>Seed Priming, Seed Treatment and Preparation of Pit, Seed and Nutrition requirement</value>
+  </data>
+  <data name="ସେକେଣ୍ଡ  ୱେଇଡିଙ୍ଗ  ଆଣ୍ଡ  ହୋୱେଇଙ୍ଗ" xml:space="preserve">
+    <value>Second Weeding and Hoeing</value>
+  </data>
+  <data name="ସେକେଣ୍ଡ  ୱେଇଡିଙ୍ଗ  ଆଣ୍ଡ  ହୋୱେଇଙ୍ଗ  ଅଃଫ୍ଟୱେର  ୨୫  ଦେଶ  ଅ  ସେଏଡ଼  ଫିଲଳିଙ୍ଗ. ପ୍ରୋଭିଡେ  ମଉଛ  ଡ  ସ୍ଟିସିକ  ଫୋର  ସପୋର୍ଟ. ପୁଟ  ନିମ  ଚୋରେଟେଡ଼  ଇଞ୍ଚୁବଟେଡ଼  ୟୁରିଆ  (ବିଠ  କମ୍ପୋଷ୍ଟ ). ସ୍ପ୍ରେ  ଆଗ୍ନେୟାସ୍ତ୍ର" xml:space="preserve">
+    <value>Second Weeding and Hoeing after 25 days of seed filling. Provide Muchha or Stick for support. Put Neem coated incubated Urea (with Compost). Spray Agneyastra</value>
+  </data>
+  <data name="ସ୍ପଚିଙ୍ଗ  ବେତବୀନ  ତ୍ୱ  ପିସ୍ତା  ଷୌଲଡ଼  ବେ  ୩  ଫେଡ  ଆଣ୍ଡ  ସ୍ପଚିଙ୍ଗ  ବେତବୀନ  ତ୍ୱ  ରୋବତ୍ସ  ଷୌଲଡ଼  ବେ  ୩  ଫେଡ. ପୁଟ  ହ୍ୟାଦ୍ରି  ଆଣ୍ଡ  କମ୍ପୋଷ୍ଟ  ମିସ  ଇଂ  ୱେଟ  ପିତ  ଆଣ୍ଡ  ବେରଂମିକମ୍ପସ୍ଟି. ପୁଟ  ଦ୍ରିଏଡ଼  ଓଟ  ୩  ସୀଦଶ  ଇଂ  ୱେଟ  ପିତ" xml:space="preserve">
+    <value>Spacing between two pits should be 3 feet and spacing between two rows should be 3 feet. Put Hadri and Compost mix in each pit and Vermicompost. Put dried out 3 seeds in each pit</value>
+  </data>
+  <data name="ହାନ୍ଡିଖାତା ବିଠ ୱାଟର" xml:space="preserve">
+    <value>Handikhata with Water</value>
+  </data>
+  <data name="ହାନ୍ଡିଖାତା ସୋଲୁସନ" xml:space="preserve">
+    <value>Handikhata Solution</value>
+  </data>
+  <data name="ହାନ୍ଡିଖାତା ସୋଲୁସନ1" xml:space="preserve">
+    <value>Handikhata Solution</value>
+  </data>
+  <data name="ହ୍ୟାଦ୍ରି ଆଣ୍ଡ କମ୍ପୋଷ୍ଟ ମିସ" xml:space="preserve">
+    <value>Hadri and Compost Mix</value>
+  </data>
+  <data name="ୱାଟର" xml:space="preserve">
+    <value>Water</value>
+  </data>
+</root>

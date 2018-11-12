@@ -26,21 +26,21 @@ namespace TrickleUpPortal.Controllers
         public HttpResponseMessage GetRoles()
         {
             var Roles = from role in db.Roles
-                         select new { role.Id, role.RoleName, role.Active };
+                         select new { role.Id, role.RoleId, role.RoleName, role.Active };
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { Roles }, success = true, error = string.Empty });
         }
 
         // GET: api/Roles/5
-        [ResponseType(typeof(Role))]
-        public IHttpActionResult GetRole(int id)
+        //[ResponseType(typeof(Role))]
+        [HttpGet]
+        public HttpResponseMessage GetSepecificRole(int id)
         {
-            Role role = db.Roles.Find(id);
-            if (role == null)
-            {
-                return NotFound();
-            }
+            //Role role = db.Roles.Find(id);
+            var Roles = from role in db.Roles
+                        where role.Id == id
+                        select new { role.Id, role.RoleId, role.RoleName, role.Active, role.UpdatedBy, role.UpdatedOn, role.ActiveBy, role.ActiveOn };
 
-            return Ok(role);
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { Roles }, success = true, error = string.Empty });
         }
 
         // PUT: api/Roles/5

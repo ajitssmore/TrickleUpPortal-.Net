@@ -25,7 +25,8 @@ namespace TrickleUpPortal.Controllers
         public HttpResponseMessage GetLanguages()
         {
             var Languages = from Language in db.Languages
-                         select new { Language.Id, Language.LanguageCode, Language.LanguageName, Language.Active };
+                            orderby Language.LanguageCode ascending
+                            select new { Language.Id, Language.LanguageCode, Language.LanguageName, Language.Active };
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { Languages }, success = true, error = string.Empty });
         }
 

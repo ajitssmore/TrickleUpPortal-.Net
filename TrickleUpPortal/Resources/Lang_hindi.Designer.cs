@@ -61,101 +61,492 @@ namespace TrickleUpPortal.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to करेला.
+        ///   Looks up a localized string similar to DDE-NA.
         /// </summary>
-        public static string BitterGourd {
+        public static string DDO_NA {
             get {
-                return ResourceManager.GetString("BitterGourd", resourceCulture);
+                return ResourceManager.GetString("DDO-NA", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to बैंगन.
+        ///   Looks up a localized string similar to EMN-NA.
         /// </summary>
-        public static string Brinjal {
+        public static string OMN_NA {
             get {
-                return ResourceManager.GetString("Brinjal", resourceCulture);
+                return ResourceManager.GetString("OMN-NA", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to गोभी.
+        ///   Looks up a localized string similar to Amrutjal.
         /// </summary>
-        public static string Cabbage {
+        public static string अमृतजल {
             get {
-                return ResourceManager.GetString("Cabbage", resourceCulture);
+                return ResourceManager.GetString("अमृतजल", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to गोभी.
+        ///   Looks up a localized string similar to Amrutjal Solution.
         /// </summary>
-        public static string Cauliflower {
+        public static string अमृतजल_पानी_के_साथ {
             get {
-                return ResourceManager.GetString("Cauliflower", resourceCulture);
+                return ResourceManager.GetString("अमृतजल पानी के साथ", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to मिर्च.
+        ///   Looks up a localized string similar to Agneyastra with Water.
         /// </summary>
-        public static string Chilli {
+        public static string आग्नेयास्त्र_पानी_के_साथ {
             get {
-                return ResourceManager.GetString("Chilli", resourceCulture);
+                return ResourceManager.GetString("आग्नेयास्त्र पानी के साथ", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to खीरा.
+        ///   Looks up a localized string similar to Pumpkin.
         /// </summary>
-        public static string Cucumber {
+        public static string कद्दू {
             get {
-                return ResourceManager.GetString("Cucumber", resourceCulture);
+                return ResourceManager.GetString("कद्दू", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to भिन्डी.
+        ///   Looks up a localized string similar to Bitter Gourd.
         /// </summary>
-        public static string Ladyfinger {
+        public static string करेला {
             get {
-                return ResourceManager.GetString("Ladyfinger", resourceCulture);
+                return ResourceManager.GetString("करेला", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to प्याज.
+        ///   Looks up a localized string similar to Bitter Gourd Harvesting.
         /// </summary>
-        public static string Onion {
+        public static string करेले_की_फसल_कटाई {
             get {
-                return ResourceManager.GetString("Onion", resourceCulture);
+                return ResourceManager.GetString("करेले की फसल कटाई", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to कद्दू.
+        ///   Looks up a localized string similar to Vermicompost.
         /// </summary>
-        public static string Pumpkin {
+        public static string केंचुआ_खाद {
             get {
-                return ResourceManager.GetString("Pumpkin", resourceCulture);
+                return ResourceManager.GetString("केंचुआ खाद", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to मूली.
+        ///   Looks up a localized string similar to Vermicompost.
         /// </summary>
-        public static string Radish {
+        public static string केंचुआ_खाद1 {
             get {
-                return ResourceManager.GetString("Radish", resourceCulture);
+                return ResourceManager.GetString("केंचुआ खाद1", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to टमाटर.
+        ///   Looks up a localized string similar to Cucumber.
         /// </summary>
-        public static string Tomato {
+        public static string खीरा {
             get {
-                return ResourceManager.GetString("Tomato", resourceCulture);
+                return ResourceManager.GetString("खीरा", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preparation of Pit, Seed and Nutrition Requirement.
+        /// </summary>
+        public static string गड्डो_की_तैयारी__बीज_और_पोषण_की_आवश्यकता {
+            get {
+                return ResourceManager.GetString("गड्डो की तैयारी, बीज और पोषण की आवश्यकता", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of Pits 3x3.
+        /// </summary>
+        public static string गड्डो_की_संख्या_3x3 {
+            get {
+                return ResourceManager.GetString("गड्डो की संख्या 3x3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cabbage.
+        /// </summary>
+        public static string गोभी {
+            get {
+                return ResourceManager.GetString("गोभी", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cauliflower.
+        /// </summary>
+        public static string गोभी1 {
+            get {
+                return ResourceManager.GetString("गोभी1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cow Urine Solution.
+        /// </summary>
+        public static string गौ_मूत्र_पानी_के_साथ {
+            get {
+                return ResourceManager.GetString("गौ मूत्र पानी के साथ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plouging of Land.
+        /// </summary>
+        public static string जमीन_को_जोतना {
+            get {
+                return ResourceManager.GetString("जमीन को जोतना", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use of Organic Pesticides and Fertilizers.
+        /// </summary>
+        public static string जैविक_कीटनाशकों_और_खाद_का_प्रयोग {
+            get {
+                return ResourceManager.GetString("जैविक कीटनाशकों और खाद का प्रयोग", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plouging with Oxen.
+        /// </summary>
+        public static string जोताई {
+            get {
+                return ResourceManager.GetString("जोताई", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Macha or Stick.
+        /// </summary>
+        public static string झांची_या_डंडा {
+            get {
+                return ResourceManager.GetString("झांची या डंडा", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tomato.
+        /// </summary>
+        public static string टमाटर {
+            get {
+                return ResourceManager.GetString("टमाटर", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Second Weeding and Hoeing.
+        /// </summary>
+        public static string दूसरी_निकाई_और_गुड़ाई {
+            get {
+                return ResourceManager.GetString("दूसरी निकाई और गुड़ाई", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spacing between two pits should be 3 feet and spacing between two rows should be 3 feet. Put Hadri and Compost mix in each pit and Vermicompost. Put dried out 3 seeds in each pit.
+        /// </summary>
+        public static string दो_गड्डो_के_बीच_में_3_फीट_और_दो_लाइनों_के_भी_बीच_में_3_फीट_की_दूरी_होनी_चाहिए__प्रत्येक_गड्डे_में_हादरी_एवं_खाद_मिश्रण_और_केंचुआ_खाद_का_प्रयोग_करें__प्रत्येक_गड्डे_में_3_सूखे_बीज_डालें_ {
+            get {
+                return ResourceManager.GetString("दो गड्डो के बीच में 3 फीट और दो लाइनों के भी बीच में 3 फीट की दूरी होनी चाहिए. प्" +
+                        "रत्येक गड्डे में हादरी एवं खाद मिश्रण और केंचुआ खाद का प्रयोग करें. प्रत्येक गड्" +
+                        "डे में 3 सूखे बीज डालें.", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Neem Coated Urea (Incubated Urea) with Compost.
+        /// </summary>
+        public static string नीम_युक्त_यूरिआ__इन्क्यूबेटेड_यूरिया__खाद_के_साथ {
+            get {
+                return ResourceManager.GetString("नीम युक्त यूरिआ (इन्क्यूबेटेड यूरिया) खाद के साथ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Neem Coated Urea (Incubated Urea) with Compost.
+        /// </summary>
+        public static string नीम_युक्त_यूरिआ__इन्क्यूबेटेड_यूरिया__खाद_के_साथ1 {
+            get {
+                return ResourceManager.GetString("नीम युक्त यूरिआ (इन्क्यूबेटेड यूरिया) खाद के साथ1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First Weeding and Hoeing.
+        /// </summary>
+        public static string पहली_निकाई_और_गुड़ाई {
+            get {
+                return ResourceManager.GetString("पहली निकाई और गुड़ाई", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Water.
+        /// </summary>
+        public static string पानी {
+            get {
+                return ResourceManager.GetString("पानी", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Onion.
+        /// </summary>
+        public static string प्याज {
+            get {
+                return ResourceManager.GetString("प्याज", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A bowl/Container.
+        /// </summary>
+        public static string बर्तन {
+            get {
+                return ResourceManager.GetString("बर्तन", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seeds.
+        /// </summary>
+        public static string बीज {
+            get {
+                return ResourceManager.GetString("बीज", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seed Treatment.
+        /// </summary>
+        public static string बीज_उपचार {
+            get {
+                return ResourceManager.GetString("बीज उपचार", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seed Priming, Seed Treatment and Preparation of Pit, Seed and Nutrition requirement.
+        /// </summary>
+        public static string बीज_तैयार_करना__बीज_उपचार_और_गड्डो_की_तैयारी__बीज_और_पोषण_की_आवश्यकता {
+            get {
+                return ResourceManager.GetString("बीज तैयार करना, बीज उपचार और गड्डो की तैयारी, बीज और पोषण की आवश्यकता", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First Weeding and Hoeing after 10 days of Seed Filling in the Pit. Put Vermicompost or Pranamrita in each pit. Spray Handikhata after 1-2 days of putting Vermicompost. Spray Agneyastra, if needed.
+        /// </summary>
+        public static string बीज_बोने_के_10__दिन_बाद_पहली_निकाई_और_गुड़ाई_करें__प्रत्येक_गड्डे_में_केंचुआ_खाद_या_प्रनामित्रा_का_प्रयोग_करें__केंचुआ_खाद_डालने_से_1___2_दिन_के_बाद_हांडीखाद_का_छिडकाव_करें__जरुरत_होने_पर_आग्नेयास्त्र_का_छिडकाव_करें_ {
+            get {
+                return ResourceManager.GetString("बीज बोने के 10  दिन बाद पहली निकाई और गुड़ाई करें. प्रत्येक गड्डे में केंचुआ खाद य" +
+                        "ा प्रनामित्रा का प्रयोग करें. केंचुआ खाद डालने से 1 - 2 दिन के बाद हांडीखाद का छ" +
+                        "िडकाव करें. जरुरत होने पर आग्नेयास्त्र का छिडकाव करें.", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Second Weeding and Hoeing after 25 days of seed filling. Provide Muchha or Stick for support. Put Neem coated incubated Urea (with Compost). Spray Agneyastra.
+        /// </summary>
+        public static string बीज_बोने_के_25__दिन_बाद_दूसरी_निकाई_और_गुड़ाई_करें__झांची_या_डंडे_का_प्रयोग_करें__नीम_युक्त_यूरिआ__इन्क्यूबेटेड_यूरिया__खाद_के_साथ_प्रयोग_करें__आग्नेयास्त्र_का_छिडकाव_करें_ {
+            get {
+                return ResourceManager.GetString("बीज बोने के 25  दिन बाद दूसरी निकाई और गुड़ाई करें. झांची या डंडे का प्रयोग करें. " +
+                        "नीम युक्त यूरिआ (इन्क्यूबेटेड यूरिया) खाद के साथ प्रयोग करें. आग्नेयास्त्र का छि" +
+                        "डकाव करें.", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use Organic Pesticides and Fertilizers after 40 days of seed filling, Spray Amrutjal two times (in 2 -3 days interval) - Amrutjal can not be stored, it needs to be sprayed just after the preparation..
+        /// </summary>
+        public static string बीज_बोने_के_40_दिन_बाद_जैविक_कीटनाशकों_और_खाद_का_प्रयोग_करें__दो_तीन_दिनों_के_बीच_में_दो_बार_अमृतजल_का_छिडकाव_करे___अमृतजल_को_बनाते_साथ_छिडकाव_करे__संचय_न_करें_ {
+            get {
+                return ResourceManager.GetString("बीज बोने के 40 दिन बाद जैविक कीटनाशकों और खाद का प्रयोग करें, दो-तीन दिनों के बीच" +
+                        " में दो बार अमृतजल का छिडकाव करे - अमृतजल को बनाते साथ छिडकाव करे (संचय न करें)", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use Organic Pesticides and Fertilizers after 50 days of seed filling, Spray Handikhata Solution or Agneyastra Solution and spray Amrutjal Solution - one time.
+        /// </summary>
+        public static string बीज_बोने_के_50_दिन_बाद_जैविक_कीटनाशकों_और_खाद_का_प्रयोग_करें__हांडीखाद_या_आग्नेयास्त्र_को_पानी_के_साथ_मिलाकर_छिडकाव_करे_और_अमृतजल_को_पानी_के_साथ_मिलाकर_छिडकाव_करे___एक_बार {
+            get {
+                return ResourceManager.GetString("बीज बोने के 50 दिन बाद जैविक कीटनाशकों और खाद का प्रयोग करें, हांडीखाद या आग्नेया" +
+                        "स्त्र को पानी के साथ मिलाकर छिडकाव करे और अमृतजल को पानी के साथ मिलाकर छिडकाव कर" +
+                        "े - एक बार", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seeds.
+        /// </summary>
+        public static string बीज1 {
+            get {
+                return ResourceManager.GetString("बीज1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Beejamrita Solution.
+        /// </summary>
+        public static string बीजामृत_पानी_के_साथ {
+            get {
+                return ResourceManager.GetString("बीजामृत पानी के साथ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrap seeds in cotton cloth and soak it, then dip it into cow urine and water Solution or Beejamrita Solution for 5 minutes. Then dry the soaked seeds in a shaded area upto 1-2 hours and sow in the pits..
+        /// </summary>
+        public static string बीजों_को_सूती_कपडे_में_लपेटें_एवं_सूखने_दें__उसके_पश्चात_5_मिनट_तक_पानी_मिश्रित_गौ_मूत्र_या_बीजामृत_मिश्रण_में_डुबोकर_रखें__इन_बीजों_को_1_2_घंटे_छाँव_में_सुखाएं_और_बोंये_ {
+            get {
+                return ResourceManager.GetString("बीजों को सूती कपडे में लपेटें एवं सूखने दें, उसके पश्चात 5 मिनट तक पानी मिश्रित ग" +
+                        "ौ-मूत्र या बीजामृत मिश्रण में डुबोकर रखें. इन बीजों को 1-2 घंटे छाँव में सुखाएं " +
+                        "और बोंये.", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brinjal.
+        /// </summary>
+        public static string बैंगन {
+            get {
+                return ResourceManager.GetString("बैंगन", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lady finger.
+        /// </summary>
+        public static string भिन्डी {
+            get {
+                return ResourceManager.GetString("भिन्डी", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chilli.
+        /// </summary>
+        public static string मिर्च {
+            get {
+                return ResourceManager.GetString("मिर्च", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plouging of Land 2-3 times for main field preparation.
+        /// </summary>
+        public static string मुख्य_जमीन_तैयार_करने_के_लिए_2_3_बार_हल_करें {
+            get {
+                return ResourceManager.GetString("मुख्य जमीन तैयार करने के लिए 2-3 बार हल करें", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Radish.
+        /// </summary>
+        public static string मूली {
+            get {
+                return ResourceManager.GetString("मूली", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Or Agneyastra with Water.
+        /// </summary>
+        public static string या_आग्नेयास्त्र_पानी_के_साथ {
+            get {
+                return ResourceManager.GetString("या आग्नेयास्त्र पानी के साथ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Or Pranamrita.
+        /// </summary>
+        public static string या_प्रनामित्रा {
+            get {
+                return ResourceManager.GetString("या प्रनामित्रा", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Long Beans.
+        /// </summary>
+        public static string लंबी_फलियाँ {
+            get {
+                return ResourceManager.GetString("लंबी फलियाँ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Put all seeds into a bowl of cold water and keep it for 15-20 hours. Seeds need to be dried in shadow on ginni bag. Seed priming needs to be done just one day before seed treatment and sowing in the pit..
+        /// </summary>
+        public static string सारे_बीजों_को_ठंडे_पानी_के_बर्तन_में_डालकर_15_20_घंटे_तक_रखें__बीजों_को_जूट_के_बोरे_में_डालकर_छाँव_में_सुखाएं__यह_प्रक्रिया_बीज_उपचार_और_बीज_बोने_एक_दिन_पहले_करें_ {
+            get {
+                return ResourceManager.GetString("सारे बीजों को ठंडे पानी के बर्तन में डालकर 15-20 घंटे तक रखें. बीजों को जूट के बो" +
+                        "रे में डालकर छाँव में सुखाएं. यह प्रक्रिया बीज उपचार और बीज बोने एक दिन पहले करे" +
+                        "ं.", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cotton Cloth.
+        /// </summary>
+        public static string सूती_कपडा {
+            get {
+                return ResourceManager.GetString("सूती कपडा", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Handikhata with Water.
+        /// </summary>
+        public static string हांड़ीखतो_पानी_के_साथ {
+            get {
+                return ResourceManager.GetString("हांड़ीखतो पानी के साथ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Handikhata Solution.
+        /// </summary>
+        public static string हांड़ीखतो_पानी_के_साथ1 {
+            get {
+                return ResourceManager.GetString("हांड़ीखतो पानी के साथ1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Handikhata Solution.
+        /// </summary>
+        public static string हांड़ीखतो_पानी_के_साथ2 {
+            get {
+                return ResourceManager.GetString("हांड़ीखतो पानी के साथ2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hadri and Compost Mix.
+        /// </summary>
+        public static string हादरी_और_खाद_मिश्रण {
+            get {
+                return ResourceManager.GetString("हादरी और खाद मिश्रण", resourceCulture);
             }
         }
     }

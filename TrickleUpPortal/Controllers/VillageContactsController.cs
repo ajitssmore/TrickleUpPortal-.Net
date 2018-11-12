@@ -28,7 +28,23 @@ namespace TrickleUpPortal.Controllers
         {
             var ApplicationContact = from VillageContact in db.VillageContacts
                                      join Village in db.Villages on VillageContact.VillageId equals Village.Id
-                                     select new { VillageContact.Id, VillageContact.VillageId, Village.VillageName, VillageContact.ContactName, VillageContact.ContactNo, VillageContact.Active };
+                                     join State in db.States on VillageContact.StateId equals State.Id
+                                     join District in db.Districts on VillageContact.DistrictId equals District.Id
+                                     join Grampanchayat in db.Grampanchayats on VillageContact.GrampanchayatId equals Grampanchayat.Id
+                                     select new { VillageContact.Id, VillageContact.VillageId, Village.VillageName, VillageContact.ContactName, VillageContact.ContactNo, VillageContact.Active, VillageContact.StateId, State.StateName, VillageContact.DistrictId, District.DistrictName, VillageContact.GrampanchayatId, Grampanchayat.GrampanchayatName};
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { ApplicationContact }, success = true, error = string.Empty });
+        }
+
+        [HttpGet]
+        public HttpResponseMessage ContactsByVillage(int VillageId)
+        {
+            var ApplicationContact = from VillageContact in db.VillageContacts
+                                     join Village in db.Villages on VillageContact.VillageId equals Village.Id
+                                     join State in db.States on VillageContact.StateId equals State.Id
+                                     join District in db.Districts on VillageContact.DistrictId equals District.Id
+                                     join Grampanchayat in db.Grampanchayats on VillageContact.GrampanchayatId equals Grampanchayat.Id
+                                     where VillageContact.VillageId == VillageId && VillageContact.Active == true
+                                     select new { VillageContact.Id, VillageContact.VillageId, Village.VillageName, VillageContact.ContactName, VillageContact.ContactNo, VillageContact.Active, VillageContact.StateId, State.StateName, VillageContact.DistrictId, District.DistrictName, VillageContact.GrampanchayatId, Grampanchayat.GrampanchayatName };
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { ApplicationContact }, success = true, error = string.Empty });
         }
 

@@ -14,13 +14,22 @@ namespace TrickleUpPortal.Models
     
     public partial class MoneyManager
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MoneyManager()
+        {
+            this.CurrencyStocks = new HashSet<CurrencyStock>();
+        }
+    
         public int Id { get; set; }
         public Nullable<int> UserId { get; set; }
         public string Type { get; set; }
         public string Mode { get; set; }
         public Nullable<decimal> Amount { get; set; }
         public Nullable<System.DateTime> CreatedOn { get; set; }
+        public Nullable<bool> Active { get; set; }
+        public Nullable<System.Guid> UID { get; set; }
     
-        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CurrencyStock> CurrencyStocks { get; set; }
     }
 }
