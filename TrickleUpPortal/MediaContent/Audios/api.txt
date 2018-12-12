@@ -1,0 +1,10 @@
+Following api's for respective modules are needed: 
+
+1. Update and Delete Api for Beneficiary module 
+2. Bulk upload api for Bulk Beneficiary Registration module
+3. CRUD api's for media upload for training program
+4. CRUD api's for State, District, Village, Grampanchayat
+5. CRUD api's for Roles and Language master
+6. CRUD api's for Crops and crop steps module
+7. CRUD api's for Application contacts
+8. Get api for Report data configuration and customization

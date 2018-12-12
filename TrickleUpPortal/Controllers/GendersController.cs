@@ -88,9 +88,20 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            db.Genders.Add(gender);
-            db.SaveChanges();
+            var DataFound = (from Genderdata in db.Genders
+                             where Genderdata.GenderName.ToUpper() == gender.GenderName.ToUpper()
+                             select Genderdata.GenderName).SingleOrDefault();
 
+            if (DataFound == null)
+            {
+                db.Genders.Add(gender);
+                db.SaveChanges();
+            }
+            else
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Gender Name already exits" });
+            }
+            
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = gender.Id }, success = true, error = string.Empty });
         }
 

@@ -17,6 +17,8 @@ namespace TrickleUpPortal.Controllers
     public class UserCredentialsController : ApiController
     {
         private TrickleUpEntities db = new TrickleUpEntities();
+        CommonController comObj = new CommonController();
+        string LanguageName;
 
         // GET: api/UserCredentials
         public IQueryable<UserCredential> GetUserCredentials()
@@ -28,7 +30,7 @@ namespace TrickleUpPortal.Controllers
         [ResponseType(typeof(UserCredential))]
         public IHttpActionResult GetUserCredential(int id)
         {
-            UserCredential userCredential = db.UserCredentials.Find(id);
+            UserCredential userCredential = db.UserCredentials.Where(a=>a.UserId == id).FirstOrDefault();
             if (userCredential == null)
             {
                 return NotFound();
@@ -46,12 +48,18 @@ namespace TrickleUpPortal.Controllers
             try
             {
                 //UserCredential userCredential = (UserCredential)db.UserCredentials.Where(a => a.UserName == userName && a.Password == userPassword).SingleOrDefault();
+                //string message = comObj.SendPushNotification("Login", "Sucessfully");
+                Language language = comObj.fetchLang(userCredential.LangCode);
+                if (language != null)
+                {
+                    LanguageName = language.LanguageName;
+                }
 
                 var result = from UserCredential in db.UserCredentials
                              join User in db.Users on UserCredential.UserId equals User.Id
                              join Role in db.Roles on User.Role equals Role.Id
-                             where (UserCredential.UserName == userCredential.UserName || UserCredential.PhoneNumber == userCredential.UserName) && UserCredential.Password == userCredential.Password
-                             select new { UserCredential.UserId, UserCredential.UserName, User.PhoneNumber, UserCredential.Id, User.Name, User.Role, Role.RoleName, User.ImagePath };
+                             where ((UserCredential.UserName == userCredential.UserName || UserCredential.PhoneNumber == userCredential.UserName) && UserCredential.Password == userCredential.Password && User.Active == true)
+                             select new { UserCredential.UserId, UserCredential.UserName, User.PhoneNumber, UserCredential.Id, User.Name, User.Role, Role.RoleName, User.ImagePath, User.Active };
                 
 
                 dynamic UserVerification = new ExpandoObject();
@@ -72,8 +80,23 @@ namespace TrickleUpPortal.Controllers
                 }
                 if (Isauthenticated == false)
                 {
-                    //return NotFound();
-                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = string.Empty, success = false, error = "The UserName or Password is Incorrect." });
+                    string errorMessage = string.Empty;
+                    switch (LanguageName)
+                    {
+                        case "Hindi":
+                            errorMessage = "यूजरनेम या पासवर्ड गलत है।";
+                            break;
+                        case "English":
+                            errorMessage = "The UserName or Password is Incorrect.";
+                            break;
+                        case "Oriya":
+                            errorMessage = "ଥେ ଉସେର୍ଣ୍ଣାମେ ଡ ପାସ୍ରେବୋର୍ଡ ଇସଃ ଇଂକରରସତ.";
+                            break;
+                        default:
+                            errorMessage = "The UserName or Password is Incorrect.";
+                            break;
+                    }
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = string.Empty, success = false, error = errorMessage });
                 }
                 else
                 {

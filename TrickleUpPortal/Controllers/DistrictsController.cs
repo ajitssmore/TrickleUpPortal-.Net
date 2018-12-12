@@ -89,11 +89,20 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            db.Districts.Add(district);
-            db.SaveChanges();
-
+            var DataFound = (from Districtdata in db.Districts
+                             where Districtdata.DistrictName.ToUpper() == district.DistrictName.ToUpper()
+                                 select Districtdata.DistrictName).SingleOrDefault();
+            
+            if (DataFound == null)
+            {
+                db.Districts.Add(district);
+                db.SaveChanges();
+            }
+            else
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "District Name already exits" });
+            }
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = district.Id }, success = true, error = string.Empty });
-            //return CreatedAtRoute("DefaultApi", new { id = district.Id }, district);
         }
 
         // DELETE: api/Districts/5

@@ -90,10 +90,20 @@ namespace TrickleUpPortal.Controllers
             {
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
+            var DataFound = (from Villagedata in db.Villages
+                             where Villagedata.VillageName.ToUpper() == village.VillageName.ToUpper()
+                             select Villagedata.VillageName).SingleOrDefault();
 
-            db.Villages.Add(village);
-            db.SaveChanges();
-            
+            if (DataFound == null)
+            {
+                db.Villages.Add(village);
+                db.SaveChanges();
+            }
+            else
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "village Name already exits" });
+            }
+
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = village.Id }, success = true, error = string.Empty });
         }
 

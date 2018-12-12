@@ -11,7 +11,7 @@ namespace TrickleUpPortal.Controllers
 {
     public class FileUploadController : ApiController
     {
-
+        private TrickleUpEntities db = new TrickleUpEntities();
         //// GET: api/Crops
         public string GetCrops()
         {
@@ -21,71 +21,119 @@ namespace TrickleUpPortal.Controllers
         [HttpPost]
         public HttpResponseMessage PostImages()
         {
+            var docfiles = new List<string>();
             HttpResponseMessage result = null;
             var httpRequest = HttpContext.Current.Request;
             if (httpRequest.Files.Count > 0)
             {
-                var docfiles = new List<string>();
                 foreach (string file in httpRequest.Files)
                 {
                     var postedFile = httpRequest.Files[file];
-                    var filePath = HttpContext.Current.Server.MapPath("~/Video/" + postedFile.FileName);
+                    var filePath = HttpContext.Current.Server.MapPath("~/MediaContent/Images/" + postedFile.FileName);
                     postedFile.SaveAs(filePath);
+                    Image Imagedata = new Image();
+                    int index = postedFile.FileName.IndexOf('.');
+                    Imagedata.ImageName = postedFile.FileName.Substring(0, index);
+                    decimal size = Math.Round(((decimal)postedFile.ContentLength / (decimal)1024), 2);
+                    Imagedata.FileSize = Convert.ToString(size) + " kb";
+                    Imagedata.FilePath = @"MediaContent\Images\" + postedFile.FileName + "";
+                    Imagedata.CreatedBy = 1;
+                    Imagedata.CreatedOn = System.DateTime.Now;
+                    Imagedata.Active = true;
+                    PostImage(Imagedata);
                     docfiles.Add(filePath);
                 }
                 result = Request.CreateResponse(HttpStatusCode.Created, docfiles);
             }
             else
             {
-                result = Request.CreateResponse(HttpStatusCode.BadRequest);
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
-            return result;
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { docfiles }, success = true, error = string.Empty });
         }
         [HttpPost]
         public HttpResponseMessage PostVideos()
         {
+            var docfiles = new List<string>();
             HttpResponseMessage result = null;
             var httpRequest = HttpContext.Current.Request;
             if (httpRequest.Files.Count > 0)
             {
-                var docfiles = new List<string>();
                 foreach (string file in httpRequest.Files)
                 {
                     var postedFile = httpRequest.Files[file];
                     var filePath = HttpContext.Current.Server.MapPath("~/MediaContent/Videos/" + postedFile.FileName);
                     postedFile.SaveAs(filePath);
+                    VideosController VideoObj = new VideosController();
+                    Video Videodata = new Video();
+                    int index = postedFile.FileName.IndexOf('.');
+                    Videodata.VideoName = postedFile.FileName.Substring(0, index);
+                    decimal size = Math.Round(((decimal)postedFile.ContentLength / (decimal)1024), 2);
+                    Videodata.FileSize = Convert.ToString(size) + " kb";
+                    Videodata.FilePath = @"MediaContent\Videos\" + postedFile.FileName + "";
+                    Videodata.CreatedBy = 1;
+                    Videodata.CreatedOn = System.DateTime.Now;
+                    Videodata.Active = true;
+                    PostVideo(Videodata);
                     docfiles.Add(filePath);
                 }
                 result = Request.CreateResponse(HttpStatusCode.Created, docfiles);
             }
             else
             {
-                result = Request.CreateResponse(HttpStatusCode.BadRequest);
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
-            return result;
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { docfiles }, success = true, error = string.Empty });
         }
         [HttpPost]
         public HttpResponseMessage PostAudios()
         {
+            var docfiles = new List<string>();
             HttpResponseMessage result = null; 
             var httpRequest = HttpContext.Current.Request;
             if (httpRequest.Files.Count > 0)
             {
-                var docfiles = new List<string>();
                 foreach (string file in httpRequest.Files)
                 {
                     var postedFile = httpRequest.Files[file];
                     var filePath = HttpContext.Current.Server.MapPath("~/MediaContent/Audios/" + postedFile.FileName);
                     postedFile.SaveAs(filePath);
+                    AudiosController audioObj = new AudiosController();
+                    Audio Audiodata = new Audio();
+                    int index = postedFile.FileName.IndexOf('.');
+                    Audiodata.FileName = postedFile.FileName.Substring(0, index);
+                    decimal size = Math.Round(((decimal)postedFile.ContentLength / (decimal)1024), 2);
+                    Audiodata.FileSize = Convert.ToString(size) + " kb";
+                    Audiodata.FilePath = @"MediaContent\Audios\"+ postedFile.FileName + "";
+                    Audiodata.Active = true;
+                    PostAudio(Audiodata);
                     docfiles.Add(filePath);
                 }
                 result = Request.CreateResponse(HttpStatusCode.Created, docfiles);
             }
             else
             {
-                result = Request.CreateResponse(HttpStatusCode.BadRequest);
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+                //result = Request.CreateResponse(HttpStatusCode.BadRequest);
             }
-            return result;
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { docfiles }, success = true, error = string.Empty });
+        }
+
+        public void PostAudio(Audio audio)
+        {
+            db.Audios.Add(audio);
+            db.SaveChanges();
+        }
+
+        public void PostVideo(Video video)
+        {
+            db.Videos.Add(video);
+            db.SaveChanges();
+        }
+        public void PostImage(Image image)
+        {
+            db.Images.Add(image);
+            db.SaveChanges();
         }
     }
 }

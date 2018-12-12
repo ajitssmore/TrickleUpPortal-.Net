@@ -18,7 +18,7 @@ namespace TrickleUpPortal.Controllers
     public class StatesController : ApiController
     {
         private TrickleUpEntities db = new TrickleUpEntities();
-        
+        CommonController comObj = new CommonController();
         // GET: api/States
         //public IQueryable<State> GetStates()
         //{
@@ -93,11 +93,33 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            db.States.Add(state);
-            db.SaveChanges();
+            try
+            {
+                var DataFound = (from statedata in db.States
+                       where statedata.StateName.ToUpper() == state.StateName.ToUpper() select statedata.StateName).SingleOrDefault();
 
-            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = state.Id }, success = true, error = string.Empty });
-            //return CreatedAtRoute("DefaultApi", new { id = state.Id }, state);
+            if (DataFound == null)
+            {
+                    db.States.Add(state);
+                    db.SaveChanges();
+            }
+            else
+            {
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "State Name already exits" });
+            }
+
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = state.Id }, success = true, error = string.Empty });
+            }
+            catch (Exception ex)
+            {
+                long ExceptionId = comObj.SendExcepToDB(ex);
+                Tbl_ExceptionLogging tbl_ExceptionLogging = db.Tbl_ExceptionLogging.Find(ExceptionId);
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { tbl_ExceptionLogging }, success = false, error = string.Empty });
+                //ExceptionLogging.SendExcepToDB(ex);
+                //Label1.Text = "Some Technical Error occurred,Please visit after some time";
+
+            }
+
         }
 
         // DELETE: api/States/5

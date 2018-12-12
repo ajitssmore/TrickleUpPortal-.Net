@@ -80,8 +80,6 @@ namespace TrickleUpPortal.Controllers
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { grampanchayat }, success = true, error = string.Empty });
         }
 
-        // POST: api/Grampanchayats
-        //[ResponseType(typeof(Grampanchayat))]
         [HttpPost]
         public HttpResponseMessage PostGrampanchayat(Grampanchayat grampanchayat)
         {
@@ -90,9 +88,19 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            db.Grampanchayats.Add(grampanchayat);
-            db.SaveChanges();
+            var DataFound = (from Grampanchayatdata in db.Grampanchayats
+                             where Grampanchayatdata.GrampanchayatName.ToUpper() == grampanchayat.GrampanchayatName.ToUpper()
+                             select Grampanchayatdata.GrampanchayatName).SingleOrDefault();
 
+            if (DataFound == null)
+            {
+                db.Grampanchayats.Add(grampanchayat);
+                db.SaveChanges();
+            }
+            else
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Grampanchayat Name already exits" });
+            }
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = grampanchayat.Id }, success = true, error = string.Empty });
         }
 

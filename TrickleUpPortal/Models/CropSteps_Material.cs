@@ -22,6 +22,13 @@ namespace TrickleUpPortal.Models
         public string Quantity { get; set; }
         public string Image_Path { get; set; }
         public string Audio_Path { get; set; }
+        public Nullable<int> CreatedBy { get; set; }
+        public Nullable<System.DateTime> CreatedOn { get; set; }
+        public Nullable<int> UpdatedBy { get; set; }
+        public Nullable<System.DateTime> UpdatedOn { get; set; }
+        public Nullable<int> ActiveBy { get; set; }
+        public Nullable<System.DateTime> ActiveOn { get; set; }
+        public Nullable<bool> Active { get; set; }
     
         public virtual Cultivation_Steps Cultivation_Steps { get; set; }
     }

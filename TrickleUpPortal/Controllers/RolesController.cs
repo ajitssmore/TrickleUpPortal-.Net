@@ -26,7 +26,7 @@ namespace TrickleUpPortal.Controllers
         public HttpResponseMessage GetRoles()
         {
             var Roles = from role in db.Roles
-                         select new { role.Id, role.RoleId, role.RoleName, role.Active };
+                         select new { role.Id, role.RoleId, role.RoleName, role.Active, role.Description };
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { Roles }, success = true, error = string.Empty });
         }
 
@@ -87,8 +87,19 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            db.Roles.Add(role);
-            db.SaveChanges();
+            var DataFound = (from Roledata in db.Roles
+                             where Roledata.RoleName.ToUpper() == role.RoleName.ToUpper()
+                             select Roledata.RoleName).SingleOrDefault();
+
+            if (DataFound == null)
+            {
+                db.Roles.Add(role);
+                db.SaveChanges();
+            }
+            else
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Role Name already exits" });
+            }
 
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = role.Id }, success = true, error = string.Empty });
         }

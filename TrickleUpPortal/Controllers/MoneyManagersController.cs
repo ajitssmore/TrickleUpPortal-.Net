@@ -104,6 +104,16 @@ namespace TrickleUpPortal.Controllers
 
                 //https://social.msdn.microsoft.com/Forums/sqlserver/en-US/401abdff-0bdb-41a0-948d-6a9593255e6f/quotthe-property-id-is-part-of-the-objects-key-information-and-cannot-be-modified?forum=silverlightgen
                 MoneyManager moneyManagerdata = db.MoneyManagers.Where(a => a.UID == item.UID).FirstOrDefault();
+                if (item.UpdatedBy != null)
+                {
+                    moneyManagerdata.UpdatedBy = item.UpdatedBy;
+                    moneyManagerdata.UpdatedOn = item.UpdatedOn;
+                }
+                if (item.ActiveBy != null)
+                {
+                    moneyManagerdata.ActiveBy = item.ActiveBy;
+                    moneyManagerdata.ActiveOn = item.ActiveOn;
+                }
                 moneyManagerdata.Active = item.Active;
                 db.SaveChanges();
             }
@@ -120,6 +130,12 @@ namespace TrickleUpPortal.Controllers
             if (!ModelState.IsValid)
             {
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
+            
+            int UIDCount = db.MoneyManagers.Where(a => a.UID.ToString().ToLower() == moneyManager.UID.Value.ToString().ToLower()).Count();
+            if (UIDCount > 0)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = "Money Manager UID already exits" });
             }
 
             db.MoneyManagers.Add(moneyManager);

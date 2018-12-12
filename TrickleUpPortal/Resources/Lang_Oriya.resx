@@ -184,13 +184,13 @@
     <value>Preparation of Pit, Seed and Nutrition Requirement</value>
   </data>
   <data name="ପଲୋଉଗିଙ୍ଗ ଅ ଲଣ୍ଡ" xml:space="preserve">
-    <value>Plouging of Land</value>
+    <value>Plouging of land</value>
   </data>
   <data name="ପଲୋଉଗିଙ୍ଗ ବିଠ ଓସଏନ" xml:space="preserve">
     <value>Plouging with Oxen</value>
   </data>
   <data name="ପଲୋଉଘ  ଲଣ୍ଡ  ୨ -୩  ଟିମଏସ  ଫୋର  ମାଇଁ  ଫାଇଲଡ  ପରିପାରସନ" xml:space="preserve">
-    <value>Plouging of Land 2-3 times for main field preparation</value>
+    <value>Plouging of land 2-3 times for main field preparation</value>
   </data>
   <data name="ପୁଂପକିନ" xml:space="preserve">
     <value>Pumpkin</value>
@@ -236,6 +236,9 @@
   </data>
   <data name="ଵାଦୀଶଃ" xml:space="preserve">
     <value>Radish</value>
+  </data>
+  <data name="ଷ୍ଟାଫþ ଫିଲଡþ ଭିଜିଟþ କିପରି ଥିଲା ?ଷ୍ଟାଫþ ଫିଲଡþ ଭିଜିଟþ କିପରି ଥିଲା ?" xml:space="preserve">
+    <value>How was the staff field Visit ?</value>
   </data>
   <data name="ସର୍ତ୍ତନ ସଲତ" xml:space="preserve">
     <value>Cotton Cloth</value>

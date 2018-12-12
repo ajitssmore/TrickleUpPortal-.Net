@@ -28,18 +28,17 @@ namespace TrickleUpPortal.Models
             this.Languages = new HashSet<Language>();
             this.Languages1 = new HashSet<Language>();
             this.Languages2 = new HashSet<Language>();
-            this.Roles = new HashSet<Role>();
-            this.Roles1 = new HashSet<Role>();
-            this.Roles2 = new HashSet<Role>();
             this.States = new HashSet<State>();
             this.States1 = new HashSet<State>();
             this.States2 = new HashSet<State>();
-            this.UserCredentials = new HashSet<UserCredential>();
             this.Villages = new HashSet<Village>();
             this.Villages1 = new HashSet<Village>();
             this.VillageContacts = new HashSet<VillageContact>();
             this.VillageContacts1 = new HashSet<VillageContact>();
             this.VillageContacts2 = new HashSet<VillageContact>();
+            this.Roles = new HashSet<Role>();
+            this.Roles1 = new HashSet<Role>();
+            this.Roles2 = new HashSet<Role>();
         }
     
         public int Id { get; set; }
@@ -92,21 +91,12 @@ namespace TrickleUpPortal.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Language> Languages2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Role> Roles { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Role> Roles1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Role> Roles2 { get; set; }
-        public virtual Role Role1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<State> States { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<State> States1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<State> States2 { get; set; }
         public virtual State State1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserCredential> UserCredentials { get; set; }
         public virtual User Users1 { get; set; }
         public virtual User User1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -119,5 +109,12 @@ namespace TrickleUpPortal.Models
         public virtual ICollection<VillageContact> VillageContacts1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VillageContact> VillageContacts2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Role> Roles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Role> Roles1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Role> Roles2 { get; set; }
+        public virtual Role Role1 { get; set; }
     }
 }

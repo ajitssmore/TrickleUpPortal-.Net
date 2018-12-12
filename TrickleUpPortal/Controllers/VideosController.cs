@@ -43,30 +43,68 @@ namespace TrickleUpPortal.Controllers
         }
 
         // PUT: api/Videos/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutVideo(int id, Video video)
+        //[HttpPost]
+        //public IHttpActionResult PutVideo(int id, Video video)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    if (id != video.Id)
+        //    {
+        //        return BadRequest();
+        //    }
+
+        //    db.Entry(video).State = EntityState.Modified;
+
+        //    try
+        //    {
+        //        //Video videodata = db.Videos.Where(a => a.Id == video.Id).FirstOrDefault();
+        //        //videodata.Active = video.Active;
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!VideoExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
+
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
+
+        [HttpPost]
+        public HttpResponseMessage DeactiveVideo(int id, Video video)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
             if (id != video.Id)
             {
-                return BadRequest();
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            db.Entry(video).State = EntityState.Modified;
+            //db.Entry(video).State = EntityState.Modified;
 
             try
             {
+                Video videodata = db.Videos.Where(a => a.Id == video.Id).FirstOrDefault();
+                videodata.Active = video.Active;
                 db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!VideoExists(id))
                 {
-                    return NotFound();
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
                 }
                 else
                 {
@@ -74,22 +112,21 @@ namespace TrickleUpPortal.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { video }, success = true, error = string.Empty });
         }
-
         // POST: api/Videos
         [ResponseType(typeof(Video))]
-        public IHttpActionResult PostVideo(Video video)
+        public HttpResponseMessage PostVideo(Video video)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
             db.Videos.Add(video);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = video.Id }, video);
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = video.Id }, success = true, error = string.Empty });
         }
 
         // DELETE: api/Videos/5

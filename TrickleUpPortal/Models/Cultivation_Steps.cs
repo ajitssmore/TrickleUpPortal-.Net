@@ -23,12 +23,22 @@ namespace TrickleUpPortal.Models
         public int Id { get; set; }
         public int Crop_Id { get; set; }
         public string Step_Name { get; set; }
-        public string MediaURL { get; set; }
+        public string ImagePath { get; set; }
         public string Step_Description { get; set; }
         public string Description_audio { get; set; }
+        public string Title_Audio { get; set; }
+        public Nullable<int> CreatedBy { get; set; }
+        public Nullable<System.DateTime> CreatedOn { get; set; }
+        public Nullable<int> UpdatedBy { get; set; }
+        public Nullable<System.DateTime> UpdatedOn { get; set; }
+        public Nullable<int> ActiveBy { get; set; }
+        public Nullable<System.DateTime> ActiveOn { get; set; }
+        public Nullable<bool> Active { get; set; }
+        public string VideoPath { get; set; }
+        public string MediaFlag { get; set; }
     
+        public virtual Crop Crop { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CropSteps_Material> CropSteps_Material { get; set; }
-        public virtual Crop Crop { get; set; }
     }
 }

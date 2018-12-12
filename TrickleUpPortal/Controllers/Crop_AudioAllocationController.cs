@@ -29,7 +29,8 @@ namespace TrickleUpPortal.Controllers
                                   from Lang in LangNew.DefaultIfEmpty()
                                   join Audio in db.Audios on Audiodata.AudioId equals Audio.Id into AudioNew
                                   from Audio in AudioNew.DefaultIfEmpty()
-                                  select new { Audiodata.Id, Audiodata.LangId, Lang.LanguageName, Audiodata.FieldType, Audiodata.AudioId, Audio.FileName, Audio.FilePath };
+                                  where Audiodata.CropId == CropId && Audiodata.Active == true
+                                  select new { Audiodata.Id, Audiodata.CropId, Audiodata.LangId, Lang.LanguageName, Audiodata.FieldType, Audiodata.AudioId, Audio.FileName, Audio.FilePath, Audiodata.Active };
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { AudioAllocation }, success = true, error = string.Empty });
         }
 
@@ -47,17 +48,51 @@ namespace TrickleUpPortal.Controllers
         }
 
         // PUT: api/Crop_AudioAllocation/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutCrop_AudioAllocation(int id, Crop_AudioAllocation crop_AudioAllocation)
+        //[ResponseType(typeof(void))]
+        //public IHttpActionResult PutCrop_AudioAllocation(int id, Crop_AudioAllocation crop_AudioAllocation)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    if (id != crop_AudioAllocation.Id)
+        //    {
+        //        return BadRequest();
+        //    }
+
+        //    db.Entry(crop_AudioAllocation).State = EntityState.Modified;
+
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!Crop_AudioAllocationExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
+
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
+
+        [HttpPost]
+        public HttpResponseMessage PutCrop_AudioAllocation(int id, Crop_AudioAllocation crop_AudioAllocation)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
             if (id != crop_AudioAllocation.Id)
             {
-                return BadRequest();
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
             db.Entry(crop_AudioAllocation).State = EntityState.Modified;
@@ -70,7 +105,7 @@ namespace TrickleUpPortal.Controllers
             {
                 if (!Crop_AudioAllocationExists(id))
                 {
-                    return NotFound();
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
                 }
                 else
                 {
@@ -78,22 +113,37 @@ namespace TrickleUpPortal.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { crop_AudioAllocation }, success = true, error = string.Empty });
         }
 
+
         // POST: api/Crop_AudioAllocation
-        [ResponseType(typeof(Crop_AudioAllocation))]
-        public IHttpActionResult PostCrop_AudioAllocation(Crop_AudioAllocation crop_AudioAllocation)
+        //[ResponseType(typeof(Crop_AudioAllocation))]
+        //public IHttpActionResult PostCrop_AudioAllocation(Crop_AudioAllocation crop_AudioAllocation)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    db.Crop_AudioAllocation.Add(crop_AudioAllocation);
+        //    db.SaveChanges();
+
+        //    return CreatedAtRoute("DefaultApi", new { id = crop_AudioAllocation.Id }, crop_AudioAllocation);
+        //}
+
+        [HttpPost]
+        public HttpResponseMessage PostCrop_AudioAllocation(Crop_AudioAllocation crop_AudioAllocation)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
             db.Crop_AudioAllocation.Add(crop_AudioAllocation);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = crop_AudioAllocation.Id }, crop_AudioAllocation);
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = crop_AudioAllocation.Id }, success = true, error = string.Empty });
         }
 
         // DELETE: api/Crop_AudioAllocation/5

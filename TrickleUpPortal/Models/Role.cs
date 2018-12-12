@@ -30,6 +30,7 @@ namespace TrickleUpPortal.Models
         public Nullable<int> ActiveBy { get; set; }
         public Nullable<System.DateTime> ActiveOn { get; set; }
         public Nullable<bool> Active { get; set; }
+        public string Description { get; set; }
     
         public virtual User User { get; set; }
         public virtual User User1 { get; set; }

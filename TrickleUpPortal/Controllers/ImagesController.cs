@@ -43,30 +43,32 @@ namespace TrickleUpPortal.Controllers
         }
 
         // PUT: api/Images/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutImage(int id, Image image)
+        [HttpPost]
+        public HttpResponseMessage PutImage(int id, Image image)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
             if (id != image.Id)
             {
-                return BadRequest();
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            db.Entry(image).State = EntityState.Modified;
+            //db.Entry(image).State = EntityState.Modified;
 
             try
             {
+                Image imagedata = db.Images.Where(a => a.Id == image.Id).FirstOrDefault();
+                imagedata.Active = image.Active;
                 db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!ImageExists(id))
                 {
-                    return NotFound();
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
                 }
                 else
                 {
@@ -74,7 +76,7 @@ namespace TrickleUpPortal.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { image }, success = true, error = string.Empty });
         }
 
         // POST: api/Images

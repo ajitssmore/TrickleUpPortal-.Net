@@ -17,7 +17,7 @@ namespace TrickleUpPortal.Models
         public int Id { get; set; }
         public Nullable<int> VillageId { get; set; }
         public string ContactName { get; set; }
-        public Nullable<decimal> ContactNo { get; set; }
+        public string ContactNo { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedOn { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
@@ -28,6 +28,7 @@ namespace TrickleUpPortal.Models
         public Nullable<int> StateId { get; set; }
         public Nullable<int> DistrictId { get; set; }
         public Nullable<int> GrampanchayatId { get; set; }
+        public string Designation { get; set; }
     
         public virtual User User { get; set; }
         public virtual User User1 { get; set; }

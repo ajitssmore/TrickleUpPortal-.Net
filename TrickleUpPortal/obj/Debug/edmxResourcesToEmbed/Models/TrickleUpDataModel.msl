@@ -16,22 +16,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Roles">
-      <EntityTypeMapping TypeName="TrickleUpModel.Role">
-        <MappingFragment StoreEntitySet="Roles">
-          <ScalarProperty Name="Active" ColumnName="Active" />
-          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
-          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
-          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="States">
       <EntityTypeMapping TypeName="TrickleUpModel.State">
         <MappingFragment StoreEntitySet="State">
@@ -94,32 +78,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CropSteps_Material">
-      <EntityTypeMapping TypeName="TrickleUpModel.CropSteps_Material">
-        <MappingFragment StoreEntitySet="CropSteps_Material">
-          <ScalarProperty Name="Audio_Path" ColumnName="Audio_Path" />
-          <ScalarProperty Name="Image_Path" ColumnName="Image_Path" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-          <ScalarProperty Name="Per_Decimal_Price" ColumnName="Per_Decimal_Price" />
-          <ScalarProperty Name="Material_Transaction" ColumnName="Material_Transaction" />
-          <ScalarProperty Name="Material_Name" ColumnName="Material_Name" />
-          <ScalarProperty Name="Step_Id" ColumnName="Step_Id" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Cultivation_Steps">
-      <EntityTypeMapping TypeName="TrickleUpModel.Cultivation_Steps">
-        <MappingFragment StoreEntitySet="Cultivation_Steps">
-          <ScalarProperty Name="Description_audio" ColumnName="Description_audio" />
-          <ScalarProperty Name="Step_Description" ColumnName="Step_Description" />
-          <ScalarProperty Name="MediaURL" ColumnName="MediaURL" />
-          <ScalarProperty Name="Step_Name" ColumnName="Step_Name" />
-          <ScalarProperty Name="Crop_Id" ColumnName="Crop_Id" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Grampanchayats">
       <EntityTypeMapping TypeName="TrickleUpModel.Grampanchayat">
         <MappingFragment StoreEntitySet="Grampanchayat">
@@ -161,17 +119,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UserCredentials">
-      <EntityTypeMapping TypeName="TrickleUpModel.UserCredential">
-        <MappingFragment StoreEntitySet="UserCredential">
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="TrickleUpModel.User">
         <MappingFragment StoreEntitySet="Users">
@@ -203,36 +150,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="VillageContacts">
-      <EntityTypeMapping TypeName="TrickleUpModel.VillageContact">
-        <MappingFragment StoreEntitySet="VillageContact">
-          <ScalarProperty Name="GrampanchayatId" ColumnName="GrampanchayatId" />
-          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
-          <ScalarProperty Name="StateId" ColumnName="StateId" />
-          <ScalarProperty Name="Active" ColumnName="Active" />
-          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
-          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
-          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
-          <ScalarProperty Name="VillageId" ColumnName="VillageId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="CurrencyStocks">
-      <EntityTypeMapping TypeName="TrickleUpModel.CurrencyStock">
-        <MappingFragment StoreEntitySet="CurrencyStock">
-          <ScalarProperty Name="Count" ColumnName="Count" />
-          <ScalarProperty Name="Currency" ColumnName="Currency" />
-          <ScalarProperty Name="MoneyManagerId" ColumnName="MoneyManagerId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Audios">
       <EntityTypeMapping TypeName="TrickleUpModel.Audio">
         <MappingFragment StoreEntitySet="Audios">
@@ -242,31 +159,6 @@
           <ScalarProperty Name="FileSize" ColumnName="FileSize" />
           <ScalarProperty Name="FilePath" ColumnName="FilePath" />
           <ScalarProperty Name="FileName" ColumnName="FileName" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MoneyManagers">
-      <EntityTypeMapping TypeName="TrickleUpModel.MoneyManager">
-        <MappingFragment StoreEntitySet="MoneyManager">
-          <ScalarProperty Name="UID" ColumnName="UID" />
-          <ScalarProperty Name="Active" ColumnName="Active" />
-          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
-          <ScalarProperty Name="Mode" ColumnName="Mode" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Crop_AudioAllocation">
-      <EntityTypeMapping TypeName="TrickleUpModel.Crop_AudioAllocation">
-        <MappingFragment StoreEntitySet="Crop_AudioAllocation">
-          <ScalarProperty Name="AudioId" ColumnName="AudioId" />
-          <ScalarProperty Name="FieldType" ColumnName="FieldType" />
-          <ScalarProperty Name="LangId" ColumnName="LangId" />
-          <ScalarProperty Name="CropId" ColumnName="CropId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -285,17 +177,6 @@
           <ScalarProperty Name="Ready" ColumnName="Ready" />
           <ScalarProperty Name="FilePath" ColumnName="FilePath" />
           <ScalarProperty Name="CropName" ColumnName="CropName" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Step_AudioAllocation">
-      <EntityTypeMapping TypeName="TrickleUpModel.Step_AudioAllocation">
-        <MappingFragment StoreEntitySet="Step_AudioAllocation">
-          <ScalarProperty Name="AudioId" ColumnName="AudioId" />
-          <ScalarProperty Name="FieldType" ColumnName="FieldType" />
-          <ScalarProperty Name="LangId" ColumnName="LangId" />
-          <ScalarProperty Name="StepId" ColumnName="StepId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -322,6 +203,248 @@
           <ScalarProperty Name="FileSize" ColumnName="FileSize" />
           <ScalarProperty Name="FilePath" ColumnName="FilePath" />
           <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VillageContacts">
+      <EntityTypeMapping TypeName="TrickleUpModel.VillageContact">
+        <MappingFragment StoreEntitySet="VillageContact">
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="GrampanchayatId" ColumnName="GrampanchayatId" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="VillageId" ColumnName="VillageId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedBackQuestions">
+      <EntityTypeMapping TypeName="TrickleUpModel.FeedBackQuestion">
+        <MappingFragment StoreEntitySet="FeedBackQuestions">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Questions" ColumnName="Questions" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserFeedbacks">
+      <EntityTypeMapping TypeName="TrickleUpModel.UserFeedback">
+        <MappingFragment StoreEntitySet="UserFeedback">
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FeedBack" ColumnName="FeedBack" />
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CropSteps_Material">
+      <EntityTypeMapping TypeName="TrickleUpModel.CropSteps_Material">
+        <MappingFragment StoreEntitySet="CropSteps_Material">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Audio_Path" ColumnName="Audio_Path" />
+          <ScalarProperty Name="Image_Path" ColumnName="Image_Path" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Per_Decimal_Price" ColumnName="Per_Decimal_Price" />
+          <ScalarProperty Name="Material_Transaction" ColumnName="Material_Transaction" />
+          <ScalarProperty Name="Material_Name" ColumnName="Material_Name" />
+          <ScalarProperty Name="Step_Id" ColumnName="Step_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PredefinedAudios">
+      <EntityTypeMapping TypeName="TrickleUpModel.PredefinedAudio">
+        <MappingFragment StoreEntitySet="PredefinedAudios">
+          <ScalarProperty Name="LangCode" ColumnName="LangCode" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="PredefinedText" ColumnName="PredefinedText" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Crop_AudioAllocation">
+      <EntityTypeMapping TypeName="TrickleUpModel.Crop_AudioAllocation">
+        <MappingFragment StoreEntitySet="Crop_AudioAllocation">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="AudioId" ColumnName="AudioId" />
+          <ScalarProperty Name="FieldType" ColumnName="FieldType" />
+          <ScalarProperty Name="LangId" ColumnName="LangId" />
+          <ScalarProperty Name="CropId" ColumnName="CropId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CropMaterial_AudioAllocation">
+      <EntityTypeMapping TypeName="TrickleUpModel.CropMaterial_AudioAllocation">
+        <MappingFragment StoreEntitySet="CropMaterial_AudioAllocation">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="AudioId" ColumnName="AudioId" />
+          <ScalarProperty Name="FieldType" ColumnName="FieldType" />
+          <ScalarProperty Name="LangId" ColumnName="LangId" />
+          <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CropStepAudio_Allocation">
+      <EntityTypeMapping TypeName="TrickleUpModel.CropStepAudio_Allocation">
+        <MappingFragment StoreEntitySet="CropStepAudio_Allocation">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="AudioId" ColumnName="AudioId" />
+          <ScalarProperty Name="FieldType" ColumnName="FieldType" />
+          <ScalarProperty Name="LangId" ColumnName="LangId" />
+          <ScalarProperty Name="StepId" ColumnName="StepId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CurrencyStocks">
+      <EntityTypeMapping TypeName="TrickleUpModel.CurrencyStock">
+        <MappingFragment StoreEntitySet="CurrencyStock">
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="MoneyManagerId" ColumnName="MoneyManagerId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_ExceptionLogging">
+      <EntityTypeMapping TypeName="TrickleUpModel.Tbl_ExceptionLogging">
+        <MappingFragment StoreEntitySet="Tbl_ExceptionLogging">
+          <ScalarProperty Name="Logdate" ColumnName="Logdate" />
+          <ScalarProperty Name="ExceptionURL" ColumnName="ExceptionURL" />
+          <ScalarProperty Name="ExceptionSource" ColumnName="ExceptionSource" />
+          <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
+          <ScalarProperty Name="ExceptionMsg" ColumnName="ExceptionMsg" />
+          <ScalarProperty Name="Logid" ColumnName="Logid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cultivation_Steps">
+      <EntityTypeMapping TypeName="TrickleUpModel.Cultivation_Steps">
+        <MappingFragment StoreEntitySet="Cultivation_Steps">
+          <ScalarProperty Name="MediaFlag" ColumnName="MediaFlag" />
+          <ScalarProperty Name="VideoPath" ColumnName="VideoPath" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Title_Audio" ColumnName="Title_Audio" />
+          <ScalarProperty Name="Description_audio" ColumnName="Description_audio" />
+          <ScalarProperty Name="Step_Description" ColumnName="Step_Description" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="Step_Name" ColumnName="Step_Name" />
+          <ScalarProperty Name="Crop_Id" ColumnName="Crop_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="TrickleUpModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MasterPasswords">
+      <EntityTypeMapping TypeName="TrickleUpModel.MasterPassword">
+        <MappingFragment StoreEntitySet="MasterPassword">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserCredentials">
+      <EntityTypeMapping TypeName="TrickleUpModel.UserCredential">
+        <MappingFragment StoreEntitySet="UserCredential">
+          <ScalarProperty Name="LangCode" ColumnName="LangCode" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MoneyManagers">
+      <EntityTypeMapping TypeName="TrickleUpModel.MoneyManager">
+        <MappingFragment StoreEntitySet="MoneyManager">
+          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Mode" ColumnName="Mode" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserFCMTokens">
+      <EntityTypeMapping TypeName="TrickleUpModel.UserFCMToken">
+        <MappingFragment StoreEntitySet="UserFCMToken">
+          <ScalarProperty Name="Registered" ColumnName="Registered" />
+          <ScalarProperty Name="FCMToken" ColumnName="FCMToken" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -19,5 +19,10 @@ namespace TrickleUpPortal.Models
         public Nullable<int> LangId { get; set; }
         public string FieldType { get; set; }
         public Nullable<int> AudioId { get; set; }
+        public Nullable<int> CreatedBy { get; set; }
+        public Nullable<System.DateTime> CreatedOn { get; set; }
+        public Nullable<int> ActiveBy { get; set; }
+        public Nullable<System.DateTime> ActiveOn { get; set; }
+        public Nullable<bool> Active { get; set; }
     }
 }

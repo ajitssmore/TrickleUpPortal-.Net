@@ -43,30 +43,67 @@ namespace TrickleUpPortal.Controllers
         }
 
         // PUT: api/Audios/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutAudio(int id, Audio audio)
+        //[ResponseType(typeof(void))]
+        //public IHttpActionResult PutAudio(int id, Audio audio)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    if (id != audio.Id)
+        //    {
+        //        return BadRequest();
+        //    }
+
+        //    //db.Entry(audio).State = EntityState.Modified;
+
+        //    try
+        //    {
+        //        Audio audiodata = db.Audios.Where(a => a.Id == audio.Id).FirstOrDefault();
+        //        audiodata.Active = audio.Active;
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!AudioExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
+
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
+        [HttpPost]
+        public HttpResponseMessage DeactiveAudio(int id, Audio audio)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
             if (id != audio.Id)
             {
-                return BadRequest();
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            db.Entry(audio).State = EntityState.Modified;
+            //db.Entry(audio).State = EntityState.Modified;
 
             try
             {
+                Audio audiodata = db.Audios.Where(a => a.Id == audio.Id).FirstOrDefault();
+                audiodata.Active = audio.Active;
                 db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!AudioExists(id))
                 {
-                    return NotFound();
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
                 }
                 else
                 {
@@ -74,22 +111,22 @@ namespace TrickleUpPortal.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { audio }, success = true, error = string.Empty });
         }
 
         // POST: api/Audios
         [ResponseType(typeof(Audio))]
-        public IHttpActionResult PostAudio(Audio audio)
+        public HttpResponseMessage PostAudio(Audio audio)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
             db.Audios.Add(audio);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = audio.Id }, audio);
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = audio.Id }, success = true, error = string.Empty });
         }
 
         // DELETE: api/Audios/5

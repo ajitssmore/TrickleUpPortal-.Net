@@ -16,6 +16,7 @@ namespace TrickleUpPortal.Controllers
     public class UsersController : ApiController
     {
         public string bulkUploadId; public int UserCreateBy; public DateTime UserCreatedOn;
+        CommonController comObj = new CommonController();
         private TrickleUpEntities db = new TrickleUpEntities();
 
         // GET: api/Users
@@ -27,53 +28,61 @@ namespace TrickleUpPortal.Controllers
         // GET: api/Users
         public HttpResponseMessage GetAllUsers()
         {
-            var result = from User in db.Users
-                         join Gender in db.Genders on User.Gender equals Gender.Id into GenderNew
-                         from Gender in GenderNew.DefaultIfEmpty()
-                         join State in db.States on User.State equals State.Id into StateNew
-                         from State in StateNew.DefaultIfEmpty()
-                         join Role in db.Roles on User.Role equals Role.Id into RoleNew
-                         from Role in RoleNew.DefaultIfEmpty()
-                         join Lang in db.Languages on User.Language equals Lang.Id into LangNew
-                         from Lang in LangNew.DefaultIfEmpty()
-                         join District in db.Districts on User.District equals District.Id into DistrictNew
-                         from District in DistrictNew.DefaultIfEmpty()
-                         join Village in db.Villages on User.Village equals Village.Id into VillageNew
-                         from Village in VillageNew.DefaultIfEmpty()
-                         join Grampanchayat in db.Grampanchayats on User.Grampanchayat equals Grampanchayat.Id into GrampanchayatNew
-                         from Grampanchayat in GrampanchayatNew.DefaultIfEmpty()
-                         select new
-                         {
-                             User.Id,
-                             User.UserId,
-                             User.Name,
-                             User.PhoneNumber,
-                             User.Age,
-                             User.Gender,
-                             Gender.GenderName,
-                             User.State,
-                             State.StateName,
-                             User.District,
-                             District.DistrictName,
-                             User.Village,
-                             Village.VillageName,
-                             User.Grampanchayat,
-                             Grampanchayat.GrampanchayatName,
-                             User.Aadhaar,
-                             User.Role,
-                             Role.RoleName,
-                             User.Language,
-                             Lang.LanguageName,
-                             User.IMEI1,
-                             User.IMEI2,
-                             User.FCMToken,
-                             User.Active,
-                             User.ImagePath
-                         };
-                         //select new { User.Id, User.UserId, User.Name, User.PhoneNumber, User.Age, User.Gender, Gender.GenderName, User.State, State.StateName, User.District, District.DistrictName, User.Village, Village.VillageName, User.Grampanchayat, Grampanchayat.GrampanchayatName, User.Aadhaar, User.Role, Role.RoleName, User.Language, Lang.LanguageName, User.IMEI1, User.IMEI2, User.FCMToken, User.Active, User.ImagePath };
 
-
-            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = result, success = true, error = string.Empty });
+            try
+            {
+                //int value = 1 / int.Parse("0");
+                var result = from User in db.Users
+                             join Gender in db.Genders on User.Gender equals Gender.Id into GenderNew
+                             from Gender in GenderNew.DefaultIfEmpty()
+                             join State in db.States on User.State equals State.Id into StateNew
+                             from State in StateNew.DefaultIfEmpty()
+                             join Role in db.Roles on User.Role equals Role.Id into RoleNew
+                             from Role in RoleNew.DefaultIfEmpty()
+                             join Lang in db.Languages on User.Language equals Lang.Id into LangNew
+                             from Lang in LangNew.DefaultIfEmpty()
+                             join District in db.Districts on User.District equals District.Id into DistrictNew
+                             from District in DistrictNew.DefaultIfEmpty()
+                             join Village in db.Villages on User.Village equals Village.Id into VillageNew
+                             from Village in VillageNew.DefaultIfEmpty()
+                             join Grampanchayat in db.Grampanchayats on User.Grampanchayat equals Grampanchayat.Id into GrampanchayatNew
+                             from Grampanchayat in GrampanchayatNew.DefaultIfEmpty()
+                             select new
+                             {
+                                 User.Id,
+                                 User.UserId,
+                                 User.Name,
+                                 User.PhoneNumber,
+                                 User.Age,
+                                 User.Gender,
+                                 Gender.GenderName,
+                                 User.State,
+                                 State.StateName,
+                                 User.District,
+                                 District.DistrictName,
+                                 User.Village,
+                                 Village.VillageName,
+                                 User.Grampanchayat,
+                                 Grampanchayat.GrampanchayatName,
+                                 User.Aadhaar,
+                                 User.Role,
+                                 Role.RoleName,
+                                 User.Language,
+                                 Lang.LanguageName,
+                                 User.IMEI1,
+                                 User.IMEI2,
+                                 User.FCMToken,
+                                 User.Active,
+                                 User.ImagePath
+                             };
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = result, success = true, error = string.Empty });
+            }
+            catch (Exception ex)
+            {
+                long ExceptionId = comObj.SendExcepToDB(ex);
+                Tbl_ExceptionLogging tbl_ExceptionLogging = db.Tbl_ExceptionLogging.Find(ExceptionId);
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { tbl_ExceptionLogging }, success = false, error = string.Empty });
+            }
         }
 
         // GET: api/Users/5
@@ -205,6 +214,37 @@ namespace TrickleUpPortal.Controllers
                         ErrorMerssage.Append(", User Name already Exits");
                     }
                 }
+
+                if (userdetails.State != null)
+                {
+                    int StateCount = db.States.Where(a => a.StateName == userdetails.State).ToList().Count();
+                    if (StateCount > 0)
+                    {
+                        ErrorMesFlag = true;
+                        ErrorMerssage.Append(", State Does not exits");
+                    }
+                }
+
+                if (userdetails.District != null)
+                {
+                    int DistrictCount = db.Districts.Where(a => a.DistrictName == userdetails.District).ToList().Count();
+                    if (DistrictCount > 0)
+                    {
+                        ErrorMesFlag = true;
+                        ErrorMerssage.Append(", District Does not exits");
+                    }
+                }
+
+                if (userdetails.Grampanchayat != null)
+                {
+                    int GrampanchayatCount = db.Grampanchayats.Where(a => a.GrampanchayatName == userdetails.Grampanchayat).ToList().Count();
+                    if (GrampanchayatCount > 0)
+                    {
+                        ErrorMesFlag = true;
+                        ErrorMerssage.Append(", Grampanchayat Does not exits");
+                    }
+                }
+
                 userdetails.ErrorMessage = ErrorMerssage.ToString();
             }
 

@@ -21,14 +21,14 @@ namespace TrickleUpPortal.Controllers
     {
         private TrickleUpEntities db = new TrickleUpEntities();
         CommonController comObj = new CommonController();
-        string LanguageName, AudioFilePath;
+        string LanguageName;
         public object serializer { get; private set; }
 
-        //// GET: api/Crops
-        //public IQueryable<Crop> GetCrops()
-        //{
-        //    return db.Crops;
-        //}
+        // GET: api/Crops
+        public IQueryable<Crop> GetCropsdata()
+        {
+            return db.Crops;
+        }
 
         [HttpGet]
         public HttpResponseMessage GetCrops(int langCode)
@@ -53,7 +53,7 @@ namespace TrickleUpPortal.Controllers
                         cropObj.CropName = item.CropName!=null ? comObj.GetResxNameByValue_Hindi(item.CropName) : string.Empty;
                         cropObj.FilePath = item.FilePath!=null ? item.FilePath : string.Empty;
                         cropObj.Ready = item.Ready != null ? (bool)item.Ready : false;
-                        cropObj.AudioTitle_Path = fetchAudioPaht(item.Id, langCode);
+                        cropObj.AudioTitle_Path = comObj.fetchAudioPahtCrops(item.Id, langCode);
                         Crops.Add(cropObj);
                         break;
                     case "English":
@@ -61,7 +61,7 @@ namespace TrickleUpPortal.Controllers
                         cropObj.CropName = item.CropName;
                         cropObj.FilePath = item.FilePath;
                         cropObj.Ready = item.Ready!= null ? (bool)item.Ready : false;
-                        cropObj.AudioTitle_Path = fetchAudioPaht(item.Id, langCode);
+                        cropObj.AudioTitle_Path = comObj.fetchAudioPahtCrops(item.Id, langCode);
                         Crops.Add(cropObj);
                         break;
                     case "Oriya":
@@ -69,7 +69,7 @@ namespace TrickleUpPortal.Controllers
                         cropObj.CropName = item.CropName != null ? comObj.GetResxNameByValue_Oriya(item.CropName) : string.Empty;
                         cropObj.FilePath = item.FilePath;
                         cropObj.Ready = item.Ready != null ? (bool)item.Ready : false;
-                        cropObj.AudioTitle_Path = fetchAudioPaht(item.Id, langCode);
+                        cropObj.AudioTitle_Path = comObj.fetchAudioPahtCrops(item.Id, langCode);
                         Crops.Add(cropObj);
                         break;
                     default:
@@ -80,32 +80,53 @@ namespace TrickleUpPortal.Controllers
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { Crops }, success = true, error = string.Empty });
         }
 
-        public string fetchAudioPaht(int CropId, int langId)
+        [HttpGet]
+        public HttpResponseMessage GetCropsPortal(int langCode)
         {
-            var results = (from Audiodata in db.Crop_AudioAllocation
-                          join AudioFile in db.Audios on Audiodata.AudioId equals AudioFile.Id
-                          where Audiodata.CropId == CropId && Audiodata.LangId == langId
-                          select new { AudioFile.FilePath, Audiodata.FieldType }).ToList();
-            if (results.Count > 0)
+            Language language = comObj.fetchLang(langCode);
+            if (language != null)
             {
-                foreach (var item in results)
+                LanguageName = language.LanguageName;
+            }
+
+            var results = from Cropdata in db.Crops
+                          select new { Cropdata.Id, Cropdata.CropName, Cropdata.FilePath, Cropdata.Ready, Cropdata.Active };
+            List<Cropdata> Crops = new List<Cropdata>();
+            foreach (var item in results)
+            {
+                Cropdata cropObj = new Cropdata();
+                switch (LanguageName)
                 {
-                    switch (item.FieldType)
-                    {
-                        case "Title":
-                            AudioFilePath = item.FilePath;
-                            break;
-                        default:
-                            AudioFilePath = string.Empty;
-                            break;
-                    }
+                    case "Hindi":
+                        cropObj.Id = item.Id;
+                        cropObj.CropName = item.CropName != null ? comObj.GetResxNameByValue_Hindi(item.CropName) : string.Empty;
+                        cropObj.FilePath = item.FilePath != null ? item.FilePath : string.Empty;
+                        cropObj.Ready = item.Ready != null ? (bool)item.Ready : false;
+                        cropObj.AudioTitle_Path = comObj.fetchAudioPahtCrops(item.Id, langCode);
+                        Crops.Add(cropObj);
+                        break;
+                    case "English":
+                        cropObj.Id = item.Id;
+                        cropObj.CropName = item.CropName;
+                        cropObj.FilePath = item.FilePath;
+                        cropObj.Ready = item.Ready != null ? (bool)item.Ready : false;
+                        cropObj.AudioTitle_Path = comObj.fetchAudioPahtCrops(item.Id, langCode);
+                        Crops.Add(cropObj);
+                        break;
+                    case "Oriya":
+                        cropObj.Id = item.Id;
+                        cropObj.CropName = item.CropName != null ? comObj.GetResxNameByValue_Oriya(item.CropName) : string.Empty;
+                        cropObj.FilePath = item.FilePath;
+                        cropObj.Ready = item.Ready != null ? (bool)item.Ready : false;
+                        cropObj.AudioTitle_Path = comObj.fetchAudioPahtCrops(item.Id, langCode);
+                        Crops.Add(cropObj);
+                        break;
+                    default:
+                        break;
                 }
             }
-            else
-            {
-                AudioFilePath = string.Empty;
-            }
-            return AudioFilePath;
+
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { Crops }, success = true, error = string.Empty });
         }
 
         public class Cropdata
@@ -169,27 +190,58 @@ namespace TrickleUpPortal.Controllers
                 {
                     case "Hindi":
                         crop.CropName = crop.CropName != null ? comObj.GetResxNameByValue_Hindi(crop.CropName) : string.Empty;
+                        crop.Title_Audio = comObj.fetchAudioPahtCrops(id, langId);
                         if (crop.Cultivation_Steps.Count > 0)
                         {
                             foreach (var item in crop.Cultivation_Steps)
                             {
                                 item.Step_Name = item.Step_Name != null ? comObj.GetResxNameByValue_Hindi(item.Step_Name) : string.Empty;
                                 item.Step_Description = item.Step_Description != null ? comObj.GetResxNameByValue_Hindi(item.Step_Description) : string.Empty;
+                                item.Title_Audio = comObj.fetchAudioPahtSteps(item.Id, langId, "Title");
+                                item.Description_audio = comObj.fetchAudioPahtSteps(item.Id, langId, "Description");
                                 if (item.CropSteps_Material.Count > 0)
                                 {
                                     foreach (var itemMat in item.CropSteps_Material)
                                     {
                                         itemMat.Material_Name = itemMat.Material_Name != null ? comObj.GetResxNameByValue_Hindi(itemMat.Material_Name) : string.Empty;
+                                        itemMat.Audio_Path = comObj.fetchAudioPahtMaterials(itemMat.Id, langId);
+                                        itemMat.Image_Path = @"\Images\Steps\PlougingofLand.jpg";
                                     }
                                 }
                             }
                         }
+                        else
+                        {
+                            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "There are no steps and Material for this Crop" });
+                        }
                         break;
                     case "English":
-                        
+                        crop.CropName = crop.CropName;
+                        crop.Title_Audio = comObj.fetchAudioPahtCrops(id, langId);
+                        if (crop.Cultivation_Steps.Count > 0)
+                        {
+                            foreach (var item in crop.Cultivation_Steps)
+                            {
+                                item.Title_Audio = comObj.fetchAudioPahtSteps(item.Id, langId, "Title");
+                                item.Description_audio = comObj.fetchAudioPahtSteps(item.Id, langId, "Description");
+                                if (item.CropSteps_Material.Count > 0)
+                                {
+                                    foreach (var itemMat in item.CropSteps_Material)
+                                    {
+                                        itemMat.Audio_Path = comObj.fetchAudioPahtMaterials(itemMat.Id, langId);
+                                        itemMat.Image_Path = @"\Images\Steps\PlougingofLand.jpg";
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "There are no steps and Material for this Crop" });
+                        }
                         break;
                     case "Oriya":
                         crop.CropName = crop.CropName != null ? comObj.GetResxNameByValue_Oriya(crop.CropName) : string.Empty;
+                        //crop.Title_Audio = @"MediaContent\Audios\BitterGourd_ENG.mp3";
                         if (crop.Cultivation_Steps.Count > 0)
                         {
                             foreach (var item in crop.Cultivation_Steps)
@@ -201,9 +253,15 @@ namespace TrickleUpPortal.Controllers
                                     foreach (var itemMat in item.CropSteps_Material)
                                     {
                                         itemMat.Material_Name = itemMat.Material_Name != null ? comObj.GetResxNameByValue_Oriya(itemMat.Material_Name) : string.Empty;
+                                        //itemMat.Audio_Path = @"MediaContent\Audios\BitterGourd_ENG.mp3";
+                                        itemMat.Image_Path = @"\Images\Steps\PlougingofLand.jpg";
                                     }
                                 }
                             }
+                        }
+                        else
+                        {
+                            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty } , success = false, error = "There are no steps and Material for this Crop" });
                         }
                         break;
                     default:
@@ -239,15 +297,70 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            db.Entry(crop).State = EntityState.Modified;
-
+            //db.Entry(crop).State = EntityState.Modified;
             try
             {
+                Crop cropsData = db.Crops.Where(a => a.Id == id).FirstOrDefault();
+                cropsData.CropName = crop.CropName;
+                cropsData.Active = crop.Active;
+                cropsData.Ready = crop.Active;
+                if (crop.UpdatedBy != null)
+                {
+                    cropsData.UpdatedBy = crop.UpdatedBy;
+                    cropsData.UpdatedOn = crop.UpdatedOn;
+                }
+                if (crop.ActiveBy != null)
+                {
+                    cropsData.ActiveBy = crop.ActiveBy;
+                    cropsData.ActiveOn = crop.ActiveOn;
+                }
                 db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!CropExists(id))
+                {
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { crop }, success = true, error = string.Empty });
+        }
+
+        [HttpPost]
+        public HttpResponseMessage UpdateCropImagePath(Crop crop)
+        {
+            if (!ModelState.IsValid)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
+
+            //if (id != crop.Id)
+            //{
+            //    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            //}
+
+            //db.Entry(crop).State = EntityState.Modified;
+            try
+            {
+                Crop cropsData = db.Crops.Where(a => a.Id == crop.Id).FirstOrDefault();
+                cropsData.FilePath = crop.FilePath;
+                
+                if (crop.UpdatedBy != null)
+                {
+                    cropsData.UpdatedBy = crop.UpdatedBy;
+                    cropsData.UpdatedOn = crop.UpdatedOn;
+                }
+                
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!CropExists(crop.Id))
                 {
                     return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
                 }

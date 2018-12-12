@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -78,10 +76,6 @@
     </Reference>
     <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -182,22 +176,30 @@
     <Compile Include="Controllers\AudiosController.cs" />
     <Compile Include="Controllers\BulkUploadRefsController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\CropMaterial_AudioAllocationController.cs" />
     <Compile Include="Controllers\CropsController.cs" />
+    <Compile Include="Controllers\CropStepAudio_AllocationController.cs" />
     <Compile Include="Controllers\CropSteps_MaterialController.cs" />
     <Compile Include="Controllers\Crop_AudioAllocationController.cs" />
     <Compile Include="Controllers\Cultivation_StepsController.cs" />
     <Compile Include="Controllers\DistrictsController.cs" />
+    <Compile Include="Controllers\FeedBackQuestionsController.cs" />
     <Compile Include="Controllers\FileUploadController.cs" />
     <Compile Include="Controllers\GendersController.cs" />
     <Compile Include="Controllers\GrampanchayatsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\LanguagesController.cs" />
+    <Compile Include="Controllers\MasterPasswordsController.cs" />
     <Compile Include="Controllers\MediaContentsController.cs" />
     <Compile Include="Controllers\MoneyManagersController.cs" />
+    <Compile Include="Controllers\PredefinedAudiosController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\StatesController.cs" />
+    <Compile Include="Controllers\Tbl_ExceptionLoggingController.cs" />
     <Compile Include="Controllers\UserCredentialsController.cs" />
+    <Compile Include="Controllers\UserFCMTokensController.cs" />
+    <Compile Include="Controllers\UserFeedbacksController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\VideosController.cs" />
     <Compile Include="Controllers\VillageContactsController.cs" />
@@ -215,6 +217,12 @@
     <Compile Include="Models\Crop.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CropMaterial_AudioAllocation.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CropStepAudio_Allocation.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CropSteps_Material.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
@@ -230,6 +238,9 @@
     <Compile Include="Models\District.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FeedBackQuestion.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Gender.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
@@ -242,10 +253,16 @@
     <Compile Include="Models\Language.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MasterPassword.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\MediaContent.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MoneyManager.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PredefinedAudio.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Role.cs">
@@ -254,7 +271,7 @@
     <Compile Include="Models\State.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Step_AudioAllocation.cs">
+    <Compile Include="Models\Tbl_ExceptionLogging.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TrickleUpDataModel.Context.cs">
@@ -278,6 +295,12 @@
     <Compile Include="Models\UserCredential.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserFCMToken.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserFeedback.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserPasswordModel.cs" />
     <Compile Include="Models\Video.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
@@ -289,25 +312,13 @@
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\Lang_hindi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Lang_hindi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Lang_Oriya.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Lang_Oriya.resx</DependentUpon>
-    </Compile>
+    <Compile Include="Resources\Lang_hindi.Designer.cs" />
+    <Compile Include="Resources\Lang_Oriya.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\img\avatars\user.png" />
-    <Content Include="assets\img\backgroundImage.jpg" />
-    <Content Include="assets\img\brand\logo.svg" />
-    <Content Include="assets\img\brand\sygnet.svg" />
     <Content Include="assets\img\brand\trickleUpLogo.png" />
     <Content Include="assets\img\brand\Tup.jpg" />
-    <Content Include="assets\img\favicon.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -328,6 +339,8 @@
     <Content Include="Images\Crops\Radish.jpg" />
     <Content Include="Images\Crops\Tomato.jpeg" />
     <Content Include="Images\Crops\Tomato.jpg" />
+    <Content Include="Images\Steps\BitterGourdHarvesting.jpg" />
+    <Content Include="Images\Steps\FirstWeedingandHoeing.jpg" />
     <Content Include="Images\Steps\IMG-101.jpeg" />
     <Content Include="Images\Steps\IMG-102.jpeg" />
     <Content Include="Images\Steps\IMG-104.jpeg" />
@@ -375,6 +388,13 @@
     <Content Include="Images\Steps\MIMG-136.jpeg" />
     <Content Include="Images\Steps\MIMG-137.jpeg" />
     <Content Include="Images\Steps\MIMG-139.jpeg" />
+    <Content Include="Images\Steps\OrganicPesticidesandFertilizers.jpg" />
+    <Content Include="Images\Steps\OrganicPesticidesandFertilizers1.jpg" />
+    <Content Include="Images\Steps\PlougingofLand.jpg" />
+    <Content Include="Images\Steps\PreparationofPit.jpg" />
+    <Content Include="Images\Steps\SecondWeedingandHoeing.JPG" />
+    <Content Include="Images\Steps\seed-sprouting.jpg" />
+    <Content Include="Images\Steps\SeedTreatment.jpg" />
     <Content Include="Images\Users\24390a45-1948-41bf-84c4-5802c6fed077_ChandanMishra.jpg" />
     <Content Include="Images\Users\FemaleUser.jpg" />
     <Content Include="Images\Users\user.png" />
@@ -383,6 +403,47 @@
     <Content Include="MediaContent\Audios\BitterGourd_HIN.mp3" />
     <Content Include="MediaContent\Audios\Chilli_Eng.mp3" />
     <Content Include="MediaContent\Audios\Chilli_Hin.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-102.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-103.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-104.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-105.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-109.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-110.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-112.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-113.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-115.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-118.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-120.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-121.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-124.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-126.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-128.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-132.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-133.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-134.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-135.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-136.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-137.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOM-139.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOS-10.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOS-11.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOS-12.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOS-13.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOS-5.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOS-6.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOS-7.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOS-8.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOS-9.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOSDD-10.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOSDD-11.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOSDD-12.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOSDD-13.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOSDD-14.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOSDD-5.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOSDD-6.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOSDD-7.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOSDD-8.mp3" />
+    <Content Include="MediaContent\Audios\Chilli_HVOSDD-9.mp3" />
     <Content Include="MediaContent\Audios\Cucumber_ENG.mp3" />
     <Content Include="MediaContent\Audios\Descriptionstep1_hindi.mp3" />
     <Content Include="MediaContent\Audios\des_step1_english.mp3" />
@@ -399,11 +460,110 @@
     <Content Include="MediaContent\Audios\des_step7_hindi.mp3" />
     <Content Include="MediaContent\Audios\des_step8_english.mp3" />
     <Content Include="MediaContent\Audios\des_step8_hindi.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOM-102.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOM-103.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOM-104.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOM-105.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOM-106.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOM-109.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOM-110.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOM-116.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOM-119.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOM-121.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOM-122.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOM-126.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOM-128.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOM-133.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOM-135.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOM-136.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOM-139.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOS-10.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOS-11.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOS-12.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOS-5.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOS-6.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOS-7.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOS-8.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOS-9.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOSDD-10.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOSDD-11.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOSDD-12.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOSDD-5.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOSDD-6.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOSDD-7.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOSDD-8.mp3" />
+    <Content Include="MediaContent\Audios\LadiesFinger_HVOSDD-9.mp3" />
     <Content Include="MediaContent\Audios\Ladyfinger_Eng.mp3" />
     <Content Include="MediaContent\Audios\Ladyfinger_Hin.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOM-102.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOM-104.mp3" />
+    <Content Include="MediaContent\Audios\Longbeans_HVOM-105.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOM-109.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOM-110.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOM-119.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOM-120.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOM-121.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOM-123.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOM-125.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOM-126.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOM-128.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOM-131.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOM-133.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOM-136.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOM-138.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOM-139.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOS-10.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOS-11.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOS-13.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOS-5.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOS-6.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOS-7.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOS-8.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOS-9.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOSDD-10.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOSDD-11.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOSDD-12.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOSDD-5.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOSDD-6.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOSDD-7.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOSDD-8.mp3" />
+    <Content Include="MediaContent\Audios\LongBeans_HVOSDD-9.mp3" />
+    <Content Include="MediaContent\Audios\mat_step10_english.mp3" />
+    <Content Include="MediaContent\Audios\mat_step10_hindi.mp3" />
+    <Content Include="MediaContent\Audios\mat_step11_english.mp3" />
+    <Content Include="MediaContent\Audios\mat_step11_hindi.mp3" />
+    <Content Include="MediaContent\Audios\mat_step13_english.mp3" />
+    <Content Include="MediaContent\Audios\mat_step13_hindi.mp3" />
+    <Content Include="MediaContent\Audios\mat_step14_english.mp3" />
+    <Content Include="MediaContent\Audios\mat_step14_hindi.mp3" />
+    <Content Include="MediaContent\Audios\mat_step15_english.mp3" />
+    <Content Include="MediaContent\Audios\mat_step15_hindi.mp3" />
+    <Content Include="MediaContent\Audios\mat_step16_english.mp3" />
+    <Content Include="MediaContent\Audios\mat_step16_hindi.mp3" />
+    <Content Include="MediaContent\Audios\mat_step17_english.mp3" />
+    <Content Include="MediaContent\Audios\mat_step17_hindi.mp3" />
+    <Content Include="MediaContent\Audios\mat_step19_english.mp3" />
+    <Content Include="MediaContent\Audios\mat_step19_hindi.mp3" />
     <Content Include="MediaContent\Audios\mat_step1_english.mp3" />
     <Content Include="MediaContent\Audios\mat_step1_hindi.mp3" />
+    <Content Include="MediaContent\Audios\mat_step20_english.mp3" />
+    <Content Include="MediaContent\Audios\mat_step20_hindi.mp3" />
+    <Content Include="MediaContent\Audios\mat_step23_english.mp3" />
+    <Content Include="MediaContent\Audios\mat_step23_hindi.mp3" />
     <Content Include="MediaContent\Audios\mat_step2_english.mp3" />
+    <Content Include="MediaContent\Audios\mat_step2_hindi.mp3" />
+    <Content Include="MediaContent\Audios\mat_step3_english.mp3" />
+    <Content Include="MediaContent\Audios\mat_step3_hindi.mp3" />
+    <Content Include="MediaContent\Audios\mat_step4_english.mp3" />
+    <Content Include="MediaContent\Audios\mat_step4_hindi.mp3" />
+    <Content Include="MediaContent\Audios\mat_step5_english.mp3" />
+    <Content Include="MediaContent\Audios\mat_step5_hindi.mp3" />
+    <Content Include="MediaContent\Audios\mat_step6_english.mp3" />
+    <Content Include="MediaContent\Audios\mat_step6_hindi.mp3" />
+    <Content Include="MediaContent\Audios\mat_step7_english.mp3" />
+    <Content Include="MediaContent\Audios\mat_step7_hindi.mp3" />
+    <Content Include="MediaContent\Audios\mat_step8_english.mp3" />
+    <Content Include="MediaContent\Audios\mat_step8_hindi.mp3" />
     <Content Include="MediaContent\Audios\PloughingofLand_English.mp3" />
     <Content Include="MediaContent\Audios\PloughingofLand_Hindi.mp3" />
     <Content Include="MediaContent\Audios\Pumpkin_ENG.mp3" />
@@ -423,19 +583,76 @@
     <Content Include="MediaContent\Audios\step8_hindi.mp3" />
     <Content Include="MediaContent\Audios\step9_english.mp3" />
     <Content Include="MediaContent\Audios\step9_hindi.mp3" />
-    <Content Include="MediaContent\BitterGourdFarming.mp4" />
-    <Content Include="MediaContent\Brinjalfarm.mp4" />
-    <Content Include="MediaContent\Cabbage.mp4" />
-    <Content Include="MediaContent\Cauliflower.mp4" />
-    <Content Include="MediaContent\ChilliCrop.mp4" />
-    <Content Include="MediaContent\CropVideo.3gp" />
-    <Content Include="MediaContent\CucumberHarvest.mp4" />
-    <Content Include="MediaContent\LadiesFingerFarming.mp4" />
-    <Content Include="MediaContent\LongBeans.mp4" />
-    <Content Include="MediaContent\Onion.mp4" />
-    <Content Include="MediaContent\Pumpkin.mp4" />
-    <Content Include="MediaContent\Radish.mp4" />
-    <Content Include="MediaContent\Tomato.mp4" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-102.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-104.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-105.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-109.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-110.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-111.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-112.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-113.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-115.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-118.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-120.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-121.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-124.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-126.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-128.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-132.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-133.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-134.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-135.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-136.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-137.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOM-139.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOS-10.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOS-11.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOS-12.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOS-13.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOS-5.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOS-6.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOS-7.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOS-8.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOS-9.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOSDD-10.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOSDD-11.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOSDD-12.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOSDD-13.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOSDD-14.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOSDD-5.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOSDD-6.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOSDD-7.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOSDD-8.mp3" />
+    <Content Include="MediaContent\Audios\Tomato_HVOSDD-9.mp3" />
+    <Content Include="MediaContent\Images\Bean.jpg" />
+    <Content Include="MediaContent\Images\bitter_gourd.jpg" />
+    <Content Include="MediaContent\Images\brinjal.jpg" />
+    <Content Include="MediaContent\Images\Cabbage.jpg" />
+    <Content Include="MediaContent\Images\Cauliflower.jpg" />
+    <Content Include="MediaContent\Images\Chilli.jpg" />
+    <Content Include="MediaContent\Images\Cucumber.jpg" />
+    <Content Include="MediaContent\Images\Lady_finger.jpg" />
+    <Content Include="MediaContent\Images\Onion.jpg" />
+    <Content Include="MediaContent\Images\Potatoe.jpg" />
+    <Content Include="MediaContent\Images\Pumpkin.jpg" />
+    <Content Include="MediaContent\Images\Radish.jpg" />
+    <Content Include="MediaContent\Images\Tomato.jpeg" />
+    <Content Include="MediaContent\Images\Tomato.jpg" />
+    <Content Include="MediaContent\PredefinedAudios\EN001.mp3" />
+    <Content Include="MediaContent\PredefinedAudios\EN002.mp3" />
+    <Content Include="MediaContent\PredefinedAudios\EN003.mp3" />
+    <Content Include="MediaContent\PredefinedAudios\EN004.mp3" />
+    <Content Include="MediaContent\PredefinedAudios\EN005.mp3" />
+    <Content Include="MediaContent\PredefinedAudios\EN006.mp3" />
+    <Content Include="MediaContent\PredefinedAudios\HN001.mp3" />
+    <Content Include="MediaContent\PredefinedAudios\HN002.mp3" />
+    <Content Include="MediaContent\PredefinedAudios\OD001.mp3" />
+    <Content Include="MediaContent\PredefinedAudios\OD002.mp3" />
+    <Content Include="MediaContent\PredefinedAudios\OD003.mp3" />
+    <Content Include="MediaContent\PredefinedAudios\OD004.mp3" />
+    <Content Include="MediaContent\PredefinedAudios\OD005.mp3" />
+    <Content Include="MediaContent\PredefinedAudios\OD006.mp3" />
+    <Content Include="MediaContent\PredefinedAudios\OD007.mp3" />
     <Content Include="MediaContent\Videos\BitterGourdFarming.mp4" />
     <Content Include="MediaContent\Videos\Brinjalfarm.mp4" />
     <Content Include="MediaContent\Videos\Cabbage.mp4" />
@@ -492,26 +709,26 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="static\css\main.dec9bd13.css" />
-    <Content Include="static\js\0.fa0898cd.chunk.js" />
-    <Content Include="static\js\1.ee43d05f.chunk.js" />
-    <Content Include="static\js\10.08cbf018.chunk.js" />
-    <Content Include="static\js\11.99c09fb2.chunk.js" />
-    <Content Include="static\js\12.19532d28.chunk.js" />
-    <Content Include="static\js\13.a4b38587.chunk.js" />
-    <Content Include="static\js\14.8a4e5331.chunk.js" />
-    <Content Include="static\js\15.af694227.chunk.js" />
-    <Content Include="static\js\16.f93418f3.chunk.js" />
-    <Content Include="static\js\17.28c31236.chunk.js" />
-    <Content Include="static\js\2.f2db1130.chunk.js" />
-    <Content Include="static\js\3.31328c8b.chunk.js" />
-    <Content Include="static\js\4.96e206d9.chunk.js" />
-    <Content Include="static\js\5.90a10f1a.chunk.js" />
-    <Content Include="static\js\6.e4bfb9cf.chunk.js" />
-    <Content Include="static\js\7.87b15483.chunk.js" />
-    <Content Include="static\js\8.571e1bcb.chunk.js" />
-    <Content Include="static\js\9.c9fad86e.chunk.js" />
-    <Content Include="static\js\main.7fd03ad3.js" />
+    <Content Include="static\css\main.fa2dce99.css" />
+    <Content Include="static\js\0.52958439.chunk.js" />
+    <Content Include="static\js\1.1d23c72f.chunk.js" />
+    <Content Include="static\js\10.93484697.chunk.js" />
+    <Content Include="static\js\11.e6b46f99.chunk.js" />
+    <Content Include="static\js\12.a2358d86.chunk.js" />
+    <Content Include="static\js\13.e4dbf1d4.chunk.js" />
+    <Content Include="static\js\14.33d77e47.chunk.js" />
+    <Content Include="static\js\15.ac7ad0c8.chunk.js" />
+    <Content Include="static\js\16.83869d5a.chunk.js" />
+    <Content Include="static\js\17.41e7c9ed.chunk.js" />
+    <Content Include="static\js\2.43851880.chunk.js" />
+    <Content Include="static\js\3.4cab6b72.chunk.js" />
+    <Content Include="static\js\4.b4a91266.chunk.js" />
+    <Content Include="static\js\5.5cbfaa5f.chunk.js" />
+    <Content Include="static\js\6.90fc0617.chunk.js" />
+    <Content Include="static\js\7.1b400100.chunk.js" />
+    <Content Include="static\js\8.7f8ed7d8.chunk.js" />
+    <Content Include="static\js\9.cd9e867a.chunk.js" />
+    <Content Include="static\js\main.0bd18a22.js" />
     <Content Include="static\media\ad.4fc7c4c1.svg" />
     <Content Include="static\media\ad.c2b27649.svg" />
     <Content Include="static\media\ae.7847726d.svg" />
@@ -1043,26 +1260,26 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="static\css\main.dec9bd13.css.map" />
-    <Content Include="static\js\0.fa0898cd.chunk.js.map" />
-    <Content Include="static\js\1.ee43d05f.chunk.js.map" />
-    <Content Include="static\js\10.08cbf018.chunk.js.map" />
-    <Content Include="static\js\11.99c09fb2.chunk.js.map" />
-    <Content Include="static\js\12.19532d28.chunk.js.map" />
-    <Content Include="static\js\13.a4b38587.chunk.js.map" />
-    <Content Include="static\js\14.8a4e5331.chunk.js.map" />
-    <Content Include="static\js\15.af694227.chunk.js.map" />
-    <Content Include="static\js\16.f93418f3.chunk.js.map" />
-    <Content Include="static\js\17.28c31236.chunk.js.map" />
-    <Content Include="static\js\2.f2db1130.chunk.js.map" />
-    <Content Include="static\js\3.31328c8b.chunk.js.map" />
-    <Content Include="static\js\4.96e206d9.chunk.js.map" />
-    <Content Include="static\js\5.90a10f1a.chunk.js.map" />
-    <Content Include="static\js\6.e4bfb9cf.chunk.js.map" />
-    <Content Include="static\js\7.87b15483.chunk.js.map" />
-    <Content Include="static\js\8.571e1bcb.chunk.js.map" />
-    <Content Include="static\js\9.c9fad86e.chunk.js.map" />
-    <Content Include="static\js\main.7fd03ad3.js.map" />
+    <Content Include="static\css\main.fa2dce99.css.map" />
+    <Content Include="static\js\0.52958439.chunk.js.map" />
+    <Content Include="static\js\1.1d23c72f.chunk.js.map" />
+    <Content Include="static\js\10.93484697.chunk.js.map" />
+    <Content Include="static\js\11.e6b46f99.chunk.js.map" />
+    <Content Include="static\js\12.a2358d86.chunk.js.map" />
+    <Content Include="static\js\13.e4dbf1d4.chunk.js.map" />
+    <Content Include="static\js\14.33d77e47.chunk.js.map" />
+    <Content Include="static\js\15.ac7ad0c8.chunk.js.map" />
+    <Content Include="static\js\16.83869d5a.chunk.js.map" />
+    <Content Include="static\js\17.41e7c9ed.chunk.js.map" />
+    <Content Include="static\js\2.43851880.chunk.js.map" />
+    <Content Include="static\js\3.4cab6b72.chunk.js.map" />
+    <Content Include="static\js\4.b4a91266.chunk.js.map" />
+    <Content Include="static\js\5.5cbfaa5f.chunk.js.map" />
+    <Content Include="static\js\6.90fc0617.chunk.js.map" />
+    <Content Include="static\js\7.1b400100.chunk.js.map" />
+    <Content Include="static\js\8.7f8ed7d8.chunk.js.map" />
+    <Content Include="static\js\9.cd9e867a.chunk.js.map" />
+    <Content Include="static\js\main.0bd18a22.js.map" />
     <Content Include="static\media\CoreUI-Icons-Linear-Free.0087dce4.woff" />
     <Content Include="static\media\CoreUI-Icons-Linear-Free.089ab3c1.eot" />
     <Content Include="static\media\CoreUI-Icons-Linear-Free.1bc37648.ttf" />
@@ -1093,14 +1310,8 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Lang_hindi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Lang_hindi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Lang_Oriya.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Lang_Oriya.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Lang_hindi.resx" />
+    <EmbeddedResource Include="Resources\Lang_Oriya.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -1130,13 +1341,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

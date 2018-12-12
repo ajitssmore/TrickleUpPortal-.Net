@@ -19,7 +19,6 @@ namespace TrickleUpPortal.Models
         public string Password { get; set; }
         public Nullable<int> UserId { get; set; }
         public string PhoneNumber { get; set; }
-    
-        public virtual User User { get; set; }
+        public Nullable<int> LangCode { get; set; }
     }
 }

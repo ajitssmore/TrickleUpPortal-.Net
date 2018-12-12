@@ -87,9 +87,20 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            db.Languages.Add(language);
-            db.SaveChanges();
+            var DataFound = (from Languagedata in db.Languages
+                             where Languagedata.LanguageName.ToUpper() == language.LanguageName.ToUpper()
+                             select Languagedata.LanguageName).SingleOrDefault();
 
+            if (DataFound == null)
+            {
+                db.Languages.Add(language);
+                db.SaveChanges();
+            }
+            else
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Language Name already exits" });
+            }
+            
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = language.Id }, success = true, error = string.Empty });
         }
 

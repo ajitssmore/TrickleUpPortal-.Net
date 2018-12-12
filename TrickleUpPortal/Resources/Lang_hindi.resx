@@ -123,14 +123,35 @@
   <data name="OMN-NA" xml:space="preserve">
     <value>EMN-NA</value>
   </data>
+  <data name="OMN-NA1" xml:space="preserve">
+    <value>EMN-NA</value>
+  </data>
   <data name="अमृतजल" xml:space="preserve">
     <value>Amrutjal</value>
+  </data>
+  <data name="अमृतजल - 2 बार" xml:space="preserve">
+    <value>Amrutjal - 2 times</value>
   </data>
   <data name="अमृतजल पानी के साथ" xml:space="preserve">
     <value>Amrutjal Solution</value>
   </data>
+  <data name="आग्नेयास्त्र" xml:space="preserve">
+    <value>Agneyastra</value>
+  </data>
   <data name="आग्नेयास्त्र पानी के साथ" xml:space="preserve">
     <value>Agneyastra with Water</value>
+  </data>
+  <data name="आड़ी और नाली की तैयारी, बीज और पोषण की आवश्यकता" xml:space="preserve">
+    <value>Preparation of Ridges and furrow, Seed and Nutrition requirement</value>
+  </data>
+  <data name="आड़ी़ और नाली की तैयारी, बीज और पोषण की आवश्यकता" xml:space="preserve">
+    <value>Preparation of Ridges and furrow, Seed and Nutrition requirement</value>
+  </data>
+  <data name="आड़ी़ और नाली तथा पौधे से पौधे के बीच में 2 फीट की दूरी होनी चाहिए. आड़ी़ के मिट्टी में हादरी एवं खाद डालें." xml:space="preserve">
+    <value>Spacing between Ridges and furrow should be 2 feet and spacing between plant to plant should be 2 feet. Put Hadri and Compost mix in the soil of ridges</value>
+  </data>
+  <data name="कटाई के दौरान 10 दिनों के अंतराल में अमृतजल को रोपण के 60 दिनों तक दोहराएं (रोपण के 50-60 दिनों के बीच)" xml:space="preserve">
+    <value>Repeat Amrutjal up to 60 days of planting in an interval of 10 days during the harvesting (In Between 50-60 days of planting)</value>
   </data>
   <data name="कद्दू" xml:space="preserve">
     <value>Pumpkin</value>
@@ -140,6 +161,12 @@
   </data>
   <data name="करेले की फसल कटाई" xml:space="preserve">
     <value>Bitter Gourd Harvesting</value>
+  </data>
+  <data name="कर्मचारी के क्षेत्र दौरे कैसे था?" xml:space="preserve">
+    <value>How was the staff field Visit ?</value>
+  </data>
+  <data name="कीड़ो की व्यवस्था और पोषण का प्रयोग" xml:space="preserve">
+    <value>Use of Nutrition and Pest Management</value>
   </data>
   <data name="केंचुआ खाद" xml:space="preserve">
     <value>Vermicompost</value>
@@ -156,6 +183,15 @@
   <data name="गड्डो की संख्या 3x3" xml:space="preserve">
     <value>Number of Pits 3x3</value>
   </data>
+  <data name="गड्ढे तैयार करना और पौधा लगाना" xml:space="preserve">
+    <value>Pit Preparation and Transplantation of Seedling</value>
+  </data>
+  <data name="गोबर खाद" xml:space="preserve">
+    <value>Farm Yard Manure</value>
+  </data>
+  <data name="गोबर खाद या केंचुआ खाद" xml:space="preserve">
+    <value>Farm Yard Manure or Vermicompost</value>
+  </data>
   <data name="गोभी" xml:space="preserve">
     <value>Cabbage</value>
   </data>
@@ -165,14 +201,20 @@
   <data name="गौ मूत्र पानी के साथ" xml:space="preserve">
     <value>Cow Urine Solution</value>
   </data>
+  <data name="गौ मूत्र पानी के साथ1" xml:space="preserve">
+    <value>Cow Urine with Water</value>
+  </data>
   <data name="जमीन को जोतना" xml:space="preserve">
-    <value>Plouging of Land</value>
+    <value>Ploughing of Land</value>
+  </data>
+  <data name="जीबामृतो पानी के साथ" xml:space="preserve">
+    <value>Jivamirita Solution</value>
   </data>
   <data name="जैविक कीटनाशकों और खाद का प्रयोग" xml:space="preserve">
     <value>Use of Organic Pesticides and Fertilizers</value>
   </data>
   <data name="जोताई" xml:space="preserve">
-    <value>Plouging with Oxen</value>
+    <value>Ploughing with Oxen</value>
   </data>
   <data name="झांची या डंडा" xml:space="preserve">
     <value>Macha or Stick</value>
@@ -180,11 +222,38 @@
   <data name="टमाटर" xml:space="preserve">
     <value>Tomato</value>
   </data>
+  <data name="टमाटर की फसल कटाई" xml:space="preserve">
+    <value>Tomato Harvesting</value>
+  </data>
   <data name="दूसरी निकाई और गुड़ाई" xml:space="preserve">
     <value>Second Weeding and Hoeing</value>
   </data>
+  <data name="दूसरी निकाई और गुड़ाई के 32 दिनों के बाद हांडीखाद, अमृतजल और आग्नेयास्त्र का छिडकाव करें. चावल के माड के साथ हल्दी पाउडर मिश्रण डालें." xml:space="preserve">
+    <value>After 32 days of Second Weeding and Hoeing spray Handikhata, Amrutjal and Agneyastra, Put Haldi Powder Solution with Rice Starch</value>
+  </data>
+  <data name="दूसरी निकाई और गुड़ाई के 32 दिनों के बाद हांडीखाद, अमृतजल और आग्नेयास्त्र का छिडकाव करें. चावल के माड के साथ हल्दी पाउडर मिश्रण डालें.1" xml:space="preserve">
+    <value>After 32 days of Second weeding and Hoeing spray Handikhata, Amrutjal and Agneyastra. Put Haldi Powder Solution with Rice Starch</value>
+  </data>
   <data name="दो गड्डो के बीच में 3 फीट और दो लाइनों के भी बीच में 3 फीट की दूरी होनी चाहिए. प्रत्येक गड्डे में हादरी एवं खाद मिश्रण और केंचुआ खाद का प्रयोग करें. प्रत्येक गड्डे में 3 सूखे बीज डालें." xml:space="preserve">
     <value>Spacing between two pits should be 3 feet and spacing between two rows should be 3 feet. Put Hadri and Compost mix in each pit and Vermicompost. Put dried out 3 seeds in each pit</value>
+  </data>
+  <data name="नर्सरी तैयार करना और चारा (पौधा) बनाना" xml:space="preserve">
+    <value>Nursery Bed Preparation and Seedling raising</value>
+  </data>
+  <data name="नर्सरी, 10 फुट लम्बी, 3 फुट चौड़ी एवं 9 इंच ऊँची होनी चाहिए. मिट्टी में गौ-मूत्र का छिड़काव करें. इसे 12 घंटे तक पतले सफ़ेद पौलीथीन से ढकें. बीजों को लाइन से रोपें. नर्सरी को पुआल से 4-5 दिनों तक ढकें. बीज बोने के 21 दिनों तक पौधे को गोबर खाद/ केंचुआ खाद के साथ रहने दें." xml:space="preserve">
+    <value>Dimension of Nursery should be 10 ft length, 3 ft width and 9 inch of height. Spray cow urine in the Soil. Cover it with thin white Plastic Mulch (Polythene) for 12 hours. Line Sowing of seeds. Cover nursery bed with straw for 4-5 days. Put Farm Yard Manure (FYM/vermicompost) and Seedling will be in nursery bed till 21 days of sowing.</value>
+  </data>
+  <data name="नर्सरी, 10 फुट लम्बी, 3 फुट चौड़ी एवं 9 इंच ऊँची होनी चाहिए. मिट्टी में गौ-मूत्र का छिड़काव करें. इसे 12 घंटे तक पतले सफ़ेद पौलीथीन से ढकें. बीजों को लाइन से रोपें. नर्सरी को पुआल से 4-5 दिनों तक ढकें. बीज बोने के 21 दिनों तक पौधे को गोबर खाद/ केंचुआ खाद के साथ रहने दें.1" xml:space="preserve">
+    <value>Dimension of Nursery should be 10 ft length, 3 ft breadth and 9 inch height. Spray cow Urine in the Soil. Cover it with thin white closured Plastic Mulch (Polythene) for 12 hours. Line Sowing of seeds. Cover nursery bed with straw for 4-5 days. Put Farm Yard Manure (FYM) or vermicompost and seedling will be in nursery bed till 21 days of sowing. </value>
+  </data>
+  <data name="नाली" xml:space="preserve">
+    <value>Drainage Canal</value>
+  </data>
+  <data name="नीम केक" xml:space="preserve">
+    <value>Neem Cake</value>
+  </data>
+  <data name="नीम युक्त यूरिआ (इन्क्यूबेटेड यूरिया)" xml:space="preserve">
+    <value>Neem Coated Urea (Incubated Urea)</value>
   </data>
   <data name="नीम युक्त यूरिआ (इन्क्यूबेटेड यूरिया) खाद के साथ" xml:space="preserve">
     <value>Neem Coated Urea (Incubated Urea) with Compost</value>
@@ -198,8 +267,32 @@
   <data name="पानी" xml:space="preserve">
     <value>Water</value>
   </data>
+  <data name="पॉलिथीन" xml:space="preserve">
+    <value>Polythene</value>
+  </data>
+  <data name="पौधे से पौधे के बीच में 1.5 फीट और लाइनों के बीच में 2 फीट की दूरी होनी चाहिए. गोबर खाद या केंचुआ खाद, हादरी और नीम केक के साथ प्रयोग करें." xml:space="preserve">
+    <value>Spacing should be 1.5 (plant to plant) ft X 2ft (row to row), Put Farm Yard Manure or vermicompost with Hadri and Put Neem cake</value>
+  </data>
+  <data name="पौधे से पौधे के बीच में 2 फीट और लाइनों के बीच में 2.5 फीट की दूरी होनी चाहिए. गोबर खाद या केंचुआ खाद, हादरी और नीम केक के साथ प्रयोग करें." xml:space="preserve">
+    <value>Spacing would be 2 ft (plant to plant) X2.5 ft (row to row), Put Farm Yard Manure or Vermicompost with Hadri and Put Neem Cake</value>
+  </data>
+  <data name="पौधों की संख्या" xml:space="preserve">
+    <value>Number of Plants</value>
+  </data>
   <data name="प्याज" xml:space="preserve">
     <value>Onion</value>
+  </data>
+  <data name="प्रनामित्रा" xml:space="preserve">
+    <value>Pranamrita</value>
+  </data>
+  <data name="फसल कटने तक 2-3 बार हर 10 दिनों के अन्तराल में हांडीखाद और आग्नेयास्त्र का पानी के साथ छिडकाव करें." xml:space="preserve">
+    <value>Repeat Handikhata Solution and spray Agneyastra in an interval of 10 days till harvesting- 2-3 times</value>
+  </data>
+  <data name="फसल कटने तक 2-3 बार हर 10 दिनों के अन्तराल में हांडीखाद और आग्नेयास्त्र का पानी के साथ छिडकाव करें.1" xml:space="preserve">
+    <value>Repeat Handikhata Solution, Spray Amritjal and Agneyastra in an interval of 10 days till harvesting -2-3 times</value>
+  </data>
+  <data name="बरबटी की फसल कटाई" xml:space="preserve">
+    <value>Long Beans Harvesting</value>
   </data>
   <data name="बर्तन" xml:space="preserve">
     <value>A bowl/Container</value>
@@ -210,6 +303,9 @@
   <data name="बीज उपचार" xml:space="preserve">
     <value>Seed Treatment</value>
   </data>
+  <data name="बीज छिड़काव, बीज उपचार, आड़ी़ और नाली की तैयारी, बीज बोने और पोषण की आवश्यकता" xml:space="preserve">
+    <value>Seed Priming, Seed Treatment, Preparation of Ridges and Furrow, Seed sowing and Nutrition requirement</value>
+  </data>
   <data name="बीज तैयार करना, बीज उपचार और गड्डो की तैयारी, बीज और पोषण की आवश्यकता" xml:space="preserve">
     <value>Seed Priming, Seed Treatment and Preparation of Pit, Seed and Nutrition requirement</value>
   </data>
@@ -219,11 +315,20 @@
   <data name="बीज बोने के 25  दिन बाद दूसरी निकाई और गुड़ाई करें. झांची या डंडे का प्रयोग करें. नीम युक्त यूरिआ (इन्क्यूबेटेड यूरिया) खाद के साथ प्रयोग करें. आग्नेयास्त्र का छिडकाव करें." xml:space="preserve">
     <value>Second Weeding and Hoeing after 25 days of seed filling. Provide Muchha or Stick for support. Put Neem coated incubated Urea (with Compost). Spray Agneyastra</value>
   </data>
+  <data name="बीज बोने के 30 दिनों के बाद दूसरी निकाई और गुड़ाई करें. नीमयुक्त यूरिया खाद के साथ मिलाकर डालें और आग्नेयास्त्र का छिडकाव करें." xml:space="preserve">
+    <value>Second Weeding and Hoeing after 30 days of seed filling. Put Neem coated incubated Urea mixed with compost and spray Agneyastra</value>
+  </data>
   <data name="बीज बोने के 40 दिन बाद जैविक कीटनाशकों और खाद का प्रयोग करें, दो-तीन दिनों के बीच में दो बार अमृतजल का छिडकाव करे - अमृतजल को बनाते साथ छिडकाव करे (संचय न करें)" xml:space="preserve">
     <value>Use Organic Pesticides and Fertilizers after 40 days of seed filling, Spray Amrutjal two times (in 2 -3 days interval) - Amrutjal can not be stored, it needs to be sprayed just after the preparation.</value>
   </data>
+  <data name="बीज बोने के 40 दिनों के बाद कीटनाशक और खाद का प्रयोग करें. अमृतजल एवं आग्नेयास्त्र डालें." xml:space="preserve">
+    <value>Use Pesticides and Fertilizers after 40 days of seed filling,- Put Amrutjal and Agneyastra.</value>
+  </data>
   <data name="बीज बोने के 50 दिन बाद जैविक कीटनाशकों और खाद का प्रयोग करें, हांडीखाद या आग्नेयास्त्र को पानी के साथ मिलाकर छिडकाव करे और अमृतजल को पानी के साथ मिलाकर छिडकाव करे - एक बार" xml:space="preserve">
     <value>Use Organic Pesticides and Fertilizers after 50 days of seed filling, Spray Handikhata Solution or Agneyastra Solution and spray Amrutjal Solution - one time</value>
+  </data>
+  <data name="बीज लगाने के 10 दिन बाद पहली निकाई और गुड़ाई करें. जीवामृत मिश्रण डालें, प्राणामृत डालें उसके 1-2 दिन बाद हांडीखत एवं आग्नेयास्त्र का छिडकाव करें. पहली निकाई और गुड़ाई के दस दिनों के बाद पुनः हांडीखत का छिडकाव करें." xml:space="preserve">
+    <value>First Weeding and Hoeing after 10 days of Seed Filling in the ridge. Put Jivamirita Solution, Put Pranamitra then after 1-2 days spray Handikhata, and spray Agneyastra. After 10 days of First weeding and Hoeing repeat Handikhata spray.</value>
   </data>
   <data name="बीज1" xml:space="preserve">
     <value>Seeds</value>
@@ -237,14 +342,23 @@
   <data name="बैंगन" xml:space="preserve">
     <value>Brinjal</value>
   </data>
+  <data name="भिंडी की फसल कटाई" xml:space="preserve">
+    <value>Ladies Finger Harvesting</value>
+  </data>
   <data name="भिन्डी" xml:space="preserve">
     <value>Lady finger</value>
   </data>
   <data name="मिर्च" xml:space="preserve">
     <value>Chilli</value>
   </data>
+  <data name="मिर्ची की फसल कटाई" xml:space="preserve">
+    <value>Chilli Harvesting</value>
+  </data>
   <data name="मुख्य जमीन तैयार करने के लिए 2-3 बार हल करें" xml:space="preserve">
-    <value>Plouging of Land 2-3 times for main field preparation</value>
+    <value>Plouging of land 2-3 times for main field preparation</value>
+  </data>
+  <data name="मुख्य जमीन तैयार करने के लिए 2-3 बार हल करें1" xml:space="preserve">
+    <value>Plough Land 2-3 times for main field preparation</value>
   </data>
   <data name="मूली" xml:space="preserve">
     <value>Radish</value>
@@ -252,8 +366,29 @@
   <data name="या आग्नेयास्त्र पानी के साथ" xml:space="preserve">
     <value>Or Agneyastra with Water</value>
   </data>
+  <data name="या केंचुआ खाद और हादरी" xml:space="preserve">
+    <value>Or Vermicompost and Hadri</value>
+  </data>
   <data name="या प्रनामित्रा" xml:space="preserve">
     <value>Or Pranamrita</value>
+  </data>
+  <data name="या बीजामृत पानी के साथ" xml:space="preserve">
+    <value>Or Beejamrita Solution</value>
+  </data>
+  <data name="रोपने के 10 दिन बाद पहली निकाई और गुड़ाई करें. प्रत्येक गड्डे में केंचुआ खाद या प्रनामित्रा का प्रयोग करें. उसके 1 - 2 दिन के बाद हांडीखाद का छिडकाव करें. जरुरत होने पर आग्नेयास्त्र का छिडकाव करें." xml:space="preserve">
+    <value>First Weeding and Hoeing after 12 days of Transplanting, Put Pranamrita, then after 1-2 days spray Handikhata, if needed spray Agneyastra</value>
+  </data>
+  <data name="रोपने के 22 दिन बाद दूसरी निकाई और गुड़ाई करें. नाली बनायें. झांची या डंडे का प्रयोग करें. नीम युक्त यूरिआ (इन्क्यूबेटेड यूरिया) खाद के साथ प्रयोग करें. जरुरत होने पर हांडीखाद और आग्नेयास्त्र का छिडकाव करें (1-2 दिन के बाद)" xml:space="preserve">
+    <value>Second Weeding and Hoeing after 22 days of Transplantation. Make Drainage Canal, Provide Muchha or Stick for Support , Put Neem coated incubated Urea with Compost, Spray Handikhata and Put Agneyastra (if needed) (after 1-2 days)</value>
+  </data>
+  <data name="रोपने के 22 दिन बाद दूसरी निकाई और गुड़ाई करें. नाली बनायें. झांची या डंडे का प्रयोग करें. नीम युक्त यूरिआ (इन्क्यूबेटेड यूरिया) खाद के साथ प्रयोग करें. जरुरत होने पर हांडीखाद और आग्नेयास्त्र का छिडकाव करें (1-2 दिन के बाद) और अमृतजल डालें." xml:space="preserve">
+    <value>Second Weeding and Hoeing after 22 days of Transplantation. Make Drainage Canal, Provide Muchha or Stick for Support , Put Neem coated incubated Urea with Compost, Spray Handikhata and Put Agneyastra (if needed) (after 1-2 days) and Spray Amrutjal</value>
+  </data>
+  <data name="रोपने के 42 दिनों के बाद पोषण और कीड़ो की व्यवस्था करें, हांडीखाद, अमृतजल और आग्नेयास्त्र का पानी के साथ छिडकाव करें." xml:space="preserve">
+    <value>Use Nutrient and Pest Management after 42 days of Transplanting, Spray Handikhata Solution, Amrutjal and Agneyastra with Water.</value>
+  </data>
+  <data name="रोपने के 42 दिनों के बाद पोषण और कीड़ो की व्यवस्था करें, हांडीखाद, अमृतजल और आग्नेयास्त्र का पानी के साथ छिडकाव करें.1" xml:space="preserve">
+    <value>Use Nutrient and Pest Management after 42 days of Transplanting, Spray Handikhata Solution, Amrutajal and Agneyastra with Water</value>
   </data>
   <data name="लंबी फलियाँ" xml:space="preserve">
     <value>Long Beans</value>
@@ -261,8 +396,35 @@
   <data name="सारे बीजों को ठंडे पानी के बर्तन में डालकर 15-20 घंटे तक रखें. बीजों को जूट के बोरे में डालकर छाँव में सुखाएं. यह प्रक्रिया बीज उपचार और बीज बोने एक दिन पहले करें." xml:space="preserve">
     <value>Put all seeds into a bowl of cold water and keep it for 15-20 hours. Seeds need to be dried in shadow on ginni bag. Seed priming needs to be done just one day before seed treatment and sowing in the pit.</value>
   </data>
+  <data name="सारे बीजों को ठंडे पानी के बर्तन में डालकर 4-5 घंटे तक रखें." xml:space="preserve">
+    <value>Put all seeds into a bowl of cold water for 4-5 hours.</value>
+  </data>
+  <data name="सारे बीजों को ठंडे पानी के बर्तन में डालकर 4-5 घंटे तक रखें.बीजों को जूट के बोरे में डालकर छाँव में सुखाएं." xml:space="preserve">
+    <value>Put all seeds into a bowl of cold water and keep it for 4-5 hours and needs to be dried in shadow spreading on a ginni bag.</value>
+  </data>
+  <data name="सारे बीजों को पानी के बर्तन में डालकर 4-5 घंटे तक रखें." xml:space="preserve">
+    <value>Put all seeds into a bowl of water for 4-5 hours.</value>
+  </data>
+  <data name="सारे बीजों को सूती कपडे में लपेटकर गौ-मूत्र मिश्रण में10-15 मिनट तक डुबोएं. उसके बाद इन बीजों को 1-2 घंटे छाँव में सुखाएं और बीजों को नर्सरी में डालें." xml:space="preserve">
+    <value>Wrap all the seeds in cotton Cloth for soaking and deep into cow Urine Solution for 10-15 minutes. Then dry it in shaded area upto 1-2 hours before putting in the nursery bed</value>
+  </data>
+  <data name="सारे बीजों को सूती कपडे में लपेटकर, 2.5 लीटर पानी में 500 मिली गौ-मूत्र मिलाकर 10-15 मिनट तक डुबोएं. उसके बाद इन बीजों को 1-2 घंटे छाँव में सुखाएं और बीजों को नर्सरी में डालें." xml:space="preserve">
+    <value>Wrap all the seeds in cotton cloth and soak it into 500 ml cow urine with 2.5 liter water for 10-15 minutes. Then dry it in shaded area upto 1-2 hour and then put seeds in the nursery bed.</value>
+  </data>
+  <data name="सारे बीजों को सूती कपडे में लपेटकर, गौ-मूत्र में पानी मिलाकर या बीजामृत मिश्रण में 5 मिनट तक डुबोएं. उसके बाद इन बीजों को 1-2 घंटे छाँव में सुखाएं और बीजों को बोयें." xml:space="preserve">
+    <value>Wrap the seeds in cotton cloth to soak then dip the rapped seeds into cow urine and water Solution or Beejamrita Solution for 5 minutes. Then dry the seeds in a shaded area upto 1-2 hours and sow in the pits.</value>
+  </data>
+  <data name="सूखी घास" xml:space="preserve">
+    <value>Straw</value>
+  </data>
   <data name="सूती कपडा" xml:space="preserve">
     <value>Cotton Cloth</value>
+  </data>
+  <data name="हल्दी पाउडर माड़ के साथ" xml:space="preserve">
+    <value>Haldi Powder Solution with Rice Starch</value>
+  </data>
+  <data name="हांड़ीखतो" xml:space="preserve">
+    <value>Handikhata</value>
   </data>
   <data name="हांड़ीखतो पानी के साथ" xml:space="preserve">
     <value>Handikhata with Water</value>
@@ -272,6 +434,9 @@
   </data>
   <data name="हांड़ीखतो पानी के साथ2" xml:space="preserve">
     <value>Handikhata Solution</value>
+  </data>
+  <data name="हादरी और केंचुआ खाद" xml:space="preserve">
+    <value>Hadri and Vermicompost</value>
   </data>
   <data name="हादरी और खाद मिश्रण" xml:space="preserve">
     <value>Hadri and Compost Mix</value>
