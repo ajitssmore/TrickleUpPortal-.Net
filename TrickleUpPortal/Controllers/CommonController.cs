@@ -163,7 +163,7 @@ namespace TrickleUpPortal.Controllers
             return Exceptionid;
         }
 
-        public string SendPushNotification(string Title, string body)
+        public string SendPushNotification(PushNotificationDataModel PushNotificationData)
         {
             string response;
 
@@ -197,9 +197,16 @@ namespace TrickleUpPortal.Controllers
                     registration_ids = tokens,
                     notification = new
                     {
-                        body = "Greeting from Trickle up - Snehal Patil",
-                        title = "Hello Eternus from Notification Trial 14.46",
+                        body = PushNotificationData.Title,
+                        title = PushNotificationData.Body,
+                    },
+                    data = new
+                    {
+                        CropId = PushNotificationData.CropId,
+                        StepId = PushNotificationData.StepId,
+                        LangCode = PushNotificationData.LangCode
                     }
+
                 };
                 var serializer = new JavaScriptSerializer();
                 var json = serializer.Serialize(message);

@@ -19,5 +19,7 @@ namespace TrickleUpPortal.Models
         public string Currency { get; set; }
         public Nullable<int> Count { get; set; }
         public Nullable<System.Guid> UID { get; set; }
+    
+        public virtual MoneyManager MoneyManager { get; set; }
     }
 }

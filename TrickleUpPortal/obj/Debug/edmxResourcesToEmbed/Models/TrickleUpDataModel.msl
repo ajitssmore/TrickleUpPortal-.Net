@@ -335,17 +335,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CurrencyStocks">
-      <EntityTypeMapping TypeName="TrickleUpModel.CurrencyStock">
-        <MappingFragment StoreEntitySet="CurrencyStock">
-          <ScalarProperty Name="UID" ColumnName="UID" />
-          <ScalarProperty Name="Count" ColumnName="Count" />
-          <ScalarProperty Name="Currency" ColumnName="Currency" />
-          <ScalarProperty Name="MoneyManagerId" ColumnName="MoneyManagerId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Tbl_ExceptionLogging">
       <EntityTypeMapping TypeName="TrickleUpModel.Tbl_ExceptionLogging">
         <MappingFragment StoreEntitySet="Tbl_ExceptionLogging">
@@ -420,6 +409,27 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="UserFCMTokens">
+      <EntityTypeMapping TypeName="TrickleUpModel.UserFCMToken">
+        <MappingFragment StoreEntitySet="UserFCMToken">
+          <ScalarProperty Name="Registered" ColumnName="Registered" />
+          <ScalarProperty Name="FCMToken" ColumnName="FCMToken" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CurrencyStocks">
+      <EntityTypeMapping TypeName="TrickleUpModel.CurrencyStock">
+        <MappingFragment StoreEntitySet="CurrencyStock">
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="MoneyManagerId" ColumnName="MoneyManagerId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="MoneyManagers">
       <EntityTypeMapping TypeName="TrickleUpModel.MoneyManager">
         <MappingFragment StoreEntitySet="MoneyManager">
@@ -439,12 +449,98 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UserFCMTokens">
-      <EntityTypeMapping TypeName="TrickleUpModel.UserFCMToken">
-        <MappingFragment StoreEntitySet="UserFCMToken">
-          <ScalarProperty Name="Registered" ColumnName="Registered" />
-          <ScalarProperty Name="FCMToken" ColumnName="FCMToken" />
+    <EntitySetMapping Name="PushNotifications">
+      <EntityTypeMapping TypeName="TrickleUpModel.PushNotification">
+        <MappingFragment StoreEntitySet="PushNotification">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="PushNotificationData" ColumnName="PushNotificationData" />
+          <ScalarProperty Name="PushNotificationBody" ColumnName="PushNotificationBody" />
+          <ScalarProperty Name="PushNotificationTitle" ColumnName="PushNotificationTitle" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CropCultivation_History">
+      <EntityTypeMapping TypeName="TrickleUpModel.CropCultivation_History">
+        <MappingFragment StoreEntitySet="CropCultivation_History">
+          <ScalarProperty Name="CultivationUID" ColumnName="CultivationUID" />
+          <ScalarProperty Name="CultivationHistoryId" ColumnName="CultivationHistoryId" />
+          <ScalarProperty Name="Production_kg" ColumnName="Production_kg" />
+          <ScalarProperty Name="Total_Income" ColumnName="Total_Income" />
+          <ScalarProperty Name="Complete" ColumnName="Complete" />
+          <ScalarProperty Name="Ready" ColumnName="Ready" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="CropId" ColumnName="CropId" />
+          <ScalarProperty Name="CropName" ColumnName="CropName" />
+          <ScalarProperty Name="LandType" ColumnName="LandType" />
+          <ScalarProperty Name="LandArea" ColumnName="LandArea" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cultivation_History">
+      <EntityTypeMapping TypeName="TrickleUpModel.Cultivation_History">
+        <MappingFragment StoreEntitySet="Cultivation_History">
           <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Cultivation_Id" ColumnName="Cultivation_Id" />
+          <ScalarProperty Name="Total_Profit" ColumnName="Total_Profit" />
+          <ScalarProperty Name="Total_kg" ColumnName="Total_kg" />
+          <ScalarProperty Name="LandType" ColumnName="LandType" />
+          <ScalarProperty Name="CropId" ColumnName="CropId" />
+          <ScalarProperty Name="Total_Cost_of_Cultivation" ColumnName="Total_Cost_of_Cultivation" />
+          <ScalarProperty Name="LandArea" ColumnName="LandArea" />
+          <ScalarProperty Name="Cost_Per_Kg" ColumnName="Cost_Per_Kg" />
+          <ScalarProperty Name="Total_Production" ColumnName="Total_Production" />
+          <ScalarProperty Name="Completion_Date" ColumnName="Completion_Date" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CultivationStep_History">
+      <EntityTypeMapping TypeName="TrickleUpModel.CultivationStep_History">
+        <MappingFragment StoreEntitySet="CultivationStep_History">
+          <ScalarProperty Name="CultivationUID" ColumnName="CultivationUID" />
+          <ScalarProperty Name="CultivationCropId" ColumnName="CultivationCropId" />
+          <ScalarProperty Name="MediaType" ColumnName="MediaType" />
+          <ScalarProperty Name="TitleAudioLocal" ColumnName="TitleAudioLocal" />
+          <ScalarProperty Name="DescAudioLocal" ColumnName="DescAudioLocal" />
+          <ScalarProperty Name="DescriptionAudio" ColumnName="DescriptionAudio" />
+          <ScalarProperty Name="TitleAudio" ColumnName="TitleAudio" />
+          <ScalarProperty Name="StepDescription" ColumnName="StepDescription" />
+          <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
+          <ScalarProperty Name="VideoViewed" ColumnName="VideoViewed" />
+          <ScalarProperty Name="Completed" ColumnName="Completed" />
+          <ScalarProperty Name="LocalImageURL" ColumnName="LocalImageURL" />
+          <ScalarProperty Name="LocalVideoURL" ColumnName="LocalVideoURL" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="VideoURL" ColumnName="VideoURL" />
+          <ScalarProperty Name="StepName" ColumnName="StepName" />
+          <ScalarProperty Name="CropId" ColumnName="CropId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaterialNeeded_History">
+      <EntityTypeMapping TypeName="TrickleUpModel.MaterialNeeded_History">
+        <MappingFragment StoreEntitySet="MaterialNeeded_History">
+          <ScalarProperty Name="CultivationUID" ColumnName="CultivationUID" />
+          <ScalarProperty Name="CultivationStepId" ColumnName="CultivationStepId" />
+          <ScalarProperty Name="AudioPathLocal" ColumnName="AudioPathLocal" />
+          <ScalarProperty Name="AudioPath" ColumnName="AudioPath" />
+          <ScalarProperty Name="ImgPathLocal" ColumnName="ImgPathLocal" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="PriceUpdated" ColumnName="PriceUpdated" />
+          <ScalarProperty Name="MaterialUsed" ColumnName="MaterialUsed" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="PerDecimalPrice" ColumnName="PerDecimalPrice" />
+          <ScalarProperty Name="MaterialTransaction" ColumnName="MaterialTransaction" />
+          <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+          <ScalarProperty Name="StepId" ColumnName="StepId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

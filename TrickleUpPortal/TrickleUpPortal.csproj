@@ -181,6 +181,7 @@
     <Compile Include="Controllers\CropStepAudio_AllocationController.cs" />
     <Compile Include="Controllers\CropSteps_MaterialController.cs" />
     <Compile Include="Controllers\Crop_AudioAllocationController.cs" />
+    <Compile Include="Controllers\Cultivation_HistoryController.cs" />
     <Compile Include="Controllers\Cultivation_StepsController.cs" />
     <Compile Include="Controllers\DistrictsController.cs" />
     <Compile Include="Controllers\FeedBackQuestionsController.cs" />
@@ -194,6 +195,7 @@
     <Compile Include="Controllers\MediaContentsController.cs" />
     <Compile Include="Controllers\MoneyManagersController.cs" />
     <Compile Include="Controllers\PredefinedAudiosController.cs" />
+    <Compile Include="Controllers\PushNotificationsController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\StatesController.cs" />
     <Compile Include="Controllers\Tbl_ExceptionLoggingController.cs" />
@@ -217,6 +219,9 @@
     <Compile Include="Models\Crop.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CropCultivation_History.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CropMaterial_AudioAllocation.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
@@ -227,6 +232,12 @@
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Crop_AudioAllocation.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CultivationStep_History.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cultivation_History.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cultivation_Steps.cs">
@@ -256,6 +267,9 @@
     <Compile Include="Models\MasterPassword.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MaterialNeeded_History.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\MediaContent.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
@@ -265,6 +279,10 @@
     <Compile Include="Models\PredefinedAudio.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PushNotification.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PushNotificationDataModel.cs" />
     <Compile Include="Models\Role.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
@@ -710,25 +728,25 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="static\css\main.fa2dce99.css" />
-    <Content Include="static\js\0.52958439.chunk.js" />
-    <Content Include="static\js\1.1d23c72f.chunk.js" />
-    <Content Include="static\js\10.93484697.chunk.js" />
-    <Content Include="static\js\11.e6b46f99.chunk.js" />
-    <Content Include="static\js\12.a2358d86.chunk.js" />
-    <Content Include="static\js\13.e4dbf1d4.chunk.js" />
-    <Content Include="static\js\14.33d77e47.chunk.js" />
+    <Content Include="static\js\0.0b5357bc.chunk.js" />
+    <Content Include="static\js\1.60104f1c.chunk.js" />
+    <Content Include="static\js\10.75416e37.chunk.js" />
+    <Content Include="static\js\11.a3c1172a.chunk.js" />
+    <Content Include="static\js\12.52b1c9d3.chunk.js" />
+    <Content Include="static\js\13.0ef04379.chunk.js" />
+    <Content Include="static\js\14.9fd455fa.chunk.js" />
     <Content Include="static\js\15.ac7ad0c8.chunk.js" />
-    <Content Include="static\js\16.83869d5a.chunk.js" />
+    <Content Include="static\js\16.3fc82b9d.chunk.js" />
     <Content Include="static\js\17.41e7c9ed.chunk.js" />
-    <Content Include="static\js\2.43851880.chunk.js" />
-    <Content Include="static\js\3.4cab6b72.chunk.js" />
-    <Content Include="static\js\4.b4a91266.chunk.js" />
-    <Content Include="static\js\5.5cbfaa5f.chunk.js" />
-    <Content Include="static\js\6.90fc0617.chunk.js" />
-    <Content Include="static\js\7.1b400100.chunk.js" />
-    <Content Include="static\js\8.7f8ed7d8.chunk.js" />
-    <Content Include="static\js\9.cd9e867a.chunk.js" />
-    <Content Include="static\js\main.0bd18a22.js" />
+    <Content Include="static\js\2.158ed801.chunk.js" />
+    <Content Include="static\js\3.3785bd19.chunk.js" />
+    <Content Include="static\js\4.5fcd5f3e.chunk.js" />
+    <Content Include="static\js\5.bde73d01.chunk.js" />
+    <Content Include="static\js\6.b1e5560d.chunk.js" />
+    <Content Include="static\js\7.ac27c89a.chunk.js" />
+    <Content Include="static\js\8.6675ee2e.chunk.js" />
+    <Content Include="static\js\9.51778b72.chunk.js" />
+    <Content Include="static\js\main.3ff19867.js" />
     <Content Include="static\media\ad.4fc7c4c1.svg" />
     <Content Include="static\media\ad.c2b27649.svg" />
     <Content Include="static\media\ae.7847726d.svg" />
@@ -1261,25 +1279,25 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="static\css\main.fa2dce99.css.map" />
-    <Content Include="static\js\0.52958439.chunk.js.map" />
-    <Content Include="static\js\1.1d23c72f.chunk.js.map" />
-    <Content Include="static\js\10.93484697.chunk.js.map" />
-    <Content Include="static\js\11.e6b46f99.chunk.js.map" />
-    <Content Include="static\js\12.a2358d86.chunk.js.map" />
-    <Content Include="static\js\13.e4dbf1d4.chunk.js.map" />
-    <Content Include="static\js\14.33d77e47.chunk.js.map" />
+    <Content Include="static\js\0.0b5357bc.chunk.js.map" />
+    <Content Include="static\js\1.60104f1c.chunk.js.map" />
+    <Content Include="static\js\10.75416e37.chunk.js.map" />
+    <Content Include="static\js\11.a3c1172a.chunk.js.map" />
+    <Content Include="static\js\12.52b1c9d3.chunk.js.map" />
+    <Content Include="static\js\13.0ef04379.chunk.js.map" />
+    <Content Include="static\js\14.9fd455fa.chunk.js.map" />
     <Content Include="static\js\15.ac7ad0c8.chunk.js.map" />
-    <Content Include="static\js\16.83869d5a.chunk.js.map" />
+    <Content Include="static\js\16.3fc82b9d.chunk.js.map" />
     <Content Include="static\js\17.41e7c9ed.chunk.js.map" />
-    <Content Include="static\js\2.43851880.chunk.js.map" />
-    <Content Include="static\js\3.4cab6b72.chunk.js.map" />
-    <Content Include="static\js\4.b4a91266.chunk.js.map" />
-    <Content Include="static\js\5.5cbfaa5f.chunk.js.map" />
-    <Content Include="static\js\6.90fc0617.chunk.js.map" />
-    <Content Include="static\js\7.1b400100.chunk.js.map" />
-    <Content Include="static\js\8.7f8ed7d8.chunk.js.map" />
-    <Content Include="static\js\9.cd9e867a.chunk.js.map" />
-    <Content Include="static\js\main.0bd18a22.js.map" />
+    <Content Include="static\js\2.158ed801.chunk.js.map" />
+    <Content Include="static\js\3.3785bd19.chunk.js.map" />
+    <Content Include="static\js\4.5fcd5f3e.chunk.js.map" />
+    <Content Include="static\js\5.bde73d01.chunk.js.map" />
+    <Content Include="static\js\6.b1e5560d.chunk.js.map" />
+    <Content Include="static\js\7.ac27c89a.chunk.js.map" />
+    <Content Include="static\js\8.6675ee2e.chunk.js.map" />
+    <Content Include="static\js\9.51778b72.chunk.js.map" />
+    <Content Include="static\js\main.3ff19867.js.map" />
     <Content Include="static\media\CoreUI-Icons-Linear-Free.0087dce4.woff" />
     <Content Include="static\media\CoreUI-Icons-Linear-Free.089ab3c1.eot" />
     <Content Include="static\media\CoreUI-Icons-Linear-Free.1bc37648.ttf" />

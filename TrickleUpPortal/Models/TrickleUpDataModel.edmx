@@ -58,6 +58,23 @@
           <Property Name="ActiveOn" Type="datetime" />
           <Property Name="Active" Type="bit" />
         </EntityType>
+        <EntityType Name="CropCultivation_History">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LandArea" Type="real" />
+          <Property Name="LandType" Type="nvarchar(max)" />
+          <Property Name="CropName" Type="nvarchar(max)" />
+          <Property Name="CropId" Type="int" />
+          <Property Name="FilePath" Type="nvarchar(max)" />
+          <Property Name="Ready" Type="bit" />
+          <Property Name="Complete" Type="bit" />
+          <Property Name="Total_Income" Type="real" />
+          <Property Name="Production_kg" Type="int" />
+          <Property Name="CultivationHistoryId" Type="int" Nullable="false" />
+          <Property Name="CultivationUID" Type="uniqueidentifier" />
+        </EntityType>
         <EntityType Name="CropMaterial_AudioAllocation">
           <Key>
             <PropertyRef Name="Id" />
@@ -108,6 +125,28 @@
           <Property Name="ActiveOn" Type="datetime" />
           <Property Name="Active" Type="bit" />
         </EntityType>
+        <EntityType Name="Cultivation_History">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Completion_Date" Type="datetime" />
+          <Property Name="Total_Production" Type="real" />
+          <Property Name="Cost_Per_Kg" Type="real" />
+          <Property Name="LandArea" Type="real" />
+          <Property Name="Total_Cost_of_Cultivation" Type="real" />
+          <Property Name="CropId" Type="int" />
+          <Property Name="LandType" Type="nvarchar(max)" />
+          <Property Name="Total_kg" Type="int" />
+          <Property Name="Total_Profit" Type="real" />
+          <Property Name="Cultivation_Id" Type="uniqueidentifier" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ActiveBy" Type="int" />
+          <Property Name="ActiveOn" Type="datetime" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
         <EntityType Name="Cultivation_Steps">
           <Key>
             <PropertyRef Name="Id" />
@@ -128,6 +167,29 @@
           <Property Name="Active" Type="bit" />
           <Property Name="VideoPath" Type="nvarchar(max)" />
           <Property Name="MediaFlag" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CultivationStep_History">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CropId" Type="int" />
+          <Property Name="StepName" Type="nvarchar(max)" />
+          <Property Name="VideoURL" Type="nvarchar(max)" />
+          <Property Name="ImageURL" Type="nvarchar(max)" />
+          <Property Name="LocalVideoURL" Type="nvarchar(max)" />
+          <Property Name="LocalImageURL" Type="nvarchar(max)" />
+          <Property Name="Completed" Type="bit" />
+          <Property Name="VideoViewed" Type="bit" />
+          <Property Name="CompletedDate" Type="datetime" />
+          <Property Name="StepDescription" Type="nvarchar(max)" />
+          <Property Name="TitleAudio" Type="nvarchar(max)" />
+          <Property Name="DescriptionAudio" Type="nvarchar(max)" />
+          <Property Name="DescAudioLocal" Type="nvarchar(max)" />
+          <Property Name="TitleAudioLocal" Type="nvarchar(max)" />
+          <Property Name="MediaType" Type="nvarchar(max)" />
+          <Property Name="CultivationCropId" Type="int" />
+          <Property Name="CultivationUID" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="CurrencyStock">
           <Key>
@@ -233,6 +295,25 @@
           <Property Name="CreatedBy" Type="int" />
           <Property Name="CreatedOn" Type="datetime" />
         </EntityType>
+        <EntityType Name="MaterialNeeded_History">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StepId" Type="int" />
+          <Property Name="MaterialName" Type="nvarchar(max)" />
+          <Property Name="MaterialTransaction" Type="nvarchar(max)" />
+          <Property Name="PerDecimalPrice" Type="int" />
+          <Property Name="Quantity" Type="nvarchar(max)" />
+          <Property Name="MaterialUsed" Type="bit" />
+          <Property Name="PriceUpdated" Type="bit" />
+          <Property Name="ImagePath" Type="nvarchar(max)" />
+          <Property Name="ImgPathLocal" Type="nvarchar(max)" />
+          <Property Name="AudioPath" Type="nvarchar(max)" />
+          <Property Name="AudioPathLocal" Type="nvarchar(max)" />
+          <Property Name="CultivationStepId" Type="int" />
+          <Property Name="CultivationUID" Type="uniqueidentifier" />
+        </EntityType>
         <EntityType Name="MediaContent">
           <Key>
             <PropertyRef Name="Id" />
@@ -272,6 +353,16 @@
           <Property Name="PredefinedText" Type="nvarchar(max)" />
           <Property Name="FilePath" Type="nvarchar(max)" />
           <Property Name="LangCode" Type="int" />
+        </EntityType>
+        <EntityType Name="PushNotification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PushNotificationTitle" Type="nvarchar(max)" />
+          <Property Name="PushNotificationBody" Type="nvarchar(max)" />
+          <Property Name="PushNotificationData" Type="nvarchar(max)" />
+          <Property Name="CreatedOn" Type="datetime" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -424,6 +515,18 @@
           <Property Name="GrampanchayatId" Type="int" />
           <Property Name="Designation" Type="nvarchar(max)" />
         </EntityType>
+        <Association Name="FK_CropCultivation_History_Cultivation_History">
+          <End Role="Cultivation_History" Type="Self.Cultivation_History" Multiplicity="1" />
+          <End Role="CropCultivation_History" Type="Self.CropCultivation_History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cultivation_History">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CropCultivation_History">
+              <PropertyRef Name="CultivationHistoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_CropSteps_Material_Cultivation_Steps">
           <End Role="Cultivation_Steps" Type="Self.Cultivation_Steps" Multiplicity="1" />
           <End Role="CropSteps_Material" Type="Self.CropSteps_Material" Multiplicity="*" />
@@ -445,6 +548,30 @@
             </Principal>
             <Dependent Role="Cultivation_Steps">
               <PropertyRef Name="Crop_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CultivationStep_History_CropCultivation_History">
+          <End Role="CropCultivation_History" Type="Self.CropCultivation_History" Multiplicity="0..1" />
+          <End Role="CultivationStep_History" Type="Self.CultivationStep_History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropCultivation_History">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CultivationStep_History">
+              <PropertyRef Name="CultivationCropId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrencyStock_MoneyManager">
+          <End Role="MoneyManager" Type="Self.MoneyManager" Multiplicity="0..1" />
+          <End Role="CurrencyStock" Type="Self.CurrencyStock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MoneyManager">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrencyStock">
+              <PropertyRef Name="MoneyManagerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -613,6 +740,18 @@
             </Principal>
             <Dependent Role="Language">
               <PropertyRef Name="ActiveBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialNeeded_History_CultivationStep_History">
+          <End Role="CultivationStep_History" Type="Self.CultivationStep_History" Multiplicity="0..1" />
+          <End Role="MaterialNeeded_History" Type="Self.MaterialNeeded_History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CultivationStep_History">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MaterialNeeded_History">
+              <PropertyRef Name="CultivationStepId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -849,10 +988,13 @@
           <EntitySet Name="BulkUploadRef" EntityType="Self.BulkUploadRef" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Crop" EntityType="Self.Crop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Crop_AudioAllocation" EntityType="Self.Crop_AudioAllocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CropCultivation_History" EntityType="Self.CropCultivation_History" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CropMaterial_AudioAllocation" EntityType="Self.CropMaterial_AudioAllocation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CropStepAudio_Allocation" EntityType="Self.CropStepAudio_Allocation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CropSteps_Material" EntityType="Self.CropSteps_Material" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cultivation_History" EntityType="Self.Cultivation_History" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cultivation_Steps" EntityType="Self.Cultivation_Steps" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CultivationStep_History" EntityType="Self.CultivationStep_History" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CurrencyStock" EntityType="Self.CurrencyStock" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FeedBackQuestions" EntityType="Self.FeedBackQuestions" Schema="dbo" store:Type="Tables" />
@@ -861,9 +1003,11 @@
           <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MasterPassword" EntityType="Self.MasterPassword" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialNeeded_History" EntityType="Self.MaterialNeeded_History" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MediaContent" EntityType="Self.MediaContent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MoneyManager" EntityType="Self.MoneyManager" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PredefinedAudios" EntityType="Self.PredefinedAudios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PushNotification" EntityType="Self.PushNotification" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_ExceptionLogging" EntityType="Self.Tbl_ExceptionLogging" Schema="dbo" store:Type="Tables" />
@@ -874,6 +1018,10 @@
           <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Village" EntityType="Self.Village" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VillageContact" EntityType="Self.VillageContact" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CropCultivation_History_Cultivation_History" Association="Self.FK_CropCultivation_History_Cultivation_History">
+            <End Role="Cultivation_History" EntitySet="Cultivation_History" />
+            <End Role="CropCultivation_History" EntitySet="CropCultivation_History" />
+          </AssociationSet>
           <AssociationSet Name="FK_CropSteps_Material_Cultivation_Steps" Association="Self.FK_CropSteps_Material_Cultivation_Steps">
             <End Role="Cultivation_Steps" EntitySet="Cultivation_Steps" />
             <End Role="CropSteps_Material" EntitySet="CropSteps_Material" />
@@ -881,6 +1029,14 @@
           <AssociationSet Name="FK_Cultivation_Steps_Crop" Association="Self.FK_Cultivation_Steps_Crop">
             <End Role="Crop" EntitySet="Crop" />
             <End Role="Cultivation_Steps" EntitySet="Cultivation_Steps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CultivationStep_History_CropCultivation_History" Association="Self.FK_CultivationStep_History_CropCultivation_History">
+            <End Role="CropCultivation_History" EntitySet="CropCultivation_History" />
+            <End Role="CultivationStep_History" EntitySet="CultivationStep_History" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrencyStock_MoneyManager" Association="Self.FK_CurrencyStock_MoneyManager">
+            <End Role="MoneyManager" EntitySet="MoneyManager" />
+            <End Role="CurrencyStock" EntitySet="CurrencyStock" />
           </AssociationSet>
           <AssociationSet Name="FK_District_State" Association="Self.FK_District_State">
             <End Role="State" EntitySet="State" />
@@ -937,6 +1093,10 @@
           <AssociationSet Name="FK_Language_Users2" Association="Self.FK_Language_Users2">
             <End Role="Users" EntitySet="Users" />
             <End Role="Language" EntitySet="Language" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialNeeded_History_CultivationStep_History" Association="Self.FK_MaterialNeeded_History_CultivationStep_History">
+            <End Role="CultivationStep_History" EntitySet="CultivationStep_History" />
+            <End Role="MaterialNeeded_History" EntitySet="MaterialNeeded_History" />
           </AssociationSet>
           <AssociationSet Name="FK_Roles_Users" Association="Self.FK_Roles_Users">
             <End Role="Users" EntitySet="Users" />
@@ -1135,16 +1295,16 @@
           <EntitySet Name="Images" EntityType="TrickleUpModel.Image" />
           <EntitySet Name="VillageContacts" EntityType="TrickleUpModel.VillageContact" />
           <AssociationSet Name="FK_VillageContact_Users" Association="TrickleUpModel.FK_VillageContact_Users">
-            <End Role="User" EntitySet="Users" />
-            <End Role="VillageContact" EntitySet="VillageContacts" />
+            <End EntitySet="Users" Role="User" />
+            <End EntitySet="VillageContacts" Role="VillageContact" />
           </AssociationSet>
           <AssociationSet Name="FK_VillageContact_Users1" Association="TrickleUpModel.FK_VillageContact_Users1">
-            <End Role="User" EntitySet="Users" />
-            <End Role="VillageContact" EntitySet="VillageContacts" />
+            <End EntitySet="Users" Role="User" />
+            <End EntitySet="VillageContacts" Role="VillageContact" />
           </AssociationSet>
           <AssociationSet Name="FK_VillageContact_Users2" Association="TrickleUpModel.FK_VillageContact_Users2">
-            <End Role="User" EntitySet="Users" />
-            <End Role="VillageContact" EntitySet="VillageContacts" />
+            <End EntitySet="Users" Role="User" />
+            <End EntitySet="VillageContacts" Role="VillageContact" />
           </AssociationSet>
           <AssociationSet Name="FK_VillageContact_Village" Association="TrickleUpModel.FK_VillageContact_Village">
             <End Role="Village" EntitySet="Villages" />
@@ -1157,7 +1317,6 @@
           <EntitySet Name="Crop_AudioAllocation" EntityType="TrickleUpModel.Crop_AudioAllocation" />
           <EntitySet Name="CropMaterial_AudioAllocation" EntityType="TrickleUpModel.CropMaterial_AudioAllocation" />
           <EntitySet Name="CropStepAudio_Allocation" EntityType="TrickleUpModel.CropStepAudio_Allocation" />
-          <EntitySet Name="CurrencyStocks" EntityType="TrickleUpModel.CurrencyStock" />
           <EntitySet Name="Tbl_ExceptionLogging" EntityType="TrickleUpModel.Tbl_ExceptionLogging" />
           <EntitySet Name="Cultivation_Steps" EntityType="TrickleUpModel.Cultivation_Steps" />
           <AssociationSet Name="FK_Cultivation_Steps_Crop" Association="TrickleUpModel.FK_Cultivation_Steps_Crop">
@@ -1170,25 +1329,47 @@
           </AssociationSet>
           <EntitySet Name="Roles" EntityType="TrickleUpModel.Role" />
           <AssociationSet Name="FK_Roles_Users" Association="TrickleUpModel.FK_Roles_Users">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Role" EntitySet="Roles" />
+            <End EntitySet="Users" Role="User" />
+            <End EntitySet="Roles" Role="Role" />
           </AssociationSet>
           <AssociationSet Name="FK_Roles_Users1" Association="TrickleUpModel.FK_Roles_Users1">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Role" EntitySet="Roles" />
+            <End EntitySet="Users" Role="User" />
+            <End EntitySet="Roles" Role="Role" />
           </AssociationSet>
           <AssociationSet Name="FK_Roles_Users2" Association="TrickleUpModel.FK_Roles_Users2">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Role" EntitySet="Roles" />
+            <End EntitySet="Users" Role="User" />
+            <End EntitySet="Roles" Role="Role" />
           </AssociationSet>
           <AssociationSet Name="Users_Roles" Association="TrickleUpModel.Users_Roles">
-            <End Role="Role" EntitySet="Roles" />
-            <End Role="User" EntitySet="Users" />
+            <End EntitySet="Roles" Role="Role" />
+            <End EntitySet="Users" Role="User" />
           </AssociationSet>
           <EntitySet Name="MasterPasswords" EntityType="TrickleUpModel.MasterPassword" />
           <EntitySet Name="UserCredentials" EntityType="TrickleUpModel.UserCredential" />
-          <EntitySet Name="MoneyManagers" EntityType="TrickleUpModel.MoneyManager" />
           <EntitySet Name="UserFCMTokens" EntityType="TrickleUpModel.UserFCMToken" />
+          <EntitySet Name="CurrencyStocks" EntityType="TrickleUpModel.CurrencyStock" />
+          <EntitySet Name="MoneyManagers" EntityType="TrickleUpModel.MoneyManager" />
+          <AssociationSet Name="FK_CurrencyStock_MoneyManager" Association="TrickleUpModel.FK_CurrencyStock_MoneyManager">
+            <End Role="MoneyManager" EntitySet="MoneyManagers" />
+            <End Role="CurrencyStock" EntitySet="CurrencyStocks" />
+          </AssociationSet>
+          <EntitySet Name="PushNotifications" EntityType="TrickleUpModel.PushNotification" />
+          <EntitySet Name="CropCultivation_History" EntityType="TrickleUpModel.CropCultivation_History" />
+          <EntitySet Name="Cultivation_History" EntityType="TrickleUpModel.Cultivation_History" />
+          <EntitySet Name="CultivationStep_History" EntityType="TrickleUpModel.CultivationStep_History" />
+          <EntitySet Name="MaterialNeeded_History" EntityType="TrickleUpModel.MaterialNeeded_History" />
+          <AssociationSet Name="FK_CropCultivation_History_Cultivation_History" Association="TrickleUpModel.FK_CropCultivation_History_Cultivation_History">
+            <End Role="Cultivation_History" EntitySet="Cultivation_History" />
+            <End Role="CropCultivation_History" EntitySet="CropCultivation_History" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CultivationStep_History_CropCultivation_History" Association="TrickleUpModel.FK_CultivationStep_History_CropCultivation_History">
+            <End Role="CropCultivation_History" EntitySet="CropCultivation_History" />
+            <End Role="CultivationStep_History" EntitySet="CultivationStep_History" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialNeeded_History_CultivationStep_History" Association="TrickleUpModel.FK_MaterialNeeded_History_CultivationStep_History">
+            <End Role="CultivationStep_History" EntitySet="CultivationStep_History" />
+            <End Role="MaterialNeeded_History" EntitySet="MaterialNeeded_History" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Gender">
           <Key>
@@ -1767,8 +1948,8 @@
           <NavigationProperty Name="Village" Relationship="TrickleUpModel.FK_VillageContact_Village" FromRole="VillageContact" ToRole="Village" />
         </EntityType>
         <Association Name="FK_VillageContact_Users">
-          <End Type="TrickleUpModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="TrickleUpModel.VillageContact" Role="VillageContact" Multiplicity="*" />
+          <End Type="TrickleUpModel.User" Multiplicity="0..1" Role="User" />
+          <End Type="TrickleUpModel.VillageContact" Multiplicity="*" Role="VillageContact" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id" />
@@ -1779,8 +1960,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_VillageContact_Users1">
-          <End Type="TrickleUpModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="TrickleUpModel.VillageContact" Role="VillageContact" Multiplicity="*" />
+          <End Type="TrickleUpModel.User" Multiplicity="0..1" Role="User" />
+          <End Type="TrickleUpModel.VillageContact" Multiplicity="*" Role="VillageContact" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id" />
@@ -1791,8 +1972,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_VillageContact_Users2">
-          <End Type="TrickleUpModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="TrickleUpModel.VillageContact" Role="VillageContact" Multiplicity="*" />
+          <End Type="TrickleUpModel.User" Multiplicity="0..1" Role="User" />
+          <End Type="TrickleUpModel.VillageContact" Multiplicity="*" Role="VillageContact" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id" />
@@ -1915,16 +2096,6 @@
           <Property Name="ActiveOn" Type="DateTime" Precision="3" />
           <Property Name="Active" Type="Boolean" />
         </EntityType>
-        <EntityType Name="CurrencyStock">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MoneyManagerId" Type="Int32" />
-          <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Count" Type="Int32" />
-          <Property Name="UID" Type="Guid" />
-        </EntityType>
         <EntityType Name="Tbl_ExceptionLogging">
           <Key>
             <PropertyRef Name="Logid" />
@@ -2004,8 +2175,8 @@
           <NavigationProperty Name="Users" Relationship="TrickleUpModel.Users_Roles" FromRole="Role" ToRole="User" />
         </EntityType>
         <Association Name="FK_Roles_Users">
-          <End Type="TrickleUpModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="TrickleUpModel.Role" Role="Role" Multiplicity="*" />
+          <End Type="TrickleUpModel.User" Multiplicity="0..1" Role="User" />
+          <End Type="TrickleUpModel.Role" Multiplicity="*" Role="Role" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id" />
@@ -2016,8 +2187,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Roles_Users1">
-          <End Type="TrickleUpModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="TrickleUpModel.Role" Role="Role" Multiplicity="*" />
+          <End Type="TrickleUpModel.User" Multiplicity="0..1" Role="User" />
+          <End Type="TrickleUpModel.Role" Multiplicity="*" Role="Role" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id" />
@@ -2028,8 +2199,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Roles_Users2">
-          <End Type="TrickleUpModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="TrickleUpModel.Role" Role="Role" Multiplicity="*" />
+          <End Type="TrickleUpModel.User" Multiplicity="0..1" Role="User" />
+          <End Type="TrickleUpModel.Role" Multiplicity="*" Role="Role" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id" />
@@ -2040,8 +2211,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Users_Roles">
-          <End Type="TrickleUpModel.Role" Role="Role" Multiplicity="0..1" />
-          <End Type="TrickleUpModel.User" Role="User" Multiplicity="*" />
+          <End Type="TrickleUpModel.Role" Multiplicity="0..1" Role="Role" />
+          <End Type="TrickleUpModel.User" Multiplicity="*" Role="User" />
           <ReferentialConstraint>
             <Principal Role="Role">
               <PropertyRef Name="Id" />
@@ -2072,6 +2243,26 @@
           <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LangCode" Type="Int32" />
         </EntityType>
+        <EntityType Name="UserFCMToken">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="FCMToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Registered" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="CurrencyStock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MoneyManagerId" Type="Int32" />
+          <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Count" Type="Int32" />
+          <Property Name="UID" Type="Guid" />
+          <NavigationProperty Name="MoneyManager" Relationship="TrickleUpModel.FK_CurrencyStock_MoneyManager" FromRole="CurrencyStock" ToRole="MoneyManager" />
+        </EntityType>
         <EntityType Name="MoneyManager">
           <Key>
             <PropertyRef Name="Id" />
@@ -2089,16 +2280,153 @@
           <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
           <Property Name="ActiveBy" Type="Int32" />
           <Property Name="ActiveOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CurrencyStocks" Relationship="TrickleUpModel.FK_CurrencyStock_MoneyManager" FromRole="MoneyManager" ToRole="CurrencyStock" />
         </EntityType>
-        <EntityType Name="UserFCMToken">
+        <Association Name="FK_CurrencyStock_MoneyManager">
+          <End Type="TrickleUpModel.MoneyManager" Role="MoneyManager" Multiplicity="0..1" />
+          <End Type="TrickleUpModel.CurrencyStock" Role="CurrencyStock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MoneyManager">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrencyStock">
+              <PropertyRef Name="MoneyManagerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PushNotification">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="Int32" />
-          <Property Name="FCMToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Registered" Type="Boolean" />
+          <Property Name="PushNotificationTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PushNotificationBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PushNotificationData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="CropCultivation_History">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LandArea" Type="Single" />
+          <Property Name="LandType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CropName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CropId" Type="Int32" />
+          <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ready" Type="Boolean" />
+          <Property Name="Complete" Type="Boolean" />
+          <Property Name="Total_Income" Type="Single" />
+          <Property Name="Production_kg" Type="Int32" />
+          <Property Name="CultivationHistoryId" Type="Int32" Nullable="false" />
+          <Property Name="CultivationUID" Type="Guid" />
+          <NavigationProperty Name="Cultivation_History" Relationship="TrickleUpModel.FK_CropCultivation_History_Cultivation_History" FromRole="CropCultivation_History" ToRole="Cultivation_History" />
+          <NavigationProperty Name="CultivationStep_History" Relationship="TrickleUpModel.FK_CultivationStep_History_CropCultivation_History" FromRole="CropCultivation_History" ToRole="CultivationStep_History" />
+        </EntityType>
+        <EntityType Name="Cultivation_History">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Completion_Date" Type="DateTime" Precision="3" />
+          <Property Name="Total_Production" Type="Single" />
+          <Property Name="Cost_Per_Kg" Type="Single" />
+          <Property Name="LandArea" Type="Single" />
+          <Property Name="Total_Cost_of_Cultivation" Type="Single" />
+          <Property Name="CropId" Type="Int32" />
+          <Property Name="LandType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Total_kg" Type="Int32" />
+          <Property Name="Total_Profit" Type="Single" />
+          <Property Name="Cultivation_Id" Type="Guid" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ActiveBy" Type="Int32" />
+          <Property Name="ActiveOn" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="CropCultivation_History" Relationship="TrickleUpModel.FK_CropCultivation_History_Cultivation_History" FromRole="Cultivation_History" ToRole="CropCultivation_History" />
+        </EntityType>
+        <EntityType Name="CultivationStep_History">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CropId" Type="Int32" />
+          <Property Name="StepName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VideoURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LocalVideoURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LocalImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Completed" Type="Boolean" />
+          <Property Name="VideoViewed" Type="Boolean" />
+          <Property Name="CompletedDate" Type="DateTime" Precision="3" />
+          <Property Name="StepDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TitleAudio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionAudio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DescAudioLocal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TitleAudioLocal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MediaType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CultivationCropId" Type="Int32" />
+          <Property Name="CultivationUID" Type="Guid" />
+          <NavigationProperty Name="CropCultivation_History" Relationship="TrickleUpModel.FK_CultivationStep_History_CropCultivation_History" FromRole="CultivationStep_History" ToRole="CropCultivation_History" />
+          <NavigationProperty Name="MaterialNeeded_History" Relationship="TrickleUpModel.FK_MaterialNeeded_History_CultivationStep_History" FromRole="CultivationStep_History" ToRole="MaterialNeeded_History" />
+        </EntityType>
+        <EntityType Name="MaterialNeeded_History">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StepId" Type="Int32" />
+          <Property Name="MaterialName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaterialTransaction" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PerDecimalPrice" Type="Int32" />
+          <Property Name="Quantity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaterialUsed" Type="Boolean" />
+          <Property Name="PriceUpdated" Type="Boolean" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImgPathLocal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AudioPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AudioPathLocal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CultivationStepId" Type="Int32" />
+          <Property Name="CultivationUID" Type="Guid" />
+          <NavigationProperty Name="CultivationStep_History" Relationship="TrickleUpModel.FK_MaterialNeeded_History_CultivationStep_History" FromRole="MaterialNeeded_History" ToRole="CultivationStep_History" />
+        </EntityType>
+        <Association Name="FK_CropCultivation_History_Cultivation_History">
+          <End Type="TrickleUpModel.Cultivation_History" Role="Cultivation_History" Multiplicity="1" />
+          <End Type="TrickleUpModel.CropCultivation_History" Role="CropCultivation_History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cultivation_History">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CropCultivation_History">
+              <PropertyRef Name="CultivationHistoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CultivationStep_History_CropCultivation_History">
+          <End Type="TrickleUpModel.CropCultivation_History" Role="CropCultivation_History" Multiplicity="0..1" />
+          <End Type="TrickleUpModel.CultivationStep_History" Role="CultivationStep_History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropCultivation_History">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CultivationStep_History">
+              <PropertyRef Name="CultivationCropId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialNeeded_History_CultivationStep_History">
+          <End Type="TrickleUpModel.CultivationStep_History" Role="CultivationStep_History" Multiplicity="0..1" />
+          <End Type="TrickleUpModel.MaterialNeeded_History" Role="MaterialNeeded_History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CultivationStep_History">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MaterialNeeded_History">
+              <PropertyRef Name="CultivationStepId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2439,17 +2767,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CurrencyStocks">
-            <EntityTypeMapping TypeName="TrickleUpModel.CurrencyStock">
-              <MappingFragment StoreEntitySet="CurrencyStock">
-                <ScalarProperty Name="UID" ColumnName="UID" />
-                <ScalarProperty Name="Count" ColumnName="Count" />
-                <ScalarProperty Name="Currency" ColumnName="Currency" />
-                <ScalarProperty Name="MoneyManagerId" ColumnName="MoneyManagerId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Tbl_ExceptionLogging">
             <EntityTypeMapping TypeName="TrickleUpModel.Tbl_ExceptionLogging">
               <MappingFragment StoreEntitySet="Tbl_ExceptionLogging">
@@ -2524,6 +2841,27 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="UserFCMTokens">
+            <EntityTypeMapping TypeName="TrickleUpModel.UserFCMToken">
+              <MappingFragment StoreEntitySet="UserFCMToken">
+                <ScalarProperty Name="Registered" ColumnName="Registered" />
+                <ScalarProperty Name="FCMToken" ColumnName="FCMToken" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CurrencyStocks">
+            <EntityTypeMapping TypeName="TrickleUpModel.CurrencyStock">
+              <MappingFragment StoreEntitySet="CurrencyStock">
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="MoneyManagerId" ColumnName="MoneyManagerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="MoneyManagers">
             <EntityTypeMapping TypeName="TrickleUpModel.MoneyManager">
               <MappingFragment StoreEntitySet="MoneyManager">
@@ -2543,12 +2881,98 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UserFCMTokens">
-            <EntityTypeMapping TypeName="TrickleUpModel.UserFCMToken">
-              <MappingFragment StoreEntitySet="UserFCMToken">
-                <ScalarProperty Name="Registered" ColumnName="Registered" />
-                <ScalarProperty Name="FCMToken" ColumnName="FCMToken" />
+          <EntitySetMapping Name="PushNotifications">
+            <EntityTypeMapping TypeName="TrickleUpModel.PushNotification">
+              <MappingFragment StoreEntitySet="PushNotification">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="PushNotificationData" ColumnName="PushNotificationData" />
+                <ScalarProperty Name="PushNotificationBody" ColumnName="PushNotificationBody" />
+                <ScalarProperty Name="PushNotificationTitle" ColumnName="PushNotificationTitle" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CropCultivation_History">
+            <EntityTypeMapping TypeName="TrickleUpModel.CropCultivation_History">
+              <MappingFragment StoreEntitySet="CropCultivation_History">
+                <ScalarProperty Name="CultivationUID" ColumnName="CultivationUID" />
+                <ScalarProperty Name="CultivationHistoryId" ColumnName="CultivationHistoryId" />
+                <ScalarProperty Name="Production_kg" ColumnName="Production_kg" />
+                <ScalarProperty Name="Total_Income" ColumnName="Total_Income" />
+                <ScalarProperty Name="Complete" ColumnName="Complete" />
+                <ScalarProperty Name="Ready" ColumnName="Ready" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="CropId" ColumnName="CropId" />
+                <ScalarProperty Name="CropName" ColumnName="CropName" />
+                <ScalarProperty Name="LandType" ColumnName="LandType" />
+                <ScalarProperty Name="LandArea" ColumnName="LandArea" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cultivation_History">
+            <EntityTypeMapping TypeName="TrickleUpModel.Cultivation_History">
+              <MappingFragment StoreEntitySet="Cultivation_History">
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+                <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Cultivation_Id" ColumnName="Cultivation_Id" />
+                <ScalarProperty Name="Total_Profit" ColumnName="Total_Profit" />
+                <ScalarProperty Name="Total_kg" ColumnName="Total_kg" />
+                <ScalarProperty Name="LandType" ColumnName="LandType" />
+                <ScalarProperty Name="CropId" ColumnName="CropId" />
+                <ScalarProperty Name="Total_Cost_of_Cultivation" ColumnName="Total_Cost_of_Cultivation" />
+                <ScalarProperty Name="LandArea" ColumnName="LandArea" />
+                <ScalarProperty Name="Cost_Per_Kg" ColumnName="Cost_Per_Kg" />
+                <ScalarProperty Name="Total_Production" ColumnName="Total_Production" />
+                <ScalarProperty Name="Completion_Date" ColumnName="Completion_Date" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CultivationStep_History">
+            <EntityTypeMapping TypeName="TrickleUpModel.CultivationStep_History">
+              <MappingFragment StoreEntitySet="CultivationStep_History">
+                <ScalarProperty Name="CultivationUID" ColumnName="CultivationUID" />
+                <ScalarProperty Name="CultivationCropId" ColumnName="CultivationCropId" />
+                <ScalarProperty Name="MediaType" ColumnName="MediaType" />
+                <ScalarProperty Name="TitleAudioLocal" ColumnName="TitleAudioLocal" />
+                <ScalarProperty Name="DescAudioLocal" ColumnName="DescAudioLocal" />
+                <ScalarProperty Name="DescriptionAudio" ColumnName="DescriptionAudio" />
+                <ScalarProperty Name="TitleAudio" ColumnName="TitleAudio" />
+                <ScalarProperty Name="StepDescription" ColumnName="StepDescription" />
+                <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
+                <ScalarProperty Name="VideoViewed" ColumnName="VideoViewed" />
+                <ScalarProperty Name="Completed" ColumnName="Completed" />
+                <ScalarProperty Name="LocalImageURL" ColumnName="LocalImageURL" />
+                <ScalarProperty Name="LocalVideoURL" ColumnName="LocalVideoURL" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="VideoURL" ColumnName="VideoURL" />
+                <ScalarProperty Name="StepName" ColumnName="StepName" />
+                <ScalarProperty Name="CropId" ColumnName="CropId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialNeeded_History">
+            <EntityTypeMapping TypeName="TrickleUpModel.MaterialNeeded_History">
+              <MappingFragment StoreEntitySet="MaterialNeeded_History">
+                <ScalarProperty Name="CultivationUID" ColumnName="CultivationUID" />
+                <ScalarProperty Name="CultivationStepId" ColumnName="CultivationStepId" />
+                <ScalarProperty Name="AudioPathLocal" ColumnName="AudioPathLocal" />
+                <ScalarProperty Name="AudioPath" ColumnName="AudioPath" />
+                <ScalarProperty Name="ImgPathLocal" ColumnName="ImgPathLocal" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="PriceUpdated" ColumnName="PriceUpdated" />
+                <ScalarProperty Name="MaterialUsed" ColumnName="MaterialUsed" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="PerDecimalPrice" ColumnName="PerDecimalPrice" />
+                <ScalarProperty Name="MaterialTransaction" ColumnName="MaterialTransaction" />
+                <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+                <ScalarProperty Name="StepId" ColumnName="StepId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

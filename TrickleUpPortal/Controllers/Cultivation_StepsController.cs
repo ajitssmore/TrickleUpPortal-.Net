@@ -15,7 +15,7 @@ namespace TrickleUpPortal.Controllers
     public class Cultivation_StepsController : ApiController
     {
         private TrickleUpEntities db = new TrickleUpEntities();
-
+        CommonController comObj = new CommonController();
         //GET: api/Cultivation_Steps
         //public IQueryable<Cultivation_Steps> GetCultivation_Stepsdata()
         //{
@@ -175,7 +175,7 @@ namespace TrickleUpPortal.Controllers
         }
 
         [HttpPost]
-        public HttpResponseMessage UpdateCropsStepsVideo(Cultivation_Steps cultivation_Steps)
+        public HttpResponseMessage UpdateCropsStepsVideo(Cultivation_Steps cultivation_Steps, int LanguageCode)
         {
             if (!ModelState.IsValid)
             {
@@ -197,6 +197,15 @@ namespace TrickleUpPortal.Controllers
                     Cultivation_StepsData.UpdatedOn = cultivation_Steps.UpdatedOn;
                 }
                 db.SaveChanges();
+                string CropName = db.Crops.Where(x => x.Id == Cultivation_StepsData.Crop_Id).Select(x => x.CropName).Single();
+                PushNotificationDataModel objPushNotification = new PushNotificationDataModel();
+                objPushNotification.Title = "Video has been uploaded";
+                objPushNotification.Body = "For" + " " + CropName + " -->" + " " +Cultivation_StepsData.Step_Name;
+                objPushNotification.CropId = Cultivation_StepsData.Crop_Id;
+                objPushNotification.StepId = Cultivation_StepsData.Id;
+                objPushNotification.LangCode = LanguageCode;
+                string message = comObj.SendPushNotification(objPushNotification);
+                StoreNotificationData(objPushNotification);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -211,6 +220,16 @@ namespace TrickleUpPortal.Controllers
             }
 
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { cultivation_Steps }, success = true, error = string.Empty });
+        }
+
+        public void StoreNotificationData(PushNotificationDataModel PushNotificationData)
+        {
+            PushNotification objPushNotification = new PushNotification();
+            objPushNotification.PushNotificationTitle = PushNotificationData.Title;
+            objPushNotification.PushNotificationBody = PushNotificationData.Body;
+            objPushNotification.PushNotificationData = "{CropId:" + PushNotificationData.CropId + ", StepId:" + PushNotificationData.StepId + ", langCode:" + PushNotificationData.LangCode + " }";
+            db.PushNotifications.Add(objPushNotification);
+            db.SaveChanges();
         }
 
         // POST: api/Cultivation_Steps

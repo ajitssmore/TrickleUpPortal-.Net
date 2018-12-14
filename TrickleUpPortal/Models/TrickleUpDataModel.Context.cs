@@ -46,13 +46,18 @@ namespace TrickleUpPortal.Models
         public virtual DbSet<Crop_AudioAllocation> Crop_AudioAllocation { get; set; }
         public virtual DbSet<CropMaterial_AudioAllocation> CropMaterial_AudioAllocation { get; set; }
         public virtual DbSet<CropStepAudio_Allocation> CropStepAudio_Allocation { get; set; }
-        public virtual DbSet<CurrencyStock> CurrencyStocks { get; set; }
         public virtual DbSet<Tbl_ExceptionLogging> Tbl_ExceptionLogging { get; set; }
         public virtual DbSet<Cultivation_Steps> Cultivation_Steps { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<MasterPassword> MasterPasswords { get; set; }
         public virtual DbSet<UserCredential> UserCredentials { get; set; }
-        public virtual DbSet<MoneyManager> MoneyManagers { get; set; }
         public virtual DbSet<UserFCMToken> UserFCMTokens { get; set; }
+        public virtual DbSet<CurrencyStock> CurrencyStocks { get; set; }
+        public virtual DbSet<MoneyManager> MoneyManagers { get; set; }
+        public virtual DbSet<PushNotification> PushNotifications { get; set; }
+        public virtual DbSet<CropCultivation_History> CropCultivation_History { get; set; }
+        public virtual DbSet<Cultivation_History> Cultivation_History { get; set; }
+        public virtual DbSet<CultivationStep_History> CultivationStep_History { get; set; }
+        public virtual DbSet<MaterialNeeded_History> MaterialNeeded_History { get; set; }
     }
 }

@@ -53,6 +53,23 @@
     <Property Name="ActiveOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
   </EntityType>
+  <EntityType Name="CropCultivation_History">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LandArea" Type="real" />
+    <Property Name="LandType" Type="nvarchar(max)" />
+    <Property Name="CropName" Type="nvarchar(max)" />
+    <Property Name="CropId" Type="int" />
+    <Property Name="FilePath" Type="nvarchar(max)" />
+    <Property Name="Ready" Type="bit" />
+    <Property Name="Complete" Type="bit" />
+    <Property Name="Total_Income" Type="real" />
+    <Property Name="Production_kg" Type="int" />
+    <Property Name="CultivationHistoryId" Type="int" Nullable="false" />
+    <Property Name="CultivationUID" Type="uniqueidentifier" />
+  </EntityType>
   <EntityType Name="CropMaterial_AudioAllocation">
     <Key>
       <PropertyRef Name="Id" />
@@ -103,6 +120,28 @@
     <Property Name="ActiveOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
   </EntityType>
+  <EntityType Name="Cultivation_History">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Completion_Date" Type="datetime" />
+    <Property Name="Total_Production" Type="real" />
+    <Property Name="Cost_Per_Kg" Type="real" />
+    <Property Name="LandArea" Type="real" />
+    <Property Name="Total_Cost_of_Cultivation" Type="real" />
+    <Property Name="CropId" Type="int" />
+    <Property Name="LandType" Type="nvarchar(max)" />
+    <Property Name="Total_kg" Type="int" />
+    <Property Name="Total_Profit" Type="real" />
+    <Property Name="Cultivation_Id" Type="uniqueidentifier" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
   <EntityType Name="Cultivation_Steps">
     <Key>
       <PropertyRef Name="Id" />
@@ -123,6 +162,29 @@
     <Property Name="Active" Type="bit" />
     <Property Name="VideoPath" Type="nvarchar(max)" />
     <Property Name="MediaFlag" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CultivationStep_History">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CropId" Type="int" />
+    <Property Name="StepName" Type="nvarchar(max)" />
+    <Property Name="VideoURL" Type="nvarchar(max)" />
+    <Property Name="ImageURL" Type="nvarchar(max)" />
+    <Property Name="LocalVideoURL" Type="nvarchar(max)" />
+    <Property Name="LocalImageURL" Type="nvarchar(max)" />
+    <Property Name="Completed" Type="bit" />
+    <Property Name="VideoViewed" Type="bit" />
+    <Property Name="CompletedDate" Type="datetime" />
+    <Property Name="StepDescription" Type="nvarchar(max)" />
+    <Property Name="TitleAudio" Type="nvarchar(max)" />
+    <Property Name="DescriptionAudio" Type="nvarchar(max)" />
+    <Property Name="DescAudioLocal" Type="nvarchar(max)" />
+    <Property Name="TitleAudioLocal" Type="nvarchar(max)" />
+    <Property Name="MediaType" Type="nvarchar(max)" />
+    <Property Name="CultivationCropId" Type="int" />
+    <Property Name="CultivationUID" Type="uniqueidentifier" />
   </EntityType>
   <EntityType Name="CurrencyStock">
     <Key>
@@ -228,6 +290,25 @@
     <Property Name="CreatedBy" Type="int" />
     <Property Name="CreatedOn" Type="datetime" />
   </EntityType>
+  <EntityType Name="MaterialNeeded_History">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StepId" Type="int" />
+    <Property Name="MaterialName" Type="nvarchar(max)" />
+    <Property Name="MaterialTransaction" Type="nvarchar(max)" />
+    <Property Name="PerDecimalPrice" Type="int" />
+    <Property Name="Quantity" Type="nvarchar(max)" />
+    <Property Name="MaterialUsed" Type="bit" />
+    <Property Name="PriceUpdated" Type="bit" />
+    <Property Name="ImagePath" Type="nvarchar(max)" />
+    <Property Name="ImgPathLocal" Type="nvarchar(max)" />
+    <Property Name="AudioPath" Type="nvarchar(max)" />
+    <Property Name="AudioPathLocal" Type="nvarchar(max)" />
+    <Property Name="CultivationStepId" Type="int" />
+    <Property Name="CultivationUID" Type="uniqueidentifier" />
+  </EntityType>
   <EntityType Name="MediaContent">
     <Key>
       <PropertyRef Name="Id" />
@@ -267,6 +348,16 @@
     <Property Name="PredefinedText" Type="nvarchar(max)" />
     <Property Name="FilePath" Type="nvarchar(max)" />
     <Property Name="LangCode" Type="int" />
+  </EntityType>
+  <EntityType Name="PushNotification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PushNotificationTitle" Type="nvarchar(max)" />
+    <Property Name="PushNotificationBody" Type="nvarchar(max)" />
+    <Property Name="PushNotificationData" Type="nvarchar(max)" />
+    <Property Name="CreatedOn" Type="datetime" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
@@ -419,6 +510,18 @@
     <Property Name="GrampanchayatId" Type="int" />
     <Property Name="Designation" Type="nvarchar(max)" />
   </EntityType>
+  <Association Name="FK_CropCultivation_History_Cultivation_History">
+    <End Role="Cultivation_History" Type="Self.Cultivation_History" Multiplicity="1" />
+    <End Role="CropCultivation_History" Type="Self.CropCultivation_History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cultivation_History">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CropCultivation_History">
+        <PropertyRef Name="CultivationHistoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_CropSteps_Material_Cultivation_Steps">
     <End Role="Cultivation_Steps" Type="Self.Cultivation_Steps" Multiplicity="1" />
     <End Role="CropSteps_Material" Type="Self.CropSteps_Material" Multiplicity="*" />
@@ -440,6 +543,30 @@
       </Principal>
       <Dependent Role="Cultivation_Steps">
         <PropertyRef Name="Crop_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CultivationStep_History_CropCultivation_History">
+    <End Role="CropCultivation_History" Type="Self.CropCultivation_History" Multiplicity="0..1" />
+    <End Role="CultivationStep_History" Type="Self.CultivationStep_History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CropCultivation_History">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CultivationStep_History">
+        <PropertyRef Name="CultivationCropId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CurrencyStock_MoneyManager">
+    <End Role="MoneyManager" Type="Self.MoneyManager" Multiplicity="0..1" />
+    <End Role="CurrencyStock" Type="Self.CurrencyStock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MoneyManager">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CurrencyStock">
+        <PropertyRef Name="MoneyManagerId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -608,6 +735,18 @@
       </Principal>
       <Dependent Role="Language">
         <PropertyRef Name="ActiveBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaterialNeeded_History_CultivationStep_History">
+    <End Role="CultivationStep_History" Type="Self.CultivationStep_History" Multiplicity="0..1" />
+    <End Role="MaterialNeeded_History" Type="Self.MaterialNeeded_History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CultivationStep_History">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MaterialNeeded_History">
+        <PropertyRef Name="CultivationStepId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -844,10 +983,13 @@
     <EntitySet Name="BulkUploadRef" EntityType="Self.BulkUploadRef" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Crop" EntityType="Self.Crop" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Crop_AudioAllocation" EntityType="Self.Crop_AudioAllocation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CropCultivation_History" EntityType="Self.CropCultivation_History" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CropMaterial_AudioAllocation" EntityType="Self.CropMaterial_AudioAllocation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CropStepAudio_Allocation" EntityType="Self.CropStepAudio_Allocation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CropSteps_Material" EntityType="Self.CropSteps_Material" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cultivation_History" EntityType="Self.Cultivation_History" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cultivation_Steps" EntityType="Self.Cultivation_Steps" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CultivationStep_History" EntityType="Self.CultivationStep_History" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CurrencyStock" EntityType="Self.CurrencyStock" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FeedBackQuestions" EntityType="Self.FeedBackQuestions" Schema="dbo" store:Type="Tables" />
@@ -856,9 +998,11 @@
     <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MasterPassword" EntityType="Self.MasterPassword" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaterialNeeded_History" EntityType="Self.MaterialNeeded_History" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MediaContent" EntityType="Self.MediaContent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MoneyManager" EntityType="Self.MoneyManager" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PredefinedAudios" EntityType="Self.PredefinedAudios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PushNotification" EntityType="Self.PushNotification" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tbl_ExceptionLogging" EntityType="Self.Tbl_ExceptionLogging" Schema="dbo" store:Type="Tables" />
@@ -869,6 +1013,10 @@
     <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Village" EntityType="Self.Village" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VillageContact" EntityType="Self.VillageContact" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CropCultivation_History_Cultivation_History" Association="Self.FK_CropCultivation_History_Cultivation_History">
+      <End Role="Cultivation_History" EntitySet="Cultivation_History" />
+      <End Role="CropCultivation_History" EntitySet="CropCultivation_History" />
+    </AssociationSet>
     <AssociationSet Name="FK_CropSteps_Material_Cultivation_Steps" Association="Self.FK_CropSteps_Material_Cultivation_Steps">
       <End Role="Cultivation_Steps" EntitySet="Cultivation_Steps" />
       <End Role="CropSteps_Material" EntitySet="CropSteps_Material" />
@@ -876,6 +1024,14 @@
     <AssociationSet Name="FK_Cultivation_Steps_Crop" Association="Self.FK_Cultivation_Steps_Crop">
       <End Role="Crop" EntitySet="Crop" />
       <End Role="Cultivation_Steps" EntitySet="Cultivation_Steps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CultivationStep_History_CropCultivation_History" Association="Self.FK_CultivationStep_History_CropCultivation_History">
+      <End Role="CropCultivation_History" EntitySet="CropCultivation_History" />
+      <End Role="CultivationStep_History" EntitySet="CultivationStep_History" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CurrencyStock_MoneyManager" Association="Self.FK_CurrencyStock_MoneyManager">
+      <End Role="MoneyManager" EntitySet="MoneyManager" />
+      <End Role="CurrencyStock" EntitySet="CurrencyStock" />
     </AssociationSet>
     <AssociationSet Name="FK_District_State" Association="Self.FK_District_State">
       <End Role="State" EntitySet="State" />
@@ -932,6 +1088,10 @@
     <AssociationSet Name="FK_Language_Users2" Association="Self.FK_Language_Users2">
       <End Role="Users" EntitySet="Users" />
       <End Role="Language" EntitySet="Language" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaterialNeeded_History_CultivationStep_History" Association="Self.FK_MaterialNeeded_History_CultivationStep_History">
+      <End Role="CultivationStep_History" EntitySet="CultivationStep_History" />
+      <End Role="MaterialNeeded_History" EntitySet="MaterialNeeded_History" />
     </AssociationSet>
     <AssociationSet Name="FK_Roles_Users" Association="Self.FK_Roles_Users">
       <End Role="Users" EntitySet="Users" />

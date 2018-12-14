@@ -144,6 +144,9 @@
   <data name="आड़ी और नाली की तैयारी, बीज और पोषण की आवश्यकता" xml:space="preserve">
     <value>Preparation of Ridges and furrow, Seed and Nutrition requirement</value>
   </data>
+  <data name="आड़ी और नाली के बीच 2.5 फुट और पौधों के बीच 1 फुट की दुरी होनी चाहिए दो गड्डो के बीच में 3 फीट और दो लाइनों के भी बीच में 3 फीट की दूरी होनी चाहिए. प्रत्येक गड्डे में हादरी एवं खाद मिश्रण और केंचुआ खाद का प्रयोग करें. प्रत्येक गड्डे में 3 सूखे बीज डालें." xml:space="preserve">
+    <value>Spacing between Ridges and furrow should be 2.5 feet and spacing between Row (plant to plant) should be 1 feet. Put Hadri and Vermicompost mix in each pit. Put dried out 3 treated seeds in each pit</value>
+  </data>
   <data name="आड़ी़ और नाली की तैयारी, बीज और पोषण की आवश्यकता" xml:space="preserve">
     <value>Preparation of Ridges and furrow, Seed and Nutrition requirement</value>
   </data>
@@ -244,7 +247,7 @@
     <value>Dimension of Nursery should be 10 ft length, 3 ft width and 9 inch of height. Spray cow urine in the Soil. Cover it with thin white Plastic Mulch (Polythene) for 12 hours. Line Sowing of seeds. Cover nursery bed with straw for 4-5 days. Put Farm Yard Manure (FYM/vermicompost) and Seedling will be in nursery bed till 21 days of sowing.</value>
   </data>
   <data name="नर्सरी, 10 फुट लम्बी, 3 फुट चौड़ी एवं 9 इंच ऊँची होनी चाहिए. मिट्टी में गौ-मूत्र का छिड़काव करें. इसे 12 घंटे तक पतले सफ़ेद पौलीथीन से ढकें. बीजों को लाइन से रोपें. नर्सरी को पुआल से 4-5 दिनों तक ढकें. बीज बोने के 21 दिनों तक पौधे को गोबर खाद/ केंचुआ खाद के साथ रहने दें.1" xml:space="preserve">
-    <value>Dimension of Nursery should be 10 ft length, 3 ft breadth and 9 inch height. Spray cow Urine in the Soil. Cover it with thin white closured Plastic Mulch (Polythene) for 12 hours. Line Sowing of seeds. Cover nursery bed with straw for 4-5 days. Put Farm Yard Manure (FYM) or vermicompost and seedling will be in nursery bed till 21 days of sowing. </value>
+    <value>Dimension of Nursery should be 10 ft length, 3 ft breadth and 9 inch height. Spray cow Urine in the Soil. Cover it with thin white closured Plastic Mulch (Polythene) for 12 hours. Line Sowing of seeds. Cover nursery bed with straw for 4-5 days. Put Farm Yard Manure (FYM) or vermicompost and seedling will be in nursery bed till 21 days of sowing.</value>
   </data>
   <data name="नाली" xml:space="preserve">
     <value>Drainage Canal</value>
@@ -312,6 +315,9 @@
   <data name="बीज बोने के 10  दिन बाद पहली निकाई और गुड़ाई करें. प्रत्येक गड्डे में केंचुआ खाद या प्रनामित्रा का प्रयोग करें. केंचुआ खाद डालने से 1 - 2 दिन के बाद हांडीखाद का छिडकाव करें. जरुरत होने पर आग्नेयास्त्र का छिडकाव करें." xml:space="preserve">
     <value>First Weeding and Hoeing after 10 days of Seed Filling in the Pit. Put Vermicompost or Pranamrita in each pit. Spray Handikhata after 1-2 days of putting Vermicompost. Spray Agneyastra, if needed</value>
   </data>
+  <data name="बीज बोने के 25  दिन बाद दूसरी निकाई और गुड़ाई करें. झांची या डंडे का प्रयोग करें. नीम युक्त यूरिआ (इन्क्यूबेटेड यूरिया) खाद के साथ प्रयोग करें. आग्नेयास्त्र का छिडकाव  करें." xml:space="preserve">
+    <value>Second Weeding and Hoeing after 25 days of seed filling. Provide Muchha or Stick for support. Put Neem coated incubated Neem coated Urea and spray Agneyastra</value>
+  </data>
   <data name="बीज बोने के 25  दिन बाद दूसरी निकाई और गुड़ाई करें. झांची या डंडे का प्रयोग करें. नीम युक्त यूरिआ (इन्क्यूबेटेड यूरिया) खाद के साथ प्रयोग करें. आग्नेयास्त्र का छिडकाव करें." xml:space="preserve">
     <value>Second Weeding and Hoeing after 25 days of seed filling. Provide Muchha or Stick for support. Put Neem coated incubated Urea (with Compost). Spray Agneyastra</value>
   </data>
@@ -321,11 +327,17 @@
   <data name="बीज बोने के 40 दिन बाद जैविक कीटनाशकों और खाद का प्रयोग करें, दो-तीन दिनों के बीच में दो बार अमृतजल का छिडकाव करे - अमृतजल को बनाते साथ छिडकाव करे (संचय न करें)" xml:space="preserve">
     <value>Use Organic Pesticides and Fertilizers after 40 days of seed filling, Spray Amrutjal two times (in 2 -3 days interval) - Amrutjal can not be stored, it needs to be sprayed just after the preparation.</value>
   </data>
+  <data name="बीज बोने के 40 दिन बाद नीमयुक्त यूरिया डालें एवं हांडीखाद का छिडकाव करें  दो-तीन दिनों के बीच में दो बार अमृतजल का छिडकाव करे - अमृतजल को बनाते साथ छिडकाव करे (संचय न करें)." xml:space="preserve">
+    <value>After 40 days of seed filling, Put Neem Coated Incubated Urea and spray Handikhata Solution. Spray Amrutjal two times in 2 -3 days interval. Amrutjal can not be stored, it needs to be sprayed just after the preparation. After 1-2 days spray Amrutjal</value>
+  </data>
   <data name="बीज बोने के 40 दिनों के बाद कीटनाशक और खाद का प्रयोग करें. अमृतजल एवं आग्नेयास्त्र डालें." xml:space="preserve">
     <value>Use Pesticides and Fertilizers after 40 days of seed filling,- Put Amrutjal and Agneyastra.</value>
   </data>
   <data name="बीज बोने के 50 दिन बाद जैविक कीटनाशकों और खाद का प्रयोग करें, हांडीखाद या आग्नेयास्त्र को पानी के साथ मिलाकर छिडकाव करे और अमृतजल को पानी के साथ मिलाकर छिडकाव करे - एक बार" xml:space="preserve">
     <value>Use Organic Pesticides and Fertilizers after 50 days of seed filling, Spray Handikhata Solution or Agneyastra Solution and spray Amrutjal Solution - one time</value>
+  </data>
+  <data name="बीज बोने के 50 दिन बाद हांडीखाद या आग्नेयास्त्र को पानी के साथ मिलाकर छिडकाव करे" xml:space="preserve">
+    <value>After 50 days of seed filling, spray Handikhata and Agneyastra Solution</value>
   </data>
   <data name="बीज लगाने के 10 दिन बाद पहली निकाई और गुड़ाई करें. जीवामृत मिश्रण डालें, प्राणामृत डालें उसके 1-2 दिन बाद हांडीखत एवं आग्नेयास्त्र का छिडकाव करें. पहली निकाई और गुड़ाई के दस दिनों के बाद पुनः हांडीखत का छिडकाव करें." xml:space="preserve">
     <value>First Weeding and Hoeing after 10 days of Seed Filling in the ridge. Put Jivamirita Solution, Put Pranamitra then after 1-2 days spray Handikhata, and spray Agneyastra. After 10 days of First weeding and Hoeing repeat Handikhata spray.</value>
@@ -335,6 +347,9 @@
   </data>
   <data name="बीजामृत पानी के साथ" xml:space="preserve">
     <value>Beejamrita Solution</value>
+  </data>
+  <data name="बीजों को सूती कपडे में लपेटें उसके पश्चात 5 मिनट तक पानी मिश्रित गौ-मूत्र या बीजामृत मिश्रण में डुबोकर रखें. इन बीजों को 1-2 घंटे छाँव में सुखाएं और बोंये." xml:space="preserve">
+    <value>Wrap seeds in cotton cloth and soak it into cow urine and water Solution or Beejamrita Solution for 5 minutes. Then dry the soaked seeds in a shaded area upto 1-2 hours and sow in the pits</value>
   </data>
   <data name="बीजों को सूती कपडे में लपेटें एवं सूखने दें, उसके पश्चात 5 मिनट तक पानी मिश्रित गौ-मूत्र या बीजामृत मिश्रण में डुबोकर रखें. इन बीजों को 1-2 घंटे छाँव में सुखाएं और बोंये." xml:space="preserve">
     <value>Wrap seeds in cotton cloth and soak it, then dip it into cow urine and water Solution or Beejamrita Solution for 5 minutes. Then dry the soaked seeds in a shaded area upto 1-2 hours and sow in the pits.</value>
@@ -376,7 +391,7 @@
     <value>Or Beejamrita Solution</value>
   </data>
   <data name="रोपने के 10 दिन बाद पहली निकाई और गुड़ाई करें. प्रत्येक गड्डे में केंचुआ खाद या प्रनामित्रा का प्रयोग करें. उसके 1 - 2 दिन के बाद हांडीखाद का छिडकाव करें. जरुरत होने पर आग्नेयास्त्र का छिडकाव करें." xml:space="preserve">
-    <value>First Weeding and Hoeing after 12 days of Transplanting, Put Pranamrita, then after 1-2 days spray Handikhata, if needed spray Agneyastra</value>
+    <value>First Weeding and Hoeing after 12 days of transplanting, Put Pranamrita, then after 1-2 days spray Handikhata, if needed spray Agneyastra</value>
   </data>
   <data name="रोपने के 22 दिन बाद दूसरी निकाई और गुड़ाई करें. नाली बनायें. झांची या डंडे का प्रयोग करें. नीम युक्त यूरिआ (इन्क्यूबेटेड यूरिया) खाद के साथ प्रयोग करें. जरुरत होने पर हांडीखाद और आग्नेयास्त्र का छिडकाव करें (1-2 दिन के बाद)" xml:space="preserve">
     <value>Second Weeding and Hoeing after 22 days of Transplantation. Make Drainage Canal, Provide Muchha or Stick for Support , Put Neem coated incubated Urea with Compost, Spray Handikhata and Put Agneyastra (if needed) (after 1-2 days)</value>
@@ -395,6 +410,9 @@
   </data>
   <data name="सारे बीजों को ठंडे पानी के बर्तन में डालकर 15-20 घंटे तक रखें. बीजों को जूट के बोरे में डालकर छाँव में सुखाएं. यह प्रक्रिया बीज उपचार और बीज बोने एक दिन पहले करें." xml:space="preserve">
     <value>Put all seeds into a bowl of cold water and keep it for 15-20 hours. Seeds need to be dried in shadow on ginni bag. Seed priming needs to be done just one day before seed treatment and sowing in the pit.</value>
+  </data>
+  <data name="सारे बीजों को ठंडे पानी के बर्तन में डालकर 2-3 घंटे तक रखें.बीजों को जूट के बोरे में डालकर छाँव में सुखाएं.यह प्रक्रिया बीज उपचार और बीज बोने एक दिन पहले करें." xml:space="preserve">
+    <value>Put all seeds into a bowl of cold water and keep it for 2-3 hours. Seed priming needs to be done just one day before seed treatment and sowing in the pit.</value>
   </data>
   <data name="सारे बीजों को ठंडे पानी के बर्तन में डालकर 4-5 घंटे तक रखें." xml:space="preserve">
     <value>Put all seeds into a bowl of cold water for 4-5 hours.</value>

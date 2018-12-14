@@ -48,7 +48,6 @@ namespace TrickleUpPortal.Controllers
             try
             {
                 //UserCredential userCredential = (UserCredential)db.UserCredentials.Where(a => a.UserName == userName && a.Password == userPassword).SingleOrDefault();
-                //string message = comObj.SendPushNotification("Login", "Sucessfully");
                 Language language = comObj.fetchLang(userCredential.LangCode);
                 if (language != null)
                 {
