@@ -56,11 +56,61 @@ namespace TrickleUpPortal.Controllers
             {
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
+            var languageData = db.Languages.Where(q => q.LanguageName.ToUpper() == language.LanguageName.ToUpper()).Any() ? db.Languages.Where(p => p.LanguageName.ToUpper() == language.LanguageName.ToUpper()).First() : null;
+            if (languageData != null && languageData.Id != language.Id)
+            {
+                if (db.Languages.Any(p => p.LanguageName.ToUpper() == language.LanguageName.ToUpper()))
+                {
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Language Name already exists" });
+                }
+            }
+            else
+            {
+                try
+                {
+                    Language LanguageUpdateData = db.Languages.Where(a => a.Id == language.Id).FirstOrDefault();
+                    LanguageUpdateData.LanguageCode= language.LanguageCode;
+                    LanguageUpdateData.LanguageName = language.LanguageName;
+                    LanguageUpdateData.UpdatedBy = language.UpdatedBy;
+                    LanguageUpdateData.UpdatedOn = language.UpdatedOn;
+                    LanguageUpdateData.Active = language.Active;
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!LanguageExists(id))
+                    {
+                        return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
 
-            db.Entry(language).State = EntityState.Modified;
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { language }, success = true, error = string.Empty });
+        }
 
+        [HttpPost]
+        public HttpResponseMessage ActiveDeactiveLanguage(int id, Language language)
+        {
+            if (!ModelState.IsValid)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
+
+            if (id != language.Id)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
+            
             try
             {
+                Language LanguageUpdateData = db.Languages.Where(a => a.Id == language.Id).FirstOrDefault();
+                LanguageUpdateData.ActiveBy = language.ActiveBy;
+                LanguageUpdateData.ActiveOn = language.ActiveOn;
+                LanguageUpdateData.Active = language.Active;
                 db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
@@ -77,7 +127,6 @@ namespace TrickleUpPortal.Controllers
 
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { language }, success = true, error = string.Empty });
         }
-
         // POST: api/Languages
         [HttpPost]
         public HttpResponseMessage PostLanguage(Language language)
@@ -98,7 +147,7 @@ namespace TrickleUpPortal.Controllers
             }
             else
             {
-                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Language Name already exits" });
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Language Name already exists" });
             }
             
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = language.Id }, success = true, error = string.Empty });

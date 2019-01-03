@@ -61,10 +61,63 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            db.Entry(village).State = EntityState.Modified;
+            var villageData = db.Villages.Where(q => q.VillageName.ToUpper() == village.VillageName.ToUpper()).Any() ? db.Villages.Where(p => p.VillageName.ToUpper() == village.VillageName.ToUpper()).First() : null;
+            if (villageData != null && villageData.Id != village.Id)
+            {
+                if (db.Villages.Any(p => p.VillageName.ToUpper() == village.VillageName.ToUpper()))
+                {
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "village Name already exists" });
+                }
+            }
+            else
+            {
+                try
+                {
+                    Village VillageUpdateData = db.Villages.Where(a => a.Id == village.Id).FirstOrDefault();
+                    VillageUpdateData.VillageName = village.VillageName;
+                    VillageUpdateData.State = village.State;
+                    VillageUpdateData.District = village.District;
+                    VillageUpdateData.Grampanchayat = village.Grampanchayat;
+                    VillageUpdateData.UpdatedBy = village.UpdatedBy;
+                    VillageUpdateData.UpdatedOn = village.UpdatedOn;
+                    VillageUpdateData.Active = village.Active;
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!VillageExists(id))
+                    {
+                        return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+            
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { village }, success = true, error = string.Empty });
+        }
 
+        [HttpPost]
+        public HttpResponseMessage ActiveDeactiveVillage(int id, Village village)
+        {
+            if (!ModelState.IsValid)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
+
+            if (id != village.Id)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
+            
             try
             {
+                Village VillageUpdateData = db.Villages.Where(a => a.Id == village.Id).FirstOrDefault();
+                VillageUpdateData.ActiveBy = village.ActiveBy;
+                VillageUpdateData.ActiveOn = village.ActiveOn;
+                VillageUpdateData.Active = village.Active;
                 db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
@@ -101,7 +154,7 @@ namespace TrickleUpPortal.Controllers
             }
             else
             {
-                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "village Name already exits" });
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "village Name already exists" });
             }
 
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = village.Id }, success = true, error = string.Empty });

@@ -30,9 +30,9 @@ namespace TrickleUpPortal.Models
         public Nullable<int> GrampanchayatId { get; set; }
         public string Designation { get; set; }
     
+        public virtual Village Village { get; set; }
         public virtual User User { get; set; }
         public virtual User User1 { get; set; }
         public virtual User User2 { get; set; }
-        public virtual Village Village { get; set; }
     }
 }

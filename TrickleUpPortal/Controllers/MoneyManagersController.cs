@@ -135,7 +135,7 @@ namespace TrickleUpPortal.Controllers
             int UIDCount = db.MoneyManagers.Where(a => a.UID.ToString().ToLower() == moneyManager.UID.Value.ToString().ToLower()).Count();
             if (UIDCount > 0)
             {
-                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = "Money Manager UID already exits" });
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = "Money Manager UID already exists" });
             }
 
             db.MoneyManagers.Add(moneyManager);

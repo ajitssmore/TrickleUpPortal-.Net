@@ -28,7 +28,8 @@ namespace TrickleUpPortal.Controllers
         {
             var CropSteps_Material = from CropSteps_Materials in db.CropSteps_Material
                                     join Cultivation_Step in db.Cultivation_Steps on CropSteps_Materials.Step_Id equals Cultivation_Step.Id
-                                    select new { CropSteps_Materials.Id, CropSteps_Materials.Step_Id, CropSteps_Materials.Material_Name, CropSteps_Materials.Material_Transaction, CropSteps_Materials.Per_Decimal_Price, CropSteps_Materials.Quantity, Cultivation_Step.Step_Name, CropSteps_Materials.Active, CropSteps_Materials.Image_Path };
+                                    join Crop in db.Crops on Cultivation_Step.Crop_Id equals Crop.Id
+                                    select new { CropSteps_Materials.Id, CropSteps_Materials.Step_Id, CropSteps_Materials.Material_Name, CropSteps_Materials.Material_Transaction, CropSteps_Materials.Per_Decimal_Price, CropSteps_Materials.Quantity, Cultivation_Step.Step_Name, CropSteps_Materials.Active, CropSteps_Materials.Image_Path, Crop.CropName, Cultivation_Step.Crop_Id };
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { CropSteps_Material }, success = true, error = string.Empty });
         }
         

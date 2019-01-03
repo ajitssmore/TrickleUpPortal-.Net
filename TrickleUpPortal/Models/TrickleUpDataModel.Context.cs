@@ -30,11 +30,7 @@ namespace TrickleUpPortal.Models
         public virtual DbSet<District> Districts { get; set; }
         public virtual DbSet<Language> Languages { get; set; }
         public virtual DbSet<MediaContent> MediaContents { get; set; }
-        public virtual DbSet<Grampanchayat> Grampanchayats { get; set; }
-        public virtual DbSet<Village> Villages { get; set; }
         public virtual DbSet<BulkUploadRef> BulkUploadRefs { get; set; }
-        public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Audio> Audios { get; set; }
         public virtual DbSet<Crop> Crops { get; set; }
         public virtual DbSet<Video> Videos { get; set; }
         public virtual DbSet<Image> Images { get; set; }
@@ -59,5 +55,9 @@ namespace TrickleUpPortal.Models
         public virtual DbSet<Cultivation_History> Cultivation_History { get; set; }
         public virtual DbSet<CultivationStep_History> CultivationStep_History { get; set; }
         public virtual DbSet<MaterialNeeded_History> MaterialNeeded_History { get; set; }
+        public virtual DbSet<Grampanchayat> Grampanchayats { get; set; }
+        public virtual DbSet<Village> Villages { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Audio> Audios { get; set; }
     }
 }

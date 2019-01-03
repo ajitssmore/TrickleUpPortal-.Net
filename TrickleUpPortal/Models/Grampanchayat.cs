@@ -29,6 +29,8 @@ namespace TrickleUpPortal.Models
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedOn { get; set; }
         public Nullable<bool> Active { get; set; }
+        public Nullable<int> ActiveBy { get; set; }
+        public Nullable<System.DateTime> ActiveOn { get; set; }
     
         public virtual District District1 { get; set; }
         public virtual State State1 { get; set; }

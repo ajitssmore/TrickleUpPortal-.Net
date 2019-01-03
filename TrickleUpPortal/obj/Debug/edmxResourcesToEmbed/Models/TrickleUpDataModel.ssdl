@@ -11,6 +11,8 @@
     <Property Name="CreatedBy" Type="int" />
     <Property Name="CreatedOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
   </EntityType>
   <EntityType Name="BulkUploadRef">
     <Key>
@@ -252,6 +254,8 @@
     <Property Name="UpdatedBy" Type="int" />
     <Property Name="UpdatedOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
   </EntityType>
   <EntityType Name="Images">
     <Key>
@@ -462,6 +466,7 @@
     <Property Name="Active" Type="bit" />
     <Property Name="ImagePath" Type="nvarchar(max)" />
     <Property Name="BulkUploadId" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="Videos">
     <Key>
@@ -489,6 +494,8 @@
     <Property Name="UpdatedBy" Type="int" />
     <Property Name="UpdatedOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
   </EntityType>
   <EntityType Name="VillageContact">
     <Key>

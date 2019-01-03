@@ -199,12 +199,18 @@ namespace TrickleUpPortal.Controllers
                 db.SaveChanges();
                 string CropName = db.Crops.Where(x => x.Id == Cultivation_StepsData.Crop_Id).Select(x => x.CropName).Single();
                 PushNotificationDataModel objPushNotification = new PushNotificationDataModel();
-                objPushNotification.Title = "Video has been uploaded";
-                objPushNotification.Body = "For" + " " + CropName + " -->" + " " +Cultivation_StepsData.Step_Name;
+                objPushNotification.Title = (!string.IsNullOrEmpty(cultivation_Steps.VideoPath)) ? "Video has been uploaded" : "Video has been Removed";
+                objPushNotification.Body = "For" + " " + CropName + " -->" + " " + Cultivation_StepsData.Step_Name;
+                objPushNotification.CropName = CropName;
+                objPushNotification.StepName = Cultivation_StepsData.Step_Name;
                 objPushNotification.CropId = Cultivation_StepsData.Crop_Id;
                 objPushNotification.StepId = Cultivation_StepsData.Id;
                 objPushNotification.LangCode = LanguageCode;
+                objPushNotification.VideoURL = cultivation_Steps.VideoPath;
+                objPushNotification.StepImageURL = Cultivation_StepsData.ImagePath;
+                objPushNotification.CreatedOn = DateTime.Now.ToString("MM/dd/yyyy hh:mm tt");
                 string message = comObj.SendPushNotification(objPushNotification);
+                objPushNotification.ResponseMessage = message;
                 StoreNotificationData(objPushNotification);
             }
             catch (DbUpdateConcurrencyException)
@@ -227,7 +233,8 @@ namespace TrickleUpPortal.Controllers
             PushNotification objPushNotification = new PushNotification();
             objPushNotification.PushNotificationTitle = PushNotificationData.Title;
             objPushNotification.PushNotificationBody = PushNotificationData.Body;
-            objPushNotification.PushNotificationData = "{CropId:" + PushNotificationData.CropId + ", StepId:" + PushNotificationData.StepId + ", langCode:" + PushNotificationData.LangCode + " }";
+            objPushNotification.PushNotificationData = "{CropId:" + PushNotificationData.CropId + ", StepId:" + PushNotificationData.StepId + ", langCode:" + PushNotificationData.LangCode + ", Message:" + PushNotificationData.ResponseMessage + " }";
+            objPushNotification.CreatedOn = System.DateTime.Now;
             db.PushNotifications.Add(objPushNotification);
             db.SaveChanges();
         }

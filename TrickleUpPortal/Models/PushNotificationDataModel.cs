@@ -12,5 +12,11 @@ namespace TrickleUpPortal.Models
         public int CropId { get; set; }
         public int StepId { get; set; }
         public int LangCode { get; set; }
+        public string VideoURL { get; set; }
+        public string CropName { get; set; }
+        public string StepName { get; set; }
+        public string StepImageURL { get; set; }
+        public string CreatedOn { get; set; }
+        public string ResponseMessage { get; set; }
     }
 }

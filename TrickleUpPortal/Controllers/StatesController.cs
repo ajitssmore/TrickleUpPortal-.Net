@@ -57,15 +57,70 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
+            //db.Entry(state).State = EntityState.Modified;
+
             if (id != state.Id)
             {
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            db.Entry(state).State = EntityState.Modified;
+            var stateData = db.States.Where(q => q.StateName.ToUpper() == state.StateName.ToUpper()).Any() ? db.States.Where(p => p.StateName.ToUpper() == state.StateName.ToUpper()).First() : null;
+            if (stateData != null && stateData.Id != state.Id)
+            {
+                if (db.States.Any(p => p.StateName.ToUpper() == state.StateName.ToUpper()))
+                {
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "State Name already exists" });
+                }
+            }
+            else
+            {
+                try
+                {
+                    State StateUpdateData = db.States.Where(a => a.Id == state.Id).FirstOrDefault();
+                    StateUpdateData.StateCode = state.StateCode;
+                    StateUpdateData.StateName = state.StateName;
+                    StateUpdateData.UpdatedBy = state.UpdatedBy;
+                    StateUpdateData.UpdatedOn = state.UpdatedOn;
+                    StateUpdateData.Active = state.Active;
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!StateExists(id))
+                    {
+                        //return NotFound();
+                        return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { state }, success = true, error = string.Empty });
+        }
+
+        [HttpPost]
+        public HttpResponseMessage ActiveDeactiveState(int id, State state)
+        {
+            if (!ModelState.IsValid)
+            {
+                //return BadRequest(ModelState);
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
+
+            if (id != state.Id)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
+            //db.Entry(state).State = EntityState.Modified;
 
             try
             {
+                State stateData = db.States.Where(a => a.Id == state.Id).FirstOrDefault();
+                stateData.Active = state.Active;
+                stateData.ActiveBy = state.ActiveBy;
+                stateData.ActiveOn = state.ActiveOn;
                 db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
@@ -105,7 +160,7 @@ namespace TrickleUpPortal.Controllers
             }
             else
             {
-                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "State Name already exits" });
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "State Name already exists" });
             }
 
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = state.Id }, success = true, error = string.Empty });

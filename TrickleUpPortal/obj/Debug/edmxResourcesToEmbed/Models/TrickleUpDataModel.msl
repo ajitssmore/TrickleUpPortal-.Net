@@ -78,87 +78,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Grampanchayats">
-      <EntityTypeMapping TypeName="TrickleUpModel.Grampanchayat">
-        <MappingFragment StoreEntitySet="Grampanchayat">
-          <ScalarProperty Name="Active" ColumnName="Active" />
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="District" ColumnName="District" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="GrampanchayatName" ColumnName="GrampanchayatName" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Villages">
-      <EntityTypeMapping TypeName="TrickleUpModel.Village">
-        <MappingFragment StoreEntitySet="Village">
-          <ScalarProperty Name="Active" ColumnName="Active" />
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="District" ColumnName="District" />
-          <ScalarProperty Name="Grampanchayat" ColumnName="Grampanchayat" />
-          <ScalarProperty Name="VillageName" ColumnName="VillageName" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="BulkUploadRefs">
       <EntityTypeMapping TypeName="TrickleUpModel.BulkUploadRef">
         <MappingFragment StoreEntitySet="BulkUploadRef">
           <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="BulkUploadId" ColumnName="BulkUploadId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="TrickleUpModel.User">
-        <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="BulkUploadId" ColumnName="BulkUploadId" />
-          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
-          <ScalarProperty Name="Active" ColumnName="Active" />
-          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
-          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="FCMToken" ColumnName="FCMToken" />
-          <ScalarProperty Name="Language" ColumnName="Language" />
-          <ScalarProperty Name="Role" ColumnName="Role" />
-          <ScalarProperty Name="IMEI2" ColumnName="IMEI2" />
-          <ScalarProperty Name="IMEI1" ColumnName="IMEI1" />
-          <ScalarProperty Name="Aadhaar" ColumnName="Aadhaar" />
-          <ScalarProperty Name="Grampanchayat" ColumnName="Grampanchayat" />
-          <ScalarProperty Name="Village" ColumnName="Village" />
-          <ScalarProperty Name="District" ColumnName="District" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Gender" ColumnName="Gender" />
-          <ScalarProperty Name="Age" ColumnName="Age" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Audios">
-      <EntityTypeMapping TypeName="TrickleUpModel.Audio">
-        <MappingFragment StoreEntitySet="Audios">
-          <ScalarProperty Name="Active" ColumnName="Active" />
-          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="FileSize" ColumnName="FileSize" />
-          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
-          <ScalarProperty Name="FileName" ColumnName="FileName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -541,6 +466,88 @@
           <ScalarProperty Name="MaterialTransaction" ColumnName="MaterialTransaction" />
           <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
           <ScalarProperty Name="StepId" ColumnName="StepId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grampanchayats">
+      <EntityTypeMapping TypeName="TrickleUpModel.Grampanchayat">
+        <MappingFragment StoreEntitySet="Grampanchayat">
+          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="GrampanchayatName" ColumnName="GrampanchayatName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Villages">
+      <EntityTypeMapping TypeName="TrickleUpModel.Village">
+        <MappingFragment StoreEntitySet="Village">
+          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="Grampanchayat" ColumnName="Grampanchayat" />
+          <ScalarProperty Name="VillageName" ColumnName="VillageName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="TrickleUpModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="BulkUploadId" ColumnName="BulkUploadId" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="FCMToken" ColumnName="FCMToken" />
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="IMEI2" ColumnName="IMEI2" />
+          <ScalarProperty Name="IMEI1" ColumnName="IMEI1" />
+          <ScalarProperty Name="Aadhaar" ColumnName="Aadhaar" />
+          <ScalarProperty Name="Grampanchayat" ColumnName="Grampanchayat" />
+          <ScalarProperty Name="Village" ColumnName="Village" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Audios">
+      <EntityTypeMapping TypeName="TrickleUpModel.Audio">
+        <MappingFragment StoreEntitySet="Audios">
+          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

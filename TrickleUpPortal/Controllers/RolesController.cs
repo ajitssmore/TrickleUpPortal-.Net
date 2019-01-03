@@ -57,10 +57,60 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            db.Entry(role).State = EntityState.Modified;
+            var roleData = db.Roles.Where(q => q.RoleName.ToUpper() == role.RoleName.ToUpper()).Any() ? db.Roles.Where(p => p.RoleName.ToUpper() == role.RoleName.ToUpper()).First() : null;
+            if (roleData != null && roleData.Id != role.Id)
+            {
+                if (db.Roles.Any(p => p.RoleName.ToUpper() == role.RoleName.ToUpper()))
+                {
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Role Name already exists" });
+                }
+            }
+            else
+            {
+                try
+                {
+                    Role RoleUpdateData = db.Roles.Where(a => a.Id == role.Id).FirstOrDefault();
+                    RoleUpdateData.RoleName = role.RoleName;
+                    RoleUpdateData.UpdatedBy = role.UpdatedBy;
+                    RoleUpdateData.UpdatedOn = role.UpdatedOn;
+                    RoleUpdateData.Active = role.Active;
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!RoleExists(id))
+                    {
+                        return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+            
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { role }, success = true, error = string.Empty });
+        }
 
+        [HttpPost]
+        public HttpResponseMessage ActiveDeactiveRole(int id, Role role)
+        {
+            if (!ModelState.IsValid)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
+
+            if (id != role.Id)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
+            
             try
             {
+                Role RoleUpdateData = db.Roles.Where(a => a.Id == role.Id).FirstOrDefault();
+                RoleUpdateData.ActiveBy = role.ActiveBy;
+                RoleUpdateData.ActiveOn = role.ActiveOn;
+                RoleUpdateData.Active = role.Active;
                 db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
@@ -77,7 +127,6 @@ namespace TrickleUpPortal.Controllers
 
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { role }, success = true, error = string.Empty });
         }
-
         // POST: api/Roles
         [HttpPost]
         public HttpResponseMessage PostRole(Role role)
@@ -98,7 +147,7 @@ namespace TrickleUpPortal.Controllers
             }
             else
             {
-                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Role Name already exits" });
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Role Name already exists" });
             }
 
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = role.Id }, success = true, error = string.Empty });

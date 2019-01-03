@@ -56,23 +56,29 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            //db.Entry(image).State = EntityState.Modified;
-
-            try
+            var ImageData = db.Crops.Where(q => q.FilePath.ToUpper() == image.FilePath.ToUpper()).Any();
+            if (ImageData == true)
             {
-                Image imagedata = db.Images.Where(a => a.Id == image.Id).FirstOrDefault();
-                imagedata.Active = image.Active;
-                db.SaveChanges();
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "You can't delete the file, because file has been allocated." });
             }
-            catch (DbUpdateConcurrencyException)
+            else
             {
-                if (!ImageExists(id))
+                try
                 {
-                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
+                    Image imagedata = db.Images.Where(a => a.Id == image.Id).FirstOrDefault();
+                    imagedata.Active = image.Active;
+                    db.SaveChanges();
                 }
-                else
+                catch (DbUpdateConcurrencyException)
                 {
-                    throw;
+                    if (!ImageExists(id))
+                    {
+                        return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
+                    }
+                    else
+                    {
+                        throw;
+                    }
                 }
             }
 

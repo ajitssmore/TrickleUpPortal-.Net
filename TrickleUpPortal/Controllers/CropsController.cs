@@ -297,23 +297,63 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
+            var CropsData = db.Crops.Where(q => q.CropName.ToUpper() == crop.CropName.ToUpper()).Any() ? db.Crops.Where(p => p.CropName.ToUpper() == crop.CropName.ToUpper()).First() : null;
+            if (CropsData != null && CropsData.Id != crop.Id)
+            {
+                if (db.Crops.Any(p => p.CropName.ToUpper() == crop.CropName.ToUpper()))
+                {
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Crop Name already exists" });
+                }
+            }
+            else
+            {
+                try
+                {
+                    Crop cropsData = db.Crops.Where(a => a.Id == id).FirstOrDefault();
+                    cropsData.CropName = crop.CropName;
+                    cropsData.Active = crop.Active;
+                    cropsData.Ready = crop.Active;
+                    cropsData.UpdatedBy = crop.UpdatedBy;
+                    cropsData.UpdatedOn = crop.UpdatedOn;
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!CropExists(id))
+                    {
+                        return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+            
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { crop }, success = true, error = string.Empty });
+        }
+
+        [HttpPost]
+        public HttpResponseMessage ActiveDeactiveCrop(int id, Crop crop)
+        {
+            if (!ModelState.IsValid)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
+
+            if (id != crop.Id)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
+
             //db.Entry(crop).State = EntityState.Modified;
             try
             {
                 Crop cropsData = db.Crops.Where(a => a.Id == id).FirstOrDefault();
-                cropsData.CropName = crop.CropName;
                 cropsData.Active = crop.Active;
                 cropsData.Ready = crop.Active;
-                if (crop.UpdatedBy != null)
-                {
-                    cropsData.UpdatedBy = crop.UpdatedBy;
-                    cropsData.UpdatedOn = crop.UpdatedOn;
-                }
-                if (crop.ActiveBy != null)
-                {
-                    cropsData.ActiveBy = crop.ActiveBy;
-                    cropsData.ActiveOn = crop.ActiveOn;
-                }
+                cropsData.ActiveBy = crop.ActiveBy;
+                cropsData.ActiveOn = crop.ActiveOn;
                 db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
@@ -382,8 +422,19 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            db.Crops.Add(crop);
-            db.SaveChanges();
+            var DataFound = (from Cropata in db.Crops
+                             where Cropata.CropName.ToUpper() == crop.CropName.ToUpper()
+                             select Cropata.CropName).SingleOrDefault();
+
+            if (DataFound == null)
+            {
+                db.Crops.Add(crop);
+                db.SaveChanges();
+            }
+            else
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Crop Name already exists" });
+            }
 
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = crop.Id }, success = true, error = string.Empty });
         }

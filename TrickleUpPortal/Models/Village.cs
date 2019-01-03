@@ -30,13 +30,15 @@ namespace TrickleUpPortal.Models
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedOn { get; set; }
         public Nullable<bool> Active { get; set; }
+        public Nullable<int> ActiveBy { get; set; }
+        public Nullable<System.DateTime> ActiveOn { get; set; }
     
         public virtual District District1 { get; set; }
         public virtual Grampanchayat Grampanchayat1 { get; set; }
         public virtual State State1 { get; set; }
-        public virtual User User { get; set; }
-        public virtual User User1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VillageContact> VillageContacts { get; set; }
+        public virtual User User { get; set; }
+        public virtual User User1 { get; set; }
     }
 }

@@ -123,11 +123,29 @@
   <data name="EMN-NA" xml:space="preserve">
     <value>EMN-NA</value>
   </data>
+  <data name="ଅଃଫ୍ଟୱେର  32 ଦେଶ  ଅ  ସେକେଣ୍ଡ  ୱେଇଡିଙ୍ଗ  ଆଣ୍ଡ  ହୋୱେଇଙ୍ଗ  ସ୍ପ୍ରେ  ହାନ୍ଡିଖାତା, ଅମୃତଜାଲ  ଆଣ୍ଡ  ଆଗ୍ନେୟାସ୍ତ୍ର, ପୁଟ  ହଳଦୀ  ପବଡର  ସୋଲୁସନ  ବିଠ  ରିସେ  ଷ୍ଟାର୍ଚ୍ଚ" xml:space="preserve">
+    <value>After 32 days of Second Weeding and Hoeing spray Handikhata, Amrutjal and Agneyastra, Put Haldi Powder Solution with Rice Starch</value>
+  </data>
+  <data name="ଅଃଫ୍ଟୱେର  32 ଦେଶ  ଅ  ସେକେଣ୍ଡ  ୱେଇଡିଙ୍ଗ  ଆଣ୍ଡ  ହୋୱେଇଙ୍ଗ  ସ୍ପ୍ରେ  ହାନ୍ଡିଖାତା, ଅମୃତଜାଲ  ଆଣ୍ଡ ଆଗ୍ନେୟାସ୍ତ୍ର. ପୁଟ  ହଳଦୀ  ପବଡର  ସୋଲୁସନ  ବିଠ  ରିସେ  ଷ୍ଟାର୍ଚ୍ଚ" xml:space="preserve">
+    <value>After 32 days of Second weeding and Hoeing spray Handikhata, Amrutjal and Agneyastra. Put Haldi Powder Solution with Rice Starch</value>
+  </data>
+  <data name="ଅଃଫ୍ଟୱେର  40 ଦେଶ  ଅ  ସେଏଡ଼  ଫିଲଳିଙ୍ଗ, ପୁଟ  ନିମ  ଚୋରେଟେଡ଼  ଇଞ୍ଚୁବଟେଡ଼  ୟୁରିଆ  ଆଣ୍ଡ  ସ୍ପ୍ରେ  ହାନ୍ଡିଖାତା  ସୋଲୁସନ. ସ୍ପ୍ରେ  ଅମୃତଜାଲ  ତ୍ୱ  ଟିମଏସ  ଇଂ  2 -3 ଦେଶ  ଇଣ୍ଟେରବଲ. ଅମୃତଜାଲ  ଚାଁ  ନୋଟ  ବେ  ସ୍ଟ୍ରେଡ଼ , ଇଟା  ନୀଡ଼ସ  ତୋ  ବେ  ସ୍ପରଏଡ଼  ଜୁସତ  ଅଃଫ୍ଟୱେର  ଥେ  ପରିପାରସନ. ଅଃଫ୍ଟୱେର  1-2 ଦେଶ  ସ୍ପ୍ରେ  ଅମୃତଜାଲ" xml:space="preserve">
+    <value>After 40 days of seed filling, Put Neem Coated Incubated Urea and spray Handikhata Solution. Spray Amrutjal two times in 2 -3 days interval. Amrutjal can not be stored, it needs to be sprayed just after the preparation. After 1-2 days spray Amrutjal</value>
+  </data>
+  <data name="ଅଃଫ୍ଟୱେର  50 ଦେଶ  ଅ  ସେଏଡ଼  ଫିଲଳିଙ୍ଗ, ସ୍ପ୍ରେ  ହାନ୍ଡିଖାତା  ଆଣ୍ଡ  ଆଗ୍ନେୟାସ୍ତ୍ର  ସୋଲୁସନ" xml:space="preserve">
+    <value>After 50 days of seed filling, spray Handikhata and Agneyastra Solution</value>
+  </data>
   <data name="ଅମୃତଜାଲ" xml:space="preserve">
     <value>Amrutjal</value>
   </data>
+  <data name="ଅମୃତଜାଲ  - 2 ଟିମଏସ" xml:space="preserve">
+    <value>Amrutjal - 2 times</value>
+  </data>
   <data name="ଅମୃତଜାଲ ସୋଲୁସନ" xml:space="preserve">
     <value>Amrutjal Solution</value>
+  </data>
+  <data name="ଆଗ୍ନେୟାସ୍ତ୍ର" xml:space="preserve">
+    <value>Agneyastra</value>
   </data>
   <data name="ଆଗ୍ନେୟାସ୍ତ୍ର ବିଠ ୱାଟର" xml:space="preserve">
     <value>Agneyastra with Water</value>
@@ -135,11 +153,23 @@
   <data name="ଉସେ  ଅ  ଅର୍ଗାନିକ  ପେସ୍ଟିସିଦେଶ  ଆଣ୍ଡ  ଫର୍ଟିଲାୱୀଜ଼ଏର୍ସ" xml:space="preserve">
     <value>Use of Organic Pesticides and Fertilizers</value>
   </data>
+  <data name="ଉସେ  ଅ  ନୁଁଟ୍ରିସନ  ଆଣ୍ଡ  ପେଷ୍ଟ  ମେନଗେମେଣ୍ଟ" xml:space="preserve">
+    <value>Use of Nutrition and Pest Management</value>
+  </data>
   <data name="ଉସେ  ଅର୍ଗାନିକ  ପେସ୍ଟିସିଦେଶ   ଆଣ୍ଡ  ଫର୍ଟିଲାୱୀଜ଼ଏର୍ସ  ଅଃଫ୍ଟୱେର  ୪୦  ଦେଶ  ଅ  ସେଏଡ଼  ଫିଲଳିଙ୍ଗ, ସ୍ପ୍ରେ  ଅମୃତଜାଲ  ତ୍ୱ  ଟିମଏସ  (ଇଂ  ୨  - ୩  ଦେଶ  ଇଣ୍ଟେରବଲ ) - ଅମୃତଜାଲ  ଚାଁ  ନୋଟ  ବେ  ସ୍ଟ୍ରେଡ଼ , ଇଟା  ନୀଡ଼ସ  ତୋ  ବେ  ସ୍ପରଏଡ଼  ଜୁସତ  ଅଃଫ୍ଟୱେର  ଥେ  ପରିପାରସନ." xml:space="preserve">
     <value>Use Organic Pesticides and Fertilizers after 40 days of seed filling, Spray Amrutjal two times (in 2 -3 days interval) - Amrutjal can not be stored, it needs to be sprayed just after the preparation.</value>
   </data>
   <data name="ଉସେ  ଅର୍ଗାନିକ  ପେସ୍ଟିସିଦେଶ  ଆଣ୍ଡ  ଫର୍ଟିଲାୱୀଜ଼ଏର୍ସ  ଅଃଫ୍ଟୱେର  ୫୦  ଦେଶ  ଅ  ସେଏଡ଼  ଫିଲଳିଙ୍ଗ, ସ୍ପ୍ରେ  ହାନ୍ଡିଖାତା  ସୋଲୁସନ  ଡ  ଆଗ୍ନେୟାସ୍ତ୍ର  ସୋଲୁସନ  ଆଣ୍ଡ  ସ୍ପ୍ରେ  ଅମୃତଜାଲ  ସୋଲୁସନ  - ଅଣେ  ର୍ଟମେ" xml:space="preserve">
     <value>Use Organic Pesticides and Fertilizers after 50 days of seed filling, Spray Handikhata Solution or Agneyastra Solution and spray Amrutjal Solution - one time</value>
+  </data>
+  <data name="ଉସେ  ନୁଁଟ୍ରିଏଣ୍ଟ  ଆଣ୍ଡ  ପେଷ୍ଟ  ମେନଗେମେଣ୍ଟ  ଅଃଫ୍ଟୱେର  42 ଦେଶ  ଅ  ଟ୍ରାନ୍ସପ୍ଲାଣ୍ଟିଙ୍ଗ , ସ୍ପ୍ରେ  ହାନ୍ଡିଖାତା  ସୋଲୁସନ, ଅମୃତଜାଲ  ଆଣ୍ଡ  ଆଗ୍ନେୟାସ୍ତ୍ର  ବିଠ  ୱାଟର." xml:space="preserve">
+    <value>Use Nutrient and Pest Management after 42 days of Transplanting, Spray Handikhata Solution, Amrutjal and Agneyastra with Water.</value>
+  </data>
+  <data name="ଉସେ  ନୁଁଟ୍ରିଏଣ୍ଟ  ଆଣ୍ଡ  ପେଷ୍ଟ  ମେନଗେମେଣ୍ଟ  ଅଃଫ୍ଟୱେର  42 ଦେଶ  ଅ  ଟ୍ରାନ୍ସପ୍ଲାଣ୍ଟିଙ୍ଗ, ସ୍ପ୍ରେ  ହାନ୍ଡିଖାତା  ସୋଲୁସନ, ଅମୃତଜାଲ  ଆଣ୍ଡ  ଆଗ୍ନେୟାସ୍ତ୍ର  ବିଠ  ୱାଟର" xml:space="preserve">
+    <value>Use Nutrient and Pest Management after 42 days of Transplanting, Spray Handikhata Solution, Amrutajal and Agneyastra with Water</value>
+  </data>
+  <data name="ଉସେ  ପେସ୍ଟିସିଦେଶ  ଆଣ୍ଡ  ଫର୍ଟିଲାୱୀଜ଼ଏର୍ସ ଅଃଫ୍ଟୱେର  40 ଦେଶ  ଅ  ସେଏଡ଼  ଫିଲଳିଙ୍ଗ,- ପୁଟ  ଅମୃତଜାଲ  ଆଣ୍ଡ  ଆଗ୍ନେୟାସ୍ତ୍ର." xml:space="preserve">
+    <value>Use Pesticides and Fertilizers after 40 days of seed filling,- Put Amrutjal and Agneyastra.</value>
   </data>
   <data name="ଏ ବଉଳ/କଂଟିନଏର" xml:space="preserve">
     <value>A bowl/Container</value>
@@ -153,8 +183,14 @@
   <data name="ଚି଼ଲ୍ଲୀ" xml:space="preserve">
     <value>Chilli</value>
   </data>
+  <data name="ଚି଼ଲ୍ଲୀ  ହରବେଶଟିଙ୍ଗ" xml:space="preserve">
+    <value>Chilli Harvesting</value>
+  </data>
   <data name="ଚୁଚୁମ୍ବର" xml:space="preserve">
     <value>Cucumber</value>
+  </data>
+  <data name="ଚୋବ  ୟୁରିନେ  ବିଠ  ୱାଟର" xml:space="preserve">
+    <value>Cow Urine with Water</value>
   </data>
   <data name="ଚୋବ ୟୁରିନେ ସୋଲୁସନ" xml:space="preserve">
     <value>Cow Urine Solution</value>
@@ -162,8 +198,20 @@
   <data name="ଛାଵଗେ" xml:space="preserve">
     <value>Cabbage</value>
   </data>
+  <data name="ଜୀବମିରିତ  ସୋଲୁସନ" xml:space="preserve">
+    <value>Jivamirita Solution</value>
+  </data>
   <data name="ଟମାଟୋ" xml:space="preserve">
     <value>Tomato</value>
+  </data>
+  <data name="ଟମାଟୋ  ହରବେଶଟିଙ୍ଗ" xml:space="preserve">
+    <value>Tomato Harvesting</value>
+  </data>
+  <data name="ଡ  ବୀଜମୃତ  ସୋଲୁସନ" xml:space="preserve">
+    <value>Or Beejamrita Solution</value>
+  </data>
+  <data name="ଡ  ବେରଂମିକମ୍ପସ୍ଟି  ଆଣ୍ଡ  ହ୍ୟାଦ୍ରି" xml:space="preserve">
+    <value>Or Vermicompost and Hadri</value>
   </data>
   <data name="ଡ ଆଗ୍ନେୟାସ୍ତ୍ର ବିଠ ୱାଟର" xml:space="preserve">
     <value>Or Agneyastra with Water</value>
@@ -171,26 +219,59 @@
   <data name="ଡ ପ୍ରଂଅମୃତ" xml:space="preserve">
     <value>Or Pranamrita</value>
   </data>
+  <data name="ଡ୍ରଇଁନାଗେ  କେନାଲ" xml:space="preserve">
+    <value>Drainage Canal</value>
+  </data>
+  <data name="ଦ୍ୱୀମେନ୍ସିଓଂ  ଅ  ନୁରସେରୀ  ଷୌଲଡ଼  ବେ  10 ଫାଟ  ଲେଙ୍ଗଠ , 3 ଫାଟ  ବରାଦତଃ  ଆଣ୍ଡ  9 ଇଞ୍ଚ  ହେଈଗଷ୍ଟ . ସ୍ପ୍ରେ  ଚୋବ  ୟୁରିନେ  ଇଂ  ଥେ  ଶୋଇଲା . ଚୋବେର  ଇଟା  ବିଠ  ତହିଁ  ଭିତେ  କଲସୁରଦ  ପ୍ଲାଷ୍ଟିକ  ମୁଲଚ  (ପୋଲଠଇନେ ) ଫୋର  12 ହୋଉଶ . ଲିନେ  ସ୍ଵୟଂ  ଅ  ସୀଦଶ. ଚୋବେର  ନୁରସେରୀ  ବେଡ଼  ବିଠ  ସ୍ତ୍ରାଵ  ଫୋର  4-5 ଦେଶ. ପୁଟ  ଫର୍ମ  ୱାର୍ଡ  ମାନୁର  (ଫାୟାମ ) ଡ  ବେରଂମିକମ୍ପସ୍ଟି  ଆଣ୍ଡ  ସେଏଡଲିଙ୍ଗ  ବିଲ୍ଲ  ବେ  ଇଂ  ନୁରସେରୀ  ବେଡ଼  ଟିଲଲ  21 ଦେଶ  ଅ  ସ୍ଵୟଂ." xml:space="preserve">
+    <value>Dimension of Nursery should be 10 ft length, 3 ft breadth and 9 inch height. Spray cow Urine in the Soil. Cover it with thin white closured Plastic Mulch (Polythene) for 12 hours. Line Sowing of seeds. Cover nursery bed with straw for 4-5 days. Put Farm Yard Manure (FYM) or vermicompost and seedling will be in nursery bed till 21 days of sowing.</value>
+  </data>
+  <data name="ଦ୍ୱୀମେନ୍ସିଓଂ  ଅ  ନୁରସେରୀ  ଷୌଲଡ଼  ବେ  ୧୦  ଫାଟ  ଲେଙ୍ଗଠ, 3 ଫାଟ  ଵିଦତଃ  ଆଣ୍ଡ  9 ଇଞ୍ଚ  ଅ  ହେଈଗଷ୍ଟ. ସ୍ପ୍ରେ  ଚୋବ  ୟୁରିନେ  ଇଂ  ଥେ  ଶୋଇଲା. ଚୋବେର  ଇଟା  ବିଠ  ତହିଁ  ଭିତେ  ପ୍ଲାଷ୍ଟିକ  ମୁଲଚ  (ପୋଲଠଇନେ) ଫୋର  12 ହୋଉଶ. ଲିନେ  ସ୍ଵୟଂ  ଅ  ସୀଦଶ. ଚୋବେର  ନୁରସେରୀ  ବେଡ଼  ବିଠ  ସ୍ତ୍ରାଵ  ଫୋର  4-5 ଦେଶ. ପୁଟ  ଫର୍ମ  ୱାର୍ଡ  ମାନୁର  (ଫାୟାମ /ବେରଂମିକମ୍ପସ୍ଟି ) ଆଣ୍ଡ  ସେଏଡଲିଙ୍ଗ  ବିଲ୍ଲ  ବେ  ଇଂ  ନୁରସେରୀ  ବେଡ଼  ଟିଲଲ  21 ଦେଶ  ଅ  ସ୍ଵୟଂ." xml:space="preserve">
+    <value>Dimension of Nursery should be 10 ft length, 3 ft width and 9 inch of height. Spray cow urine in the Soil. Cover it with thin white Plastic Mulch (Polythene) for 12 hours. Line Sowing of seeds. Cover nursery bed with straw for 4-5 days. Put Farm Yard Manure (FYM/vermicompost) and Seedling will be in nursery bed till 21 days of sowing.</value>
+  </data>
+  <data name="ନିମ  ଚକେ" xml:space="preserve">
+    <value>Neem Cake</value>
+  </data>
+  <data name="ନିମ  ଚୋରେଟେଡ଼  ୟୁରିଆ  (ଇଞ୍ଚୁବଟେଡ଼  ୟୁରିଆ )" xml:space="preserve">
+    <value>Neem Coated Urea (Incubated Urea)</value>
+  </data>
   <data name="ନିମ ଚୋରେଟେଡ଼ ୟୁରିଆ (ଇଞ୍ଚୁବଟେଡ଼ ୟୁରିଆ) ବିଠ କମ୍ପୋଷ୍ଟ" xml:space="preserve">
     <value>Neem Coated Urea (Incubated Urea) with Compost</value>
   </data>
   <data name="ନିମ ଚୋରେଟେଡ଼ ୟୁରିଆ (ଇଞ୍ଚୁବଟେଡ଼ ୟୁରିଆ) ବିଠ କମ୍ପୋଷ୍ଟ1" xml:space="preserve">
     <value>Neem Coated Urea (Incubated Urea) with Compost</value>
   </data>
+  <data name="ନୁଁମ୍ବର  ଅ  ପ୍ଲାଣ୍ଟସ" xml:space="preserve">
+    <value>Number of Plants</value>
+  </data>
   <data name="ନୁଁମ୍ବର ଅ ପିସ୍ତା ୩କ୍ସ୩" xml:space="preserve">
     <value>Number of Pits 3x3</value>
   </data>
+  <data name="ନୁରସେରୀ  ବେଡ଼  ପରିପାରସନ  ଆଣ୍ଡ  ସେଏଡଲିଙ୍ଗ  ରାଇସିଙ୍ଗ" xml:space="preserve">
+    <value>Nursery Bed Preparation and Seedling raising</value>
+  </data>
   <data name="ପରିପାରସନ  ଅ  ପିତ , ସେଏଡ଼  ଆଣ୍ଡ  ନୁଁଟ୍ରିସନ  ରେକଇଁରେମେଣ୍ଟ" xml:space="preserve">
     <value>Preparation of Pit, Seed and Nutrition Requirement</value>
+  </data>
+  <data name="ପରିପାରସନ  ଅ  ରିଡ଼ଗେସ  ଆଣ୍ଡ  ଫୁର୍ତ୍ରଉ, ସେଏଡ଼  ଆଣ୍ଡ  ନୁଁଟ୍ରିସନ  ରେକଇଁରେମେଣ୍ଟ" xml:space="preserve">
+    <value>Preparation of Ridges and furrow, Seed and Nutrition requirement</value>
   </data>
   <data name="ପଲୋଉଗିଙ୍ଗ ଅ ଲଣ୍ଡ" xml:space="preserve">
     <value>Plouging of land</value>
   </data>
   <data name="ପଲୋଉଗିଙ୍ଗ ବିଠ ଓସଏନ" xml:space="preserve">
-    <value>Plouging with Oxen</value>
+    <value>Ploughing with Oxen</value>
   </data>
   <data name="ପଲୋଉଘ  ଲଣ୍ଡ  ୨ -୩  ଟିମଏସ  ଫୋର  ମାଇଁ  ଫାଇଲଡ  ପରିପାରସନ" xml:space="preserve">
     <value>Plouging of land 2-3 times for main field preparation</value>
+  </data>
+  <data name="ପଲୋଉଘ  ଲଣ୍ଡ  ୨ -୩  ଟିମଏସ  ଫୋର  ମାଇଁ  ଫାଇଲଡ  ପରିପାରସନ" xml:space="preserve">
+    <value>Plough Land 2-3 times for main field preparation</value>
+  </data>
+  <data name="ପଲୋଉଘିଙ୍ଗ ଅ ଲଣ୍ଡ" xml:space="preserve">
+    <value>Ploughing of Land</value>
+  </data>
+  <data name="ପିତ  ପରିପାରସନ  ଆଣ୍ଡ  ଟ୍ରାନ୍ସପ୍ଲାଣ୍ଟସନ  ଅ  ସେଏଡଲିଙ୍ଗ" xml:space="preserve">
+    <value>Pit Preparation and Transplantation of Seedling</value>
   </data>
   <data name="ପୁଂପକିନ" xml:space="preserve">
     <value>Pumpkin</value>
@@ -198,8 +279,38 @@
   <data name="ପୁଟ  ଳ  ସୀଦଶ  ଈଂଟ  ଏ  ବଉଳ  ଅ  କଲଡ  ୱାଟର  ଆଣ୍ଡ  କେଇପ  ଇଟା  ଫୋର  ୧୫ -୨୦  ହୋଉଶ. ସୀଦଶ  ନୀଡ଼  ତୋ  ବେ  ଦ୍ରିଏଡ଼  ଇଂ  ଶଦଉ  ଓଂ  ଗଈଂନି  ବଗ . ସେଏଡ଼  ପରିମିଙ୍ଗ  ନୀଡ଼ସ  ତୋ  ବେ  ଦନେ  ଜୁସତ  ଅଣେ  ଦେ  ବେଫୋରେ  ସେଏଡ଼  ଟ୍ରେରେଟମେଣ୍ଟ  ଆଣ୍ଡ  ସ୍ଵୟଂ  ଇଂ  ଥେ  ପିତ." xml:space="preserve">
     <value>Put all seeds into a bowl of cold water and keep it for 15-20 hours. Seeds need to be dried in shadow on ginni bag. Seed priming needs to be done just one day before seed treatment and sowing in the pit.</value>
   </data>
+  <data name="ପୁଟ  ଳ  ସୀଦଶ  ଈଂଟ  ଏ  ବଉଳ  ଅ  କଲଡ  ୱାଟର  ଫୋର  4-5 ହୋଉଶ." xml:space="preserve">
+    <value>Put all seeds into a bowl of cold water for 4-5 hours.</value>
+  </data>
+  <data name="ପୁଟ  ଳ  ସୀଦଶ  ଈଂଟ  ଏ  ବଉଳ  ଅ  କଲଡ  ୱାଟର  ଫୋର  4-5 ହୋଉଶ.1" xml:space="preserve">
+    <value>Put all seeds into a bowl of cold water and keep it for 4-5 hours and needs to be dried in shadow spreading on a ginni bag.</value>
+  </data>
+  <data name="ପୁଟ  ଳ  ସୀଦଶ  ଈଂଟ  ଏ  ବଉଳ  ଅ  କଲଡ  ୱାଟର  ଫୋର  4-5 ହୋଉଶ.2" xml:space="preserve">
+    <value>Put all seeds into a bowl of cold water and keep it for 2-3 hours. Seed priming needs to be done just one day before seed treatment and sowing in the pit.</value>
+  </data>
+  <data name="ପୁଟ  ଳ  ସୀଦଶ  ଈଂଟ  ଏ  ବଉଳ  ଅ  ୱାଟର  ଫୋର  4-5 ହୋଉଶ." xml:space="preserve">
+    <value>Put all seeds into a bowl of water for 4-5 hours.</value>
+  </data>
+  <data name="ପୋଲଠଇନେ" xml:space="preserve">
+    <value>Polythene</value>
+  </data>
+  <data name="ପ୍ରଂଅମୃତ" xml:space="preserve">
+    <value>Pranamrita</value>
+  </data>
+  <data name="ଫର୍ମ  ୱାର୍ଡ  ମାନୁର" xml:space="preserve">
+    <value>Farm Yard Manure</value>
+  </data>
+  <data name="ଫର୍ମ  ୱାର୍ଡ  ମାନୁର  ଡ  ବେରଂମିକମ୍ପସ୍ଟି" xml:space="preserve">
+    <value>Farm Yard Manure or vermicompost</value>
+  </data>
   <data name="ଫିରସ୍ତ  ୱେଇଡିଙ୍ଗ  ଆଣ୍ଡ  ହୋୱେଇଙ୍ଗ  ଅଃଫ୍ଟୱେର  ୧୦ ଦେଶ  ଅ  ସେଏଡ଼  ଫିଲଳିଙ୍ଗ  ଇଂ ଥେ  ପିତ. ପୁଟ  ବେରଂମିକମ୍ପସ୍ଟି  ଡ  ପ୍ରଂଅମୃତ  ଇଂ  ୱେଟ  ପିତ. ସ୍ପ୍ରେ  ହାନ୍ଡିଖାତା  ଅଃଫ୍ଟୱେର  ୧ - ୨  ଦେଶ  ଅ  ପୁଟ୍ଟୀଙ୍ଗ  ବେରଂମିକମ୍ପସ୍ଟି. ସ୍ପ୍ରେ  ଆଗ୍ନେୟାସ୍ତ୍ର, ଇଫ  ନୀଡ଼ଏଡ଼" xml:space="preserve">
     <value>First Weeding and Hoeing after 10 days of Seed Filling in the Pit. Put Vermicompost or Pranamrita in each pit. Spray Handikhata after 1-2 days of putting Vermicompost. Spray Agneyastra, if needed</value>
+  </data>
+  <data name="ଫିରସ୍ତ  ୱେଇଡିଙ୍ଗ  ଆଣ୍ଡ  ହୋୱେଇଙ୍ଗ  ଅଃଫ୍ଟୱେର  10 ଦେଶ  ଅ  ସେଏଡ଼  ଫିଲଳିଙ୍ଗ  ଇଂ  ଥେ  ରିଡ଼ଗେ. ପୁଟ  ଜୀବମିରିତ  ସୋଲୁସନ, ପୁଟ  ପ୍ରାଣମିତ୍ର  ଠେଁ  ଅଃଫ୍ଟୱେର  1-2 ଦେଶ   ସ୍ପ୍ରେ  ହାନ୍ଡିଖାତା, ଆଣ୍ଡ  ସ୍ପ୍ରେ  ଆଗ୍ନେୟାସ୍ତ୍ର. ଅଃଫ୍ଟୱେର  10 ଦେଶ  ଅ  ଫିରସ୍ତ  ୱେଇଡିଙ୍ଗ  ଆଣ୍ଡ  ହୋୱେଇଙ୍ଗ  ରପାତ  ହାନ୍ଡିଖାତା  ସ୍ପ୍ରେ." xml:space="preserve">
+    <value>First Weeding and Hoeing after 10 days of Seed Filling in the ridge. Put Jivamirita Solution, Put Pranamitra then after 1-2 days spray Handikhata, and spray Agneyastra. After 10 days of First weeding and Hoeing repeat Handikhata spray.</value>
+  </data>
+  <data name="ଫିରସ୍ତ  ୱେଇଡିଙ୍ଗ  ଆଣ୍ଡ  ହୋୱେଇଙ୍ଗ  ଅଃଫ୍ଟୱେର  12 ଦେଶ  ଅ ଟ୍ରାନ୍ସପ୍ଲାଣ୍ଟିଙ୍ଗ, ପୁଟ  ପ୍ରଂଅମୃତ, ଠେଁ  ଅଃଫ୍ଟୱେର  1-2 ଦେଶ  ସ୍ପ୍ରେ  ହାନ୍ଡିଖାତା  ଇଫ  ନୀଡ଼ଏଡ଼  ସ୍ପ୍ରେ  ଆଗ୍ନେୟାସ୍ତ୍ର" xml:space="preserve">
+    <value>First Weeding and Hoeing after 12 days of transplanting, Put Pranamrita, then after 1-2 days spray Handikhata, if needed spray Agneyastra</value>
   </data>
   <data name="ଫିରସ୍ତ ୱେଇଡିଙ୍ଗ ଆଣ୍ଡ ହୋୱେଇଙ୍ଗ" xml:space="preserve">
     <value>First Weeding and Hoeing</value>
@@ -209,6 +320,18 @@
   </data>
   <data name="ବରପି  ସୀଦଶ  ଇଂ  ସର୍ତ୍ତନ  ସଲତ  ଆଣ୍ଡ  ଶାକ  ଇଟା, ଠେଁ  ଦୀପ  ଇଟା  ଈଂଟ  ଚୋବ  ୟୁରିନେ  ଆଣ୍ଡ  ୱାଟର  ସୋଲୁସନ  ଡ  ବୀଜମୃତ  ସୋଲୁସନ  ଫୋର  ୫  ମିନୁତେଷୁ. ଠେଁ  ଦରୀ  ଥେ  ସାକେଡ଼  ସୀଦଶ  ଇଂ  ଏ  ଷଡ଼େଡ଼  ଆରେଏ  ଉପତ୍ୟ  ୧ -୨  ହୋଉଶ  ଆଣ୍ଡ  ସ୍ଵ  ଇଂ  ଥେ  ପିସ୍ତା." xml:space="preserve">
     <value>Wrap seeds in cotton cloth and soak it, then dip it into cow urine and water Solution or Beejamrita Solution for 5 minutes. Then dry the soaked seeds in a shaded area upto 1-2 hours and sow in the pits.</value>
+  </data>
+  <data name="ବରପି  ଥେ  ସୀଦଶ  ଇଂ  ସର୍ତ୍ତନ  ସଲତ  ତୋ  ଶାକ  ଠେଁ  ଦୀପ  ଥେ  ରପିପିଏଡ  ସୀଦଶ  ଈଂଟ  ଚୋବ  ୟୁରିନେ  ଆଣ୍ଡ  ୱାଟର  ସୋଲୁସନ  ଡ  ବୀଜମୃତ  ସୋଲୁସନ  ଫୋର  5 ମିନୁତେଷୁ. ଠେଁ  ଦରୀ  ଥେ  ସୀଦଶ  ଇଂ  ଏ  ଷଡ଼େଡ଼  ଆରେଏ  ଉପତ୍ୟ  1-2 ହୋଉଶ  ଆଣ୍ଡ  ସ୍ଵ  ଇଂ  ଥେ  ପିସ୍ତା." xml:space="preserve">
+    <value>Wrap the seeds in cotton cloth to soak then dip the rapped seeds into cow urine and water Solution or Beejamrita Solution for 5 minutes. Then dry the seeds in a shaded area upto 1-2 hours and sow in the pits.</value>
+  </data>
+  <data name="ବରପି  ଥେ  ସୀଦଶ  ଇଂ  ସର୍ତ୍ତନ  ସଲତ  ତୋ  ଶାକ  ଠେଁ  ଦୀପ  ଥେ  ରପିପିଏଡ  ସୀଦଶ  ଈଂଟ  ଚୋବ  ୟୁରିନେ  ଆଣ୍ଡ  ୱାଟର  ସୋଲୁସନ  ଡ  ବୀଜମୃତ  ସୋଲୁସନ  ଫୋର  5 ମିନୁତେଷୁ. ଠେଁ  ଦରୀ  ଥେ  ସୀଦଶ  ଇଂ  ଏ  ଷଡ଼େଡ଼  ଆରେଏ  ଉପତ୍ୟ  1-2 ହୋଉଶ  ଆଣ୍ଡ  ସ୍ଵ  ଇଂ  ଥେ  ପିସ୍ତା.1" xml:space="preserve">
+    <value>Wrap seeds in cotton cloth and soak it into cow urine and water Solution or Beejamrita Solution for 5 minutes. Then dry the soaked seeds in a shaded area upto 1-2 hours and sow in the pits</value>
+  </data>
+  <data name="ବରପି  ଳ  ଥେ  ସୀଦଶ  ଇଂ  ସର୍ତ୍ତନ  ସଲତ  ଆଣ୍ଡ  ଶାକ  ଇଟା  ଈଂଟ  500 ମଲ  ଚୋବ  ୟୁରିନେ  ବିଠ  2.5 ଲିଟର  ୱାଟର  ଫୋର  10-15 ମିନୁତେଷୁ. ଠେଁ  ଦରୀ  ଇଟା  ଇଂ  ଷଡ଼େଡ଼  ଆରେଏ  ଉପତ୍ୟ  1-2 ହୋଊର  ଆଣ୍ଡ  ଠେଁ  ପୁଟ  ସୀଦଶ  ଇଂ  ଥେ  ନୁରସେରୀ  ବେଡ଼." xml:space="preserve">
+    <value>Wrap all the seeds in cotton cloth and soak it into 500 ml cow urine with 2.5 liter water for 10-15 minutes. Then dry it in shaded area upto 1-2 hour and then put seeds in the nursery bed.</value>
+  </data>
+  <data name="ବରପି  ଳ  ଥେ  ସୀଦଶ  ଇଂ  ସର୍ତ୍ତନ  ସଲତ  ଫୋର  ସାକିଙ୍ଗ  ଆଣ୍ଡ  ଦୀପ  ଈଂଟ  ଚୋବ  ୟୁରିନେ  ସୋଲୁସନ  ଫୋର  10-15 ମିନୁତେଷୁ. ଠେଁ  ଦରୀ  ଇଟା  ଇଂ  ଷଡ଼େଡ଼  ଆରେଏ  ଉପତ୍ୟ  1-2 ହୋଉଶ  ବେଫୋରେ  ପୁଟ୍ଟୀଙ୍ଗ  ଇଂ  ଥେ  ନୁରସେରୀ  ବେଡ଼" xml:space="preserve">
+    <value>Wrap all the seeds in cotton Cloth for soaking and deep into cow Urine Solution for 10-15 minutes. Then dry it in shaded area upto 1-2 hours before putting in the nursery bed</value>
   </data>
   <data name="ବିତ୍ତ୍ଵେର ଗୌରଡ଼" xml:space="preserve">
     <value>Bitter Gourd</value>
@@ -225,11 +348,26 @@
   <data name="ବେରଂମିକମ୍ପସ୍ଟି1" xml:space="preserve">
     <value>Vermicompost</value>
   </data>
+  <data name="ମଞ୍ଜି ଲଗାଇବାର 10 ବ୍ୟବଧାନରେ 60 ଦିନ୍ ପର୍ଯ୍ୟନ୍ତ ଅମୃତଜଳ ପୁନ ବ୍ୟବହାର କରନ୍ତୁ. (ମଞ୍ଜି ଲଗାଇବାର 50-60 ଦିନ  ମଧ୍ୟରେ)" xml:space="preserve">
+    <value>Repeat Amrutjal up to 60 days of planting in an interval of 10 days during the harvesting (In Between 50-60 days of planting)</value>
+  </data>
   <data name="ମାଛ ଡ ସ୍ଟିସିକ" xml:space="preserve">
     <value>Macha or Stick</value>
   </data>
+  <data name="ରପାତ  ହାନ୍ଡିଖାତା  ସୋଲୁସନ  ଆଣ୍ଡ  ସ୍ପ୍ରେ  ଆଗ୍ନେୟାସ୍ତ୍ର  ଇଂ  ଅଂ  ଇଣ୍ଟେରବଲ  ଅ  10 ଦେଶ  ଟିଲଲ  ହରବେଶଟିଙ୍ଗ - 2-3 ଟିମଏସ" xml:space="preserve">
+    <value>Repeat Handikhata Solution and spray Agneyastra in an interval of 10 days till harvesting- 2-3 times</value>
+  </data>
+  <data name="ରପାତ  ହାନ୍ଡିଖାତା  ସୋଲୁସନ, ସ୍ପ୍ରେ  ଅମୃତଜାଲ  ଆଣ୍ଡ  ଆଗ୍ନେୟାସ୍ତ୍ର  ଇଂ  ଅଂ  ଇଣ୍ଟେରବଲ  ଅ  10 ଦେଶ  ଟିଲଲ  ହରବେଶଟିଙ୍ଗ  -2-3 ଟିମଏସ" xml:space="preserve">
+    <value>Repeat Handikhata Solution, Spray Amritjal and Agneyastra in an interval of 10 days till harvesting -2-3 times</value>
+  </data>
+  <data name="ଲଙ୍ଗ  ବେଆନ୍ସ  ହରବେଶଟିଙ୍ଗ" xml:space="preserve">
+    <value>Long Beans Harvesting</value>
+  </data>
   <data name="ଲଙ୍ଗ ବେଆନ୍ସ" xml:space="preserve">
     <value>Long Beans</value>
+  </data>
+  <data name="ଲଦଇସ  ଫିଙ୍ଗର  ହରବେଶଟିଙ୍ଗ" xml:space="preserve">
+    <value>Ladies Finger Harvesting</value>
   </data>
   <data name="ଲେଡି ଫିଙ୍ଗର" xml:space="preserve">
     <value>Lady finger</value>
@@ -252,6 +390,9 @@
   <data name="ସେଏଡ଼  ଟ୍ରେରେଟମେଣ୍ଟ" xml:space="preserve">
     <value>Seed Treatment</value>
   </data>
+  <data name="ସେଏଡ଼ ପରିମିଙ୍ଗ, ସେଏଡ଼ ଟ୍ରେରେଟମେଣ୍ଟ ଆଣ୍ଡ ପରିପାରସନ  ଅ  ପିତ, ସେଏଡ଼ ଆଣ୍ଡ  ନୁଁଟ୍ରିସନ  ରେକଇଁରେମେଣ୍ଟ" xml:space="preserve">
+    <value>Seed Priming, Seed Treatment, Preparation of Ridges and Furrow, Seed sowing and Nutrition requirement</value>
+  </data>
   <data name="ସେଏଡ଼ ପରିମିଙ୍ଗ, ସେଏଡ଼ ଟ୍ରେରେଟମେଣ୍ଟ ଆଣ୍ଡ ପରିପାରସନ ଅ  ପିତ, ସେଏଡ଼  ଆଣ୍ଡ  ନୁଁଟ୍ରିସନ  ରେକଇଁରେମେଣ୍ଟ" xml:space="preserve">
     <value>Seed Priming, Seed Treatment and Preparation of Pit, Seed and Nutrition requirement</value>
   </data>
@@ -261,8 +402,41 @@
   <data name="ସେକେଣ୍ଡ  ୱେଇଡିଙ୍ଗ  ଆଣ୍ଡ  ହୋୱେଇଙ୍ଗ  ଅଃଫ୍ଟୱେର  ୨୫  ଦେଶ  ଅ  ସେଏଡ଼  ଫିଲଳିଙ୍ଗ. ପ୍ରୋଭିଡେ  ମଉଛ  ଡ  ସ୍ଟିସିକ  ଫୋର  ସପୋର୍ଟ. ପୁଟ  ନିମ  ଚୋରେଟେଡ଼  ଇଞ୍ଚୁବଟେଡ଼  ୟୁରିଆ  (ବିଠ  କମ୍ପୋଷ୍ଟ ). ସ୍ପ୍ରେ  ଆଗ୍ନେୟାସ୍ତ୍ର" xml:space="preserve">
     <value>Second Weeding and Hoeing after 25 days of seed filling. Provide Muchha or Stick for support. Put Neem coated incubated Urea (with Compost). Spray Agneyastra</value>
   </data>
+  <data name="ସେକେଣ୍ଡ  ୱେଇଡିଙ୍ଗ  ଆଣ୍ଡ  ହୋୱେଇଙ୍ଗ  ଅଃଫ୍ଟୱେର  22 ଦେଶ  ଅ  ଟ୍ରାନ୍ସପ୍ଲାଣ୍ଟସନ. ମାକ୍ୱେ  ଡ୍ରଇଁନାଗେ  କେନାଲ, ପ୍ରୋଭିଡେ  ମଉଛ  ଡ  ସ୍ଟିସିକ  ଫୋର  ସପୋର୍ଟ, ପୁଟ  ନିମ  ଚୋରେଟେଡ଼  ଇଞ୍ଚୁବଟେଡ଼  ୟୁରିଆ  ବିଠ  କମ୍ପୋଷ୍ଟ, ସ୍ପ୍ରେ  ହାନ୍ଡିଖାତା  ଆଣ୍ଡ  ପୁଟ  ଆଗ୍ନେୟାସ୍ତ୍ର (ଇଫ ନୀଡ଼ଏଡ଼ ) (ଅଃଫ୍ଟୱେର  1-2 ଦେଶ ) ଆଣ୍ଡ  ସ୍ପ୍ରେ  ଅମୃତଜାଲ" xml:space="preserve">
+    <value>Second Weeding and Hoeing after 22 days of Transplantation. Make Drainage Canal, Provide Muchha or Stick for Support , Put Neem coated incubated Urea with Compost, Spray Handikhata and Put Agneyastra (if needed) (after 1-2 days) and Spray Amrutjal</value>
+  </data>
+  <data name="ସେକେଣ୍ଡ  ୱେଇଡିଙ୍ଗ  ଆଣ୍ଡ  ହୋୱେଇଙ୍ଗ  ଅଃଫ୍ଟୱେର  22 ଦେଶ  ଅ  ଟ୍ରାନ୍ସପ୍ଲାଣ୍ଟସନ. ମାକ୍ୱେ  ଡ୍ରଇଁନାଗେ  କେନାଲ, ପ୍ରୋଭିଡେ  ମଉଛ  ଡ  ସ୍ଟିସିକ  ଫୋର  ସପୋର୍ଟ, ପୁଟ  ନିମ  ଚୋରେଟେଡ଼  ଇଞ୍ଚୁବଟେଡ଼  ୟୁରିଆ  ବିଠ କମ୍ପୋଷ୍ଟ, ସ୍ପ୍ରେ  ହାନ୍ଡିଖାତା  ଆଣ୍ଡ  ପୁଟ  ଆଗ୍ନେୟାସ୍ତ୍ର  (ଇଫ  ନୀଡ଼ଏଡ଼ ) (ଅଃଫ୍ଟୱେର  1-2 ଦେଶ )" xml:space="preserve">
+    <value>Second Weeding and Hoeing after 22 days of Transplantation. Make Drainage Canal, Provide Muchha or Stick for Support , Put Neem coated incubated Urea with Compost, Spray Handikhata and Put Agneyastra (if needed) (after 1-2 days)</value>
+  </data>
+  <data name="ସେକେଣ୍ଡ  ୱେଇଡିଙ୍ଗ  ଆଣ୍ଡ  ହୋୱେଇଙ୍ଗ  ଅଃଫ୍ଟୱେର  25 ଦେଶ  ଅ  ସେଏଡ଼  ଫିଲଳିଙ୍ଗ . ପ୍ରୋଭିଡେ  ମଉଛ  ଡ  ସ୍ଟିସିକ  ଫୋର  ସପୋର୍ଟ . ପୁଟ  ନିମ  ଚୋରେଟେଡ଼  ଇଞ୍ଚୁବଟେଡ଼  ନିମ  ଚୋରେଟେଡ଼  ୟୁରିଆ  ଆଣ୍ଡ ସ୍ପ୍ରେ  ଆଗ୍ନେୟାସ୍ତ୍ର" xml:space="preserve">
+    <value>Second Weeding and Hoeing after 25 days of seed filling. Provide Muchha or Stick for support. Put Neem coated incubated Neem coated Urea and spray Agneyastra</value>
+  </data>
+  <data name="ସେକେଣ୍ଡ  ୱେଇଡିଙ୍ଗ  ଆଣ୍ଡ  ହୋୱେଇଙ୍ଗ  ଅଃଫ୍ଟୱେର  30 ଦେଶ  ଅ  ସେଏଡ଼  ଫିଲଳିଙ୍ଗ. ପୁଟ  ନିମ  ଚୋରେଟେଡ଼  ଇଞ୍ଚୁବଟେଡ଼  ୟୁରିଆ  ମିକ୍ସୱେଡ  ବିଠ  କମ୍ପୋଷ୍ଟ  ଆଣ୍ଡ  ସ୍ପ୍ରେ  ଆଗ୍ନେୟାସ୍ତ୍ରାଳ" xml:space="preserve">
+    <value>Second Weeding and Hoeing after 30 days of seed filling. Put Neem coated incubated Urea mixed with compost and spray Agneyastra</value>
+  </data>
+  <data name="ସ୍ତ୍ରାଵ" xml:space="preserve">
+    <value>Straw</value>
+  </data>
   <data name="ସ୍ପଚିଙ୍ଗ  ବେତବୀନ  ତ୍ୱ  ପିସ୍ତା  ଷୌଲଡ଼  ବେ  ୩  ଫେଡ  ଆଣ୍ଡ  ସ୍ପଚିଙ୍ଗ  ବେତବୀନ  ତ୍ୱ  ରୋବତ୍ସ  ଷୌଲଡ଼  ବେ  ୩  ଫେଡ. ପୁଟ  ହ୍ୟାଦ୍ରି  ଆଣ୍ଡ  କମ୍ପୋଷ୍ଟ  ମିସ  ଇଂ  ୱେଟ  ପିତ  ଆଣ୍ଡ  ବେରଂମିକମ୍ପସ୍ଟି. ପୁଟ  ଦ୍ରିଏଡ଼  ଓଟ  ୩  ସୀଦଶ  ଇଂ  ୱେଟ  ପିତ" xml:space="preserve">
     <value>Spacing between two pits should be 3 feet and spacing between two rows should be 3 feet. Put Hadri and Compost mix in each pit and Vermicompost. Put dried out 3 seeds in each pit</value>
+  </data>
+  <data name="ସ୍ପଚିଙ୍ଗ  ବେତବୀନ  ରିଡ଼ଗେସ  ଆଣ୍ଡ  ଫୁର୍ତ୍ରଉ  ଷୌଲଡ଼  ବେ  2 ଫେଡ  ଆଣ୍ଡ  ସ୍ପଚିଙ୍ଗ  ବେତବୀନ  ପ୍ଲାଣ୍ଟ  ତୋ  ପ୍ଲାଣ୍ଟ  ଷୌଲଡ଼  ବେ  2 ଫେଡ. ପୁଟ  ହ୍ୟାଦ୍ରି  ଆଣ୍ଡ  କମ୍ପୋଷ୍ଟ  ମିସ  ଇଂ  ଥେ  ସୋଇ  ଅ  ରିଡ଼ଗେସ" xml:space="preserve">
+    <value>Spacing between Ridges and furrow should be 2 feet and spacing between plant to plant should be 2 feet. Put Hadri and Compost mix in the soil of ridges</value>
+  </data>
+  <data name="ସ୍ପଚିଙ୍ଗ  ବେତବୀନ  ରିଡ଼ଗେସ  ଆଣ୍ଡ  ଫୁର୍ତ୍ରଉ  ଷୌଲଡ଼  ବେ  2.5 ଫେଡ  ଆଣ୍ଡ  ସ୍ପଚିଙ୍ଗ  ବେତବୀନ  ରାବ  (ପ୍ଲାଣ୍ଟ  ତୋ  ପ୍ଲାଣ୍ଟ ) ଷୌଲଡ଼  ବେ  1 ଫେଡ. ପୁଟ  ହ୍ୟାଦ୍ରି  ଆଣ୍ଡ  ବେରଂମିକମ୍ପସ୍ଟି  ମିସ  ଇଂ  ୱେଟ  ପିତ. ପୁଟ  ଦ୍ରିଏଡ଼  ଓଟ  3 ଟ୍ରେରେଟେଡ଼  ସୀଦଶ  ଇଂ  ୱେଟ  ପିତ" xml:space="preserve">
+    <value>Spacing between Ridges and furrow should be 2.5 feet and spacing between Row (plant to plant) should be 1 feet. Put Hadri and Vermicompost mix in each pit. Put dried out 3 treated seeds in each pit</value>
+  </data>
+  <data name="ସ୍ପଚିଙ୍ଗ  ବୋୖଲଡ଼  ବେ  2 ଫାଟ  (ପ୍ଲାଣ୍ଟ  ତୋ  ପ୍ଲାଣ୍ଟ ) ସ 2.5 ଫାଟ  (ରାବ  ତୋ  ରାବ ), ପୁଟ  ଫର୍ମ  ୱାର୍ଡ  ମାନୁର  or ବେରଂମିକମ୍ପସ୍ଟି  ବିଠ  ହ୍ୟାଦ୍ରି  ଆଣ୍ଡ  ପୁଟ  ନିମ  ଚକେ" xml:space="preserve">
+    <value>Spacing would be 2 ft (plant to plant) X2.5 ft (row to row), Put Farm Yard Manure or Vermicompost with Hadri and Put Neem Cake</value>
+  </data>
+  <data name="ସ୍ପଚିଙ୍ଗ  ଷୌଲଡ଼  ବେ  1.5 (ପ୍ଲାଣ୍ଟ  ତୋ  ପ୍ଲାଣ୍ଟ ) ଫାଟ  X ୨ଫ୍ଟ  (ରାବ  ତୋ  ରାବ ), ପୁଟ  ଫର୍ମ  ୱାର୍ଡ  ମାନୁର  ଡ  ବେରଂମିକମ୍ପସ୍ଟି  ବିଠ  ହ୍ୟାଦ୍ରି  ଆଣ୍ଡ  ପୁଟ  ନିମ  ଚକେ" xml:space="preserve">
+    <value>Spacing should be 1.5 (plant to plant) ft X 2ft (row to row), Put Farm Yard Manure or vermicompost with Hadri and Put Neem cake</value>
+  </data>
+  <data name="ହଳଦୀ  ପବଡର  ସୋଲୁସନ ବିଠ  ରିସେ  ଷ୍ଟାର୍ଚ୍ଚ" xml:space="preserve">
+    <value>Haldi Powder Solution with Rice Starch</value>
+  </data>
+  <data name="ହାନ୍ଡିଖାତା" xml:space="preserve">
+    <value>Handikhata</value>
   </data>
   <data name="ହାନ୍ଡିଖାତା ବିଠ ୱାଟର" xml:space="preserve">
     <value>Handikhata with Water</value>
@@ -272,6 +446,9 @@
   </data>
   <data name="ହାନ୍ଡିଖାତା ସୋଲୁସନ1" xml:space="preserve">
     <value>Handikhata Solution</value>
+  </data>
+  <data name="ହ୍ୟାଦ୍ରି  ଆଣ୍ଡ  ବେରଂମିକମ୍ପସ୍ଟି" xml:space="preserve">
+    <value>Hadri and Vermicompost</value>
   </data>
   <data name="ହ୍ୟାଦ୍ରି ଆଣ୍ଡ କମ୍ପୋଷ୍ଟ ମିସ" xml:space="preserve">
     <value>Hadri and Compost Mix</value>

@@ -29,7 +29,7 @@ namespace TrickleUpPortal.Controllers
                                   from Lang in LangNew.DefaultIfEmpty()
                                   join Audio in db.Audios on Audiodata.AudioId equals Audio.Id into AudioNew
                                   from Audio in AudioNew.DefaultIfEmpty()
-                                  where Audiodata.StepId == StepId
+                                  where Audiodata.StepId == StepId && Audiodata.Active == true
                                   select new { Audiodata.Id, Audiodata.StepId, Audiodata.LangId, Lang.LanguageName, Audiodata.FieldType, Audiodata.AudioId, Audio.FileName, Audio.FilePath, Audiodata.Active };
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { AudioAllocation }, success = true, error = string.Empty });
         }

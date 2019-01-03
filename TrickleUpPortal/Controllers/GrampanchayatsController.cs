@@ -58,11 +58,62 @@ namespace TrickleUpPortal.Controllers
             {
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
+            var grampanchayatData = db.Grampanchayats.Where(q => q.GrampanchayatName.ToUpper() == grampanchayat.GrampanchayatName.ToUpper()).Any() ? db.Grampanchayats.Where(p => p.GrampanchayatName.ToUpper() == grampanchayat.GrampanchayatName.ToUpper()).First() : null;
+            if (grampanchayatData != null && grampanchayatData.Id != grampanchayat.Id)
+            {
+                if (db.Grampanchayats.Any(p => p.GrampanchayatName.ToUpper() == grampanchayat.GrampanchayatName.ToUpper()))
+                {
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Grampanchayat Name already exists" });
+                }
+            }
+            else
+            {
+                try
+                {
+                    Grampanchayat grampanchayatUpdateData = db.Grampanchayats.Where(a => a.Id == grampanchayat.Id).FirstOrDefault();
+                    grampanchayatUpdateData.GrampanchayatName = grampanchayat.GrampanchayatName;
+                    grampanchayatUpdateData.State = grampanchayat.State;
+                    grampanchayatUpdateData.District = grampanchayat.District;
+                    grampanchayatUpdateData.UpdatedBy = grampanchayat.UpdatedBy;
+                    grampanchayatUpdateData.UpdatedOn = grampanchayat.UpdatedOn;
+                    grampanchayatUpdateData.Active = grampanchayat.Active;
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!GrampanchayatExists(id))
+                    {
+                        return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+            
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { grampanchayat }, success = true, error = string.Empty });
+        }
 
-            db.Entry(grampanchayat).State = EntityState.Modified;
+        [HttpPost]
+        public HttpResponseMessage ActiveDeactiveGrampanchayat(int id, Grampanchayat grampanchayat)
+        {
+            if (!ModelState.IsValid)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
+
+            if (id != grampanchayat.Id)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
 
             try
             {
+                Grampanchayat GrampanchayatUpdateData = db.Grampanchayats.Where(a => a.Id == grampanchayat.Id).FirstOrDefault();
+                GrampanchayatUpdateData.ActiveBy = grampanchayat.ActiveBy;
+                GrampanchayatUpdateData.ActiveOn = grampanchayat.ActiveOn;
+                GrampanchayatUpdateData.Active = grampanchayat.Active;
                 db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
@@ -99,7 +150,7 @@ namespace TrickleUpPortal.Controllers
             }
             else
             {
-                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Grampanchayat Name already exits" });
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Grampanchayat Name already exists" });
             }
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = grampanchayat.Id }, success = true, error = string.Empty });
         }

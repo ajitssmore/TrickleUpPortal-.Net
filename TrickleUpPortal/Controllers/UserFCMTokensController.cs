@@ -156,7 +156,7 @@ namespace TrickleUpPortal.Controllers
             int count = db.UserFCMTokens.Where(a => a.UserId == userFCMToken.UserId).Count();
             if (count > 0)
             {
-                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = "FCM Tokan already exits for User" , success = false, error = string.Empty });
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = "FCM Tokan already exists for User", success = false, error = string.Empty });
             }
 
             db.UserFCMTokens.Add(userFCMToken);

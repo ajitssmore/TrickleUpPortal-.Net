@@ -28,6 +28,12 @@ namespace TrickleUpPortal.Controllers
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { Cultivation_History }, success = true, error = string.Empty });
         }
 
+        public HttpResponseMessage GetCultivation_HistoryByUser(int UserId)
+        {
+            var Cultivation_History = db.Cultivation_History.Where(a=>a.UserId == UserId);
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { Cultivation_History }, success = true, error = string.Empty });
+        }
+
         // GET: api/Cultivation_History/5
         [ResponseType(typeof(Cultivation_History))]
         public IHttpActionResult GetCultivation_History(int id)

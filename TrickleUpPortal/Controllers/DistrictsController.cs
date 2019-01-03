@@ -59,16 +59,68 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            db.Entry(district).State = EntityState.Modified;
+            var DistrictData = db.Districts.Where(q => q.DistrictName.ToUpper() == district.DistrictName.ToUpper()).Any() ? db.Districts.Where(p => p.DistrictName.ToUpper() == district.DistrictName.ToUpper()).First() : null;
+            if (DistrictData != null && DistrictData.Id != district.Id)
+            {
+                if (db.Districts.Any(p => p.DistrictName.ToUpper() == district.DistrictName.ToUpper()))
+                {
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "District Name already exists" });
+                }
+            }
+            else
+            {
+                try
+                {
+                    District DistrictUpdateData = db.Districts.Where(a => a.Id == district.Id).FirstOrDefault();
+                    DistrictUpdateData.DistrictName = district.DistrictName;
+                    DistrictUpdateData.State = district.State;
+                    DistrictUpdateData.UpdatedBy = district.UpdatedBy;
+                    DistrictUpdateData.UpdatedOn = district.UpdatedOn;
+                    DistrictUpdateData.Active = district.Active;
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!DistrictExists(id))
+                    {
+                        return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { district }, success = true, error = string.Empty });
+        }
+
+        [HttpPost]
+        public HttpResponseMessage ActiveDeactiveDistrict(int id, District district)
+        {
+            if (!ModelState.IsValid)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
+
+            if (id != district.Id)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
+            //db.Entry(state).State = EntityState.Modified;
 
             try
             {
+                District DistrictUpdateData = db.Districts.Where(a => a.Id == district.Id).FirstOrDefault();
+                DistrictUpdateData.ActiveBy = district.ActiveBy;
+                DistrictUpdateData.ActiveOn = district.ActiveOn;
+                DistrictUpdateData.Active = district.Active;
                 db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!DistrictExists(id))
                 {
+                    //return NotFound();
                     return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
                 }
                 else
@@ -79,6 +131,7 @@ namespace TrickleUpPortal.Controllers
 
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { district }, success = true, error = string.Empty });
         }
+
 
         // POST: api/Districts
         [HttpPost]
@@ -100,7 +153,7 @@ namespace TrickleUpPortal.Controllers
             }
             else
             {
-                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "District Name already exits" });
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "District Name already exists" });
             }
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = district.Id }, success = true, error = string.Empty });
         }

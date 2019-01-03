@@ -644,18 +644,11 @@
     <Content Include="MediaContent\Audios\Tomato_HVOSDD-9.mp3" />
     <Content Include="MediaContent\Images\Bean.jpg" />
     <Content Include="MediaContent\Images\bitter_gourd.jpg" />
-    <Content Include="MediaContent\Images\brinjal.jpg" />
     <Content Include="MediaContent\Images\Cabbage.jpg" />
-    <Content Include="MediaContent\Images\Cauliflower.jpg" />
     <Content Include="MediaContent\Images\Chilli.jpg" />
-    <Content Include="MediaContent\Images\Cucumber.jpg" />
     <Content Include="MediaContent\Images\Lady_finger.jpg" />
-    <Content Include="MediaContent\Images\Onion.jpg" />
     <Content Include="MediaContent\Images\Potatoe.jpg" />
-    <Content Include="MediaContent\Images\Pumpkin.jpg" />
-    <Content Include="MediaContent\Images\Radish.jpg" />
     <Content Include="MediaContent\Images\Tomato.jpeg" />
-    <Content Include="MediaContent\Images\Tomato.jpg" />
     <Content Include="MediaContent\PredefinedAudios\EN001.mp3" />
     <Content Include="MediaContent\PredefinedAudios\EN002.mp3" />
     <Content Include="MediaContent\PredefinedAudios\EN003.mp3" />
@@ -679,8 +672,11 @@
     <Content Include="MediaContent\Videos\chilli_crop.mp4" />
     <Content Include="MediaContent\Videos\CropVideo.3gp" />
     <Content Include="MediaContent\Videos\CucumberHarvest.mp4" />
+    <Content Include="MediaContent\Videos\dummyVideo.mp4" />
+    <Content Include="MediaContent\Videos\Growing Banana Plants From Seed.mp4.mp4" />
     <Content Include="MediaContent\Videos\LadiesFingerFarming.mp4" />
     <Content Include="MediaContent\Videos\LongBeans.mp4" />
+    <Content Include="MediaContent\Videos\new_video %282%29.mp4" />
     <Content Include="MediaContent\Videos\Onion.mp4" />
     <Content Include="MediaContent\Videos\Pumpkin.mp4" />
     <Content Include="MediaContent\Videos\Radish.mp4" />
@@ -715,6 +711,7 @@
     <Content Include="public\asset-manifest.json" />
     <Content Include="public\manifest.json" />
     <Content Include="assets\.gitkeep" />
+    <None Include="Properties\PublishProfiles\TrickleUpPublish.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -727,26 +724,26 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="static\css\main.fa2dce99.css" />
-    <Content Include="static\js\0.0b5357bc.chunk.js" />
-    <Content Include="static\js\1.60104f1c.chunk.js" />
-    <Content Include="static\js\10.75416e37.chunk.js" />
-    <Content Include="static\js\11.a3c1172a.chunk.js" />
-    <Content Include="static\js\12.52b1c9d3.chunk.js" />
-    <Content Include="static\js\13.0ef04379.chunk.js" />
-    <Content Include="static\js\14.9fd455fa.chunk.js" />
-    <Content Include="static\js\15.ac7ad0c8.chunk.js" />
-    <Content Include="static\js\16.3fc82b9d.chunk.js" />
-    <Content Include="static\js\17.41e7c9ed.chunk.js" />
-    <Content Include="static\js\2.158ed801.chunk.js" />
-    <Content Include="static\js\3.3785bd19.chunk.js" />
-    <Content Include="static\js\4.5fcd5f3e.chunk.js" />
-    <Content Include="static\js\5.bde73d01.chunk.js" />
-    <Content Include="static\js\6.b1e5560d.chunk.js" />
-    <Content Include="static\js\7.ac27c89a.chunk.js" />
-    <Content Include="static\js\8.6675ee2e.chunk.js" />
-    <Content Include="static\js\9.51778b72.chunk.js" />
-    <Content Include="static\js\main.3ff19867.js" />
+    <Content Include="static\css\main.8997e847.css" />
+    <Content Include="static\js\0.88735617.chunk.js" />
+    <Content Include="static\js\1.9ae1865b.chunk.js" />
+    <Content Include="static\js\10.90ca436d.chunk.js" />
+    <Content Include="static\js\11.30db874b.chunk.js" />
+    <Content Include="static\js\12.71c4e06b.chunk.js" />
+    <Content Include="static\js\13.86e4b294.chunk.js" />
+    <Content Include="static\js\14.9025f05b.chunk.js" />
+    <Content Include="static\js\15.a6e9d51c.chunk.js" />
+    <Content Include="static\js\16.ba299502.chunk.js" />
+    <Content Include="static\js\17.4542adf4.chunk.js" />
+    <Content Include="static\js\2.9b4a3384.chunk.js" />
+    <Content Include="static\js\3.9d965dd0.chunk.js" />
+    <Content Include="static\js\4.b728b9a3.chunk.js" />
+    <Content Include="static\js\5.5322361d.chunk.js" />
+    <Content Include="static\js\6.6df9138e.chunk.js" />
+    <Content Include="static\js\7.6ea1659a.chunk.js" />
+    <Content Include="static\js\8.8a6b6b76.chunk.js" />
+    <Content Include="static\js\9.428f5c8b.chunk.js" />
+    <Content Include="static\js\main.dc7a8930.js" />
     <Content Include="static\media\ad.4fc7c4c1.svg" />
     <Content Include="static\media\ad.c2b27649.svg" />
     <Content Include="static\media\ae.7847726d.svg" />
@@ -1278,26 +1275,26 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="static\css\main.fa2dce99.css.map" />
-    <Content Include="static\js\0.0b5357bc.chunk.js.map" />
-    <Content Include="static\js\1.60104f1c.chunk.js.map" />
-    <Content Include="static\js\10.75416e37.chunk.js.map" />
-    <Content Include="static\js\11.a3c1172a.chunk.js.map" />
-    <Content Include="static\js\12.52b1c9d3.chunk.js.map" />
-    <Content Include="static\js\13.0ef04379.chunk.js.map" />
-    <Content Include="static\js\14.9fd455fa.chunk.js.map" />
-    <Content Include="static\js\15.ac7ad0c8.chunk.js.map" />
-    <Content Include="static\js\16.3fc82b9d.chunk.js.map" />
-    <Content Include="static\js\17.41e7c9ed.chunk.js.map" />
-    <Content Include="static\js\2.158ed801.chunk.js.map" />
-    <Content Include="static\js\3.3785bd19.chunk.js.map" />
-    <Content Include="static\js\4.5fcd5f3e.chunk.js.map" />
-    <Content Include="static\js\5.bde73d01.chunk.js.map" />
-    <Content Include="static\js\6.b1e5560d.chunk.js.map" />
-    <Content Include="static\js\7.ac27c89a.chunk.js.map" />
-    <Content Include="static\js\8.6675ee2e.chunk.js.map" />
-    <Content Include="static\js\9.51778b72.chunk.js.map" />
-    <Content Include="static\js\main.3ff19867.js.map" />
+    <Content Include="static\css\main.8997e847.css.map" />
+    <Content Include="static\js\0.88735617.chunk.js.map" />
+    <Content Include="static\js\1.9ae1865b.chunk.js.map" />
+    <Content Include="static\js\10.90ca436d.chunk.js.map" />
+    <Content Include="static\js\11.30db874b.chunk.js.map" />
+    <Content Include="static\js\12.71c4e06b.chunk.js.map" />
+    <Content Include="static\js\13.86e4b294.chunk.js.map" />
+    <Content Include="static\js\14.9025f05b.chunk.js.map" />
+    <Content Include="static\js\15.a6e9d51c.chunk.js.map" />
+    <Content Include="static\js\16.ba299502.chunk.js.map" />
+    <Content Include="static\js\17.4542adf4.chunk.js.map" />
+    <Content Include="static\js\2.9b4a3384.chunk.js.map" />
+    <Content Include="static\js\3.9d965dd0.chunk.js.map" />
+    <Content Include="static\js\4.b728b9a3.chunk.js.map" />
+    <Content Include="static\js\5.5322361d.chunk.js.map" />
+    <Content Include="static\js\6.6df9138e.chunk.js.map" />
+    <Content Include="static\js\7.6ea1659a.chunk.js.map" />
+    <Content Include="static\js\8.8a6b6b76.chunk.js.map" />
+    <Content Include="static\js\9.428f5c8b.chunk.js.map" />
+    <Content Include="static\js\main.dc7a8930.js.map" />
     <Content Include="static\media\CoreUI-Icons-Linear-Free.0087dce4.woff" />
     <Content Include="static\media\CoreUI-Icons-Linear-Free.089ab3c1.eot" />
     <Content Include="static\media\CoreUI-Icons-Linear-Free.1bc37648.ttf" />
@@ -1312,6 +1309,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="MediaContent\UserImages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -1328,7 +1326,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Lang_hindi.resx" />
+    <EmbeddedResource Include="Resources\Lang_hindi.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang_Oriya.resx" />
   </ItemGroup>
   <PropertyGroup>

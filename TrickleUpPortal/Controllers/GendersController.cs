@@ -57,11 +57,60 @@ namespace TrickleUpPortal.Controllers
             {
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
+            var genderData = db.Genders.Where(q => q.GenderName.ToUpper() == gender.GenderName.ToUpper()).Any() ? db.Genders.Where(p => p.GenderName.ToUpper() == gender.GenderName.ToUpper()).First() : null;
+            if (genderData != null && genderData.Id != gender.Id)
+            {
+                if (db.Genders.Any(p => p.GenderName.ToUpper() == gender.GenderName.ToUpper()))
+                {
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Gender Name already exists" });
+                }
+            }
+            else
+            {
+                try
+                {
+                    Gender GenderUpdateData = db.Genders.Where(a => a.Id == gender.Id).FirstOrDefault();
+                    GenderUpdateData.GenderName = gender.GenderName;
+                    GenderUpdateData.UpdatedBy = gender.UpdatedBy;
+                    GenderUpdateData.UpdatedOn = gender.UpdatedOn;
+                    GenderUpdateData.Active = gender.Active;
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!GenderExists(id))
+                    {
+                        return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+            
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { gender }, success = true, error = string.Empty });
+        }
 
-            db.Entry(gender).State = EntityState.Modified;
+        [HttpPost]
+        public HttpResponseMessage ActiveDeactiveGender(int id, Gender gender)
+        {
+            if (!ModelState.IsValid)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
 
+            if (id != gender.Id)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
+           
             try
             {
+                Gender GenderUpdateData = db.Genders.Where(a => a.Id == gender.Id).FirstOrDefault();
+                GenderUpdateData.ActiveBy = gender.ActiveBy;
+                GenderUpdateData.ActiveOn = gender.ActiveOn;
+                GenderUpdateData.Active = gender.Active;
                 db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
@@ -99,7 +148,7 @@ namespace TrickleUpPortal.Controllers
             }
             else
             {
-                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Gender Name already exits" });
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Gender Name already exists" });
             }
             
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = gender.Id }, success = true, error = string.Empty });

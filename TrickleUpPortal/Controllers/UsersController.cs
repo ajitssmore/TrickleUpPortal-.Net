@@ -130,10 +130,78 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            db.Entry(user).State = EntityState.Modified;
+            var usersData = db.Users.Where(q => q.PhoneNumber == user.PhoneNumber).Any() ? db.Users.Where(p => p.PhoneNumber.ToUpper() == user.PhoneNumber).First() : null;
+            if (usersData != null && usersData.Id != user.Id)
+            {
+                if (db.Users.Any(p => p.PhoneNumber == user.PhoneNumber))
+                {
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Phone Number already Exist" });
+                }
+            }
+            else
+            {
+                try
+                {
+                    User UserUpdateData = db.Users.Where(a => a.Id == user.Id).FirstOrDefault();
+                    UserUpdateData.UserId = user.UserId;
+                    UserUpdateData.Name = user.Name;
+                    UserUpdateData.PhoneNumber = user.PhoneNumber;
+                    UserUpdateData.Age = user.Age;
+                    UserUpdateData.Gender = user.Gender;
+                    UserUpdateData.State = user.State;
+                    UserUpdateData.District = user.District;
+                    UserUpdateData.Village = user.Village;
+                    UserUpdateData.Grampanchayat = user.Grampanchayat;
+                    UserUpdateData.Aadhaar = user.Aadhaar;
+                    UserUpdateData.IMEI1 = user.IMEI1;
+                    UserUpdateData.IMEI2 = user.IMEI2;
+                    UserUpdateData.Role = user.Role;
+                    UserUpdateData.Language = user.Language;
+                    UserUpdateData.FCMToken = user.FCMToken;
+                    UserUpdateData.UpdatedBy = user.UpdatedBy;
+                    UserUpdateData.UpdatedOn = user.UpdatedOn;
+                    UserUpdateData.Active = user.Active;
+                    //UserUpdateData.ImagePath = user.ImagePath;
+                    //UserUpdateData.BulkUploadId = user.BulkUploadId;
+                    db.SaveChanges();
+                    UpdateUserCrednetails(user);
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!UserExists(id))
+                    {
+                        return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+            
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { user }, success = true, error = string.Empty });
+        }
 
+
+        [HttpPost]
+        public HttpResponseMessage ActiveDeactiveUser(int id, User user)
+        {
+            if (!ModelState.IsValid)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
+
+            if (id != user.Id)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
+            
             try
             {
+                User UserUpdateData = db.Users.Where(a => a.Id == user.Id).FirstOrDefault();
+                UserUpdateData.ActiveBy = user.ActiveBy;
+                UserUpdateData.ActiveOn = user.ActiveOn;
+                UserUpdateData.Active = user.Active;
                 db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
@@ -150,7 +218,6 @@ namespace TrickleUpPortal.Controllers
 
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { user }, success = true, error = string.Empty });
         }
-
         // POST: api/Users
 
 
@@ -159,24 +226,24 @@ namespace TrickleUpPortal.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            if (user.PhoneNumber != null)
+            if (user.PhoneNumber != null || user.PhoneNumber != "")
             {
                 int PhoneCount = db.Users.Where(a => a.PhoneNumber == user.PhoneNumber).ToList().Count;
                 if (PhoneCount > 0)
                 { 
-                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = "Phone Number already Exist" });
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Phone Number already Exist" });
                 }
             }
 
-            if (user.UserId != null)
+            if (!string.IsNullOrEmpty(user.UserId))
             {
                 int UserIdCount = db.Users.Where(a => a.UserId == user.UserId).ToList().Count();
                 if (UserIdCount > 0)
                 { 
-                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = "User Name already Exist" });
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Email already Exist" });
                 }
             }
             
@@ -195,54 +262,95 @@ namespace TrickleUpPortal.Controllers
             {
                 ErrorMerssage.Length = 0;
                 User Usersdata = new User();
-                if (userdetails.PhoneNumber != null)
+                if (string.IsNullOrEmpty(userdetails.Name))
+                {
+                    ErrorMesFlag = true;
+                    ErrorMerssage.Append("Beneficiary Name can't be Empty");
+                }
+
+                if (string.IsNullOrEmpty(userdetails.PhoneNumber) || userdetails.PhoneNumber.Length != 10)
+                {
+                    ErrorMesFlag = true;
+                    ErrorMerssage.Append(", Phone Number is invalid");
+                }
+                else if (userdetails.PhoneNumber != null)
                 {
                     int PhoneCount = db.Users.Where(a => a.PhoneNumber == userdetails.PhoneNumber).ToList().Count;
                     if (PhoneCount > 0)
                     {
                         ErrorMesFlag = true;
-                        ErrorMerssage.Append("Phone Number already Exits");
+                        ErrorMerssage.Append(", Phone Number already exists");
                     }
                 }
 
-                if (userdetails.UserName != null)
+                if (!string.IsNullOrEmpty(userdetails.UserName))
                 {
                     int UserIdCount = db.Users.Where(a => a.UserId == userdetails.UserName).ToList().Count();
                     if (UserIdCount > 0)
                     {
                         ErrorMesFlag = true;
-                        ErrorMerssage.Append(", User Name already Exits");
+                        ErrorMerssage.Append(", Email Id already exists");
                     }
                 }
 
-                if (userdetails.State != null)
+                if (!string.IsNullOrEmpty(userdetails.State))
                 {
-                    int StateCount = db.States.Where(a => a.StateName == userdetails.State).ToList().Count();
-                    if (StateCount > 0)
+                    int StateCount = db.States.Where(a => a.StateName.ToUpper() == userdetails.State.ToUpper()).ToList().Count();
+                    if (StateCount == 0)
                     {
                         ErrorMesFlag = true;
-                        ErrorMerssage.Append(", State Does not exits");
+                        ErrorMerssage.Append(", State Does not exists");
                     }
                 }
-
-                if (userdetails.District != null)
+                else
                 {
-                    int DistrictCount = db.Districts.Where(a => a.DistrictName == userdetails.District).ToList().Count();
-                    if (DistrictCount > 0)
-                    {
-                        ErrorMesFlag = true;
-                        ErrorMerssage.Append(", District Does not exits");
-                    }
+                    ErrorMesFlag = true;
+                    ErrorMerssage.Append(", State can't be null");
                 }
 
-                if (userdetails.Grampanchayat != null)
+                if (!string.IsNullOrEmpty(userdetails.District))
                 {
-                    int GrampanchayatCount = db.Grampanchayats.Where(a => a.GrampanchayatName == userdetails.Grampanchayat).ToList().Count();
-                    if (GrampanchayatCount > 0)
+                    int DistrictCount = db.Districts.Where(a => a.DistrictName.ToUpper() == userdetails.District.ToUpper()).ToList().Count();
+                    if (DistrictCount == 0)
                     {
                         ErrorMesFlag = true;
-                        ErrorMerssage.Append(", Grampanchayat Does not exits");
+                        ErrorMerssage.Append(", District Does not exists");
                     }
+                }
+                else
+                {
+                    ErrorMesFlag = true;
+                    ErrorMerssage.Append(", District can't be null");
+                }
+
+                if (!string.IsNullOrEmpty(userdetails.Grampanchayat))
+                {
+                    int GrampanchayatCount = db.Grampanchayats.Where(a => a.GrampanchayatName.ToUpper() == userdetails.Grampanchayat.ToUpper()).ToList().Count();
+                    if (GrampanchayatCount == 0)
+                    {
+                        ErrorMesFlag = true;
+                        ErrorMerssage.Append(", Grampanchayat Does not exists");
+                    }
+                }
+                else
+                {
+                    ErrorMesFlag = true;
+                    ErrorMerssage.Append(", Grampanchayat can't be null");
+                }
+
+                if (!string.IsNullOrEmpty(userdetails.Village))
+                {
+                    int VillageCount = db.Villages.Where(a => a.VillageName.ToUpper() == userdetails.Village.ToUpper()).ToList().Count();
+                    if (VillageCount == 0)
+                    {
+                        ErrorMesFlag = true;
+                        ErrorMerssage.Append(", Village Does not exists");
+                    }
+                }
+                else
+                {
+                    ErrorMesFlag = true;
+                    ErrorMerssage.Append(", Village can't be null");
                 }
 
                 userdetails.ErrorMessage = ErrorMerssage.ToString();
@@ -267,19 +375,21 @@ namespace TrickleUpPortal.Controllers
             {
                 User Usersdata = new User();
                 Usersdata.Active = Convert.ToBoolean(userdetails.Active);
-                Usersdata.Name = userdetails.Name;
-                Usersdata.PhoneNumber = userdetails.PhoneNumber;
-                Usersdata.Age = Convert.ToInt32(userdetails.Age);
-                Usersdata.Gender = userdetails.Gender != null ? db.Genders.Where(a => a.GenderName == userdetails.Gender).FirstOrDefault().Id: 0;
-                Usersdata.State = userdetails.State != null ? db.States.Where(a => a.StateName == userdetails.State).FirstOrDefault().Id : 0;
-                Usersdata.District = userdetails.District != null ? db.Districts.Where(a => a.DistrictName == userdetails.District).FirstOrDefault().Id : 0;
-                Usersdata.Village = userdetails.Village != null ? db.Villages.Where(a => a.VillageName == userdetails.Village).FirstOrDefault().Id : 0;
-                Usersdata.Grampanchayat = userdetails.Grampanchayat != null ? db.Grampanchayats.Where(a => a.GrampanchayatName == userdetails.Grampanchayat).FirstOrDefault().Id : 0;
-                Usersdata.Role = userdetails.Role != null ? db.Roles.Where(a => a.RoleName == userdetails.Role).FirstOrDefault().Id : 0;
+                Usersdata.Name = !string.IsNullOrEmpty(userdetails.Name) ? userdetails.Name : null;
+                Usersdata.UserId = !string.IsNullOrEmpty(userdetails.UserName) ? userdetails.UserName : null;
+                Usersdata.PhoneNumber = !string.IsNullOrEmpty(userdetails.PhoneNumber) ? userdetails.PhoneNumber : null; 
+                Usersdata.Age = !string.IsNullOrEmpty(userdetails.Age) ? Convert.ToInt32(userdetails.Age) : 0; 
+                Usersdata.Gender = !string.IsNullOrEmpty(userdetails.Gender) && db.Genders.Where(a => a.GenderName == userdetails.Gender).Any() ? db.Genders.Where(a => a.GenderName == userdetails.Gender).FirstOrDefault().Id: (int?)null;
+                Usersdata.State = !string.IsNullOrEmpty(userdetails.State) && db.States.Where(a => a.StateName == userdetails.State).Any() ? db.States.Where(a => a.StateName == userdetails.State).FirstOrDefault().Id : (int?)null;
+                Usersdata.District = !string.IsNullOrEmpty(userdetails.District) && db.Districts.Where(a => a.DistrictName == userdetails.District).Any() ? db.Districts.Where(a => a.DistrictName == userdetails.District).FirstOrDefault().Id : (int?)null;
+                Usersdata.Village = !string.IsNullOrEmpty(userdetails.Village) && db.Villages.Where(a => a.VillageName == userdetails.Village).Any() ? db.Villages.Where(a => a.VillageName == userdetails.Village).FirstOrDefault().Id : (int?)null;
+                Usersdata.Grampanchayat = !string.IsNullOrEmpty(userdetails.Grampanchayat) && db.Grampanchayats.Where(a => a.GrampanchayatName == userdetails.Grampanchayat).Any() ? db.Grampanchayats.Where(a => a.GrampanchayatName == userdetails.Grampanchayat).FirstOrDefault().Id : (int?)null;
+                //Usersdata.Role = !string.IsNullOrEmpty(userdetails.Role) && db.Roles.Where(a => a.RoleName == userdetails.Role).Any() ? db.Roles.Where(a => a.RoleName == userdetails.Role).FirstOrDefault().Id : (int?)null;
+                Usersdata.Role = db.Roles.Where(a => a.RoleName == "Beneficiary User").FirstOrDefault().Id;
                 Usersdata.Aadhaar = userdetails.Aadhaar;
                 Usersdata.IMEI1 = userdetails.IMEI1;
                 Usersdata.IMEI2 = userdetails.IMEI2;
-                Usersdata.Language = userdetails.Language != null ? db.Languages.Where(a => a.LanguageName == userdetails.Language).FirstOrDefault().Id : 0;
+                Usersdata.Language = !string.IsNullOrEmpty(userdetails.Language) && db.Languages.Where(a => a.LanguageName == userdetails.Language).Any() ? db.Languages.Where(a => a.LanguageName == userdetails.Language).FirstOrDefault().Id : (int?)null;
                 Usersdata.FCMToken = userdetails.FCMToken;
                 Usersdata.CreatedBy = Convert.ToInt32(userdetails.CreatedBy);
                 UserCreateBy = Convert.ToInt32(userdetails.CreatedBy);
@@ -314,9 +424,17 @@ namespace TrickleUpPortal.Controllers
                 UserId = user.Id,
                 UserName = user.UserId,
                 PhoneNumber = user.PhoneNumber,
-                Password = "12345"
+                Password = !string.IsNullOrEmpty(user.Password) ? user.Password : "12345"
             };
             db.UserCredentials.Add(loginUser);
+            db.SaveChanges();
+        }
+
+        public void UpdateUserCrednetails(User user)
+        {
+            UserCredential Userdata = db.UserCredentials.Where(a => a.UserId == user.Id).FirstOrDefault();
+            Userdata.UserName = user.UserId;
+            Userdata.PhoneNumber = user.PhoneNumber;
             db.SaveChanges();
         }
 
