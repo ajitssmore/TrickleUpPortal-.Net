@@ -192,6 +192,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\LanguagesController.cs" />
+    <Compile Include="Controllers\LiveStocksController.cs" />
     <Compile Include="Controllers\MasterPasswordsController.cs" />
     <Compile Include="Controllers\MediaContentsController.cs" />
     <Compile Include="Controllers\MoneyManagersController.cs" />
@@ -272,6 +273,12 @@
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Language.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LiveStock.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LiveStockBreed.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MasterPassword.cs">
@@ -663,6 +670,9 @@
     <Content Include="MediaContent\Images\Cabbage.jpg" />
     <Content Include="MediaContent\Images\Chilli.jpg" />
     <Content Include="MediaContent\Images\Lady_finger.jpg" />
+    <Content Include="MediaContent\Images\LiveStock_Chickens.jpg" />
+    <Content Include="MediaContent\Images\LiveStock_Goat.jpg" />
+    <Content Include="MediaContent\Images\LiveStock_Pigs.jpg" />
     <Content Include="MediaContent\Images\Potatoe.jpg" />
     <Content Include="MediaContent\Images\Tomato.jpeg" />
     <Content Include="MediaContent\PredefinedAudios\EN001.mp3" />

@@ -331,6 +331,37 @@
           <Property Name="ActiveOn" Type="datetime" />
           <Property Name="Active" Type="bit" />
         </EntityType>
+        <EntityType Name="LiveStock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StockName" Type="nvarchar(max)" />
+          <Property Name="ImageURL" Type="nvarchar(max)" />
+          <Property Name="AudioURL" Type="nchar" MaxLength="10" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="ActiveBy" Type="int" />
+          <Property Name="ActiveOn" Type="datetime" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="LiveStockBreed">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BreedName" Type="nvarchar(max)" />
+          <Property Name="LiveStockId" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="ActiveBy" Type="int" />
+          <Property Name="ActiveOn" Type="datetime" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
         <EntityType Name="MasterPassword">
           <Key>
             <PropertyRef Name="Id" />
@@ -792,6 +823,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_LiveStockBreed_LiveStock">
+          <End Role="LiveStock" Type="Self.LiveStock" Multiplicity="0..1" />
+          <End Role="LiveStockBreed" Type="Self.LiveStockBreed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LiveStock">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LiveStockBreed">
+              <PropertyRef Name="LiveStockId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_MaterialNeeded_History_CultivationStep_History">
           <End Role="CultivationStep_History" Type="Self.CultivationStep_History" Multiplicity="0..1" />
           <End Role="MaterialNeeded_History" Type="Self.MaterialNeeded_History" Multiplicity="*" />
@@ -1054,6 +1097,8 @@
           <EntitySet Name="Grampanchayat" EntityType="Self.Grampanchayat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LiveStock" EntityType="Self.LiveStock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LiveStockBreed" EntityType="Self.LiveStockBreed" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MasterPassword" EntityType="Self.MasterPassword" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MaterialNeeded_History" EntityType="Self.MaterialNeeded_History" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MediaContent" EntityType="Self.MediaContent" Schema="dbo" store:Type="Tables" />
@@ -1145,6 +1190,10 @@
           <AssociationSet Name="FK_Language_Users2" Association="Self.FK_Language_Users2">
             <End Role="Users" EntitySet="Users" />
             <End Role="Language" EntitySet="Language" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LiveStockBreed_LiveStock" Association="Self.FK_LiveStockBreed_LiveStock">
+            <End Role="LiveStock" EntitySet="LiveStock" />
+            <End Role="LiveStockBreed" EntitySet="LiveStockBreed" />
           </AssociationSet>
           <AssociationSet Name="FK_MaterialNeeded_History_CultivationStep_History" Association="Self.FK_MaterialNeeded_History_CultivationStep_History">
             <End Role="CultivationStep_History" EntitySet="CultivationStep_History" />
@@ -1425,6 +1474,12 @@
           <EntitySet Name="Crop_VideoAllocation" EntityType="TrickleUpModel.Crop_VideoAllocation" />
           <EntitySet Name="CropStep_VideoAllocation" EntityType="TrickleUpModel.CropStep_VideoAllocation" />
           <EntitySet Name="CropStepMaterial_VideoAllocation" EntityType="TrickleUpModel.CropStepMaterial_VideoAllocation" />
+          <EntitySet Name="LiveStocks" EntityType="TrickleUpModel.LiveStock" />
+          <EntitySet Name="LiveStockBreeds" EntityType="TrickleUpModel.LiveStockBreed" />
+          <AssociationSet Name="FK_LiveStockBreed_LiveStock" Association="TrickleUpModel.FK_LiveStockBreed_LiveStock">
+            <End Role="LiveStock" EntitySet="LiveStocks" />
+            <End Role="LiveStockBreed" EntitySet="LiveStockBreeds" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Gender">
           <Key>
@@ -2531,6 +2586,51 @@
           <Property Name="ActiveBy" Type="DateTime" Precision="3" />
           <Property Name="Active" Type="Boolean" />
         </EntityType>
+        <EntityType Name="LiveStock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StockName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AudioURL" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ActiveBy" Type="Int32" />
+          <Property Name="ActiveOn" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+          <NavigationProperty Name="LiveStockBreeds" Relationship="TrickleUpModel.FK_LiveStockBreed_LiveStock" FromRole="LiveStock" ToRole="LiveStockBreed" />
+        </EntityType>
+        <EntityType Name="LiveStockBreed">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BreedName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LiveStockId" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ActiveBy" Type="Int32" />
+          <Property Name="ActiveOn" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+          <NavigationProperty Name="LiveStock" Relationship="TrickleUpModel.FK_LiveStockBreed_LiveStock" FromRole="LiveStockBreed" ToRole="LiveStock" />
+        </EntityType>
+        <Association Name="FK_LiveStockBreed_LiveStock">
+          <End Type="TrickleUpModel.LiveStock" Role="LiveStock" Multiplicity="0..1" />
+          <End Type="TrickleUpModel.LiveStockBreed" Role="LiveStockBreed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LiveStock">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LiveStockBreed">
+              <PropertyRef Name="LiveStockId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3129,6 +3229,39 @@
                 <ScalarProperty Name="VideoId" ColumnName="VideoId" />
                 <ScalarProperty Name="LangId" ColumnName="LangId" />
                 <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LiveStocks">
+            <EntityTypeMapping TypeName="TrickleUpModel.LiveStock">
+              <MappingFragment StoreEntitySet="LiveStock">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+                <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="AudioURL" ColumnName="AudioURL" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="StockName" ColumnName="StockName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LiveStockBreeds">
+            <EntityTypeMapping TypeName="TrickleUpModel.LiveStockBreed">
+              <MappingFragment StoreEntitySet="LiveStockBreed">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+                <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="LiveStockId" ColumnName="LiveStockId" />
+                <ScalarProperty Name="BreedName" ColumnName="BreedName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

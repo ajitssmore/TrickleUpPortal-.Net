@@ -34,7 +34,7 @@
         <EntityTypeShape EntityType="TrickleUpModel.CurrencyStock" Width="1.5" PointX="2.375" PointY="25" />
         <EntityTypeShape EntityType="TrickleUpModel.MoneyManager" Width="1.5" PointX="0.5" PointY="25" />
         <AssociationConnector Association="TrickleUpModel.FK_CurrencyStock_MoneyManager" />
-        <EntityTypeShape EntityType="TrickleUpModel.PushNotification" Width="1.5" PointX="18.875" PointY="7.875" />
+        <EntityTypeShape EntityType="TrickleUpModel.PushNotification" Width="1.5" PointX="18.875" PointY="8.375" />
         <EntityTypeShape EntityType="TrickleUpModel.CropCultivation_History" Width="1.5" PointX="10.125" PointY="12.5" />
         <EntityTypeShape EntityType="TrickleUpModel.Cultivation_History" Width="1.5" PointX="8.375" PointY="12.5" />
         <EntityTypeShape EntityType="TrickleUpModel.CultivationStep_History" Width="1.5" PointX="12" PointY="12.5" />
@@ -81,6 +81,9 @@
         <EntityTypeShape EntityType="TrickleUpModel.Crop_VideoAllocation" Width="1.5" PointX="7.5" PointY="21.125" />
         <EntityTypeShape EntityType="TrickleUpModel.CropStep_VideoAllocation" Width="1.5" PointX="5.75" PointY="21.125" />
         <EntityTypeShape EntityType="TrickleUpModel.CropStepMaterial_VideoAllocation" Width="1.5" PointX="9.25" PointY="21.125" />
+        <EntityTypeShape EntityType="TrickleUpModel.LiveStock" Width="1.5" PointX="0.5" PointY="29" />
+        <EntityTypeShape EntityType="TrickleUpModel.LiveStockBreed" Width="1.5" PointX="2.25" PointY="29" />
+        <AssociationConnector Association="TrickleUpModel.FK_LiveStockBreed_LiveStock" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

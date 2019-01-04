@@ -194,6 +194,12 @@
     <EntitySet Name="Crop_VideoAllocation" EntityType="TrickleUpModel.Crop_VideoAllocation" />
     <EntitySet Name="CropStep_VideoAllocation" EntityType="TrickleUpModel.CropStep_VideoAllocation" />
     <EntitySet Name="CropStepMaterial_VideoAllocation" EntityType="TrickleUpModel.CropStepMaterial_VideoAllocation" />
+    <EntitySet Name="LiveStocks" EntityType="TrickleUpModel.LiveStock" />
+    <EntitySet Name="LiveStockBreeds" EntityType="TrickleUpModel.LiveStockBreed" />
+    <AssociationSet Name="FK_LiveStockBreed_LiveStock" Association="TrickleUpModel.FK_LiveStockBreed_LiveStock">
+      <End Role="LiveStock" EntitySet="LiveStocks" />
+      <End Role="LiveStockBreed" EntitySet="LiveStockBreeds" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Gender">
     <Key>
@@ -1300,4 +1306,49 @@
     <Property Name="ActiveBy" Type="DateTime" Precision="3" />
     <Property Name="Active" Type="Boolean" />
   </EntityType>
+  <EntityType Name="LiveStock">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StockName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AudioURL" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="ActiveBy" Type="Int32" />
+    <Property Name="ActiveOn" Type="DateTime" Precision="3" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="LiveStockBreeds" Relationship="TrickleUpModel.FK_LiveStockBreed_LiveStock" FromRole="LiveStock" ToRole="LiveStockBreed" />
+  </EntityType>
+  <EntityType Name="LiveStockBreed">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BreedName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LiveStockId" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="ActiveBy" Type="Int32" />
+    <Property Name="ActiveOn" Type="DateTime" Precision="3" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="LiveStock" Relationship="TrickleUpModel.FK_LiveStockBreed_LiveStock" FromRole="LiveStockBreed" ToRole="LiveStock" />
+  </EntityType>
+  <Association Name="FK_LiveStockBreed_LiveStock">
+    <End Type="TrickleUpModel.LiveStock" Role="LiveStock" Multiplicity="0..1" />
+    <End Type="TrickleUpModel.LiveStockBreed" Role="LiveStockBreed" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LiveStock">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LiveStockBreed">
+        <PropertyRef Name="LiveStockId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

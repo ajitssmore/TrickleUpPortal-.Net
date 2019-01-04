@@ -326,6 +326,37 @@
     <Property Name="ActiveOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
   </EntityType>
+  <EntityType Name="LiveStock">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StockName" Type="nvarchar(max)" />
+    <Property Name="ImageURL" Type="nvarchar(max)" />
+    <Property Name="AudioURL" Type="nchar" MaxLength="10" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="LiveStockBreed">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BreedName" Type="nvarchar(max)" />
+    <Property Name="LiveStockId" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
   <EntityType Name="MasterPassword">
     <Key>
       <PropertyRef Name="Id" />
@@ -787,6 +818,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_LiveStockBreed_LiveStock">
+    <End Role="LiveStock" Type="Self.LiveStock" Multiplicity="0..1" />
+    <End Role="LiveStockBreed" Type="Self.LiveStockBreed" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LiveStock">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LiveStockBreed">
+        <PropertyRef Name="LiveStockId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_MaterialNeeded_History_CultivationStep_History">
     <End Role="CultivationStep_History" Type="Self.CultivationStep_History" Multiplicity="0..1" />
     <End Role="MaterialNeeded_History" Type="Self.MaterialNeeded_History" Multiplicity="*" />
@@ -1049,6 +1092,8 @@
     <EntitySet Name="Grampanchayat" EntityType="Self.Grampanchayat" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LiveStock" EntityType="Self.LiveStock" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LiveStockBreed" EntityType="Self.LiveStockBreed" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MasterPassword" EntityType="Self.MasterPassword" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MaterialNeeded_History" EntityType="Self.MaterialNeeded_History" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MediaContent" EntityType="Self.MediaContent" Schema="dbo" store:Type="Tables" />
@@ -1140,6 +1185,10 @@
     <AssociationSet Name="FK_Language_Users2" Association="Self.FK_Language_Users2">
       <End Role="Users" EntitySet="Users" />
       <End Role="Language" EntitySet="Language" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LiveStockBreed_LiveStock" Association="Self.FK_LiveStockBreed_LiveStock">
+      <End Role="LiveStock" EntitySet="LiveStock" />
+      <End Role="LiveStockBreed" EntitySet="LiveStockBreed" />
     </AssociationSet>
     <AssociationSet Name="FK_MaterialNeeded_History_CultivationStep_History" Association="Self.FK_MaterialNeeded_History_CultivationStep_History">
       <End Role="CultivationStep_History" EntitySet="CultivationStep_History" />
