@@ -60,6 +60,20 @@
           <Property Name="ActiveOn" Type="datetime" />
           <Property Name="Active" Type="bit" />
         </EntityType>
+        <EntityType Name="Crop_VideoAllocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CropId" Type="int" />
+          <Property Name="LangId" Type="int" />
+          <Property Name="VideoId" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ActiveOn" Type="int" />
+          <Property Name="ActiveBy" Type="datetime" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
         <EntityType Name="CropCultivation_History">
           <Key>
             <PropertyRef Name="Id" />
@@ -92,6 +106,20 @@
           <Property Name="ActiveOn" Type="datetime" />
           <Property Name="Active" Type="bit" />
         </EntityType>
+        <EntityType Name="CropStep_VideoAllocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StepId" Type="int" />
+          <Property Name="LangId" Type="int" />
+          <Property Name="VideoId" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ActiveOn" Type="int" />
+          <Property Name="ActiveBy" Type="datetime" />
+          <Property Name="Active" Type="nchar" MaxLength="10" />
+        </EntityType>
         <EntityType Name="CropStepAudio_Allocation">
           <Key>
             <PropertyRef Name="Id" />
@@ -105,6 +133,20 @@
           <Property Name="CreatedOn" Type="datetime" />
           <Property Name="ActiveBy" Type="int" />
           <Property Name="ActiveOn" Type="datetime" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="CropStepMaterial_VideoAllocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaterialId" Type="int" />
+          <Property Name="LangId" Type="int" />
+          <Property Name="VideoId" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ActiveOn" Type="int" />
+          <Property Name="ActiveBy" Type="datetime" />
           <Property Name="Active" Type="bit" />
         </EntityType>
         <EntityType Name="CropSteps_Material">
@@ -995,9 +1037,12 @@
           <EntitySet Name="BulkUploadRef" EntityType="Self.BulkUploadRef" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Crop" EntityType="Self.Crop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Crop_AudioAllocation" EntityType="Self.Crop_AudioAllocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Crop_VideoAllocation" EntityType="Self.Crop_VideoAllocation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CropCultivation_History" EntityType="Self.CropCultivation_History" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CropMaterial_AudioAllocation" EntityType="Self.CropMaterial_AudioAllocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CropStep_VideoAllocation" EntityType="Self.CropStep_VideoAllocation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CropStepAudio_Allocation" EntityType="Self.CropStepAudio_Allocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CropStepMaterial_VideoAllocation" EntityType="Self.CropStepMaterial_VideoAllocation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CropSteps_Material" EntityType="Self.CropSteps_Material" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cultivation_History" EntityType="Self.Cultivation_History" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cultivation_Steps" EntityType="Self.Cultivation_Steps" Schema="dbo" store:Type="Tables" />
@@ -1377,6 +1422,9 @@
             <End Role="VillageContact" EntitySet="VillageContacts" />
           </AssociationSet>
           <EntitySet Name="Audios" EntityType="TrickleUpModel.Audio" />
+          <EntitySet Name="Crop_VideoAllocation" EntityType="TrickleUpModel.Crop_VideoAllocation" />
+          <EntitySet Name="CropStep_VideoAllocation" EntityType="TrickleUpModel.CropStep_VideoAllocation" />
+          <EntitySet Name="CropStepMaterial_VideoAllocation" EntityType="TrickleUpModel.CropStepMaterial_VideoAllocation" />
           </EntityContainer>
         <EntityType Name="Gender">
           <Key>
@@ -2441,6 +2489,48 @@
           <Property Name="ActiveBy" Type="Int32" />
           <Property Name="ActiveOn" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="Crop_VideoAllocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CropId" Type="Int32" />
+          <Property Name="LangId" Type="Int32" />
+          <Property Name="VideoId" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ActiveOn" Type="Int32" />
+          <Property Name="ActiveBy" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="CropStep_VideoAllocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StepId" Type="Int32" />
+          <Property Name="LangId" Type="Int32" />
+          <Property Name="VideoId" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ActiveOn" Type="Int32" />
+          <Property Name="ActiveBy" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CropStepMaterial_VideoAllocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaterialId" Type="Int32" />
+          <Property Name="LangId" Type="Int32" />
+          <Property Name="VideoId" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ActiveOn" Type="Int32" />
+          <Property Name="ActiveBy" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2994,6 +3084,51 @@
                 <ScalarProperty Name="FileSize" ColumnName="FileSize" />
                 <ScalarProperty Name="FilePath" ColumnName="FilePath" />
                 <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Crop_VideoAllocation">
+            <EntityTypeMapping TypeName="TrickleUpModel.Crop_VideoAllocation">
+              <MappingFragment StoreEntitySet="Crop_VideoAllocation">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+                <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+                <ScalarProperty Name="LangId" ColumnName="LangId" />
+                <ScalarProperty Name="CropId" ColumnName="CropId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CropStep_VideoAllocation">
+            <EntityTypeMapping TypeName="TrickleUpModel.CropStep_VideoAllocation">
+              <MappingFragment StoreEntitySet="CropStep_VideoAllocation">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+                <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+                <ScalarProperty Name="LangId" ColumnName="LangId" />
+                <ScalarProperty Name="StepId" ColumnName="StepId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CropStepMaterial_VideoAllocation">
+            <EntityTypeMapping TypeName="TrickleUpModel.CropStepMaterial_VideoAllocation">
+              <MappingFragment StoreEntitySet="CropStepMaterial_VideoAllocation">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+                <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+                <ScalarProperty Name="LangId" ColumnName="LangId" />
+                <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -191,6 +191,9 @@
       <End Role="VillageContact" EntitySet="VillageContacts" />
     </AssociationSet>
     <EntitySet Name="Audios" EntityType="TrickleUpModel.Audio" />
+    <EntitySet Name="Crop_VideoAllocation" EntityType="TrickleUpModel.Crop_VideoAllocation" />
+    <EntitySet Name="CropStep_VideoAllocation" EntityType="TrickleUpModel.CropStep_VideoAllocation" />
+    <EntitySet Name="CropStepMaterial_VideoAllocation" EntityType="TrickleUpModel.CropStepMaterial_VideoAllocation" />
   </EntityContainer>
   <EntityType Name="Gender">
     <Key>
@@ -1254,5 +1257,47 @@
     <Property Name="Active" Type="Boolean" />
     <Property Name="ActiveBy" Type="Int32" />
     <Property Name="ActiveOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Crop_VideoAllocation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CropId" Type="Int32" />
+    <Property Name="LangId" Type="Int32" />
+    <Property Name="VideoId" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="ActiveOn" Type="Int32" />
+    <Property Name="ActiveBy" Type="DateTime" Precision="3" />
+    <Property Name="Active" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="CropStep_VideoAllocation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StepId" Type="Int32" />
+    <Property Name="LangId" Type="Int32" />
+    <Property Name="VideoId" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="ActiveOn" Type="Int32" />
+    <Property Name="ActiveBy" Type="DateTime" Precision="3" />
+    <Property Name="Active" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CropStepMaterial_VideoAllocation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaterialId" Type="Int32" />
+    <Property Name="LangId" Type="Int32" />
+    <Property Name="VideoId" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="ActiveOn" Type="Int32" />
+    <Property Name="ActiveBy" Type="DateTime" Precision="3" />
+    <Property Name="Active" Type="Boolean" />
   </EntityType>
 </Schema>

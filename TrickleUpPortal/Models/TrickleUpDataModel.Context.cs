@@ -59,5 +59,8 @@ namespace TrickleUpPortal.Models
         public virtual DbSet<Village> Villages { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Audio> Audios { get; set; }
+        public virtual DbSet<Crop_VideoAllocation> Crop_VideoAllocation { get; set; }
+        public virtual DbSet<CropStep_VideoAllocation> CropStep_VideoAllocation { get; set; }
+        public virtual DbSet<CropStepMaterial_VideoAllocation> CropStepMaterial_VideoAllocation { get; set; }
     }
 }

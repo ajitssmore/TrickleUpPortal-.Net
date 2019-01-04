@@ -181,6 +181,7 @@
     <Compile Include="Controllers\CropStepAudio_AllocationController.cs" />
     <Compile Include="Controllers\CropSteps_MaterialController.cs" />
     <Compile Include="Controllers\Crop_AudioAllocationController.cs" />
+    <Compile Include="Controllers\Crop_VideoAllocationController.cs" />
     <Compile Include="Controllers\Cultivation_HistoryController.cs" />
     <Compile Include="Controllers\Cultivation_StepsController.cs" />
     <Compile Include="Controllers\DistrictsController.cs" />
@@ -228,10 +229,19 @@
     <Compile Include="Models\CropStepAudio_Allocation.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CropStepMaterial_VideoAllocation.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CropSteps_Material.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CropStep_VideoAllocation.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Crop_AudioAllocation.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Crop_VideoAllocation.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CultivationStep_History.cs">
@@ -417,6 +427,7 @@
     <Content Include="Images\Users\FemaleUser.jpg" />
     <Content Include="Images\Users\user.png" />
     <Content Include="Images\Users\UserImageMale.jpg" />
+    <Content Include="MediaContent\Audios\api.txt" />
     <Content Include="MediaContent\Audios\BitterGourd_ENG.mp3" />
     <Content Include="MediaContent\Audios\BitterGourd_HIN.mp3" />
     <Content Include="MediaContent\Audios\Chilli_Eng.mp3" />
@@ -462,6 +473,7 @@
     <Content Include="MediaContent\Audios\Chilli_HVOSDD-7.mp3" />
     <Content Include="MediaContent\Audios\Chilli_HVOSDD-8.mp3" />
     <Content Include="MediaContent\Audios\Chilli_HVOSDD-9.mp3" />
+    <Content Include="MediaContent\Audios\cotton_crop.mp3" />
     <Content Include="MediaContent\Audios\Cucumber_ENG.mp3" />
     <Content Include="MediaContent\Audios\Descriptionstep1_hindi.mp3" />
     <Content Include="MediaContent\Audios\des_step1_english.mp3" />
@@ -473,11 +485,14 @@
     <Content Include="MediaContent\Audios\des_step4_hindi.mp3" />
     <Content Include="MediaContent\Audios\des_step5_english.mp3" />
     <Content Include="MediaContent\Audios\des_step5_hindi.mp3" />
+    <Content Include="MediaContent\Audios\des_step6_english.mp3" />
     <Content Include="MediaContent\Audios\des_step6_hindi.mp3" />
     <Content Include="MediaContent\Audios\des_step7_english.mp3" />
     <Content Include="MediaContent\Audios\des_step7_hindi.mp3" />
     <Content Include="MediaContent\Audios\des_step8_english.mp3" />
     <Content Include="MediaContent\Audios\des_step8_hindi.mp3" />
+    <Content Include="MediaContent\Audios\dummy.mp3" />
+    <Content Include="MediaContent\Audios\dummy_crop.mp3" />
     <Content Include="MediaContent\Audios\LadiesFinger_HVOM-102.mp3" />
     <Content Include="MediaContent\Audios\LadiesFinger_HVOM-103.mp3" />
     <Content Include="MediaContent\Audios\LadiesFinger_HVOM-104.mp3" />
@@ -585,6 +600,7 @@
     <Content Include="MediaContent\Audios\PloughingofLand_English.mp3" />
     <Content Include="MediaContent\Audios\PloughingofLand_Hindi.mp3" />
     <Content Include="MediaContent\Audios\Pumpkin_ENG.mp3" />
+    <Content Include="MediaContent\Audios\rain_Audio.mp3" />
     <Content Include="MediaContent\Audios\Step2_English.mp3" />
     <Content Include="MediaContent\Audios\Step2_Hindi.mp3" />
     <Content Include="MediaContent\Audios\Step3_English.mp3" />
@@ -664,6 +680,26 @@
     <Content Include="MediaContent\PredefinedAudios\OD005.mp3" />
     <Content Include="MediaContent\PredefinedAudios\OD006.mp3" />
     <Content Include="MediaContent\PredefinedAudios\OD007.mp3" />
+    <Content Include="MediaContent\UserImages\24390a45-1948-41bf-84c4-5802c6fed077_ChandanMishra_154ce35f-bc67-4842-9ac7-f77c453d72c8.jpg" />
+    <Content Include="MediaContent\UserImages\24390a45-1948-41bf-84c4-5802c6fed077_ChandanMishra_5da090b8-fa9e-42f8-8153-835cc18940de.jpg" />
+    <Content Include="MediaContent\UserImages\24390a45-1948-41bf-84c4-5802c6fed077_ChandanMishra_6b52fd91-78c1-4198-afc5-f6539c1bfa2d.jpg" />
+    <Content Include="MediaContent\UserImages\24390a45-1948-41bf-84c4-5802c6fed077_ChandanMishra_8a8a3f34-d81e-4413-b6eb-01c3441f9736.jpg" />
+    <Content Include="MediaContent\UserImages\24390a45-1948-41bf-84c4-5802c6fed077_ChandanMishra_8e66255a-a164-4101-b996-346c421bddf1.jpg" />
+    <Content Include="MediaContent\UserImages\24390a45-1948-41bf-84c4-5802c6fed077_ChandanMishra_b77e813b-ab2f-46ae-ac6e-b7f66cc16226.jpg" />
+    <Content Include="MediaContent\UserImages\cat1_1b4d51f8-26b0-48a3-b36d-3a26ad4df3d5.jpg" />
+    <Content Include="MediaContent\UserImages\cat1_eed635de-c04c-4c57-a0e5-52fc09fe413d.jpg" />
+    <Content Include="MediaContent\UserImages\cat2_0eebef0a-655d-4d92-beb9-b07520be7f99.png" />
+    <Content Include="MediaContent\UserImages\cat2_a507e5b9-d364-4efa-b208-b261a0e2e80c.png" />
+    <Content Include="MediaContent\UserImages\cat2_c09fef9c-3968-4df9-aa10-24fee1595228.png" />
+    <Content Include="MediaContent\UserImages\cat2_db9ec887-cbb4-4f82-b6e8-4b7c78ba9b24.png" />
+    <Content Include="MediaContent\UserImages\ChandanMishra_01915f5e-7207-446d-ba70-df7fc941e9bb.jpg" />
+    <Content Include="MediaContent\UserImages\Lady_finger_1348a635-bada-4a66-9825-7322d0f8cfa7.jpg" />
+    <Content Include="MediaContent\UserImages\Lady_finger_235b8706-0ae3-4263-b4b5-9b3362e5920c.jpg" />
+    <Content Include="MediaContent\UserImages\Lady_finger_5c4bc232-b3fe-4b41-a68e-6e22ef3a3d07.jpg" />
+    <Content Include="MediaContent\UserImages\Lady_finger_7bc204c7-0f31-4e72-8add-ca83104bfbfa.jpg" />
+    <Content Include="MediaContent\UserImages\Lady_finger_85ef3952-c710-45d2-b89c-275075f13ee9.jpg" />
+    <Content Include="MediaContent\UserImages\Lady_finger_edd92fac-b565-4d94-8d74-dd7e56b28747.jpg" />
+    <Content Include="MediaContent\Videos\apple.mp4" />
     <Content Include="MediaContent\Videos\BitterGourdFarming.mp4" />
     <Content Include="MediaContent\Videos\Brinjalfarm.mp4" />
     <Content Include="MediaContent\Videos\Cabbage.mp4" />
@@ -1309,7 +1345,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="MediaContent\UserImages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

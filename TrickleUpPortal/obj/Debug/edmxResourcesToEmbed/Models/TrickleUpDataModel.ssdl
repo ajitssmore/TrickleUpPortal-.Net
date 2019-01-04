@@ -55,6 +55,20 @@
     <Property Name="ActiveOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
   </EntityType>
+  <EntityType Name="Crop_VideoAllocation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CropId" Type="int" />
+    <Property Name="LangId" Type="int" />
+    <Property Name="VideoId" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="ActiveOn" Type="int" />
+    <Property Name="ActiveBy" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
   <EntityType Name="CropCultivation_History">
     <Key>
       <PropertyRef Name="Id" />
@@ -87,6 +101,20 @@
     <Property Name="ActiveOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
   </EntityType>
+  <EntityType Name="CropStep_VideoAllocation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StepId" Type="int" />
+    <Property Name="LangId" Type="int" />
+    <Property Name="VideoId" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="ActiveOn" Type="int" />
+    <Property Name="ActiveBy" Type="datetime" />
+    <Property Name="Active" Type="nchar" MaxLength="10" />
+  </EntityType>
   <EntityType Name="CropStepAudio_Allocation">
     <Key>
       <PropertyRef Name="Id" />
@@ -100,6 +128,20 @@
     <Property Name="CreatedOn" Type="datetime" />
     <Property Name="ActiveBy" Type="int" />
     <Property Name="ActiveOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="CropStepMaterial_VideoAllocation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaterialId" Type="int" />
+    <Property Name="LangId" Type="int" />
+    <Property Name="VideoId" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="ActiveOn" Type="int" />
+    <Property Name="ActiveBy" Type="datetime" />
     <Property Name="Active" Type="bit" />
   </EntityType>
   <EntityType Name="CropSteps_Material">
@@ -990,9 +1032,12 @@
     <EntitySet Name="BulkUploadRef" EntityType="Self.BulkUploadRef" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Crop" EntityType="Self.Crop" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Crop_AudioAllocation" EntityType="Self.Crop_AudioAllocation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Crop_VideoAllocation" EntityType="Self.Crop_VideoAllocation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CropCultivation_History" EntityType="Self.CropCultivation_History" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CropMaterial_AudioAllocation" EntityType="Self.CropMaterial_AudioAllocation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CropStep_VideoAllocation" EntityType="Self.CropStep_VideoAllocation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CropStepAudio_Allocation" EntityType="Self.CropStepAudio_Allocation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CropStepMaterial_VideoAllocation" EntityType="Self.CropStepMaterial_VideoAllocation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CropSteps_Material" EntityType="Self.CropSteps_Material" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cultivation_History" EntityType="Self.Cultivation_History" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cultivation_Steps" EntityType="Self.Cultivation_Steps" Schema="dbo" store:Type="Tables" />
