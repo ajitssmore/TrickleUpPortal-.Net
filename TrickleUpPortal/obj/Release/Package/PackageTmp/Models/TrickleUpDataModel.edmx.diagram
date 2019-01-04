@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="81d313913c2f401fb8f2b80523e9435f" Name="Diagram1" ZoomLevel="50">
+        <EntityTypeShape EntityType="TrickleUpModel.Gender" Width="1.5" PointX="3.75" PointY="0.5" />
+        <EntityTypeShape EntityType="TrickleUpModel.State" Width="1.5" PointX="11.875" PointY="0.5" />
+        <EntityTypeShape EntityType="TrickleUpModel.District" Width="1.5" PointX="8.625" PointY="0.5" />
+        <EntityTypeShape EntityType="TrickleUpModel.Language" Width="1.5" PointX="5.375" PointY="0.5" />
+        <AssociationConnector Association="TrickleUpModel.FK_District_State" />
+        <EntityTypeShape EntityType="TrickleUpModel.MediaContent" Width="1.5" PointX="0.5" PointY="14.75" />
+        <EntityTypeShape EntityType="TrickleUpModel.Grampanchayat" Width="1.5" PointX="7" PointY="0.5" />
+        <EntityTypeShape EntityType="TrickleUpModel.Village" Width="1.5" PointX="13.5" PointY="0.5" />
+        <AssociationConnector Association="TrickleUpModel.FK_Grampanchayat_District" />
+        <AssociationConnector Association="TrickleUpModel.FK_Village_District" />
+        <AssociationConnector Association="TrickleUpModel.FK_Grampanchayat_State" />
+        <AssociationConnector Association="TrickleUpModel.FK_Village_Grampanchayat" />
+        <AssociationConnector Association="TrickleUpModel.FK_Village_State" />
+        <EntityTypeShape EntityType="TrickleUpModel.BulkUploadRef" Width="1.5" PointX="18.125" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrickleUpModel.User" PointX="22.25" PointY="0.625" Width="1.5" />
+        <AssociationConnector Association="TrickleUpModel.FK_District_Users" />
+        <AssociationConnector Association="TrickleUpModel.FK_District_Users1" />
+        <AssociationConnector Association="TrickleUpModel.FK_District_Users2" />
+        <AssociationConnector Association="TrickleUpModel.FK_Gender_Users" />
+        <AssociationConnector Association="TrickleUpModel.FK_Gender_Users1" />
+        <AssociationConnector Association="TrickleUpModel.FK_Gender_Users2" />
+        <AssociationConnector Association="TrickleUpModel.Users_Gender" />
+        <AssociationConnector Association="TrickleUpModel.FK_Grampanchayat_Users" />
+        <AssociationConnector Association="TrickleUpModel.FK_Grampanchayat_Users1" />
+        <AssociationConnector Association="TrickleUpModel.FK_Language_Users" />
+        <AssociationConnector Association="TrickleUpModel.FK_Language_Users1" />
+        <AssociationConnector Association="TrickleUpModel.FK_Language_Users2" />
+        <AssociationConnector Association="TrickleUpModel.FK_State_Users" />
+        <AssociationConnector Association="TrickleUpModel.FK_State_Users1" />
+        <AssociationConnector Association="TrickleUpModel.FK_State_Users2" />
+        <AssociationConnector Association="TrickleUpModel.Users_State" />
+        <AssociationConnector Association="TrickleUpModel.FK_Users_Users" />
+        <AssociationConnector Association="TrickleUpModel.FK_Village_Users" />
+        <AssociationConnector Association="TrickleUpModel.FK_Village_Users1" />
+        <EntityTypeShape EntityType="TrickleUpModel.Audio" Width="1.5" PointX="3.75" PointY="14.75" />
+        <EntityTypeShape EntityType="TrickleUpModel.Crop" Width="1.5" PointX="2.5" PointY="5.875" />
+        <EntityTypeShape EntityType="TrickleUpModel.Video" Width="1.5" PointX="2.125" PointY="14.75" />
+        <EntityTypeShape EntityType="TrickleUpModel.Image" Width="1.5" PointX="5.375" PointY="14.75" />
+        <EntityTypeShape EntityType="TrickleUpModel.VillageContact" Width="1.5" PointX="15.125" PointY="0.5" />
+        <AssociationConnector Association="TrickleUpModel.FK_VillageContact_Users" />
+        <AssociationConnector Association="TrickleUpModel.FK_VillageContact_Users1" />
+        <AssociationConnector Association="TrickleUpModel.FK_VillageContact_Users2" />
+        <AssociationConnector Association="TrickleUpModel.FK_VillageContact_Village" />
+        <EntityTypeShape EntityType="TrickleUpModel.FeedBackQuestion" Width="1.5" PointX="2.125" PointY="17.75" />
+        <EntityTypeShape EntityType="TrickleUpModel.UserFeedback" Width="1.5" PointX="0.5" PointY="17.75" />
+        <EntityTypeShape EntityType="TrickleUpModel.CropSteps_Material" Width="1.5" PointX="4.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrickleUpModel.PredefinedAudio" Width="1.5" PointX="16.375" PointY="7.375" />
+        <EntityTypeShape EntityType="TrickleUpModel.Crop_AudioAllocation" Width="1.5" PointX="4" PointY="11.5" />
+        <EntityTypeShape EntityType="TrickleUpModel.CropMaterial_AudioAllocation" Width="1.5" PointX="2.25" PointY="11.5" />
+        <EntityTypeShape EntityType="TrickleUpModel.CropStepAudio_Allocation" Width="1.5" PointX="5.75" PointY="11.5" />
+        <EntityTypeShape EntityType="TrickleUpModel.Tbl_ExceptionLogging" Width="1.5" PointX="16.375" PointY="9.5" />
+        <EntityTypeShape EntityType="TrickleUpModel.Cultivation_Steps" Width="1.5" PointX="6" PointY="5.875" />
+        <AssociationConnector Association="TrickleUpModel.FK_Cultivation_Steps_Crop" />
+        <AssociationConnector Association="TrickleUpModel.FK_CropSteps_Material_Cultivation_Steps" />
+        <EntityTypeShape EntityType="TrickleUpModel.Role" Width="1.5" PointX="10.25" PointY="0.5" />
+        <AssociationConnector Association="TrickleUpModel.FK_Roles_Users" />
+        <AssociationConnector Association="TrickleUpModel.FK_Roles_Users1" />
+        <AssociationConnector Association="TrickleUpModel.FK_Roles_Users2" />
+        <AssociationConnector Association="TrickleUpModel.Users_Roles" />
+        <EntityTypeShape EntityType="TrickleUpModel.MasterPassword" Width="1.5" PointX="8.375" PointY="6.25" />
+        <EntityTypeShape EntityType="TrickleUpModel.UserCredential" Width="1.5" PointX="2.125" PointY="1.25" />
+        <EntityTypeShape EntityType="TrickleUpModel.UserFCMToken" Width="1.5" PointX="10.375" PointY="6.625" />
+        <EntityTypeShape EntityType="TrickleUpModel.CurrencyStock" Width="1.5" PointX="19.625" PointY="2" />
+        <EntityTypeShape EntityType="TrickleUpModel.MoneyManager" Width="1.5" PointX="17.375" PointY="1.25" />
+        <AssociationConnector Association="TrickleUpModel.FK_CurrencyStock_MoneyManager" />
+        <EntityTypeShape EntityType="TrickleUpModel.PushNotification" Width="1.5" PointX="8.375" PointY="9.75" />
+        <EntityTypeShape EntityType="TrickleUpModel.CropCultivation_History" Width="1.5" PointX="10.625" PointY="13.625" />
+        <EntityTypeShape EntityType="TrickleUpModel.Cultivation_History" Width="1.5" PointX="8.375" PointY="13.25" />
+        <EntityTypeShape EntityType="TrickleUpModel.CultivationStep_History" Width="1.5" PointX="12.875" PointY="13.125" />
+        <EntityTypeShape EntityType="TrickleUpModel.MaterialNeeded_History" Width="1.5" PointX="15.125" PointY="13.5" />
+        <AssociationConnector Association="TrickleUpModel.FK_CropCultivation_History_Cultivation_History" />
+        <AssociationConnector Association="TrickleUpModel.FK_CultivationStep_History_CropCultivation_History" />
+        <AssociationConnector Association="TrickleUpModel.FK_MaterialNeeded_History_CultivationStep_History" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
