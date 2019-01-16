@@ -12,17 +12,21 @@ namespace TrickleUpPortal.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LiveStockBreed
+    public partial class LiveStock_Steps
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LiveStockBreed()
+        public LiveStock_Steps()
         {
-            this.LiveStock_BreedCategory = new HashSet<LiveStock_BreedCategory>();
+            this.LiveStock_StepMaterial = new HashSet<LiveStock_StepMaterial>();
         }
     
         public int Id { get; set; }
-        public string BreedName { get; set; }
+        public string StepName { get; set; }
+        public string StepDescription { get; set; }
         public Nullable<int> LiveStockId { get; set; }
+        public string StepImageURL { get; set; }
+        public string StepAudioTitleURL { get; set; }
+        public string StepAudioDesURL { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedOn { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
@@ -30,11 +34,11 @@ namespace TrickleUpPortal.Models
         public Nullable<int> ActiveBy { get; set; }
         public Nullable<System.DateTime> ActiveOn { get; set; }
         public Nullable<bool> Active { get; set; }
-        public string ImageURL { get; set; }
-        public string AudioURL { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LiveStock_BreedCategory> LiveStock_BreedCategory { get; set; }
+        public virtual ICollection<LiveStock_StepMaterial> LiveStock_StepMaterial { get; set; }
         public virtual LiveStock LiveStock { get; set; }
+        public virtual ICollection<LiveStock_StepMaterial> Adult { get; set; }
+        public virtual ICollection<LiveStock_StepMaterial> Child { get; set; }
     }
 }

@@ -12,56 +12,56 @@ using TrickleUpPortal.Models;
 
 namespace TrickleUpPortal.Controllers
 {
-    public class Crop_VideoAllocationController : ApiController
+    public class CropStep_VideoAllocationController : ApiController
     {
         private TrickleUpEntities db = new TrickleUpEntities();
 
-        // GET: api/Crop_VideoAllocation
-        //public IQueryable<Crop_VideoAllocation> GetCrop_VideoAllocation()
+        // GET: api/CropStep_VideoAllocation
+        //public IQueryable<CropStep_VideoAllocation> GetCropStep_VideoAllocation()
         //{
-        //    return db.Crop_VideoAllocation;
+        //    return db.CropStep_VideoAllocation;
         //}
 
-        public HttpResponseMessage GetCrop_VideoAllocation(int CropId)
+        public HttpResponseMessage GetCropStep_VideoAllocation(int StepId)
         {
-            var VideoAllocation = from Videodata in db.Crop_VideoAllocation
+            var VideoAllocation = from Videodata in db.CropStep_VideoAllocation
                                   join Lang in db.Languages on Videodata.LangId equals Lang.Id into LangNew
                                   from Lang in LangNew.DefaultIfEmpty()
                                   join Video in db.Videos on Videodata.VideoId equals Video.Id into VideoNew
                                   from Video in VideoNew.DefaultIfEmpty()
-                                  where Videodata.CropId == CropId && Videodata.Active == true
-                                  select new { Videodata.Id, Videodata.CropId, Videodata.LangId, Lang.LanguageName, Videodata.VideoId, Video.VideoName, Video.FilePath, Videodata.Active };
+                                  where Videodata.StepId == StepId && Videodata.Active == true
+                                  select new { Videodata.Id, Videodata.StepId, Videodata.LangId, Lang.LanguageName, Videodata.VideoId, Video.VideoName, Video.FilePath, Videodata.Active };
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { VideoAllocation }, success = true, error = string.Empty });
         }
 
-        // GET: api/Crop_VideoAllocation/5
-        //[ResponseType(typeof(Crop_VideoAllocation))]
-        //public IHttpActionResult GetCrop_VideoAllocation(int id)
+        // GET: api/CropStep_VideoAllocation/5
+        //[ResponseType(typeof(CropStep_VideoAllocation))]
+        //public IHttpActionResult GetCropStep_VideoAllocation(int id)
         //{
-        //    Crop_VideoAllocation crop_VideoAllocation = db.Crop_VideoAllocation.Find(id);
-        //    if (crop_VideoAllocation == null)
+        //    CropStep_VideoAllocation cropStep_VideoAllocation = db.CropStep_VideoAllocation.Find(id);
+        //    if (cropStep_VideoAllocation == null)
         //    {
         //        return NotFound();
         //    }
 
-        //    return Ok(crop_VideoAllocation);
+        //    return Ok(cropStep_VideoAllocation);
         //}
 
-        // PUT: api/Crop_VideoAllocation/5
+        // PUT: api/CropStep_VideoAllocation/5
         //[ResponseType(typeof(void))]
-        //public IHttpActionResult PutCrop_VideoAllocation(int id, Crop_VideoAllocation crop_VideoAllocation)
+        //public IHttpActionResult PutCropStep_VideoAllocation(int id, CropStep_VideoAllocation cropStep_VideoAllocation)
         //{
         //    if (!ModelState.IsValid)
         //    {
         //        return BadRequest(ModelState);
         //    }
 
-        //    if (id != crop_VideoAllocation.Id)
+        //    if (id != cropStep_VideoAllocation.Id)
         //    {
         //        return BadRequest();
         //    }
 
-        //    db.Entry(crop_VideoAllocation).State = EntityState.Modified;
+        //    db.Entry(cropStep_VideoAllocation).State = EntityState.Modified;
 
         //    try
         //    {
@@ -69,7 +69,7 @@ namespace TrickleUpPortal.Controllers
         //    }
         //    catch (DbUpdateConcurrencyException)
         //    {
-        //        if (!Crop_VideoAllocationExists(id))
+        //        if (!CropStep_VideoAllocationExists(id))
         //        {
         //            return NotFound();
         //        }
@@ -81,21 +81,20 @@ namespace TrickleUpPortal.Controllers
 
         //    return StatusCode(HttpStatusCode.NoContent);
         //}
-
         [HttpPost]
-        public HttpResponseMessage PutCrop_VideoAllocation(int id, Crop_VideoAllocation crop_VideoAllocation)
+        public HttpResponseMessage PutCropStep_VideoAllocation(int id, CropStep_VideoAllocation cropStep_VideoAllocation)
         {
             if (!ModelState.IsValid)
             {
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            if (id != crop_VideoAllocation.Id)
+            if (id != cropStep_VideoAllocation.Id)
             {
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            db.Entry(crop_VideoAllocation).State = EntityState.Modified;
+            db.Entry(cropStep_VideoAllocation).State = EntityState.Modified;
 
             try
             {
@@ -103,7 +102,7 @@ namespace TrickleUpPortal.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!Crop_VideoAllocationExists(id))
+                if (!CropStep_VideoAllocationExists(id))
                 {
                     return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
                 }
@@ -113,57 +112,57 @@ namespace TrickleUpPortal.Controllers
                 }
             }
 
-            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { crop_VideoAllocation }, success = true, error = string.Empty });
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { cropStep_VideoAllocation }, success = true, error = string.Empty });
         }
 
-        // POST: api/Crop_VideoAllocation
-        //[ResponseType(typeof(Crop_VideoAllocation))]
-        //public IHttpActionResult PostCrop_VideoAllocation(Crop_VideoAllocation crop_VideoAllocation)
+        // POST: api/CropStep_VideoAllocation
+        //[ResponseType(typeof(CropStep_VideoAllocation))]
+        //public IHttpActionResult PostCropStep_VideoAllocation(CropStep_VideoAllocation cropStep_VideoAllocation)
         //{
         //    if (!ModelState.IsValid)
         //    {
         //        return BadRequest(ModelState);
         //    }
 
-        //    db.Crop_VideoAllocation.Add(crop_VideoAllocation);
+        //    db.CropStep_VideoAllocation.Add(cropStep_VideoAllocation);
         //    db.SaveChanges();
 
-        //    return CreatedAtRoute("DefaultApi", new { id = crop_VideoAllocation.Id }, crop_VideoAllocation);
+        //    return CreatedAtRoute("DefaultApi", new { id = cropStep_VideoAllocation.Id }, cropStep_VideoAllocation);
         //}
         [HttpPost]
-        public HttpResponseMessage PostCrop_VideoAllocation(Crop_VideoAllocation crop_VideoAllocation)
+        public HttpResponseMessage PostCropStep_VideoAllocation(CropStep_VideoAllocation cropStep_VideoAllocation)
         {
             if (!ModelState.IsValid)
             {
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            int recordCount = db.Crop_VideoAllocation.Where(a => a.CropId == crop_VideoAllocation.CropId && a.LangId == crop_VideoAllocation.LangId && a.Active == true).Count();
+            int recordCount = db.CropStep_VideoAllocation.Where(a => a.StepId == cropStep_VideoAllocation.StepId && a.LangId == cropStep_VideoAllocation.LangId && a.Active == true).Count();
             if (recordCount > 0)
             {
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Video already allocated with this Crop." });
             }
 
-            db.Crop_VideoAllocation.Add(crop_VideoAllocation);
+            db.CropStep_VideoAllocation.Add(cropStep_VideoAllocation);
             db.SaveChanges();
 
-            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = crop_VideoAllocation.Id }, success = true, error = string.Empty });
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = cropStep_VideoAllocation.Id }, success = true, error = string.Empty });
         }
 
-        // DELETE: api/Crop_VideoAllocation/5
-        [ResponseType(typeof(Crop_VideoAllocation))]
-        public IHttpActionResult DeleteCrop_VideoAllocation(int id)
+        // DELETE: api/CropStep_VideoAllocation/5
+        [ResponseType(typeof(CropStep_VideoAllocation))]
+        public IHttpActionResult DeleteCropStep_VideoAllocation(int id)
         {
-            Crop_VideoAllocation crop_VideoAllocation = db.Crop_VideoAllocation.Find(id);
-            if (crop_VideoAllocation == null)
+            CropStep_VideoAllocation cropStep_VideoAllocation = db.CropStep_VideoAllocation.Find(id);
+            if (cropStep_VideoAllocation == null)
             {
                 return NotFound();
             }
 
-            db.Crop_VideoAllocation.Remove(crop_VideoAllocation);
+            db.CropStep_VideoAllocation.Remove(cropStep_VideoAllocation);
             db.SaveChanges();
 
-            return Ok(crop_VideoAllocation);
+            return Ok(cropStep_VideoAllocation);
         }
 
         protected override void Dispose(bool disposing)
@@ -175,9 +174,9 @@ namespace TrickleUpPortal.Controllers
             base.Dispose(disposing);
         }
 
-        private bool Crop_VideoAllocationExists(int id)
+        private bool CropStep_VideoAllocationExists(int id)
         {
-            return db.Crop_VideoAllocation.Count(e => e.Id == id) > 0;
+            return db.CropStep_VideoAllocation.Count(e => e.Id == id) > 0;
         }
     }
 }

@@ -65,8 +65,8 @@
     <Property Name="VideoId" Type="int" />
     <Property Name="CreatedBy" Type="int" />
     <Property Name="CreatedOn" Type="datetime" />
-    <Property Name="ActiveOn" Type="int" />
-    <Property Name="ActiveBy" Type="datetime" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
   </EntityType>
   <EntityType Name="CropCultivation_History">
@@ -111,9 +111,9 @@
     <Property Name="VideoId" Type="int" />
     <Property Name="CreatedBy" Type="int" />
     <Property Name="CreatedOn" Type="datetime" />
-    <Property Name="ActiveOn" Type="int" />
-    <Property Name="ActiveBy" Type="datetime" />
-    <Property Name="Active" Type="nchar" MaxLength="10" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
   </EntityType>
   <EntityType Name="CropStepAudio_Allocation">
     <Key>
@@ -140,8 +140,8 @@
     <Property Name="VideoId" Type="int" />
     <Property Name="CreatedBy" Type="int" />
     <Property Name="CreatedOn" Type="datetime" />
-    <Property Name="ActiveOn" Type="int" />
-    <Property Name="ActiveBy" Type="datetime" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
   </EntityType>
   <EntityType Name="CropSteps_Material">
@@ -333,7 +333,66 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="StockName" Type="nvarchar(max)" />
     <Property Name="ImageURL" Type="nvarchar(max)" />
-    <Property Name="AudioURL" Type="nchar" MaxLength="10" />
+    <Property Name="AudioURL" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="LiveStock_BreedCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar(max)" />
+    <Property Name="BreedId" Type="int" />
+    <Property Name="Rate" Type="float" />
+    <Property Name="Units" Type="float" />
+    <Property Name="Quanitity" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="LiveStock_StepMaterial">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LiveMaterialName" Type="nvarchar(max)" />
+    <Property Name="LiveMaterialDesc" Type="nvarchar(max)" />
+    <Property Name="LiveStock_StepId" Type="int" />
+    <Property Name="TitleAudioURL" Type="nvarchar(max)" />
+    <Property Name="DescriptionAudioURL" Type="nvarchar(max)" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Rate" Type="float" />
+    <Property Name="ImageURL" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Category" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LiveStock_Steps">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StepName" Type="nvarchar(max)" />
+    <Property Name="StepDescription" Type="nvarchar(max)" />
+    <Property Name="LiveStockId" Type="int" />
+    <Property Name="StepImageURL" Type="nvarchar(max)" />
+    <Property Name="StepAudioTitleURL" Type="nvarchar(max)" />
+    <Property Name="StepAudioDesURL" Type="nvarchar(max)" />
     <Property Name="CreatedBy" Type="int" />
     <Property Name="CreatedOn" Type="datetime" />
     <Property Name="UpdatedBy" Type="int" />
@@ -356,6 +415,8 @@
     <Property Name="ActiveBy" Type="int" />
     <Property Name="ActiveOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
+    <Property Name="ImageURL" Type="nvarchar(max)" />
+    <Property Name="AudioURL" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="MasterPassword">
     <Key>
@@ -818,6 +879,42 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_LiveStock_BreedCategory_LiveStockBreed">
+    <End Role="LiveStockBreed" Type="Self.LiveStockBreed" Multiplicity="0..1" />
+    <End Role="LiveStock_BreedCategory" Type="Self.LiveStock_BreedCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LiveStockBreed">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LiveStock_BreedCategory">
+        <PropertyRef Name="BreedId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LiveStock_StepMaterial_LiveStock_Steps">
+    <End Role="LiveStock_Steps" Type="Self.LiveStock_Steps" Multiplicity="0..1" />
+    <End Role="LiveStock_StepMaterial" Type="Self.LiveStock_StepMaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LiveStock_Steps">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LiveStock_StepMaterial">
+        <PropertyRef Name="LiveStock_StepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LiveStock_Steps_LiveStock">
+    <End Role="LiveStock" Type="Self.LiveStock" Multiplicity="0..1" />
+    <End Role="LiveStock_Steps" Type="Self.LiveStock_Steps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LiveStock">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LiveStock_Steps">
+        <PropertyRef Name="LiveStockId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_LiveStockBreed_LiveStock">
     <End Role="LiveStock" Type="Self.LiveStock" Multiplicity="0..1" />
     <End Role="LiveStockBreed" Type="Self.LiveStockBreed" Multiplicity="*" />
@@ -1093,6 +1190,9 @@
     <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LiveStock" EntityType="Self.LiveStock" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LiveStock_BreedCategory" EntityType="Self.LiveStock_BreedCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LiveStock_StepMaterial" EntityType="Self.LiveStock_StepMaterial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LiveStock_Steps" EntityType="Self.LiveStock_Steps" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LiveStockBreed" EntityType="Self.LiveStockBreed" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MasterPassword" EntityType="Self.MasterPassword" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MaterialNeeded_History" EntityType="Self.MaterialNeeded_History" Schema="dbo" store:Type="Tables" />
@@ -1185,6 +1285,18 @@
     <AssociationSet Name="FK_Language_Users2" Association="Self.FK_Language_Users2">
       <End Role="Users" EntitySet="Users" />
       <End Role="Language" EntitySet="Language" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LiveStock_BreedCategory_LiveStockBreed" Association="Self.FK_LiveStock_BreedCategory_LiveStockBreed">
+      <End Role="LiveStockBreed" EntitySet="LiveStockBreed" />
+      <End Role="LiveStock_BreedCategory" EntitySet="LiveStock_BreedCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LiveStock_StepMaterial_LiveStock_Steps" Association="Self.FK_LiveStock_StepMaterial_LiveStock_Steps">
+      <End Role="LiveStock_Steps" EntitySet="LiveStock_Steps" />
+      <End Role="LiveStock_StepMaterial" EntitySet="LiveStock_StepMaterial" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LiveStock_Steps_LiveStock" Association="Self.FK_LiveStock_Steps_LiveStock">
+      <End Role="LiveStock" EntitySet="LiveStock" />
+      <End Role="LiveStock_Steps" EntitySet="LiveStock_Steps" />
     </AssociationSet>
     <AssociationSet Name="FK_LiveStockBreed_LiveStock" Association="Self.FK_LiveStockBreed_LiveStock">
       <End Role="LiveStock" EntitySet="LiveStock" />

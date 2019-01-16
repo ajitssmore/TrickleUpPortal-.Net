@@ -12,17 +12,14 @@ namespace TrickleUpPortal.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LiveStockBreed
+    public partial class LiveStock_BreedCategory
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LiveStockBreed()
-        {
-            this.LiveStock_BreedCategory = new HashSet<LiveStock_BreedCategory>();
-        }
-    
         public int Id { get; set; }
-        public string BreedName { get; set; }
-        public Nullable<int> LiveStockId { get; set; }
+        public string CategoryName { get; set; }
+        public Nullable<int> BreedId { get; set; }
+        public Nullable<double> Rate { get; set; }
+        public Nullable<double> Units { get; set; }
+        public Nullable<int> Quanitity { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedOn { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
@@ -30,11 +27,7 @@ namespace TrickleUpPortal.Models
         public Nullable<int> ActiveBy { get; set; }
         public Nullable<System.DateTime> ActiveOn { get; set; }
         public Nullable<bool> Active { get; set; }
-        public string ImageURL { get; set; }
-        public string AudioURL { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LiveStock_BreedCategory> LiveStock_BreedCategory { get; set; }
-        public virtual LiveStock LiveStock { get; set; }
+        public virtual LiveStockBreed LiveStockBreed { get; set; }
     }
 }

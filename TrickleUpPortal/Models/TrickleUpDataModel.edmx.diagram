@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="81d313913c2f401fb8f2b80523e9435f" Name="Diagram1" ZoomLevel="50">
+      <Diagram DiagramId="81d313913c2f401fb8f2b80523e9435f" Name="Diagram1" ZoomLevel="49">
         <EntityTypeShape EntityType="TrickleUpModel.Gender" Width="1.5" PointX="4.375" PointY="0.5" />
         <EntityTypeShape EntityType="TrickleUpModel.State" Width="1.5" PointX="8.5" PointY="0.5" />
         <EntityTypeShape EntityType="TrickleUpModel.District" Width="1.5" PointX="10.625" PointY="0.5" />
@@ -78,11 +78,17 @@
         <AssociationConnector Association="TrickleUpModel.FK_VillageContact_Users1" />
         <AssociationConnector Association="TrickleUpModel.FK_VillageContact_Users2" />
         <EntityTypeShape EntityType="TrickleUpModel.Audio" Width="1.5" PointX="7" PointY="17.875" />
-        <EntityTypeShape EntityType="TrickleUpModel.Crop_VideoAllocation" Width="1.5" PointX="7.5" PointY="21.125" />
-        <EntityTypeShape EntityType="TrickleUpModel.CropStep_VideoAllocation" Width="1.5" PointX="5.75" PointY="21.125" />
-        <EntityTypeShape EntityType="TrickleUpModel.CropStepMaterial_VideoAllocation" Width="1.5" PointX="9.25" PointY="21.125" />
-        <EntityTypeShape EntityType="TrickleUpModel.LiveStock" Width="1.5" PointX="0.5" PointY="29" />
+        <EntityTypeShape EntityType="TrickleUpModel.Crop_VideoAllocation" Width="1.5" PointX="5.875" PointY="21.125" />
+        <EntityTypeShape EntityType="TrickleUpModel.CropStep_VideoAllocation" Width="1.5" PointX="7.875" PointY="21.125" />
+        <EntityTypeShape EntityType="TrickleUpModel.CropStepMaterial_VideoAllocation" Width="1.5" PointX="9.875" PointY="21.125" />
+        <EntityTypeShape EntityType="TrickleUpModel.LiveStock_BreedCategory" Width="1.5" PointX="4" PointY="29" />
+        <EntityTypeShape EntityType="TrickleUpModel.LiveStock_Steps" Width="1.5" PointX="5.75" PointY="29" />
+        <EntityTypeShape EntityType="TrickleUpModel.LiveStock_StepMaterial" Width="1.5" PointX="7.5" PointY="29" />
+        <AssociationConnector Association="TrickleUpModel.FK_LiveStock_StepMaterial_LiveStock_Steps" />
         <EntityTypeShape EntityType="TrickleUpModel.LiveStockBreed" Width="1.5" PointX="2.25" PointY="29" />
+        <AssociationConnector Association="TrickleUpModel.FK_LiveStock_BreedCategory_LiveStockBreed" />
+        <EntityTypeShape EntityType="TrickleUpModel.LiveStock" Width="1.5" PointX="0.5" PointY="29" />
+        <AssociationConnector Association="TrickleUpModel.FK_LiveStock_Steps_LiveStock" />
         <AssociationConnector Association="TrickleUpModel.FK_LiveStockBreed_LiveStock" />
         </Diagram>
     </edmx:Diagrams>

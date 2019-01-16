@@ -197,21 +197,21 @@ namespace TrickleUpPortal.Controllers
                     Cultivation_StepsData.UpdatedOn = cultivation_Steps.UpdatedOn;
                 }
                 db.SaveChanges();
-                string CropName = db.Crops.Where(x => x.Id == Cultivation_StepsData.Crop_Id).Select(x => x.CropName).Single();
-                PushNotificationDataModel objPushNotification = new PushNotificationDataModel();
-                objPushNotification.Title = (!string.IsNullOrEmpty(cultivation_Steps.VideoPath)) ? "Video has been uploaded" : "Video has been Removed";
-                objPushNotification.Body = "For" + " " + CropName + " -->" + " " + Cultivation_StepsData.Step_Name;
-                objPushNotification.CropName = CropName;
-                objPushNotification.StepName = Cultivation_StepsData.Step_Name;
-                objPushNotification.CropId = Cultivation_StepsData.Crop_Id;
-                objPushNotification.StepId = Cultivation_StepsData.Id;
-                objPushNotification.LangCode = LanguageCode;
-                objPushNotification.VideoURL = cultivation_Steps.VideoPath;
-                objPushNotification.StepImageURL = Cultivation_StepsData.ImagePath;
-                objPushNotification.CreatedOn = DateTime.Now.ToString("MM/dd/yyyy hh:mm tt");
-                string message = comObj.SendPushNotification(objPushNotification);
-                objPushNotification.ResponseMessage = message;
-                StoreNotificationData(objPushNotification);
+                //string CropName = db.Crops.Where(x => x.Id == Cultivation_StepsData.Crop_Id).Select(x => x.CropName).Single();
+                //PushNotificationDataModel objPushNotification = new PushNotificationDataModel();
+                //objPushNotification.Title = (!string.IsNullOrEmpty(cultivation_Steps.VideoPath)) ? "Video has been uploaded" : "Video has been Removed";
+                //objPushNotification.Body = "For" + " " + CropName + " -->" + " " + Cultivation_StepsData.Step_Name;
+                //objPushNotification.CropName = CropName;
+                //objPushNotification.StepName = Cultivation_StepsData.Step_Name;
+                //objPushNotification.CropId = Cultivation_StepsData.Crop_Id;
+                //objPushNotification.StepId = Cultivation_StepsData.Id;
+                //objPushNotification.LangCode = LanguageCode;
+                //objPushNotification.VideoURL = cultivation_Steps.VideoPath;
+                //objPushNotification.StepImageURL = Cultivation_StepsData.ImagePath;
+                //objPushNotification.CreatedOn = DateTime.Now.ToString("MM/dd/yyyy hh:mm tt");
+                //string message = comObj.SendPushNotification(objPushNotification);
+                //objPushNotification.ResponseMessage = message;
+                //StoreNotificationData(objPushNotification);
             }
             catch (DbUpdateConcurrencyException)
             {

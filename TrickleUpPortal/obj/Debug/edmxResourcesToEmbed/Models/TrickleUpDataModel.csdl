@@ -194,8 +194,23 @@
     <EntitySet Name="Crop_VideoAllocation" EntityType="TrickleUpModel.Crop_VideoAllocation" />
     <EntitySet Name="CropStep_VideoAllocation" EntityType="TrickleUpModel.CropStep_VideoAllocation" />
     <EntitySet Name="CropStepMaterial_VideoAllocation" EntityType="TrickleUpModel.CropStepMaterial_VideoAllocation" />
-    <EntitySet Name="LiveStocks" EntityType="TrickleUpModel.LiveStock" />
+    <EntitySet Name="LiveStock_BreedCategory" EntityType="TrickleUpModel.LiveStock_BreedCategory" />
+    <EntitySet Name="LiveStock_Steps" EntityType="TrickleUpModel.LiveStock_Steps" />
+    <EntitySet Name="LiveStock_StepMaterial" EntityType="TrickleUpModel.LiveStock_StepMaterial" />
+    <AssociationSet Name="FK_LiveStock_StepMaterial_LiveStock_Steps" Association="TrickleUpModel.FK_LiveStock_StepMaterial_LiveStock_Steps">
+      <End Role="LiveStock_Steps" EntitySet="LiveStock_Steps" />
+      <End Role="LiveStock_StepMaterial" EntitySet="LiveStock_StepMaterial" />
+    </AssociationSet>
     <EntitySet Name="LiveStockBreeds" EntityType="TrickleUpModel.LiveStockBreed" />
+    <AssociationSet Name="FK_LiveStock_BreedCategory_LiveStockBreed" Association="TrickleUpModel.FK_LiveStock_BreedCategory_LiveStockBreed">
+      <End Role="LiveStockBreed" EntitySet="LiveStockBreeds" />
+      <End Role="LiveStock_BreedCategory" EntitySet="LiveStock_BreedCategory" />
+    </AssociationSet>
+    <EntitySet Name="LiveStocks" EntityType="TrickleUpModel.LiveStock" />
+    <AssociationSet Name="FK_LiveStock_Steps_LiveStock" Association="TrickleUpModel.FK_LiveStock_Steps_LiveStock">
+      <End Role="LiveStock" EntitySet="LiveStocks" />
+      <End Role="LiveStock_Steps" EntitySet="LiveStock_Steps" />
+    </AssociationSet>
     <AssociationSet Name="FK_LiveStockBreed_LiveStock" Association="TrickleUpModel.FK_LiveStockBreed_LiveStock">
       <End Role="LiveStock" EntitySet="LiveStocks" />
       <End Role="LiveStockBreed" EntitySet="LiveStockBreeds" />
@@ -1274,8 +1289,8 @@
     <Property Name="VideoId" Type="Int32" />
     <Property Name="CreatedBy" Type="Int32" />
     <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-    <Property Name="ActiveOn" Type="Int32" />
-    <Property Name="ActiveBy" Type="DateTime" Precision="3" />
+    <Property Name="ActiveBy" Type="Int32" />
+    <Property Name="ActiveOn" Type="DateTime" Precision="3" />
     <Property Name="Active" Type="Boolean" />
   </EntityType>
   <EntityType Name="CropStep_VideoAllocation">
@@ -1288,9 +1303,9 @@
     <Property Name="VideoId" Type="Int32" />
     <Property Name="CreatedBy" Type="Int32" />
     <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-    <Property Name="ActiveOn" Type="Int32" />
-    <Property Name="ActiveBy" Type="DateTime" Precision="3" />
-    <Property Name="Active" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ActiveBy" Type="Int32" />
+    <Property Name="ActiveOn" Type="DateTime" Precision="3" />
+    <Property Name="Active" Type="Boolean" />
   </EntityType>
   <EntityType Name="CropStepMaterial_VideoAllocation">
     <Key>
@@ -1302,18 +1317,20 @@
     <Property Name="VideoId" Type="Int32" />
     <Property Name="CreatedBy" Type="Int32" />
     <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-    <Property Name="ActiveOn" Type="Int32" />
-    <Property Name="ActiveBy" Type="DateTime" Precision="3" />
+    <Property Name="ActiveBy" Type="Int32" />
+    <Property Name="ActiveOn" Type="DateTime" Precision="3" />
     <Property Name="Active" Type="Boolean" />
   </EntityType>
-  <EntityType Name="LiveStock">
+  <EntityType Name="LiveStock_BreedCategory">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="StockName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="AudioURL" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CategoryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BreedId" Type="Int32" />
+    <Property Name="Rate" Type="Double" />
+    <Property Name="Units" Type="Double" />
+    <Property Name="Quanitity" Type="Int32" />
     <Property Name="CreatedBy" Type="Int32" />
     <Property Name="CreatedOn" Type="DateTime" Precision="3" />
     <Property Name="UpdatedBy" Type="Int32" />
@@ -1321,8 +1338,64 @@
     <Property Name="ActiveBy" Type="Int32" />
     <Property Name="ActiveOn" Type="DateTime" Precision="3" />
     <Property Name="Active" Type="Boolean" />
-    <NavigationProperty Name="LiveStockBreeds" Relationship="TrickleUpModel.FK_LiveStockBreed_LiveStock" FromRole="LiveStock" ToRole="LiveStockBreed" />
+    <NavigationProperty Name="LiveStockBreed" Relationship="TrickleUpModel.FK_LiveStock_BreedCategory_LiveStockBreed" FromRole="LiveStock_BreedCategory" ToRole="LiveStockBreed" />
   </EntityType>
+  <EntityType Name="LiveStock_Steps">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StepName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StepDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LiveStockId" Type="Int32" />
+    <Property Name="StepImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StepAudioTitleURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StepAudioDesURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="ActiveBy" Type="Int32" />
+    <Property Name="ActiveOn" Type="DateTime" Precision="3" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="LiveStock_StepMaterial" Relationship="TrickleUpModel.FK_LiveStock_StepMaterial_LiveStock_Steps" FromRole="LiveStock_Steps" ToRole="LiveStock_StepMaterial" />
+    <NavigationProperty Name="LiveStock" Relationship="TrickleUpModel.FK_LiveStock_Steps_LiveStock" FromRole="LiveStock_Steps" ToRole="LiveStock" />
+  </EntityType>
+  <EntityType Name="LiveStock_StepMaterial">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LiveMaterialName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LiveMaterialDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LiveStock_StepId" Type="Int32" />
+    <Property Name="TitleAudioURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DescriptionAudioURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Rate" Type="Double" />
+    <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="ActiveBy" Type="Int32" />
+    <Property Name="ActiveOn" Type="DateTime" Precision="3" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LiveStock_Steps" Relationship="TrickleUpModel.FK_LiveStock_StepMaterial_LiveStock_Steps" FromRole="LiveStock_StepMaterial" ToRole="LiveStock_Steps" />
+  </EntityType>
+  <Association Name="FK_LiveStock_StepMaterial_LiveStock_Steps">
+    <End Type="TrickleUpModel.LiveStock_Steps" Role="LiveStock_Steps" Multiplicity="0..1" />
+    <End Type="TrickleUpModel.LiveStock_StepMaterial" Role="LiveStock_StepMaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LiveStock_Steps">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LiveStock_StepMaterial">
+        <PropertyRef Name="LiveStock_StepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityType Name="LiveStockBreed">
     <Key>
       <PropertyRef Name="Id" />
@@ -1337,8 +1410,53 @@
     <Property Name="ActiveBy" Type="Int32" />
     <Property Name="ActiveOn" Type="DateTime" Precision="3" />
     <Property Name="Active" Type="Boolean" />
+    <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AudioURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LiveStock_BreedCategory" Relationship="TrickleUpModel.FK_LiveStock_BreedCategory_LiveStockBreed" FromRole="LiveStockBreed" ToRole="LiveStock_BreedCategory" />
     <NavigationProperty Name="LiveStock" Relationship="TrickleUpModel.FK_LiveStockBreed_LiveStock" FromRole="LiveStockBreed" ToRole="LiveStock" />
   </EntityType>
+  <Association Name="FK_LiveStock_BreedCategory_LiveStockBreed">
+    <End Type="TrickleUpModel.LiveStockBreed" Role="LiveStockBreed" Multiplicity="0..1" />
+    <End Type="TrickleUpModel.LiveStock_BreedCategory" Role="LiveStock_BreedCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LiveStockBreed">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LiveStock_BreedCategory">
+        <PropertyRef Name="BreedId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="LiveStock">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StockName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AudioURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="ActiveBy" Type="Int32" />
+    <Property Name="ActiveOn" Type="DateTime" Precision="3" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="LiveStock_Steps" Relationship="TrickleUpModel.FK_LiveStock_Steps_LiveStock" FromRole="LiveStock" ToRole="LiveStock_Steps" />
+    <NavigationProperty Name="LiveStockBreeds" Relationship="TrickleUpModel.FK_LiveStockBreed_LiveStock" FromRole="LiveStock" ToRole="LiveStockBreed" />
+  </EntityType>
+  <Association Name="FK_LiveStock_Steps_LiveStock">
+    <End Type="TrickleUpModel.LiveStock" Role="LiveStock" Multiplicity="0..1" />
+    <End Type="TrickleUpModel.LiveStock_Steps" Role="LiveStock_Steps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LiveStock">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LiveStock_Steps">
+        <PropertyRef Name="LiveStockId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_LiveStockBreed_LiveStock">
     <End Type="TrickleUpModel.LiveStock" Role="LiveStock" Multiplicity="0..1" />
     <End Type="TrickleUpModel.LiveStockBreed" Role="LiveStockBreed" Multiplicity="*" />

@@ -233,5 +233,47 @@ namespace TrickleUpPortal.Controllers
             return response;
         }
 
+        [HttpPost]
+        public HttpResponseMessage SendNotification(NotificationModel NotificationModelData)
+        {
+            PushNotificationDataModel objPushNotification = new PushNotificationDataModel();
+            string CropName = "", StepName="";
+            switch (NotificationModelData.notificationContext)
+            {
+                case "Crop":
+                        CropName = db.Crops.Where(x => x.Id == NotificationModelData.contextId).Select(x => x.CropName).Single();
+                        objPushNotification.Title = !NotificationModelData.Active ?  ""+ NotificationModelData.category + " has been uploaded" : "" + NotificationModelData.category + " has been Removed";
+                        objPushNotification.Body = "For" + " " + CropName;
+                        objPushNotification.CropName = CropName;
+                        objPushNotification.CropId = Convert.ToInt32(NotificationModelData.contextId);
+                        objPushNotification.LangCode = Convert.ToInt32(NotificationModelData.languageId);
+                    break;
+                case "CropSteps":
+                    StepName = db.Cultivation_Steps.Where(x => x.Id == NotificationModelData.contextId).Select(x => x.Step_Name).Single();
+                    objPushNotification.Title = !NotificationModelData.Active ? "" + NotificationModelData.category + " has been uploaded" : "" + NotificationModelData.category + " has been Removed";
+                    objPushNotification.Body = "For" + " " + CropName + " -->" + " " + StepName;
+                    break;
+                case "CropStepMaterial":
+                    Console.WriteLine("Well done");
+                    break;
+                default:
+                    break;
+            }
+
+            //objPushNotification.CropName = CropName;
+            //objPushNotification.StepName = StepName;
+            //objPushNotification.CropId = Cultivation_StepsData.Crop_Id;
+            //objPushNotification.StepId = Cultivation_StepsData.Id;
+            //objPushNotification.LangCode = LanguageCode;
+            //objPushNotification.VideoURL = cultivation_Steps.VideoPath;
+            //objPushNotification.StepImageURL = Cultivation_StepsData.ImagePath;
+            //objPushNotification.CreatedOn = DateTime.Now.ToString("MM/dd/yyyy hh:mm tt");
+            //string message = comObj.SendPushNotification(objPushNotification);
+            //objPushNotification.ResponseMessage = message;
+            //StoreNotificationData(objPushNotification);
+
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { string.Empty, success = true, error = string.Empty });
+        }
+
     }
 }

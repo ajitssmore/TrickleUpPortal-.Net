@@ -180,6 +180,7 @@
     <Compile Include="Controllers\CropsController.cs" />
     <Compile Include="Controllers\CropStepAudio_AllocationController.cs" />
     <Compile Include="Controllers\CropSteps_MaterialController.cs" />
+    <Compile Include="Controllers\CropStep_VideoAllocationController.cs" />
     <Compile Include="Controllers\Crop_AudioAllocationController.cs" />
     <Compile Include="Controllers\Crop_VideoAllocationController.cs" />
     <Compile Include="Controllers\Cultivation_HistoryController.cs" />
@@ -281,6 +282,15 @@
     <Compile Include="Models\LiveStockBreed.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LiveStock_BreedCategory.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LiveStock_StepMaterial.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LiveStock_Steps.cs">
+      <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\MasterPassword.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
@@ -293,6 +303,7 @@
     <Compile Include="Models\MoneyManager.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\NotificationModel.cs" />
     <Compile Include="Models\PredefinedAudio.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
@@ -667,13 +678,17 @@
     <Content Include="MediaContent\Audios\Tomato_HVOSDD-9.mp3" />
     <Content Include="MediaContent\Images\Bean.jpg" />
     <Content Include="MediaContent\Images\bitter_gourd.jpg" />
+    <Content Include="MediaContent\Images\BlackBengalGoat.jpg" />
     <Content Include="MediaContent\Images\Cabbage.jpg" />
+    <Content Include="MediaContent\Images\Chick_CareandMang.jpg" />
     <Content Include="MediaContent\Images\Chilli.jpg" />
     <Content Include="MediaContent\Images\Lady_finger.jpg" />
     <Content Include="MediaContent\Images\LiveStock_Chickens.jpg" />
     <Content Include="MediaContent\Images\LiveStock_Goat.jpg" />
     <Content Include="MediaContent\Images\LiveStock_Pigs.jpg" />
     <Content Include="MediaContent\Images\Potatoe.jpg" />
+    <Content Include="MediaContent\Images\Poultry-feed.jpg" />
+    <Content Include="MediaContent\Images\RIRBreed.jpg" />
     <Content Include="MediaContent\Images\Tomato.jpeg" />
     <Content Include="MediaContent\PredefinedAudios\EN001.mp3" />
     <Content Include="MediaContent\PredefinedAudios\EN002.mp3" />

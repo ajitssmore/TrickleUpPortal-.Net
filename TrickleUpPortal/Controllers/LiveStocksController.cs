@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Dynamic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -22,11 +23,11 @@ namespace TrickleUpPortal.Controllers
         //    return db.LiveStocks;
         //}
 
-        public HttpResponseMessage GetLiveStocks()
+        public HttpResponseMessage GetLiveStocks(int LangCode)
         {
             var LiveStock = from LiveStockdata in db.LiveStocks
-                          where LiveStockdata.Active == true
-                          select new { LiveStockdata.Id, LiveStockdata.StockName, LiveStockdata.ImageURL, LiveStockdata.AudioURL, LiveStockdata.Active };
+                            where LiveStockdata.Active == true
+                            select new { LiveStockdata.Id, LiveStockdata.StockName, LiveStockdata.ImageURL, LiveStockdata.AudioURL, LiveStockdata.Active };
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { LiveStock }, success = true, error = string.Empty });
         }
 
@@ -123,9 +124,61 @@ namespace TrickleUpPortal.Controllers
             return db.LiveStocks.Count(e => e.Id == id) > 0;
         }
 
-        public HttpResponseMessage GetLiveStocksProcessData(int LiveStockId)
+        public HttpResponseMessage GetLiveStocksProcessData(int LangCode)
         {
-            LiveStock LiveStock = db.LiveStocks.Find(LiveStockId);
+            List<LiveStock> LiveStock = db.LiveStocks.ToList();
+            if (LiveStock.Count > 0)
+            {
+                foreach (LiveStock LiveData in LiveStock)
+                {
+                    foreach (LiveStock_Steps StepData in LiveData.LiveStock_Steps)
+                    {
+                        List<LiveStock_StepMaterial> AdultData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Adult").ToList();
+                        List<LiveStock_StepMaterial> ChildData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Child").ToList();
+                        StepData.Adult = AdultData;
+                        StepData.Child = ChildData;
+                    }
+                }
+            }
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { LiveStock }, success = true, error = string.Empty });
+        }
+
+        public HttpResponseMessage GetLiveStocksProcessDataNew(int LangCode)
+        {
+            List<LiveStock> LiveStock = db.LiveStocks.ToList();
+            //dynamic LiveStockProcessData = new ExpandoObject();
+            //if (LiveStock.Count > 0)
+            //{
+            //    LiveStockProcessData = LiveStock;
+            //    int LiveStockIndex = 0, LiveStock_StepsIndex = 0;
+            //    foreach (var LiveData in LiveStockProcessData)
+            //    {
+            //        foreach (LiveStock_Steps StepData in LiveData.LiveStock_Steps)
+            //        {
+            //            List<LiveStock_StepMaterial> AdultData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Adult").ToList();
+            //            List<LiveStock_StepMaterial> ChildData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Child").ToList();
+            //            LiveStockProcessData[LiveStockIndex].LiveStock_Steps[LiveStock_StepsIndex].Add(new[] { "toto" }) ; //= new[] { AdultData };
+            //            LiveStockProcessData[LiveStockIndex].LiveStock_Steps[LiveStock_StepsIndex].ChildData = ChildData;
+            //            LiveStock_StepsIndex++;
+            //        }
+            //        LiveStockIndex++;
+            //    }
+            //}
+
+            if (LiveStock.Count > 0)
+            {
+                foreach (LiveStock LiveData in LiveStock)
+                {
+                    foreach (LiveStock_Steps StepData in LiveData.LiveStock_Steps)
+                    {
+                        List<LiveStock_StepMaterial> AdultData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Adult").ToList();
+                        List<LiveStock_StepMaterial> ChildData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Child").ToList();
+                        StepData.Adult = AdultData;
+                        StepData.Child = ChildData;
+                    }
+                }
+            }
+
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { LiveStock }, success = true, error = string.Empty });
         }
     }

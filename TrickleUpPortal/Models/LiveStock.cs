@@ -17,6 +17,7 @@ namespace TrickleUpPortal.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LiveStock()
         {
+            this.LiveStock_Steps = new HashSet<LiveStock_Steps>();
             this.LiveStockBreeds = new HashSet<LiveStockBreed>();
         }
     
@@ -32,6 +33,8 @@ namespace TrickleUpPortal.Models
         public Nullable<System.DateTime> ActiveOn { get; set; }
         public Nullable<bool> Active { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LiveStock_Steps> LiveStock_Steps { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LiveStockBreed> LiveStockBreeds { get; set; }
     }
