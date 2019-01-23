@@ -33,8 +33,8 @@ namespace TrickleUpPortal.Models
         public string ImageURL { get; set; }
         public string AudioURL { get; set; }
     
+        public virtual LiveStock LiveStock { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LiveStock_BreedCategory> LiveStock_BreedCategory { get; set; }
-        public virtual LiveStock LiveStock { get; set; }
     }
 }

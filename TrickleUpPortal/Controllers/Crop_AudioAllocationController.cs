@@ -140,6 +140,12 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
+            int recordCount = db.Crop_AudioAllocation.Where(a => a.CropId == crop_AudioAllocation.CropId && a.LangId == crop_AudioAllocation.LangId && a.Active == true).Count();
+            if (recordCount > 0)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Audio already allocated with this Crop." });
+            }
+
             db.Crop_AudioAllocation.Add(crop_AudioAllocation);
             db.SaveChanges();
 

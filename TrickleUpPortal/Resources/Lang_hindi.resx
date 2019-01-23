@@ -153,6 +153,12 @@
   <data name="आड़ी़ और नाली तथा पौधे से पौधे के बीच में 2 फीट की दूरी होनी चाहिए. आड़ी़ के मिट्टी में हादरी एवं खाद डालें." xml:space="preserve">
     <value>Spacing between Ridges and furrow should be 2 feet and spacing between plant to plant should be 2 feet. Put Hadri and Compost mix in the soil of ridges</value>
   </data>
+  <data name="ऑडियो अपलोड किया गया है" xml:space="preserve">
+    <value>Audio has been uploaded</value>
+  </data>
+  <data name="ऑडियो हटा दिया गया है" xml:space="preserve">
+    <value>Audio has been removed</value>
+  </data>
   <data name="कटाई के दौरान 10 दिनों के अंतराल में अमृतजल को रोपण के 60 दिनों तक दोहराएं (रोपण के 50-60 दिनों के बीच)" xml:space="preserve">
     <value>Repeat Amrutjal up to 60 days of planting in an interval of 10 days during the harvesting (In Between 50-60 days of planting)</value>
   </data>
@@ -170,6 +176,9 @@
   </data>
   <data name="कीड़ो की व्यवस्था और पोषण का प्रयोग" xml:space="preserve">
     <value>Use of Nutrition and Pest Management</value>
+  </data>
+  <data name="के लिये" xml:space="preserve">
+    <value>For</value>
   </data>
   <data name="केंचुआ खाद" xml:space="preserve">
     <value>Vermicompost</value>
@@ -206,6 +215,12 @@
   </data>
   <data name="गौ मूत्र पानी के साथ1" xml:space="preserve">
     <value>Cow Urine with Water</value>
+  </data>
+  <data name="चित्र अपलोड किया गया है" xml:space="preserve">
+    <value>Image has been uploaded</value>
+  </data>
+  <data name="छवि हटा दी गई है" xml:space="preserve">
+    <value>Image has been removed</value>
   </data>
   <data name="जमीन को जोतना" xml:space="preserve">
     <value>Ploughing of Land</value>
@@ -407,6 +422,12 @@
   </data>
   <data name="लंबी फलियाँ" xml:space="preserve">
     <value>Long Beans</value>
+  </data>
+  <data name="वीडियो अपलोड किया गया है" xml:space="preserve">
+    <value>Video has been uploaded</value>
+  </data>
+  <data name="वीडियो को हटा दिया गया है" xml:space="preserve">
+    <value>Video has been removed</value>
   </data>
   <data name="सारे बीजों को ठंडे पानी के बर्तन में डालकर 15-20 घंटे तक रखें. बीजों को जूट के बोरे में डालकर छाँव में सुखाएं. यह प्रक्रिया बीज उपचार और बीज बोने एक दिन पहले करें." xml:space="preserve">
     <value>Put all seeds into a bowl of cold water and keep it for 15-20 hours. Seeds need to be dried in shadow on ginni bag. Seed priming needs to be done just one day before seed treatment and sowing in the pit.</value>

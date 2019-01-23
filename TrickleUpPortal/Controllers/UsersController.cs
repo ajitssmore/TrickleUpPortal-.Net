@@ -246,7 +246,12 @@ namespace TrickleUpPortal.Controllers
                     return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Email already Exist" });
                 }
             }
-            
+
+            if (user.Language == null)
+            {
+                user.Language = 1;
+            }
+
             db.Users.Add(user);
             db.SaveChanges();
             CreateUserCrednetails(user);

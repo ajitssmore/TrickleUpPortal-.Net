@@ -27,6 +27,7 @@ namespace TrickleUpPortal.Models
         public Nullable<int> ActiveBy { get; set; }
         public Nullable<System.DateTime> ActiveOn { get; set; }
         public Nullable<bool> Active { get; set; }
+        public string Category { get; set; }
     
         public virtual LiveStockBreed LiveStockBreed { get; set; }
     }

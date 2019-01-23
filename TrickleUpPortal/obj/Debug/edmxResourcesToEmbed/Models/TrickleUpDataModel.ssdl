@@ -359,6 +359,7 @@
     <Property Name="ActiveBy" Type="int" />
     <Property Name="ActiveOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
+    <Property Name="Category" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="LiveStock_StepMaterial">
     <Key>

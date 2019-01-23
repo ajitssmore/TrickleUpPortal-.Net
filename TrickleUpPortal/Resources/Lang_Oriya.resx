@@ -135,6 +135,12 @@
   <data name="ଅଃଫ୍ଟୱେର  50 ଦେଶ  ଅ  ସେଏଡ଼  ଫିଲଳିଙ୍ଗ, ସ୍ପ୍ରେ  ହାନ୍ଡିଖାତା  ଆଣ୍ଡ  ଆଗ୍ନେୟାସ୍ତ୍ର  ସୋଲୁସନ" xml:space="preserve">
     <value>After 50 days of seed filling, spray Handikhata and Agneyastra Solution</value>
   </data>
+  <data name="ଅଡିଓ ହସ ବୀନ ଉପିଲଵାଡେଡ଼" xml:space="preserve">
+    <value>Audio has been uploaded</value>
+  </data>
+  <data name="ଅଡିଓ ହସ ବୀନ ରେମବେଦ" xml:space="preserve">
+    <value>Audio has been removed</value>
+  </data>
   <data name="ଅମୃତଜାଲ" xml:space="preserve">
     <value>Amrutjal</value>
   </data>
@@ -149,6 +155,12 @@
   </data>
   <data name="ଆଗ୍ନେୟାସ୍ତ୍ର ବିଠ ୱାଟର" xml:space="preserve">
     <value>Agneyastra with Water</value>
+  </data>
+  <data name="ଈମାଗେ ହସ ବୀନ ଉପିଲଵାଡେଡ଼" xml:space="preserve">
+    <value>Image has been uploaded</value>
+  </data>
+  <data name="ଈମାଗେ ହସ ବୀନ ରେମବେଦ" xml:space="preserve">
+    <value>Image has been removed</value>
   </data>
   <data name="ଉସେ  ଅ  ଅର୍ଗାନିକ  ପେସ୍ଟିସିଦେଶ  ଆଣ୍ଡ  ଫର୍ଟିଲାୱୀଜ଼ଏର୍ସ" xml:space="preserve">
     <value>Use of Organic Pesticides and Fertilizers</value>
@@ -315,6 +327,9 @@
   <data name="ଫିରସ୍ତ ୱେଇଡିଙ୍ଗ ଆଣ୍ଡ ହୋୱେଇଙ୍ଗ" xml:space="preserve">
     <value>First Weeding and Hoeing</value>
   </data>
+  <data name="ଫୋର" xml:space="preserve">
+    <value>For</value>
+  </data>
   <data name="ବଋଂଜଳ" xml:space="preserve">
     <value>Brinjal</value>
   </data>
@@ -347,6 +362,12 @@
   </data>
   <data name="ବେରଂମିକମ୍ପସ୍ଟି1" xml:space="preserve">
     <value>Vermicompost</value>
+  </data>
+  <data name="ଭିଡ଼ିଓ ହସ ବୀନ ଉପିଲଵାଡେଡ଼" xml:space="preserve">
+    <value>Video has been uploaded</value>
+  </data>
+  <data name="ଭିଡ଼ିଓ ହସ ବୀନ ରେମବେଦ" xml:space="preserve">
+    <value>Video has been removed</value>
   </data>
   <data name="ମଞ୍ଜି ଲଗାଇବାର 10 ବ୍ୟବଧାନରେ 60 ଦିନ୍ ପର୍ଯ୍ୟନ୍ତ ଅମୃତଜଳ ପୁନ ବ୍ୟବହାର କରନ୍ତୁ. (ମଞ୍ଜି ଲଗାଇବାର 50-60 ଦିନ  ମଧ୍ୟରେ)" xml:space="preserve">
     <value>Repeat Amrutjal up to 60 days of planting in an interval of 10 days during the harvesting (In Between 50-60 days of planting)</value>

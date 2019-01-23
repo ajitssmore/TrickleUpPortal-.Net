@@ -13,6 +13,7 @@ namespace TrickleUpPortal.Models
         public Nullable<int> languageId { get; set; }
         public string notificationContext { get; set; }
         public Nullable<int> stateId { get; set; }
+        public string fieldType { get; set; }
         public List<int> villageIdList { get; set; }
         public Boolean Active { get; set; }
         public string category { get; set; }
