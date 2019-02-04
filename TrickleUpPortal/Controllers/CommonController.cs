@@ -18,7 +18,7 @@ namespace TrickleUpPortal.Controllers
     public class CommonController : ApiController
     {
         public TrickleUpEntities db = new TrickleUpEntities();
-        string AudioFilePath;
+        string AudioFilePath, LanguageName;
 
         public string GetResxNameByValue_Hindi(string value)
         {
@@ -59,10 +59,24 @@ namespace TrickleUpPortal.Controllers
             return key;
         }
 
-        public Language fetchLang(int? LangId)
+        //public Language fetchLang(int? LangId)
+        //{
+        //    Language languageData = db.Languages.Find(LangId);
+        //    return languageData;
+        //}
+
+        public string fetchLang(int? LangId)
         {
             Language languageData = db.Languages.Find(LangId);
-            return languageData;
+            if (languageData != null)
+            {
+                LanguageName = languageData.LanguageName;
+            }
+            else
+            {
+                LanguageName = db.Languages.Where(a => a.LanguageName == "English").Select(a => a.LanguageName).FirstOrDefault().ToString();
+            }
+            return LanguageName;
         }
 
         public string fetchAudioPahtCrops(int CropId, int langId)
@@ -70,6 +84,34 @@ namespace TrickleUpPortal.Controllers
             var results = (from Audiodata in db.Crop_AudioAllocation
                            join AudioFile in db.Audios on Audiodata.AudioId equals AudioFile.Id
                            where Audiodata.CropId == CropId && Audiodata.LangId == langId
+                           select new { AudioFile.FilePath, Audiodata.FieldType }).ToList();
+            if (results.Count > 0)
+            {
+                foreach (var item in results)
+                {
+                    switch (item.FieldType)
+                    {
+                        case "Title":
+                            AudioFilePath = item.FilePath;
+                            break;
+                        default:
+                            AudioFilePath = string.Empty;
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                AudioFilePath = string.Empty;
+            }
+            return AudioFilePath;
+        }
+
+        public string fetchAudioPahtLiveStock(int LiveStockId, int langId)
+        {
+            var results = (from Audiodata in db.LiveStock_AudioAllocation
+                           join AudioFile in db.Audios on Audiodata.AudioId equals AudioFile.Id
+                           where Audiodata.LiveStockId == LiveStockId && Audiodata.LangId == langId
                            select new { AudioFile.FilePath, Audiodata.FieldType }).ToList();
             if (results.Count > 0)
             {
@@ -231,11 +273,9 @@ namespace TrickleUpPortal.Controllers
             PushNotificationDataModel objPushNotification = new PushNotificationDataModel();
             string CropName = "", StepName="", MaterialName = "", LanguageName="";
             List<int> UserId;
-            Language language = fetchLang(NotificationModelData.languageId);
-            if (language != null)
-            {
-                LanguageName = language.LanguageName;
-            }
+
+            LanguageName = fetchLang(NotificationModelData.languageId);
+            
             switch (NotificationModelData.notificationContext)
             {
                 case "crop":
@@ -406,7 +446,9 @@ namespace TrickleUpPortal.Controllers
             {
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = string.Empty, success = false, error = "There are no any Users to send a notification" });
             }
-
+            //objPushNotification.CreatedOn = System.DateTime.Now;
+            objPushNotification.CreatedOn = DateTime.Now.ToString("yyyy-MM-dd h:mm tt");
+            objPushNotification.MediaType = NotificationModelData.category;
             string message = SendPushNotification(objPushNotification, deviceIDs);
             objPushNotification.ResponseMessage = message;
             StoreNotificationData(objPushNotification);

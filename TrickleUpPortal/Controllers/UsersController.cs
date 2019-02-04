@@ -429,7 +429,7 @@ namespace TrickleUpPortal.Controllers
                 UserId = user.Id,
                 UserName = user.UserId,
                 PhoneNumber = user.PhoneNumber,
-                Password = !string.IsNullOrEmpty(user.Password) ? user.Password : "12345"
+                Password = !string.IsNullOrEmpty(user.Password) ? user.Password : "123456"
             };
             db.UserCredentials.Add(loginUser);
             db.SaveChanges();

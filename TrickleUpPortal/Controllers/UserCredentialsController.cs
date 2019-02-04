@@ -43,16 +43,9 @@ namespace TrickleUpPortal.Controllers
         [HttpPost]
         public HttpResponseMessage AuthenticateUser(UserCredential userCredential)
         {
-            //public HttpResponseMessage AuthenticateUser([FromBody]UserCredential userCredential)
-            // {
             try
             {
-                //UserCredential userCredential = (UserCredential)db.UserCredentials.Where(a => a.UserName == userName && a.Password == userPassword).SingleOrDefault();
-                Language language = comObj.fetchLang(userCredential.LangCode);
-                if (language != null)
-                {
-                    LanguageName = language.LanguageName;
-                }
+                LanguageName = comObj.fetchLang(userCredential.LangCode);
 
                 var result = from UserCredential in db.UserCredentials
                              join User in db.Users on UserCredential.UserId equals User.Id

@@ -341,6 +341,22 @@
     <Property Name="ActiveBy" Type="int" />
     <Property Name="ActiveOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
+    <Property Name="AliasName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="LiveStock_AudioAllocation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LiveStockId" Type="int" />
+    <Property Name="LangId" Type="int" />
+    <Property Name="FieldType" Type="nvarchar(max)" />
+    <Property Name="AudioId" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
   </EntityType>
   <EntityType Name="LiveStock_BreedCategory">
     <Key>
@@ -360,6 +376,8 @@
     <Property Name="ActiveOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
     <Property Name="Category" Type="nvarchar(max)" />
+    <Property Name="ImageURL" Type="nvarchar(max)" />
+    <Property Name="AudioURL" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="LiveStock_StepMaterial">
     <Key>
@@ -371,8 +389,8 @@
     <Property Name="LiveStock_StepId" Type="int" />
     <Property Name="TitleAudioURL" Type="nvarchar(max)" />
     <Property Name="DescriptionAudioURL" Type="nvarchar(max)" />
-    <Property Name="Quantity" Type="int" />
-    <Property Name="Rate" Type="float" />
+    <Property Name="Quantity" Type="float" />
+    <Property Name="Cost" Type="float" />
     <Property Name="ImageURL" Type="nvarchar(max)" />
     <Property Name="CreatedBy" Type="int" />
     <Property Name="CreatedOn" Type="datetime" />
@@ -382,6 +400,8 @@
     <Property Name="ActiveOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
     <Property Name="Category" Type="nvarchar" MaxLength="50" />
+    <Property Name="Quantity_measured" Type="nvarchar(max)" />
+    <Property Name="Cost_measured" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="LiveStock_Steps">
     <Key>
@@ -1191,6 +1211,7 @@
     <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LiveStock" EntityType="Self.LiveStock" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LiveStock_AudioAllocation" EntityType="Self.LiveStock_AudioAllocation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LiveStock_BreedCategory" EntityType="Self.LiveStock_BreedCategory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LiveStock_StepMaterial" EntityType="Self.LiveStock_StepMaterial" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LiveStock_Steps" EntityType="Self.LiveStock_Steps" Schema="dbo" store:Type="Tables" />

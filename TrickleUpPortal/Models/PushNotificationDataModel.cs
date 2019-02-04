@@ -22,5 +22,6 @@ namespace TrickleUpPortal.Models
         public string notificationContext { get; set; }
         public string category { get; set; }
         public string ResponseMessage { get; set; }
+        public string MediaType { get; set; }
     }
 }

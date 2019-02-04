@@ -33,12 +33,7 @@ namespace TrickleUpPortal.Controllers
         [HttpGet]
         public HttpResponseMessage GetCrops(int langCode)
         {
-            Language language = comObj.fetchLang(langCode);
-            if (language != null)
-            {
-                LanguageName = language.LanguageName;
-            }
-            
+            LanguageName = comObj.fetchLang(langCode);
             var results = from Cropdata in db.Crops
                           where Cropdata.Active == true
                           select new { Cropdata.Id, Cropdata.CropName, Cropdata.FilePath, Cropdata.Ready, Cropdata.Active};
@@ -83,12 +78,8 @@ namespace TrickleUpPortal.Controllers
         [HttpGet]
         public HttpResponseMessage GetCropsPortal(int langCode)
         {
-            Language language = comObj.fetchLang(langCode);
-            if (language != null)
-            {
-                LanguageName = language.LanguageName;
-            }
-
+            LanguageName = comObj.fetchLang(langCode);
+            
             var results = from Cropdata in db.Crops
                           select new { Cropdata.Id, Cropdata.CropName, Cropdata.FilePath, Cropdata.Ready, Cropdata.Active };
             List<Cropdata> Crops = new List<Cropdata>();
@@ -178,11 +169,7 @@ namespace TrickleUpPortal.Controllers
         {
             try
             {
-                Language language = comObj.fetchLang(langId);
-                if (language != null)
-                {
-                    LanguageName = language.LanguageName;
-                }
+                LanguageName = comObj.fetchLang(langId);
 
                 Crop crop = db.Crops.Find(id);
 

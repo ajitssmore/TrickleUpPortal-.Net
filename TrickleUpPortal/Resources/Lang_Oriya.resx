@@ -156,6 +156,9 @@
   <data name="ଆଗ୍ନେୟାସ୍ତ୍ର ବିଠ ୱାଟର" xml:space="preserve">
     <value>Agneyastra with Water</value>
   </data>
+  <data name="ଆର ଆଇ ଆର" xml:space="preserve">
+    <value>RIR</value>
+  </data>
   <data name="ଈମାଗେ ହସ ବୀନ ଉପିଲଵାଡେଡ଼" xml:space="preserve">
     <value>Image has been uploaded</value>
   </data>
@@ -189,6 +192,30 @@
   <data name="ଓନିଅଁ" xml:space="preserve">
     <value>Onion</value>
   </data>
+  <data name="କଳା ବଙ୍ଗାଳି ଛେଳି" xml:space="preserve">
+    <value>Black Bengal Goat</value>
+  </data>
+  <data name="କୁକୁଡ଼ା" xml:space="preserve">
+    <value>Hen</value>
+  </data>
+  <data name="କୁକୁଡ଼ା  ଛୁଆ" xml:space="preserve">
+    <value>Chicks</value>
+  </data>
+  <data name="କୁକୁଡ଼ା ପାଳନ" xml:space="preserve">
+    <value>Poultry</value>
+  </data>
+  <data name="ଖୁଆଇବା" xml:space="preserve">
+    <value>Feeding</value>
+  </data>
+  <data name="ଗଞ୍ଜା" xml:space="preserve">
+    <value>Cocks</value>
+  </data>
+  <data name="ଘୁଷୁରୀ" xml:space="preserve">
+    <value>Pig</value>
+  </data>
+  <data name="ଘୁଷୁରୀ ଛୁଆ" xml:space="preserve">
+    <value>Piglets</value>
+  </data>
   <data name="ଚାଉଳିଫ୍ଲୋବେର" xml:space="preserve">
     <value>Cauliflower</value>
   </data>
@@ -209,6 +236,15 @@
   </data>
   <data name="ଛାଵଗେ" xml:space="preserve">
     <value>Cabbage</value>
+  </data>
+  <data name="ଛେଳି" xml:space="preserve">
+    <value>Goat</value>
+  </data>
+  <data name="ଛେଳି ଛୁଆ" xml:space="preserve">
+    <value>Kid</value>
+  </data>
+  <data name="ଛେଳି1" xml:space="preserve">
+    <value>Doe</value>
   </data>
   <data name="ଜୀବମିରିତ  ସୋଲୁସନ" xml:space="preserve">
     <value>Jivamirita Solution</value>
@@ -239,6 +275,9 @@
   </data>
   <data name="ଦ୍ୱୀମେନ୍ସିଓଂ  ଅ  ନୁରସେରୀ  ଷୌଲଡ଼  ବେ  ୧୦  ଫାଟ  ଲେଙ୍ଗଠ, 3 ଫାଟ  ଵିଦତଃ  ଆଣ୍ଡ  9 ଇଞ୍ଚ  ଅ  ହେଈଗଷ୍ଟ. ସ୍ପ୍ରେ  ଚୋବ  ୟୁରିନେ  ଇଂ  ଥେ  ଶୋଇଲା. ଚୋବେର  ଇଟା  ବିଠ  ତହିଁ  ଭିତେ  ପ୍ଲାଷ୍ଟିକ  ମୁଲଚ  (ପୋଲଠଇନେ) ଫୋର  12 ହୋଉଶ. ଲିନେ  ସ୍ଵୟଂ  ଅ  ସୀଦଶ. ଚୋବେର  ନୁରସେରୀ  ବେଡ଼  ବିଠ  ସ୍ତ୍ରାଵ  ଫୋର  4-5 ଦେଶ. ପୁଟ  ଫର୍ମ  ୱାର୍ଡ  ମାନୁର  (ଫାୟାମ /ବେରଂମିକମ୍ପସ୍ଟି ) ଆଣ୍ଡ  ସେଏଡଲିଙ୍ଗ  ବିଲ୍ଲ  ବେ  ଇଂ  ନୁରସେରୀ  ବେଡ଼  ଟିଲଲ  21 ଦେଶ  ଅ  ସ୍ଵୟଂ." xml:space="preserve">
     <value>Dimension of Nursery should be 10 ft length, 3 ft width and 9 inch of height. Spray cow urine in the Soil. Cover it with thin white Plastic Mulch (Polythene) for 12 hours. Line Sowing of seeds. Cover nursery bed with straw for 4-5 days. Put Farm Yard Manure (FYM/vermicompost) and Seedling will be in nursery bed till 21 days of sowing.</value>
+  </data>
+  <data name="ନାରୀ" xml:space="preserve">
+    <value>Female</value>
   </data>
   <data name="ନିମ  ଚକେ" xml:space="preserve">
     <value>Neem Cake</value>
@@ -303,6 +342,9 @@
   <data name="ପୁଟ  ଳ  ସୀଦଶ  ଈଂଟ  ଏ  ବଉଳ  ଅ  ୱାଟର  ଫୋର  4-5 ହୋଉଶ." xml:space="preserve">
     <value>Put all seeds into a bowl of water for 4-5 hours.</value>
   </data>
+  <data name="ପୁରୁଷ" xml:space="preserve">
+    <value>Male</value>
+  </data>
   <data name="ପୋଲଠଇନେ" xml:space="preserve">
     <value>Polythene</value>
   </data>
@@ -333,6 +375,12 @@
   <data name="ବଋଂଜଳ" xml:space="preserve">
     <value>Brinjal</value>
   </data>
+  <data name="ବଡ କଳା" xml:space="preserve">
+    <value>Large Black</value>
+  </data>
+  <data name="ବଡ ଧଳା ୟର୍କସାୟାର" xml:space="preserve">
+    <value>Large White Yorksire</value>
+  </data>
   <data name="ବରପି  ସୀଦଶ  ଇଂ  ସର୍ତ୍ତନ  ସଲତ  ଆଣ୍ଡ  ଶାକ  ଇଟା, ଠେଁ  ଦୀପ  ଇଟା  ଈଂଟ  ଚୋବ  ୟୁରିନେ  ଆଣ୍ଡ  ୱାଟର  ସୋଲୁସନ  ଡ  ବୀଜମୃତ  ସୋଲୁସନ  ଫୋର  ୫  ମିନୁତେଷୁ. ଠେଁ  ଦରୀ  ଥେ  ସାକେଡ଼  ସୀଦଶ  ଇଂ  ଏ  ଷଡ଼େଡ଼  ଆରେଏ  ଉପତ୍ୟ  ୧ -୨  ହୋଉଶ  ଆଣ୍ଡ  ସ୍ଵ  ଇଂ  ଥେ  ପିସ୍ତା." xml:space="preserve">
     <value>Wrap seeds in cotton cloth and soak it, then dip it into cow urine and water Solution or Beejamrita Solution for 5 minutes. Then dry the soaked seeds in a shaded area upto 1-2 hours and sow in the pits.</value>
   </data>
@@ -357,6 +405,9 @@
   <data name="ବୀଜମୃତ ସୋଲୁସନ" xml:space="preserve">
     <value>Beejamrita Solution</value>
   </data>
+  <data name="ବୀର୍ଡ୍ସ" xml:space="preserve">
+    <value>Birds</value>
+  </data>
   <data name="ବେରଂମିକମ୍ପସ୍ଟି" xml:space="preserve">
     <value>Vermicompost</value>
   </data>
@@ -372,8 +423,14 @@
   <data name="ମଞ୍ଜି ଲଗାଇବାର 10 ବ୍ୟବଧାନରେ 60 ଦିନ୍ ପର୍ଯ୍ୟନ୍ତ ଅମୃତଜଳ ପୁନ ବ୍ୟବହାର କରନ୍ତୁ. (ମଞ୍ଜି ଲଗାଇବାର 50-60 ଦିନ  ମଧ୍ୟରେ)" xml:space="preserve">
     <value>Repeat Amrutjal up to 60 days of planting in an interval of 10 days during the harvesting (In Between 50-60 days of planting)</value>
   </data>
+  <data name="ମଧ୍ୟମ ଧଳା ୟର୍କସାୟାର" xml:space="preserve">
+    <value>Middle White Yorkshire</value>
+  </data>
   <data name="ମାଛ ଡ ସ୍ଟିସିକ" xml:space="preserve">
     <value>Macha or Stick</value>
+  </data>
+  <data name="ଯତ୍ନ ନେବା" xml:space="preserve">
+    <value>Care and Management</value>
   </data>
   <data name="ରପାତ  ହାନ୍ଡିଖାତା  ସୋଲୁସନ  ଆଣ୍ଡ  ସ୍ପ୍ରେ  ଆଗ୍ନେୟାସ୍ତ୍ର  ଇଂ  ଅଂ  ଇଣ୍ଟେରବଲ  ଅ  10 ଦେଶ  ଟିଲଲ  ହରବେଶଟିଙ୍ଗ - 2-3 ଟିମଏସ" xml:space="preserve">
     <value>Repeat Handikhata Solution and spray Agneyastra in an interval of 10 days till harvesting- 2-3 times</value>
@@ -390,11 +447,17 @@
   <data name="ଲଦଇସ  ଫିଙ୍ଗର  ହରବେଶଟିଙ୍ଗ" xml:space="preserve">
     <value>Ladies Finger Harvesting</value>
   </data>
+  <data name="ଲାଣ୍ଡ ରେସ" xml:space="preserve">
+    <value>Land race</value>
+  </data>
   <data name="ଲେଡି ଫିଙ୍ଗର" xml:space="preserve">
     <value>Lady finger</value>
   </data>
   <data name="ଵାଦୀଶଃ" xml:space="preserve">
     <value>Radish</value>
+  </data>
+  <data name="ଵୋଦା" xml:space="preserve">
+    <value>Buck</value>
   </data>
   <data name="ଷ୍ଟାଫþ ଫିଲଡþ ଭିଜିଟþ କିପରି ଥିଲା ?ଷ୍ଟାଫþ ଫିଲଡþ ଭିଜିଟþ କିପରି ଥିଲା ?" xml:space="preserve">
     <value>How was the staff field Visit ?</value>
@@ -467,6 +530,9 @@
   </data>
   <data name="ହାନ୍ଡିଖାତା ସୋଲୁସନ1" xml:space="preserve">
     <value>Handikhata Solution</value>
+  </data>
+  <data name="ହାମସଫାୟାର" xml:space="preserve">
+    <value>Hampshire</value>
   </data>
   <data name="ହ୍ୟାଦ୍ରି  ଆଣ୍ଡ  ବେରଂମିକମ୍ପସ୍ଟି" xml:space="preserve">
     <value>Hadri and Vermicompost</value>

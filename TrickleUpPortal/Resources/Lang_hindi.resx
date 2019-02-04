@@ -141,6 +141,9 @@
   <data name="आग्नेयास्त्र पानी के साथ" xml:space="preserve">
     <value>Agneyastra with Water</value>
   </data>
+  <data name="आर आई आर" xml:space="preserve">
+    <value>RIR</value>
+  </data>
   <data name="आड़ी और नाली की तैयारी, बीज और पोषण की आवश्यकता" xml:space="preserve">
     <value>Preparation of Ridges and furrow, Seed and Nutrition requirement</value>
   </data>
@@ -174,6 +177,9 @@
   <data name="कर्मचारी के क्षेत्र दौरे कैसे था?" xml:space="preserve">
     <value>How was the staff field Visit ?</value>
   </data>
+  <data name="काला हिरन" xml:space="preserve">
+    <value>Buck</value>
+  </data>
   <data name="कीड़ो की व्यवस्था और पोषण का प्रयोग" xml:space="preserve">
     <value>Use of Nutrition and Pest Management</value>
   </data>
@@ -185,6 +191,9 @@
   </data>
   <data name="केंचुआ खाद1" xml:space="preserve">
     <value>Vermicompost</value>
+  </data>
+  <data name="खिलाना" xml:space="preserve">
+    <value>Feeding</value>
   </data>
   <data name="खीरा" xml:space="preserve">
     <value>Cucumber</value>
@@ -219,6 +228,9 @@
   <data name="चित्र अपलोड किया गया है" xml:space="preserve">
     <value>Image has been uploaded</value>
   </data>
+  <data name="चूजों" xml:space="preserve">
+    <value>Chicks</value>
+  </data>
   <data name="छवि हटा दी गई है" xml:space="preserve">
     <value>Image has been removed</value>
   </data>
@@ -252,6 +264,9 @@
   <data name="दूसरी निकाई और गुड़ाई के 32 दिनों के बाद हांडीखाद, अमृतजल और आग्नेयास्त्र का छिडकाव करें. चावल के माड के साथ हल्दी पाउडर मिश्रण डालें.1" xml:space="preserve">
     <value>After 32 days of Second weeding and Hoeing spray Handikhata, Amrutjal and Agneyastra. Put Haldi Powder Solution with Rice Starch</value>
   </data>
+  <data name="देखभाल और प्रबंधन" xml:space="preserve">
+    <value>Care and Management</value>
+  </data>
   <data name="दो गड्डो के बीच में 3 फीट और दो लाइनों के भी बीच में 3 फीट की दूरी होनी चाहिए. प्रत्येक गड्डे में हादरी एवं खाद मिश्रण और केंचुआ खाद का प्रयोग करें. प्रत्येक गड्डे में 3 सूखे बीज डालें." xml:space="preserve">
     <value>Spacing between two pits should be 3 feet and spacing between two rows should be 3 feet. Put Hadri and Compost mix in each pit and Vermicompost. Put dried out 3 seeds in each pit</value>
   </data>
@@ -279,11 +294,17 @@
   <data name="नीम युक्त यूरिआ (इन्क्यूबेटेड यूरिया) खाद के साथ1" xml:space="preserve">
     <value>Neem Coated Urea (Incubated Urea) with Compost</value>
   </data>
+  <data name="पक्षियों" xml:space="preserve">
+    <value>Birds</value>
+  </data>
   <data name="पहली निकाई और गुड़ाई" xml:space="preserve">
     <value>First Weeding and Hoeing</value>
   </data>
   <data name="पानी" xml:space="preserve">
     <value>Water</value>
+  </data>
+  <data name="पुरुष" xml:space="preserve">
+    <value>Male</value>
   </data>
   <data name="पॉलिथीन" xml:space="preserve">
     <value>Polythene</value>
@@ -308,6 +329,15 @@
   </data>
   <data name="फसल कटने तक 2-3 बार हर 10 दिनों के अन्तराल में हांडीखाद और आग्नेयास्त्र का पानी के साथ छिडकाव करें.1" xml:space="preserve">
     <value>Repeat Handikhata Solution, Spray Amritjal and Agneyastra in an interval of 10 days till harvesting -2-3 times</value>
+  </data>
+  <data name="बकरी" xml:space="preserve">
+    <value>Goat</value>
+  </data>
+  <data name="बच्चा" xml:space="preserve">
+    <value>Kid</value>
+  </data>
+  <data name="बड़े सफेद यॉर्कशायर" xml:space="preserve">
+    <value>Large White Yorksire</value>
   </data>
   <data name="बरबटी की फसल कटाई" xml:space="preserve">
     <value>Long Beans Harvesting</value>
@@ -372,11 +402,20 @@
   <data name="बैंगन" xml:space="preserve">
     <value>Brinjal</value>
   </data>
+  <data name="ब्लैक बंगाल बकरी" xml:space="preserve">
+    <value>Black Bengal Goat</value>
+  </data>
   <data name="भिंडी की फसल कटाई" xml:space="preserve">
     <value>Ladies Finger Harvesting</value>
   </data>
   <data name="भिन्डी" xml:space="preserve">
     <value>Lady finger</value>
+  </data>
+  <data name="मध्य सफेद यॉर्कशायर" xml:space="preserve">
+    <value>Middle White Yorkshire</value>
+  </data>
+  <data name="महिला" xml:space="preserve">
+    <value>Female</value>
   </data>
   <data name="मिर्च" xml:space="preserve">
     <value>Chilli</value>
@@ -389,6 +428,15 @@
   </data>
   <data name="मुख्य जमीन तैयार करने के लिए 2-3 बार हल करें1" xml:space="preserve">
     <value>Plough Land 2-3 times for main field preparation</value>
+  </data>
+  <data name="मुर्गा" xml:space="preserve">
+    <value>Cocks</value>
+  </data>
+  <data name="मुर्गी" xml:space="preserve">
+    <value>Hen</value>
+  </data>
+  <data name="मुर्गी पालन" xml:space="preserve">
+    <value>Poultry</value>
   </data>
   <data name="मूली" xml:space="preserve">
     <value>Radish</value>
@@ -423,6 +471,12 @@
   <data name="लंबी फलियाँ" xml:space="preserve">
     <value>Long Beans</value>
   </data>
+  <data name="लार्ज ब्लैक" xml:space="preserve">
+    <value>Large Black</value>
+  </data>
+  <data name="लैंड रेस" xml:space="preserve">
+    <value>Land race</value>
+  </data>
   <data name="वीडियो अपलोड किया गया है" xml:space="preserve">
     <value>Video has been uploaded</value>
   </data>
@@ -453,11 +507,23 @@
   <data name="सारे बीजों को सूती कपडे में लपेटकर, गौ-मूत्र में पानी मिलाकर या बीजामृत मिश्रण में 5 मिनट तक डुबोएं. उसके बाद इन बीजों को 1-2 घंटे छाँव में सुखाएं और बीजों को बोयें." xml:space="preserve">
     <value>Wrap the seeds in cotton cloth to soak then dip the rapped seeds into cow urine and water Solution or Beejamrita Solution for 5 minutes. Then dry the seeds in a shaded area upto 1-2 hours and sow in the pits.</value>
   </data>
+  <data name="सूअर" xml:space="preserve">
+    <value>Pig</value>
+  </data>
+  <data name="सूअर के बच्चे" xml:space="preserve">
+    <value>Piglets</value>
+  </data>
   <data name="सूखी घास" xml:space="preserve">
     <value>Straw</value>
   </data>
   <data name="सूती कपडा" xml:space="preserve">
     <value>Cotton Cloth</value>
+  </data>
+  <data name="हमपसफायर" xml:space="preserve">
+    <value>Hampshire</value>
+  </data>
+  <data name="हरिणी" xml:space="preserve">
+    <value>Doe</value>
   </data>
   <data name="हल्दी पाउडर माड़ के साथ" xml:space="preserve">
     <value>Haldi Powder Solution with Rice Starch</value>

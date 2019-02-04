@@ -102,7 +102,7 @@ namespace TrickleUpPortal.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = "Posted Data is Invalid" });
             }
             foreach (var item in cultivation_History)
             {

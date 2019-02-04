@@ -35,11 +35,8 @@ namespace TrickleUpPortal.Controllers
         [HttpGet]
         public HttpResponseMessage GetFeedBackQuestionsBylang(int langCode)
         {
-            Language language = comObj.fetchLang(langCode);
-            if (language != null)
-            {
-                LanguageName = language.LanguageName;
-            }
+            LanguageName = comObj.fetchLang(langCode);
+
             List<FeedBackQuestion> question = new List<FeedBackQuestion>();
             var questiondata = (from questions in db.FeedBackQuestions
                            where questions.Active == true

@@ -63,9 +63,10 @@ namespace TrickleUpPortal.Models
         public virtual DbSet<CropStep_VideoAllocation> CropStep_VideoAllocation { get; set; }
         public virtual DbSet<CropStepMaterial_VideoAllocation> CropStepMaterial_VideoAllocation { get; set; }
         public virtual DbSet<LiveStock_Steps> LiveStock_Steps { get; set; }
-        public virtual DbSet<LiveStock_StepMaterial> LiveStock_StepMaterial { get; set; }
         public virtual DbSet<LiveStockBreed> LiveStockBreeds { get; set; }
+        public virtual DbSet<LiveStock_StepMaterial> LiveStock_StepMaterial { get; set; }
         public virtual DbSet<LiveStock> LiveStocks { get; set; }
+        public virtual DbSet<LiveStock_AudioAllocation> LiveStock_AudioAllocation { get; set; }
         public virtual DbSet<LiveStock_BreedCategory> LiveStock_BreedCategory { get; set; }
     }
 }

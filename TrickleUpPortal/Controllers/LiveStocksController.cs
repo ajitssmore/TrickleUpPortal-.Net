@@ -7,6 +7,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using TrickleUpPortal.Models;
@@ -15,6 +16,8 @@ namespace TrickleUpPortal.Controllers
 {
     public class LiveStocksController : ApiController
     {
+        CommonController comObj = new CommonController();
+        string LanguageName;
         private TrickleUpEntities db = new TrickleUpEntities();
 
         // GET: api/LiveStocks
@@ -23,11 +26,10 @@ namespace TrickleUpPortal.Controllers
         //    return db.LiveStocks;
         //}
 
-        public HttpResponseMessage GetLiveStocks(int LangCode)
+        public HttpResponseMessage GetLiveStocks()
         {
             var LiveStock = from LiveStockdata in db.LiveStocks
-                            where LiveStockdata.Active == true
-                            select new { LiveStockdata.Id, LiveStockdata.StockName, LiveStockdata.ImageURL, LiveStockdata.AudioURL, LiveStockdata.Active };
+                            select new { LiveStockdata.Id, LiveStockdata.StockName, LiveStockdata.Active, LiveStockdata.ImageURL};
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { LiveStock }, success = true, error = string.Empty });
         }
 
@@ -45,30 +47,76 @@ namespace TrickleUpPortal.Controllers
         }
 
         // PUT: api/LiveStocks/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutLiveStock(int id, LiveStock liveStock)
+        //[ResponseType(typeof(void))]
+        //public IHttpActionResult PutLiveStock(int id, LiveStock liveStock)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    if (id != liveStock.Id)
+        //    {
+        //        return BadRequest();
+        //    }
+
+        //    db.Entry(liveStock).State = EntityState.Modified;
+
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!LiveStockExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
+
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
+        [HttpPost]
+        public HttpResponseMessage PutLiveStock(int id, LiveStock liveStock)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
             if (id != liveStock.Id)
             {
-                return BadRequest();
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            db.Entry(liveStock).State = EntityState.Modified;
+            //db.Entry(liveStock).State = EntityState.Modified;
 
             try
             {
+                LiveStock LiveStockData = db.LiveStocks.Where(a => a.Id == liveStock.Id).FirstOrDefault();
+                LiveStockData.StockName = liveStock.StockName;
+                LiveStockData.Active = liveStock.Active;
+                if (liveStock.Active == true)
+                {
+                    LiveStockData.UpdatedBy = liveStock.UpdatedBy;
+                    LiveStockData.UpdatedOn = liveStock.UpdatedOn;
+                }
+                else if (liveStock.Active == false)
+                {
+                    LiveStockData.ActiveBy = liveStock.ActiveBy;
+                    LiveStockData.ActiveOn = liveStock.ActiveOn;
+                }
                 db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!LiveStockExists(id))
                 {
-                    return NotFound();
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
                 }
                 else
                 {
@@ -76,22 +124,48 @@ namespace TrickleUpPortal.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { liveStock }, success = true, error = string.Empty });
         }
 
+
         // POST: api/LiveStocks
-        [ResponseType(typeof(LiveStock))]
-        public IHttpActionResult PostLiveStock(LiveStock liveStock)
+        //[ResponseType(typeof(LiveStock))]
+        //public IHttpActionResult PostLiveStock(LiveStock liveStock)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    db.LiveStocks.Add(liveStock);
+        //    db.SaveChanges();
+
+        //    return CreatedAtRoute("DefaultApi", new { id = liveStock.Id }, liveStock);
+        //}
+
+        [HttpPost]
+        public HttpResponseMessage PostLiveStock(LiveStock liveStock)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            db.LiveStocks.Add(liveStock);
-            db.SaveChanges();
+            var DataFound = (from LiveStocksdata in db.LiveStocks
+                             where LiveStocksdata.StockName.ToUpper() == liveStock.StockName.ToUpper()
+                             select LiveStocksdata.StockName).SingleOrDefault();
 
-            return CreatedAtRoute("DefaultApi", new { id = liveStock.Id }, liveStock);
+            if (DataFound == null)
+            {
+                db.LiveStocks.Add(liveStock);
+                db.SaveChanges();
+            }
+            else
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Stock Name already exists" });
+            }
+
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { id = liveStock.Id }, success = true, error = string.Empty });
         }
 
         // DELETE: api/LiveStocks/5
@@ -127,58 +201,71 @@ namespace TrickleUpPortal.Controllers
         public HttpResponseMessage GetLiveStocksProcessData(int LangCode)
         {
             List<LiveStock> LiveStock = db.LiveStocks.ToList();
+            LanguageName = comObj.fetchLang(LangCode);
             if (LiveStock.Count > 0)
             {
-                foreach (LiveStock LiveData in LiveStock)
+                switch (LanguageName)
                 {
-                    foreach (LiveStock_Steps StepData in LiveData.LiveStock_Steps)
-                    {
-                        List<LiveStock_StepMaterial> AdultData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Adult").ToList();
-                        List<LiveStock_StepMaterial> ChildData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Child").ToList();
-                        StepData.Adult = AdultData;
-                        StepData.Child = ChildData;
-                    }
+                    case "Hindi":
+                            foreach (LiveStock LiveData in LiveStock)
+                            {
+                                LiveData.StockName = !string.IsNullOrEmpty(LiveData.StockName) ? comObj.GetResxNameByValue_Hindi(LiveData.StockName) : string.Empty;
+                                LiveData.AudioURL = comObj.fetchAudioPahtLiveStock(LiveData.Id, LangCode);
+                                Parallel.ForEach(LiveData.LiveStockBreeds, LiveStockBreed =>
+                                    {
+                                        LiveStockBreed.BreedName = !string.IsNullOrEmpty(LiveStockBreed.BreedName) ? comObj.GetResxNameByValue_Hindi(LiveStockBreed.BreedName) : string.Empty;
+                                        Parallel.ForEach(LiveStockBreed.LiveStock_BreedCategory, BreedCategor =>
+                                        {
+                                            BreedCategor.CategoryName = !string.IsNullOrEmpty(BreedCategor.CategoryName) ? comObj.GetResxNameByValue_Hindi(BreedCategor.CategoryName) : string.Empty;
+                                        });
+                                    });
+                                    
+                            foreach (LiveStock_Steps StepData in LiveData.LiveStock_Steps)
+                                    {
+                                        List<LiveStock_StepMaterial> AdultData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Adult").ToList();
+                                        List<LiveStock_StepMaterial> ChildData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Child").ToList();
+                                        StepData.Adult = AdultData;
+                                        StepData.Child = ChildData;
+                                    }
+                                }
+                        break;
+                    case "English":
+                            foreach (LiveStock LiveData in LiveStock)
+                            {
+                                foreach (LiveStock_Steps StepData in LiveData.LiveStock_Steps)
+                                {
+                                    List<LiveStock_StepMaterial> AdultData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Adult").ToList();
+                                    List<LiveStock_StepMaterial> ChildData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Child").ToList();
+                                    StepData.Adult = AdultData;
+                                    StepData.Child = ChildData;
+                                }
+                            }
+                        break;
+                    case "Oriya":
+                            foreach (LiveStock LiveData in LiveStock)
+                            {
+                                LiveData.StockName = !string.IsNullOrEmpty(LiveData.StockName) ? comObj.GetResxNameByValue_Oriya(LiveData.StockName) : string.Empty;
+                                Parallel.ForEach(LiveData.LiveStockBreeds, LiveStockBreed =>
+                                {
+                                    LiveStockBreed.BreedName = !string.IsNullOrEmpty(LiveStockBreed.BreedName) ? comObj.GetResxNameByValue_Oriya(LiveStockBreed.BreedName) : string.Empty;
+                                    Parallel.ForEach(LiveStockBreed.LiveStock_BreedCategory, BreedCategor =>
+                                    {
+                                        BreedCategor.CategoryName = !string.IsNullOrEmpty(BreedCategor.CategoryName) ? comObj.GetResxNameByValue_Oriya(BreedCategor.CategoryName) : string.Empty;
+                                    });
+                                });
+                            foreach (LiveStock_Steps StepData in LiveData.LiveStock_Steps)
+                                    {
+                                        List<LiveStock_StepMaterial> AdultData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Adult").ToList();
+                                        List<LiveStock_StepMaterial> ChildData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Child").ToList();
+                                        StepData.Adult = AdultData;
+                                        StepData.Child = ChildData;
+                                    }
+                                }
+                        break;
+                    default:
+                        break;
                 }
             }
-            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { LiveStock }, success = true, error = string.Empty });
-        }
-
-        public HttpResponseMessage GetLiveStocksProcessDataNew(int LangCode)
-        {
-            List<LiveStock> LiveStock = db.LiveStocks.ToList();
-            //dynamic LiveStockProcessData = new ExpandoObject();
-            //if (LiveStock.Count > 0)
-            //{
-            //    LiveStockProcessData = LiveStock;
-            //    int LiveStockIndex = 0, LiveStock_StepsIndex = 0;
-            //    foreach (var LiveData in LiveStockProcessData)
-            //    {
-            //        foreach (LiveStock_Steps StepData in LiveData.LiveStock_Steps)
-            //        {
-            //            List<LiveStock_StepMaterial> AdultData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Adult").ToList();
-            //            List<LiveStock_StepMaterial> ChildData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Child").ToList();
-            //            LiveStockProcessData[LiveStockIndex].LiveStock_Steps[LiveStock_StepsIndex].Add(new[] { "toto" }) ; //= new[] { AdultData };
-            //            LiveStockProcessData[LiveStockIndex].LiveStock_Steps[LiveStock_StepsIndex].ChildData = ChildData;
-            //            LiveStock_StepsIndex++;
-            //        }
-            //        LiveStockIndex++;
-            //    }
-            //}
-
-            if (LiveStock.Count > 0)
-            {
-                foreach (LiveStock LiveData in LiveStock)
-                {
-                    foreach (LiveStock_Steps StepData in LiveData.LiveStock_Steps)
-                    {
-                        List<LiveStock_StepMaterial> AdultData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Adult").ToList();
-                        List<LiveStock_StepMaterial> ChildData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Child").ToList();
-                        StepData.Adult = AdultData;
-                        StepData.Child = ChildData;
-                    }
-                }
-            }
-
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { LiveStock }, success = true, error = string.Empty });
         }
     }

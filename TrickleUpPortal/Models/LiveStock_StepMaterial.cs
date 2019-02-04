@@ -20,8 +20,8 @@ namespace TrickleUpPortal.Models
         public Nullable<int> LiveStock_StepId { get; set; }
         public string TitleAudioURL { get; set; }
         public string DescriptionAudioURL { get; set; }
-        public Nullable<int> Quantity { get; set; }
-        public Nullable<double> Rate { get; set; }
+        public Nullable<double> Quantity { get; set; }
+        public Nullable<double> Cost { get; set; }
         public string ImageURL { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedOn { get; set; }
@@ -31,6 +31,8 @@ namespace TrickleUpPortal.Models
         public Nullable<System.DateTime> ActiveOn { get; set; }
         public Nullable<bool> Active { get; set; }
         public string Category { get; set; }
+        public string Quantity_measured { get; set; }
+        public string Cost_measured { get; set; }
     
         public virtual LiveStock_Steps LiveStock_Steps { get; set; }
     }
