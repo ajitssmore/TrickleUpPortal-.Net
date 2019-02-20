@@ -26,7 +26,7 @@ namespace TrickleUpPortal.Controllers
         {
             var LiveStockBreeds = from LiveStockBreed in db.LiveStockBreeds
                                   join LiveStock in db.LiveStocks on LiveStockBreed.LiveStockId equals LiveStock.Id
-                                  select new { LiveStockBreed.Id, LiveStockBreed.BreedName, LiveStockBreed.LiveStockId, LiveStock.StockName, LiveStockBreed.Active };
+                                  select new { LiveStockBreed.Id, LiveStockBreed.BreedName, LiveStockBreed.LiveStockId, LiveStock.StockName, LiveStockBreed.Active, LiveStockBreed.ImageURL };
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { LiveStockBreeds }, success = true, error = string.Empty });
 
             //return db.LiveStockBreeds;
@@ -183,6 +183,42 @@ namespace TrickleUpPortal.Controllers
         private bool LiveStockBreedExists(int id)
         {
             return db.LiveStockBreeds.Count(e => e.Id == id) > 0;
+        }
+
+        [HttpPost]
+        public HttpResponseMessage UpdateLiveStockBreedImagePath(LiveStockBreed liveStockBreed)
+        {
+            if (!ModelState.IsValid)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
+
+            try
+            {
+                LiveStockBreed LiveStockBreedData = db.LiveStockBreeds.Where(a => a.Id == liveStockBreed.Id).FirstOrDefault();
+                LiveStockBreedData.ImageURL = liveStockBreed.ImageURL;
+
+                if (liveStockBreed.UpdatedBy != null)
+                {
+                    LiveStockBreedData.UpdatedBy = liveStockBreed.UpdatedBy;
+                    LiveStockBreedData.UpdatedOn = liveStockBreed.UpdatedOn;
+                }
+
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!LiveStockBreedExists(liveStockBreed.Id))
+                {
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { liveStockBreed }, success = true, error = string.Empty });
         }
     }
 }

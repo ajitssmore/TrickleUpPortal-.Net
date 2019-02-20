@@ -229,15 +229,20 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
+            if (user.PhoneNumber == "")
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Phone Number can't be empty" });
+            }
+
             if (user.PhoneNumber != null || user.PhoneNumber != "")
             {
                 int PhoneCount = db.Users.Where(a => a.PhoneNumber == user.PhoneNumber).ToList().Count;
                 if (PhoneCount > 0)
-                { 
+                {
                     return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Phone Number already Exist" });
                 }
             }
-
+            
             if (!string.IsNullOrEmpty(user.UserId))
             {
                 int UserIdCount = db.Users.Where(a => a.UserId == user.UserId).ToList().Count();

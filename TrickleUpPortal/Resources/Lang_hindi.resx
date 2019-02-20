@@ -117,6 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="21-22  दिन" xml:space="preserve">
+    <value>21-22 days</value>
+  </data>
+  <data name="3 महीने बाद वार्षिक (उसी के लिए उचित विवरण की आवश्यकता है)" xml:space="preserve">
+    <value>3 months then yearly(Need to have proper description for the same)</value>
+  </data>
+  <data name="3 महीने बाद वार्षिक (उसी के लिए उचित विवरण की आवश्यकता है)1" xml:space="preserve">
+    <value>3 months then yearly(Need to have proper description for the same)</value>
+  </data>
+  <data name="4-6 दिन" xml:space="preserve">
+    <value>4-6 days</value>
+  </data>
+  <data name="40 दिन, (फाउल पॉक्स के लिए) पंख छेदऔर धब्बे से" xml:space="preserve">
+    <value>40 days, (for foul pox) by puncturing feather and smearing</value>
+  </data>
+  <data name="65-70 दिन, रनीखेत रोग" xml:space="preserve">
+    <value>65-70 days, ranikhet disease</value>
+  </data>
+  <data name="90 दिन, पंख झड़ना" xml:space="preserve">
+    <value>90 days, plucking feather</value>
+  </data>
   <data name="DDO-NA" xml:space="preserve">
     <value>DDE-NA</value>
   </data>
@@ -141,8 +162,23 @@
   <data name="आग्नेयास्त्र पानी के साथ" xml:space="preserve">
     <value>Agneyastra with Water</value>
   </data>
+  <data name="आपकी प्रतिक्रिया पहले ही सबमिट की जा चुकी है" xml:space="preserve">
+    <value>Your feedback is already submitted</value>
+  </data>
   <data name="आर आई आर" xml:space="preserve">
     <value>RIR</value>
+  </data>
+  <data name="आर डी ऍफ़ स्ट्रेन" xml:space="preserve">
+    <value>RDF strain</value>
+  </data>
+  <data name="आर डी ऍफ़ स्ट्रेन1" xml:space="preserve">
+    <value>RDF strain</value>
+  </data>
+  <data name="आर २ बी" xml:space="preserve">
+    <value>R2B</value>
+  </data>
+  <data name="आवश्यकता  / वयस्क पशु के लिए 500ml से 700ml के पानी के कंटेनर को शेड में रखा जा सकता है।" xml:space="preserve">
+    <value>Requirement 500ml to 700ml/adult animal or water container may be kept in the shed.</value>
   </data>
   <data name="आड़ी और नाली की तैयारी, बीज और पोषण की आवश्यकता" xml:space="preserve">
     <value>Preparation of Ridges and furrow, Seed and Nutrition requirement</value>
@@ -155,6 +191,12 @@
   </data>
   <data name="आड़ी़ और नाली तथा पौधे से पौधे के बीच में 2 फीट की दूरी होनी चाहिए. आड़ी़ के मिट्टी में हादरी एवं खाद डालें." xml:space="preserve">
     <value>Spacing between Ridges and furrow should be 2 feet and spacing between plant to plant should be 2 feet. Put Hadri and Compost mix in the soil of ridges</value>
+  </data>
+  <data name="ऍफ़ ऍम डी" xml:space="preserve">
+    <value>FMD</value>
+  </data>
+  <data name="ऍफ़ ऍम डी1" xml:space="preserve">
+    <value>FMD</value>
   </data>
   <data name="ऑडियो अपलोड किया गया है" xml:space="preserve">
     <value>Audio has been uploaded</value>
@@ -192,6 +234,12 @@
   <data name="केंचुआ खाद1" xml:space="preserve">
     <value>Vermicompost</value>
   </data>
+  <data name="कोलेस्ट्रम नबजंमिता बचेको ५ दिन तक खानेको दिएजाएगा. २या हफ्ता से बचेको हरा घास खानेको डिजासकताहे." xml:space="preserve">
+    <value>Coloustrum to be given to new born kids, for 5 days. From 2nd week kid starter along with soft green grass may be fed to kids</value>
+  </data>
+  <data name="कोलोस्ट्रम" xml:space="preserve">
+    <value>Coloustrum</value>
+  </data>
   <data name="खिलाना" xml:space="preserve">
     <value>Feeding</value>
   </data>
@@ -225,6 +273,12 @@
   <data name="गौ मूत्र पानी के साथ1" xml:space="preserve">
     <value>Cow Urine with Water</value>
   </data>
+  <data name="चराई" xml:space="preserve">
+    <value>Pasture grazing</value>
+  </data>
+  <data name="चावल, गेहूं, मक्का, अनाज" xml:space="preserve">
+    <value>rice, wheat, maize, cereals</value>
+  </data>
   <data name="चित्र अपलोड किया गया है" xml:space="preserve">
     <value>Image has been uploaded</value>
   </data>
@@ -234,8 +288,14 @@
   <data name="छवि हटा दी गई है" xml:space="preserve">
     <value>Image has been removed</value>
   </data>
+  <data name="जब जरूरत हो" xml:space="preserve">
+    <value>when needed</value>
+  </data>
   <data name="जमीन को जोतना" xml:space="preserve">
     <value>Ploughing of Land</value>
+  </data>
+  <data name="जीपिभी" xml:space="preserve">
+    <value>GPV</value>
   </data>
   <data name="जीबामृतो पानी के साथ" xml:space="preserve">
     <value>Jivamirita Solution</value>
@@ -254,6 +314,12 @@
   </data>
   <data name="टमाटर की फसल कटाई" xml:space="preserve">
     <value>Tomato Harvesting</value>
+  </data>
+  <data name="टिटनस टॉक्सॉइड" xml:space="preserve">
+    <value>Tetanus toxoid</value>
+  </data>
+  <data name="डीवॉर्मिंग" xml:space="preserve">
+    <value>Dewarming</value>
   </data>
   <data name="दूसरी निकाई और गुड़ाई" xml:space="preserve">
     <value>Second Weeding and Hoeing</value>
@@ -297,11 +363,26 @@
   <data name="पक्षियों" xml:space="preserve">
     <value>Birds</value>
   </data>
+  <data name="पहला दिन" xml:space="preserve">
+    <value>1st day</value>
+  </data>
   <data name="पहली निकाई और गुड़ाई" xml:space="preserve">
     <value>First Weeding and Hoeing</value>
   </data>
   <data name="पानी" xml:space="preserve">
     <value>Water</value>
+  </data>
+  <data name="पानी1" xml:space="preserve">
+    <value>Water</value>
+  </data>
+  <data name="पि पि आर" xml:space="preserve">
+    <value>PPR</value>
+  </data>
+  <data name="पि पि भी एल" xml:space="preserve">
+    <value>PPVL</value>
+  </data>
+  <data name="पीपरजिने" xml:space="preserve">
+    <value>piperazine</value>
   </data>
   <data name="पुरुष" xml:space="preserve">
     <value>Male</value>
@@ -321,6 +402,9 @@
   <data name="प्याज" xml:space="preserve">
     <value>Onion</value>
   </data>
+  <data name="प्रतिदिन 8-9 घंटे की  चराई भोजन की आवश्यकता  को  पूरा करेगी। यदि उपलब्ध नहीं है, वयस्क के लिए 1 किलो हरी घास,250 ग्राम कंसन्ट्रेट और 100 ग्राम युवा के  भोजन की आवश्यकता पूरी करेंगे" xml:space="preserve">
+    <value>Pasture grazing 8-9 hrs daily will meet the food requirement.If not available 1 kg green grass with 250 gms of concentrate to to adult and 100 gm to young will serve the feed requirement</value>
+  </data>
   <data name="प्रनामित्रा" xml:space="preserve">
     <value>Pranamrita</value>
   </data>
@@ -330,8 +414,17 @@
   <data name="फसल कटने तक 2-3 बार हर 10 दिनों के अन्तराल में हांडीखाद और आग्नेयास्त्र का पानी के साथ छिडकाव करें.1" xml:space="preserve">
     <value>Repeat Handikhata Solution, Spray Amritjal and Agneyastra in an interval of 10 days till harvesting -2-3 times</value>
   </data>
+  <data name="फेनबेन्डाज़ोल" xml:space="preserve">
+    <value>Fenbendazol</value>
+  </data>
+  <data name="बंध्याकरण" xml:space="preserve">
+    <value>Castration</value>
+  </data>
   <data name="बकरी" xml:space="preserve">
     <value>Goat</value>
+  </data>
+  <data name="बकरी की गंध को रोकने के लिए और सभी पुरुष बच्चों को बेहतर विकास के लिए 1-2 महीने की उम्र में बंद विधि द्वारा डाली जाती है" xml:space="preserve">
+    <value>All male kids to be castrated by closed method at the age of 1-2months for better growth and to prevent goaty odour</value>
   </data>
   <data name="बच्चा" xml:space="preserve">
     <value>Kid</value>
@@ -399,6 +492,9 @@
   <data name="बीजों को सूती कपडे में लपेटें एवं सूखने दें, उसके पश्चात 5 मिनट तक पानी मिश्रित गौ-मूत्र या बीजामृत मिश्रण में डुबोकर रखें. इन बीजों को 1-2 घंटे छाँव में सुखाएं और बोंये." xml:space="preserve">
     <value>Wrap seeds in cotton cloth and soak it, then dip it into cow urine and water Solution or Beejamrita Solution for 5 minutes. Then dry the soaked seeds in a shaded area upto 1-2 hours and sow in the pits.</value>
   </data>
+  <data name="बीमा" xml:space="preserve">
+    <value>Insurance</value>
+  </data>
   <data name="बैंगन" xml:space="preserve">
     <value>Brinjal</value>
   </data>
@@ -416,6 +512,9 @@
   </data>
   <data name="महिला" xml:space="preserve">
     <value>Female</value>
+  </data>
+  <data name="मारेक एक्स" xml:space="preserve">
+    <value>Marek’x</value>
   </data>
   <data name="मिर्च" xml:space="preserve">
     <value>Chilli</value>
@@ -438,6 +537,12 @@
   <data name="मुर्गी पालन" xml:space="preserve">
     <value>Poultry</value>
   </data>
+  <data name="मुर्गे का खाना" xml:space="preserve">
+    <value>Poultry feed</value>
+  </data>
+  <data name="मुर्गे का खाना1" xml:space="preserve">
+    <value>Layer mash</value>
+  </data>
   <data name="मूली" xml:space="preserve">
     <value>Radish</value>
   </data>
@@ -452,6 +557,9 @@
   </data>
   <data name="या बीजामृत पानी के साथ" xml:space="preserve">
     <value>Or Beejamrita Solution</value>
+  </data>
+  <data name="रसोई का कचरा, फल" xml:space="preserve">
+    <value>Kitchen waste, fruits</value>
   </data>
   <data name="रोपने के 10 दिन बाद पहली निकाई और गुड़ाई करें. प्रत्येक गड्डे में केंचुआ खाद या प्रनामित्रा का प्रयोग करें. उसके 1 - 2 दिन के बाद हांडीखाद का छिडकाव करें. जरुरत होने पर आग्नेयास्त्र का छिडकाव करें." xml:space="preserve">
     <value>First Weeding and Hoeing after 12 days of transplanting, Put Pranamrita, then after 1-2 days spray Handikhata, if needed spray Agneyastra</value>
@@ -507,6 +615,12 @@
   <data name="सारे बीजों को सूती कपडे में लपेटकर, गौ-मूत्र में पानी मिलाकर या बीजामृत मिश्रण में 5 मिनट तक डुबोएं. उसके बाद इन बीजों को 1-2 घंटे छाँव में सुखाएं और बीजों को बोयें." xml:space="preserve">
     <value>Wrap the seeds in cotton cloth to soak then dip the rapped seeds into cow urine and water Solution or Beejamrita Solution for 5 minutes. Then dry the seeds in a shaded area upto 1-2 hours and sow in the pits.</value>
   </data>
+  <data name="सी ई भी एल" xml:space="preserve">
+    <value>CEVL</value>
+  </data>
+  <data name="सुअर के पास खिलाने के लिए कोई विशिष्ट समय नहीं होता है, हालांकि पूरे दिन में सुअर के बच्चे  कम मात्रा में खाते हैं। भोजन में रसोई के कचरे, सब्जियों, फलों, अपशिष्ट और अन्य चीजों को दिया जाता हे  है, जो मानव खाने योग्य नहीं होता हैं" xml:space="preserve">
+    <value>Pig don't have specific time for feeding however piglets eats in little quantity throughout the whole day. food includs kitchen waste, waste vegetables, fruit, change waste and other things which are not human eatables</value>
+  </data>
   <data name="सूअर" xml:space="preserve">
     <value>Pig</value>
   </data>
@@ -519,8 +633,14 @@
   <data name="सूती कपडा" xml:space="preserve">
     <value>Cotton Cloth</value>
   </data>
+  <data name="स्वाइन बुखार" xml:space="preserve">
+    <value>Swine fever</value>
+  </data>
   <data name="हमपसफायर" xml:space="preserve">
     <value>Hampshire</value>
+  </data>
+  <data name="हर 4 महीने में" xml:space="preserve">
+    <value>Every 4 months</value>
   </data>
   <data name="हरिणी" xml:space="preserve">
     <value>Doe</value>

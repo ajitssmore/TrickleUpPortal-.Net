@@ -36,7 +36,7 @@ namespace TrickleUpPortal.Controllers
             LanguageName = comObj.fetchLang(langCode);
             var results = from Cropdata in db.Crops
                           where Cropdata.Active == true
-                          select new { Cropdata.Id, Cropdata.CropName, Cropdata.FilePath, Cropdata.Ready, Cropdata.Active};
+                          select new { Cropdata.Id, Cropdata.CropName, Cropdata.FilePath, Cropdata.Ready, Cropdata.Active, Cropdata.AliasName};
             List<Cropdata> Crops = new List<Cropdata>();
             foreach (var item in results)
             {
@@ -49,6 +49,7 @@ namespace TrickleUpPortal.Controllers
                         cropObj.FilePath = item.FilePath!=null ? item.FilePath : string.Empty;
                         cropObj.Ready = item.Ready != null ? (bool)item.Ready : false;
                         cropObj.AudioTitle_Path = comObj.fetchAudioPahtCrops(item.Id, langCode);
+                        cropObj.AliasName = item.AliasName;
                         Crops.Add(cropObj);
                         break;
                     case "English":
@@ -57,6 +58,7 @@ namespace TrickleUpPortal.Controllers
                         cropObj.FilePath = item.FilePath;
                         cropObj.Ready = item.Ready!= null ? (bool)item.Ready : false;
                         cropObj.AudioTitle_Path = comObj.fetchAudioPahtCrops(item.Id, langCode);
+                        cropObj.AliasName = item.AliasName;
                         Crops.Add(cropObj);
                         break;
                     case "Oriya":
@@ -65,6 +67,7 @@ namespace TrickleUpPortal.Controllers
                         cropObj.FilePath = item.FilePath;
                         cropObj.Ready = item.Ready != null ? (bool)item.Ready : false;
                         cropObj.AudioTitle_Path = comObj.fetchAudioPahtCrops(item.Id, langCode);
+                        cropObj.AliasName = item.AliasName;
                         Crops.Add(cropObj);
                         break;
                     default:
@@ -127,6 +130,7 @@ namespace TrickleUpPortal.Controllers
             public string FilePath { get; set; }
             public bool Ready { get; set; }
             public string AudioTitle_Path { get; set; }
+            public string AliasName { get; set; }
         }
 
         //// GET: api/Crops/5
@@ -170,9 +174,23 @@ namespace TrickleUpPortal.Controllers
             try
             {
                 LanguageName = comObj.fetchLang(langId);
-
                 Crop crop = db.Crops.Find(id);
 
+                var StepData = crop.Cultivation_Steps.Where(a => a.Active == false);
+                foreach (var removeStepData in StepData.ToList())
+                {
+                    crop.Cultivation_Steps.Remove(removeStepData);
+                }
+
+                foreach (var StepsData in crop.Cultivation_Steps)
+                {
+                    var matraislData = StepsData.CropSteps_Material.Where(b => b.Active == false);
+                    foreach (var removematraisl in matraislData.ToList())
+                    {
+                        StepsData.CropSteps_Material.Remove(removematraisl);
+                    }
+                }
+                
                 switch (LanguageName)
                 {
                     case "Hindi":
@@ -365,13 +383,7 @@ namespace TrickleUpPortal.Controllers
             {
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
-
-            //if (id != crop.Id)
-            //{
-            //    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
-            //}
-
-            //db.Entry(crop).State = EntityState.Modified;
+           
             try
             {
                 Crop cropsData = db.Crops.Where(a => a.Id == crop.Id).FirstOrDefault();

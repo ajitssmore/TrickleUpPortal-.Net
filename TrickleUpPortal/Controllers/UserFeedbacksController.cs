@@ -16,6 +16,8 @@ namespace TrickleUpPortal.Controllers
     public class UserFeedbacksController : ApiController
     {
         private TrickleUpEntities db = new TrickleUpEntities();
+        CommonController comObj = new CommonController();
+        string LanguageName = "", ErrorMessage = "";
 
         //GET: api/UserFeedbacks
         //public IQueryable<UserFeedback> GetUserFeedbacks()
@@ -108,13 +110,15 @@ namespace TrickleUpPortal.Controllers
         //    return CreatedAtRoute("DefaultApi", new { id = userFeedback.Id }, userFeedback);
         //}
 
-        public HttpResponseMessage PostUserFeedback(UserFeedback[] userFeedback)
+        public HttpResponseMessage PostUserFeedback(UserFeedback[] userFeedback, int languageId)
         {
             if (!ModelState.IsValid)
             {
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
-            
+
+            LanguageName = comObj.fetchLang(languageId);
+
             foreach (var item in userFeedback)
             {
                 string feedTime = string.Empty;
@@ -137,9 +141,25 @@ namespace TrickleUpPortal.Controllers
                     }
                 }
 
+                switch (LanguageName)
+                {
+                    case "Hindi":
+                        ErrorMessage = comObj.GetResxNameByValue_Hindi("Your feedback is already submitted");
+                        break;
+                    case "English":
+                        ErrorMessage = "Your feedback is already submitted";
+                        break;
+                    case "Oriya":
+                        ErrorMessage = comObj.GetResxNameByValue_Oriya("Your feedback is already submitted");
+                        break;
+                    default:
+                        ErrorMessage = "The UserName or Password is Incorrect.";
+                        break;
+                }
+
                 if (sMonth == feedTime)
                 {
-                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = "Your feedback is already submitted." });
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = ErrorMessage });
                 }
 
                 db.UserFeedbacks.Add(item);

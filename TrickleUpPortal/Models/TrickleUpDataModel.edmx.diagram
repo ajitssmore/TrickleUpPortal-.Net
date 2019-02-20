@@ -12,7 +12,6 @@
         <AssociationConnector Association="TrickleUpModel.FK_District_State" />
         <EntityTypeShape EntityType="TrickleUpModel.MediaContent" Width="1.5" PointX="0.5" PointY="17.875" />
         <EntityTypeShape EntityType="TrickleUpModel.BulkUploadRef" Width="1.5" PointX="18.875" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TrickleUpModel.Crop" Width="1.5" PointX="0.5" PointY="12.5" />
         <EntityTypeShape EntityType="TrickleUpModel.Video" Width="1.5" PointX="2.125" PointY="17.875" />
         <EntityTypeShape EntityType="TrickleUpModel.Image" Width="1.5" PointX="3.75" PointY="17.875" />
         <EntityTypeShape EntityType="TrickleUpModel.VillageContact" Width="1.5" PointX="22.5" PointY="0.5" />
@@ -25,7 +24,6 @@
         <EntityTypeShape EntityType="TrickleUpModel.CropStepAudio_Allocation" Width="1.5" PointX="4" PointY="21.125" />
         <EntityTypeShape EntityType="TrickleUpModel.Tbl_ExceptionLogging" Width="1.5" PointX="20.75" PointY="0.5" />
         <EntityTypeShape EntityType="TrickleUpModel.Cultivation_Steps" Width="1.5" PointX="2.375" PointY="12.5" />
-        <AssociationConnector Association="TrickleUpModel.FK_Cultivation_Steps_Crop" />
         <AssociationConnector Association="TrickleUpModel.FK_CropSteps_Material_Cultivation_Steps" />
         <EntityTypeShape EntityType="TrickleUpModel.Role" Width="1.5" PointX="17.125" PointY="0.5" />
         <EntityTypeShape EntityType="TrickleUpModel.MasterPassword" Width="1.5" PointX="20.75" PointY="6.25" />
@@ -81,16 +79,22 @@
         <EntityTypeShape EntityType="TrickleUpModel.Crop_VideoAllocation" Width="1.5" PointX="5.875" PointY="21.125" />
         <EntityTypeShape EntityType="TrickleUpModel.CropStep_VideoAllocation" Width="1.5" PointX="7.875" PointY="21.125" />
         <EntityTypeShape EntityType="TrickleUpModel.CropStepMaterial_VideoAllocation" Width="1.5" PointX="9.875" PointY="21.125" />
-        <EntityTypeShape EntityType="TrickleUpModel.LiveStock_Steps" Width="1.5" PointX="5.75" PointY="29" />
         <EntityTypeShape EntityType="TrickleUpModel.LiveStockBreed" Width="1.5" PointX="2.25" PointY="29" />
         <EntityTypeShape EntityType="TrickleUpModel.LiveStock_StepMaterial" Width="1.5" PointX="7.5" PointY="29" />
-        <AssociationConnector Association="TrickleUpModel.FK_LiveStock_StepMaterial_LiveStock_Steps" />
         <EntityTypeShape EntityType="TrickleUpModel.LiveStock" Width="1.5" PointX="0.5" PointY="29" />
-        <AssociationConnector Association="TrickleUpModel.FK_LiveStock_Steps_LiveStock" />
         <AssociationConnector Association="TrickleUpModel.FK_LiveStockBreed_LiveStock" />
         <EntityTypeShape EntityType="TrickleUpModel.LiveStock_AudioAllocation" Width="1.5" PointX="0.5" PointY="35" />
         <EntityTypeShape EntityType="TrickleUpModel.LiveStock_BreedCategory" Width="1.5" PointX="4" PointY="29" />
         <AssociationConnector Association="TrickleUpModel.FK_LiveStock_BreedCategory_LiveStockBreed" />
+        <EntityTypeShape EntityType="TrickleUpModel.LiveStock_BreedCategory_AudioAllocation" Width="1.5" PointX="2.5" PointY="35" />
+        <EntityTypeShape EntityType="TrickleUpModel.LiveStockBreed_AudioAllocation" Width="1.5" PointX="4.5" PointY="35" />
+        <EntityTypeShape EntityType="TrickleUpModel.LiveStock_Steps" Width="1.5" PointX="5.75" PointY="29" />
+        <AssociationConnector Association="TrickleUpModel.FK_LiveStock_Steps_LiveStock" />
+        <AssociationConnector Association="TrickleUpModel.FK_LiveStock_StepMaterial_LiveStock_Steps" />
+        <EntityTypeShape EntityType="TrickleUpModel.LiveStock_Steps_AudioAllocation" Width="1.5" PointX="6.375" PointY="35" />
+        <EntityTypeShape EntityType="TrickleUpModel.LiveStock_StepsMaterial_AudioAllocation" Width="1.5" PointX="8.25" PointY="35" />
+        <EntityTypeShape EntityType="TrickleUpModel.Crop" Width="1.5" PointX="0.5" PointY="12.5" />
+        <AssociationConnector Association="TrickleUpModel.FK_Cultivation_Steps_Crop" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

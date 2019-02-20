@@ -76,10 +76,31 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            db.Entry(villageContact).State = EntityState.Modified;
+            //db.Entry(villageContact).State = EntityState.Modified;
 
             try
             {
+                VillageContact VillageContactData = db.VillageContacts.Where(a => a.Id == villageContact.Id).FirstOrDefault();
+                VillageContactData.ContactName = villageContact.ContactName;
+                VillageContactData.ContactNo = villageContact.ContactNo;
+                VillageContactData.StateId = villageContact.StateId;
+                VillageContactData.DistrictId = villageContact.DistrictId;
+                VillageContactData.GrampanchayatId = villageContact.GrampanchayatId;
+                VillageContactData.Designation = villageContact.Designation;
+                VillageContactData.VillageId = villageContact.VillageId;
+                VillageContactData.Active = villageContact.Active;
+
+                if (villageContact.Active == true)
+                {
+                    VillageContactData.UpdatedBy = villageContact.UpdatedBy;
+                    VillageContactData.UpdatedOn = villageContact.UpdatedOn;
+                }
+                else if (villageContact.Active == false)
+                {
+                    VillageContactData.ActiveBy = villageContact.ActiveBy;
+                    VillageContactData.ActiveOn = villageContact.ActiveOn;
+                }
+
                 db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
@@ -105,6 +126,12 @@ namespace TrickleUpPortal.Controllers
             if (!ModelState.IsValid)
             {
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
+            }
+
+            int PhoneCount = db.VillageContacts.Where(a => a.ContactNo == villageContact.ContactNo).ToList().Count;
+            if (PhoneCount > 0)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Phone Number already Exist" });
             }
 
             db.VillageContacts.Add(villageContact);

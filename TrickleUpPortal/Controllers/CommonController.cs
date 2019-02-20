@@ -135,11 +135,126 @@ namespace TrickleUpPortal.Controllers
             return AudioFilePath;
         }
 
+        public string fetchAudioPahtLiveStockBreed(int LiveStockBreedId, int langId)
+        {
+            var results = (from Audiodata in db.LiveStockBreed_AudioAllocation
+                           join AudioFile in db.Audios on Audiodata.AudioId equals AudioFile.Id
+                           where Audiodata.LiveStockBreedId == LiveStockBreedId && Audiodata.LangId == langId
+                           select new { AudioFile.FilePath, Audiodata.FieldType }).ToList();
+            if (results.Count > 0)
+            {
+                foreach (var item in results)
+                {
+                    switch (item.FieldType)
+                    {
+                        case "Title":
+                            AudioFilePath = item.FilePath;
+                            break;
+                        default:
+                            AudioFilePath = string.Empty;
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                AudioFilePath = string.Empty;
+            }
+            return AudioFilePath;
+        }
+
+        public string fetchAudioPahtLiveStockSteps(int LiveStockStepsId, int langId)
+        {
+            var results = (from Audiodata in db.LiveStock_Steps_AudioAllocation
+                           join AudioFile in db.Audios on Audiodata.AudioId equals AudioFile.Id
+                           where Audiodata.LiveStockStepId == LiveStockStepsId && Audiodata.LangId == langId
+                           select new { AudioFile.FilePath, Audiodata.FieldType }).ToList();
+            if (results.Count > 0)
+            {
+                foreach (var item in results)
+                {
+                    switch (item.FieldType)
+                    {
+                        case "Title":
+                            AudioFilePath = item.FilePath;
+                            break;
+                        default:
+                            AudioFilePath = string.Empty;
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                AudioFilePath = string.Empty;
+            }
+            return AudioFilePath;
+        }
+
+        public string fetchAudioPahtLiveStockStepsMaterial(int MaterialId, int langId, string fieldType)
+        {
+            var results = (from Audiodata in db.LiveStock_StepsMaterial_AudioAllocation
+                           join AudioFile in db.Audios on Audiodata.AudioId equals AudioFile.Id
+                           where Audiodata.LiveStockStepMaterialId == MaterialId && Audiodata.LangId == langId && Audiodata.FieldType == fieldType && Audiodata.Active == true
+                           select new { AudioFile.FilePath, Audiodata.FieldType }).ToList();
+            if (results.Count > 0)
+            {
+                foreach (var item in results)
+                {
+                    switch (item.FieldType)
+                    {
+                        case "Title":
+                            AudioFilePath = item.FilePath;
+                            break;
+                        case "Description":
+                            AudioFilePath = item.FilePath;
+                            break;
+                        default:
+                            AudioFilePath = string.Empty;
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                AudioFilePath = string.Empty;
+            }
+            return AudioFilePath;
+        }
+
+        public string fetchAudioPahtLiveStockBreedCategory(int LiveStockBreedCategoryId, int langId)
+        {
+            var results = (from Audiodata in db.LiveStock_BreedCategory_AudioAllocation
+                           join AudioFile in db.Audios on Audiodata.AudioId equals AudioFile.Id
+                           where Audiodata.LiveStockBreedCategoryId == LiveStockBreedCategoryId && Audiodata.LangId == langId
+                           select new { AudioFile.FilePath, Audiodata.FieldType }).ToList();
+            if (results.Count > 0)
+            {
+                foreach (var item in results)
+                {
+                    switch (item.FieldType)
+                    {
+                        case "Title":
+                            AudioFilePath = item.FilePath;
+                            break;
+                        default:
+                            AudioFilePath = string.Empty;
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                AudioFilePath = string.Empty;
+            }
+            return AudioFilePath;
+        }
+
         public string fetchAudioPahtSteps(int StepId, int langId, string fieldType)
         {
             var results = (from Audiodata in db.CropStepAudio_Allocation
                            join AudioFile in db.Audios on Audiodata.AudioId equals AudioFile.Id
-                           where Audiodata.StepId == StepId && Audiodata.LangId == langId && Audiodata.FieldType == fieldType
+                           where Audiodata.StepId == StepId && Audiodata.LangId == langId && Audiodata.FieldType == fieldType && Audiodata.Active == true
                            select new { AudioFile.FilePath, Audiodata.FieldType }).ToList();
             if (results.Count > 0)
             {
@@ -346,6 +461,7 @@ namespace TrickleUpPortal.Controllers
                         }
 
                     objPushNotification.StepId = Convert.ToInt32(NotificationModelData.contextId);
+                    objPushNotification.CropId = db.Cultivation_Steps.Where(a => a.Id == NotificationModelData.contextId).Select(a => a.Crop_Id).FirstOrDefault();
                     objPushNotification.LangCode = Convert.ToInt32(NotificationModelData.languageId);
                     objPushNotification.notificationContext = NotificationModelData.notificationContext;
                     switch (NotificationModelData.category)
@@ -371,12 +487,8 @@ namespace TrickleUpPortal.Controllers
                                 join Cultivation_Step in db.Cultivation_Steps on CropSteps_Materials.Step_Id equals Cultivation_Step.Id
                                 where CropSteps_Materials.Id == NotificationModelData.contextId
                                 select(Cultivation_Step.Step_Name)).FirstOrDefault().ToString();
-                    //int stepId = Convert.ToInt32(from CropSteps_Materials in db.CropSteps_Material
-                    //            join Cultivation_Step in db.Cultivation_Steps on CropSteps_Materials.Step_Id equals Cultivation_Step.Id
-                    //            where CropSteps_Materials.Id == NotificationModelData.contextId
-                    //            select(Cultivation_Step.Id));
-
                     int stepId = db.CropSteps_Material.Where(b => b.Id == NotificationModelData.contextId).Select(b => b.Step_Id).FirstOrDefault();
+
                     CropName = (from Cultivation_Step in db.Cultivation_Steps
                                 join Crop in db.Crops on Cultivation_Step.Crop_Id equals Crop.Id
                                 where Cultivation_Step.Id == stepId
@@ -401,6 +513,8 @@ namespace TrickleUpPortal.Controllers
                             break;
                     }
                     objPushNotification.MaterialId = Convert.ToInt32(NotificationModelData.contextId);
+                    objPushNotification.StepId = stepId;
+                    objPushNotification.CropId = db.Cultivation_Steps.Where(a => a.Id == stepId).Select(a => a.Crop_Id).FirstOrDefault();
                     objPushNotification.LangCode = Convert.ToInt32(NotificationModelData.languageId);
                     objPushNotification.notificationContext = NotificationModelData.notificationContext;
                     switch (NotificationModelData.category)
@@ -446,9 +560,10 @@ namespace TrickleUpPortal.Controllers
             {
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = string.Empty, success = false, error = "There are no any Users to send a notification" });
             }
-            //objPushNotification.CreatedOn = System.DateTime.Now;
+            
             objPushNotification.CreatedOn = DateTime.Now.ToString("yyyy-MM-dd h:mm tt");
             objPushNotification.MediaType = NotificationModelData.category;
+            objPushNotification.FieldType = NotificationModelData.fieldType;
             string message = SendPushNotification(objPushNotification, deviceIDs);
             objPushNotification.ResponseMessage = message;
             StoreNotificationData(objPushNotification);

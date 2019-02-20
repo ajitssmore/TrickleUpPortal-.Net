@@ -34,10 +34,11 @@ namespace TrickleUpPortal.Models
         public Nullable<int> ActiveBy { get; set; }
         public Nullable<System.DateTime> ActiveOn { get; set; }
         public Nullable<bool> Active { get; set; }
+        public string AliesName { get; set; }
     
+        public virtual LiveStock LiveStock { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LiveStock_StepMaterial> LiveStock_StepMaterial { get; set; }
-        public virtual LiveStock LiveStock { get; set; }
         public virtual ICollection<LiveStock_StepMaterial> Adult { get; set; }
         public virtual ICollection<LiveStock_StepMaterial> Child { get; set; }
     }

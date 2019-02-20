@@ -159,6 +159,15 @@
   <data name="ଆର ଆଇ ଆର" xml:space="preserve">
     <value>RIR</value>
   </data>
+  <data name="ଆରଡିଏଫ ସ୍ଟ୍ରେନ୍ରୁ" xml:space="preserve">
+    <value>RDF strain</value>
+  </data>
+  <data name="ଆରଡିଏଫ ସ୍ଟ୍ରେନ୍ରୁ1" xml:space="preserve">
+    <value>RDF strain</value>
+  </data>
+  <data name="ଆର୨ବି" xml:space="preserve">
+    <value>R2B</value>
+  </data>
   <data name="ଈମାଗେ ହସ ବୀନ ଉପିଲଵାଡେଡ଼" xml:space="preserve">
     <value>Image has been uploaded</value>
   </data>
@@ -189,6 +198,12 @@
   <data name="ଏ ବଉଳ/କଂଟିନଏର" xml:space="preserve">
     <value>A bowl/Container</value>
   </data>
+  <data name="ଏଫଏମଡି" xml:space="preserve">
+    <value>FMD</value>
+  </data>
+  <data name="ଏଫଏମଡି1" xml:space="preserve">
+    <value>FMD</value>
+  </data>
   <data name="ଓନିଅଁ" xml:space="preserve">
     <value>Onion</value>
   </data>
@@ -201,8 +216,20 @@
   <data name="କୁକୁଡ଼ା  ଛୁଆ" xml:space="preserve">
     <value>Chicks</value>
   </data>
+  <data name="କୁକୁଡ଼ା ଖାଦ୍ୟ" xml:space="preserve">
+    <value>Poultry feed</value>
+  </data>
+  <data name="କୁକୁଡ଼ା ଖାଦ୍ୟ1" xml:space="preserve">
+    <value>Layer mash</value>
+  </data>
   <data name="କୁକୁଡ଼ା ପାଳନ" xml:space="preserve">
     <value>Poultry</value>
+  </data>
+  <data name="କୋଲସଁତ୍ରମ" xml:space="preserve">
+    <value>Coloustrum</value>
+  </data>
+  <data name="କୋଲେଷ୍ଟ୍ରମ ନବଜନ୍ମିତ ଛେଲିଛୁଆକୁ ୫ ଦିନ ପର୍ଯ୍ୟନ୍ତ ଦିଆଯିବ. ୨ୟ ସପ୍ତାହ ରୁ ଛୁଆକୁ ସବୁଜ ଘାସ ଖାଇବାକୁ ଦିଆଯାଇପାରେ." xml:space="preserve">
+    <value>Coloustrum to be given to new born kids, for 5 days. From 2nd week kid starter along with soft green grass may be fed to kids</value>
   </data>
   <data name="ଖୁଆଇବା" xml:space="preserve">
     <value>Feeding</value>
@@ -210,11 +237,23 @@
   <data name="ଗଞ୍ଜା" xml:space="preserve">
     <value>Cocks</value>
   </data>
+  <data name="ଗନ୍ଧ ରୋକିବା ପାଇଁ ଏବଂ ଶାରୀରିକ ଉନ୍ନତି ପାଇଁ ପ୍ରତ୍ୟକ ପୁରୁଷ ଛେଳି ଛୁଆ ର ୧ମାସ ରୁ ୨ ମାସ ମଧ୍ୟ ରେ ବନ୍ଦ ପ୍ରକ୍ରିୟା ଦ୍ୱାରା ବନ୍ଧ୍ୟାକରଣ ହେବ ଆବଶ୍ୟକ" xml:space="preserve">
+    <value>All male kids to be castrated by closed method at the age of 1-2months for better growth and to prevent goaty odour</value>
+  </data>
   <data name="ଘୁଷୁରୀ" xml:space="preserve">
     <value>Pig</value>
   </data>
+  <data name="ଘୁଷୁରୀ କୁ ଖୁଆଇବା ପାଇଁ ସେମିତି କିଛି ବିଶେଷ ସମୟ ନଥାଏ | ପୁରା ଦିନରେ ଘୁଷୁରୀ ଛୁଆ ଅଳ୍ପ ମାତ୍ରାରେ ଖାଦ୍ୟ ଖାଇଥାଏ | ଘୁଷୁରୀ ଖାଦ୍ୟରେ ରୋଷେଇ ର ଅଳିଆ ପରିବା ଇତ୍ୟାଦି ଖାଇଥାଏ ଯେଉଁଟାକି ମଣିଷ ମାଙ୍କ ପାଇଁ ଅବ୍ୟବହୃତ ହୋଇଯାଏ." xml:space="preserve">
+    <value>Pig don't have specific time for feeding however piglets eats in little quantity throughout the whole day. food includs kitchen waste, waste vegetables, fruit, change waste and other things which are not human eatables</value>
+  </data>
   <data name="ଘୁଷୁରୀ ଛୁଆ" xml:space="preserve">
     <value>Piglets</value>
+  </data>
+  <data name="ଚରାଇବା" xml:space="preserve">
+    <value>Pasture grazing</value>
+  </data>
+  <data name="ଚାଉଳ, ଗହମ , ମକା , ଶସ୍ୟ" xml:space="preserve">
+    <value>rice, wheat, maize, cereals</value>
   </data>
   <data name="ଚାଉଳିଫ୍ଲୋବେର" xml:space="preserve">
     <value>Cauliflower</value>
@@ -246,6 +285,9 @@
   <data name="ଛେଳି1" xml:space="preserve">
     <value>Doe</value>
   </data>
+  <data name="ଜିପିଭି" xml:space="preserve">
+    <value>GPV</value>
+  </data>
   <data name="ଜୀବମିରିତ  ସୋଲୁସନ" xml:space="preserve">
     <value>Jivamirita Solution</value>
   </data>
@@ -254,6 +296,9 @@
   </data>
   <data name="ଟମାଟୋ  ହରବେଶଟିଙ୍ଗ" xml:space="preserve">
     <value>Tomato Harvesting</value>
+  </data>
+  <data name="ଟିଟାନସ ଟକସାଇଡ" xml:space="preserve">
+    <value>Tetanus toxoid</value>
   </data>
   <data name="ଡ  ବୀଜମୃତ  ସୋଲୁସନ" xml:space="preserve">
     <value>Or Beejamrita Solution</value>
@@ -266,6 +311,9 @@
   </data>
   <data name="ଡ ପ୍ରଂଅମୃତ" xml:space="preserve">
     <value>Or Pranamrita</value>
+  </data>
+  <data name="ଡିଵୋର୍ମିଙ୍ଗ" xml:space="preserve">
+    <value>Dewarming</value>
   </data>
   <data name="ଡ୍ରଇଁନାଗେ  କେନାଲ" xml:space="preserve">
     <value>Drainage Canal</value>
@@ -321,8 +369,20 @@
   <data name="ପଲୋଉଘିଙ୍ଗ ଅ ଲଣ୍ଡ" xml:space="preserve">
     <value>Ploughing of Land</value>
   </data>
+  <data name="ପାଣି" xml:space="preserve">
+    <value>Water</value>
+  </data>
   <data name="ପିତ  ପରିପାରସନ  ଆଣ୍ଡ  ଟ୍ରାନ୍ସପ୍ଲାଣ୍ଟସନ  ଅ  ସେଏଡଲିଙ୍ଗ" xml:space="preserve">
     <value>Pit Preparation and Transplantation of Seedling</value>
+  </data>
+  <data name="ପିପିଆର" xml:space="preserve">
+    <value>PPR</value>
+  </data>
+  <data name="ପିପିଭିଏଲ" xml:space="preserve">
+    <value>PPVL</value>
+  </data>
+  <data name="ପିପ୍ପରଯାଇନ" xml:space="preserve">
+    <value>piperazine</value>
   </data>
   <data name="ପୁଂପକିନ" xml:space="preserve">
     <value>Pumpkin</value>
@@ -348,8 +408,20 @@
   <data name="ପୋଲଠଇନେ" xml:space="preserve">
     <value>Polythene</value>
   </data>
+  <data name="ପ୍ଫେନବେନଡାଜୋଲ" xml:space="preserve">
+    <value>Fenbendazol</value>
+  </data>
   <data name="ପ୍ରଂଅମୃତ" xml:space="preserve">
     <value>Pranamrita</value>
+  </data>
+  <data name="ପ୍ରତିଦିନ ୮-୯ ଘଣ୍ଟା ଚରିଲେ ଭୋଜନ ର ଆବଶ୍ୟକତା ପୁରା ହେବ | ଚରିବା ସୁବିଧା ନଥିଲେ ବୟସ୍କଙ୍କୁ 1kg ସବୁଜ ଘାସ ଏବଂ ୨୫୦ଗ୍ରାମ କଂସେଣ୍ଟ୍ରାସନ ଏବଂ ଛୁଆ କୁ ୧୦୦ଗ୍ରାମ ର ଭୋଜନ ର ଆବଶ୍ୟକତା ରହିଛି" xml:space="preserve">
+    <value>Pasture grazing 8-9 hrs daily will meet the food requirement.If not available 1 kg green grass with 250 gms of concentrate to to adult and 100 gm to young will serve the feed requirement</value>
+  </data>
+  <data name="ପ୍ରତ୍ୟକ ୪ ମାସରେ" xml:space="preserve">
+    <value>Every 4 months</value>
+  </data>
+  <data name="ପ୍ରଥମ ଦିନ" xml:space="preserve">
+    <value>1st day</value>
   </data>
   <data name="ଫର୍ମ  ୱାର୍ଡ  ମାନୁର" xml:space="preserve">
     <value>Farm Yard Manure</value>
@@ -381,6 +453,9 @@
   <data name="ବଡ ଧଳା ୟର୍କସାୟାର" xml:space="preserve">
     <value>Large White Yorksire</value>
   </data>
+  <data name="ବନ୍ଧ୍ୟାକରଣ" xml:space="preserve">
+    <value>Castration</value>
+  </data>
   <data name="ବରପି  ସୀଦଶ  ଇଂ  ସର୍ତ୍ତନ  ସଲତ  ଆଣ୍ଡ  ଶାକ  ଇଟା, ଠେଁ  ଦୀପ  ଇଟା  ଈଂଟ  ଚୋବ  ୟୁରିନେ  ଆଣ୍ଡ  ୱାଟର  ସୋଲୁସନ  ଡ  ବୀଜମୃତ  ସୋଲୁସନ  ଫୋର  ୫  ମିନୁତେଷୁ. ଠେଁ  ଦରୀ  ଥେ  ସାକେଡ଼  ସୀଦଶ  ଇଂ  ଏ  ଷଡ଼େଡ଼  ଆରେଏ  ଉପତ୍ୟ  ୧ -୨  ହୋଉଶ  ଆଣ୍ଡ  ସ୍ଵ  ଇଂ  ଥେ  ପିସ୍ତା." xml:space="preserve">
     <value>Wrap seeds in cotton cloth and soak it, then dip it into cow urine and water Solution or Beejamrita Solution for 5 minutes. Then dry the soaked seeds in a shaded area upto 1-2 hours and sow in the pits.</value>
   </data>
@@ -405,6 +480,9 @@
   <data name="ବୀଜମୃତ ସୋଲୁସନ" xml:space="preserve">
     <value>Beejamrita Solution</value>
   </data>
+  <data name="ବୀମା" xml:space="preserve">
+    <value>Insurance</value>
+  </data>
   <data name="ବୀର୍ଡ୍ସ" xml:space="preserve">
     <value>Birds</value>
   </data>
@@ -413,6 +491,9 @@
   </data>
   <data name="ବେରଂମିକମ୍ପସ୍ଟି1" xml:space="preserve">
     <value>Vermicompost</value>
+  </data>
+  <data name="ବୟସ୍କ ର ଗୁହାଳରେ 500ml ରୁ 700ml ର ଜଳ ପiତ୍ର ରହିବ ଆବଶ୍ୟକ." xml:space="preserve">
+    <value>Requirement 500ml to 700ml/adult animal or water container may be kept in the shed.</value>
   </data>
   <data name="ଭିଡ଼ିଓ ହସ ବୀନ ଉପିଲଵାଡେଡ଼" xml:space="preserve">
     <value>Video has been uploaded</value>
@@ -429,14 +510,23 @@
   <data name="ମାଛ ଡ ସ୍ଟିସିକ" xml:space="preserve">
     <value>Macha or Stick</value>
   </data>
+  <data name="ମାରେକଏକ୍ସ" xml:space="preserve">
+    <value>Marek’x</value>
+  </data>
   <data name="ଯତ୍ନ ନେବା" xml:space="preserve">
     <value>Care and Management</value>
+  </data>
+  <data name="ଯେବେ ଆବଶ୍ୟକତା ପଡିବ" xml:space="preserve">
+    <value>when needed</value>
   </data>
   <data name="ରପାତ  ହାନ୍ଡିଖାତା  ସୋଲୁସନ  ଆଣ୍ଡ  ସ୍ପ୍ରେ  ଆଗ୍ନେୟାସ୍ତ୍ର  ଇଂ  ଅଂ  ଇଣ୍ଟେରବଲ  ଅ  10 ଦେଶ  ଟିଲଲ  ହରବେଶଟିଙ୍ଗ - 2-3 ଟିମଏସ" xml:space="preserve">
     <value>Repeat Handikhata Solution and spray Agneyastra in an interval of 10 days till harvesting- 2-3 times</value>
   </data>
   <data name="ରପାତ  ହାନ୍ଡିଖାତା  ସୋଲୁସନ, ସ୍ପ୍ରେ  ଅମୃତଜାଲ  ଆଣ୍ଡ  ଆଗ୍ନେୟାସ୍ତ୍ର  ଇଂ  ଅଂ  ଇଣ୍ଟେରବଲ  ଅ  10 ଦେଶ  ଟିଲଲ  ହରବେଶଟିଙ୍ଗ  -2-3 ଟିମଏସ" xml:space="preserve">
     <value>Repeat Handikhata Solution, Spray Amritjal and Agneyastra in an interval of 10 days till harvesting -2-3 times</value>
+  </data>
+  <data name="ରୋଷେଇ ର ଅଳିଆ ପରିବା" xml:space="preserve">
+    <value>Kitchen waste, fruits</value>
   </data>
   <data name="ଲଙ୍ଗ  ବେଆନ୍ସ  ହରବେଶଟିଙ୍ଗ" xml:space="preserve">
     <value>Long Beans Harvesting</value>
@@ -464,6 +554,9 @@
   </data>
   <data name="ସର୍ତ୍ତନ ସଲତ" xml:space="preserve">
     <value>Cotton Cloth</value>
+  </data>
+  <data name="ସିଇଭିଏଲ" xml:space="preserve">
+    <value>CEVL</value>
   </data>
   <data name="ସୀଦଶ" xml:space="preserve">
     <value>Seeds</value>
@@ -516,6 +609,9 @@
   <data name="ସ୍ପଚିଙ୍ଗ  ଷୌଲଡ଼  ବେ  1.5 (ପ୍ଲାଣ୍ଟ  ତୋ  ପ୍ଲାଣ୍ଟ ) ଫାଟ  X ୨ଫ୍ଟ  (ରାବ  ତୋ  ରାବ ), ପୁଟ  ଫର୍ମ  ୱାର୍ଡ  ମାନୁର  ଡ  ବେରଂମିକମ୍ପସ୍ଟି  ବିଠ  ହ୍ୟାଦ୍ରି  ଆଣ୍ଡ  ପୁଟ  ନିମ  ଚକେ" xml:space="preserve">
     <value>Spacing should be 1.5 (plant to plant) ft X 2ft (row to row), Put Farm Yard Manure or vermicompost with Hadri and Put Neem cake</value>
   </data>
+  <data name="ସ୍ୱାଇନ ଜ୍ୱର" xml:space="preserve">
+    <value>Swine fever</value>
+  </data>
   <data name="ହଳଦୀ  ପବଡର  ସୋଲୁସନ ବିଠ  ରିସେ  ଷ୍ଟାର୍ଚ୍ଚ" xml:space="preserve">
     <value>Haldi Powder Solution with Rice Starch</value>
   </data>
@@ -539,6 +635,30 @@
   </data>
   <data name="ହ୍ୟାଦ୍ରି ଆଣ୍ଡ କମ୍ପୋଷ୍ଟ ମିସ" xml:space="preserve">
     <value>Hadri and Compost Mix</value>
+  </data>
+  <data name="ୟୌର ଫୀଦବଚକ ଇସଃ ଅଲରାଡି ସୁବିମ୍ୱିତଟେଡ଼" xml:space="preserve">
+    <value>Your feedback is already submitted</value>
+  </data>
+  <data name="୨୧-୨୨ ଦିନ" xml:space="preserve">
+    <value>21-22 days</value>
+  </data>
+  <data name="୩ମାସ ପରେ ବର୍ଷକୁ ଥରେ (ଏଥିପାଇଁ ଉଚିତ ବିବରଣୀ ଆବଶ୍ୟକତା ଅଛି)" xml:space="preserve">
+    <value>3 months then yearly(Need to have proper description for the same)</value>
+  </data>
+  <data name="୩ମାସ ପରେ ବର୍ଷକୁ ଥରେ (ଏଥିପାଇଁ ଉଚିତ ବିବରଣୀ ଆବଶ୍ୟକତା ଅଛି)1" xml:space="preserve">
+    <value>3 months then yearly(Need to have proper description for the same)</value>
+  </data>
+  <data name="୪-୬ ଦିନ" xml:space="preserve">
+    <value>4-6 days</value>
+  </data>
+  <data name="୪୦ ଦିନ ( ଫାଉଲ ଫୋକ୍ସ ପାଇଁ) ପକ୍ଷୀ ରେ ଦାଗ ଏବଂ କଣ ହୋଇଯିବା" xml:space="preserve">
+    <value>40 days, (for foul pox) by puncturing feather and smearing</value>
+  </data>
+  <data name="୬୫-୭୦ ଦିନ, ରାଣୀଖେତ ରୋଗ" xml:space="preserve">
+    <value>65-70 days, ranikhet disease</value>
+  </data>
+  <data name="୯୦ଦିନ, ପକ୍ଷୀ ଝଡ଼ିବା" xml:space="preserve">
+    <value>90 days, plucking feather</value>
   </data>
   <data name="ୱାଟର" xml:space="preserve">
     <value>Water</value>

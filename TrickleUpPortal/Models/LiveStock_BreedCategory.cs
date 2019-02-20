@@ -19,7 +19,7 @@ namespace TrickleUpPortal.Models
         public Nullable<int> BreedId { get; set; }
         public Nullable<double> Rate { get; set; }
         public Nullable<double> Units { get; set; }
-        public Nullable<int> Quanitity { get; set; }
+        public Nullable<int> Quantity { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedOn { get; set; }
         public Nullable<int> UpdatedBy { get; set; }

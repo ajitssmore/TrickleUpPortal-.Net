@@ -88,24 +88,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Crops">
-      <EntityTypeMapping TypeName="TrickleUpModel.Crop">
-        <MappingFragment StoreEntitySet="Crop">
-          <ScalarProperty Name="Title_Audio" ColumnName="Title_Audio" />
-          <ScalarProperty Name="Active" ColumnName="Active" />
-          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
-          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="Ready" ColumnName="Ready" />
-          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
-          <ScalarProperty Name="CropName" ColumnName="CropName" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Videos">
       <EntityTypeMapping TypeName="TrickleUpModel.Video">
         <MappingFragment StoreEntitySet="Videos">
@@ -597,26 +579,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="LiveStock_Steps">
-      <EntityTypeMapping TypeName="TrickleUpModel.LiveStock_Steps">
-        <MappingFragment StoreEntitySet="LiveStock_Steps">
-          <ScalarProperty Name="Active" ColumnName="Active" />
-          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
-          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="StepAudioDesURL" ColumnName="StepAudioDesURL" />
-          <ScalarProperty Name="StepAudioTitleURL" ColumnName="StepAudioTitleURL" />
-          <ScalarProperty Name="StepImageURL" ColumnName="StepImageURL" />
-          <ScalarProperty Name="LiveStockId" ColumnName="LiveStockId" />
-          <ScalarProperty Name="StepDescription" ColumnName="StepDescription" />
-          <ScalarProperty Name="StepName" ColumnName="StepName" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="LiveStockBreeds">
       <EntityTypeMapping TypeName="TrickleUpModel.LiveStockBreed">
         <MappingFragment StoreEntitySet="LiveStockBreed">
@@ -707,11 +669,115 @@
           <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
           <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="Quanitity" ColumnName="Quanitity" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="Units" ColumnName="Units" />
           <ScalarProperty Name="Rate" ColumnName="Rate" />
           <ScalarProperty Name="BreedId" ColumnName="BreedId" />
           <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LiveStock_BreedCategory_AudioAllocation">
+      <EntityTypeMapping TypeName="TrickleUpModel.LiveStock_BreedCategory_AudioAllocation">
+        <MappingFragment StoreEntitySet="LiveStock_BreedCategory_AudioAllocation">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="AudioId" ColumnName="AudioId" />
+          <ScalarProperty Name="FieldType" ColumnName="FieldType" />
+          <ScalarProperty Name="LangId" ColumnName="LangId" />
+          <ScalarProperty Name="LiveStockBreedCategoryId" ColumnName="LiveStockBreedCategoryId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LiveStockBreed_AudioAllocation">
+      <EntityTypeMapping TypeName="TrickleUpModel.LiveStockBreed_AudioAllocation">
+        <MappingFragment StoreEntitySet="LiveStockBreed_AudioAllocation">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="AudioId" ColumnName="AudioId" />
+          <ScalarProperty Name="FieldType" ColumnName="FieldType" />
+          <ScalarProperty Name="LangId" ColumnName="LangId" />
+          <ScalarProperty Name="LiveStockBreedId" ColumnName="LiveStockBreedId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LiveStock_Steps">
+      <EntityTypeMapping TypeName="TrickleUpModel.LiveStock_Steps">
+        <MappingFragment StoreEntitySet="LiveStock_Steps">
+          <ScalarProperty Name="AliesName" ColumnName="AliesName" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="StepAudioDesURL" ColumnName="StepAudioDesURL" />
+          <ScalarProperty Name="StepAudioTitleURL" ColumnName="StepAudioTitleURL" />
+          <ScalarProperty Name="StepImageURL" ColumnName="StepImageURL" />
+          <ScalarProperty Name="LiveStockId" ColumnName="LiveStockId" />
+          <ScalarProperty Name="StepDescription" ColumnName="StepDescription" />
+          <ScalarProperty Name="StepName" ColumnName="StepName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LiveStock_Steps_AudioAllocation">
+      <EntityTypeMapping TypeName="TrickleUpModel.LiveStock_Steps_AudioAllocation">
+        <MappingFragment StoreEntitySet="LiveStock_Steps_AudioAllocation">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="AudioId" ColumnName="AudioId" />
+          <ScalarProperty Name="FieldType" ColumnName="FieldType" />
+          <ScalarProperty Name="LangId" ColumnName="LangId" />
+          <ScalarProperty Name="LiveStockStepId" ColumnName="LiveStockStepId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LiveStock_StepsMaterial_AudioAllocation">
+      <EntityTypeMapping TypeName="TrickleUpModel.LiveStock_StepsMaterial_AudioAllocation">
+        <MappingFragment StoreEntitySet="LiveStock_StepsMaterial_AudioAllocation">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="AudioId" ColumnName="AudioId" />
+          <ScalarProperty Name="FieldType" ColumnName="FieldType" />
+          <ScalarProperty Name="LangId" ColumnName="LangId" />
+          <ScalarProperty Name="LiveStockStepMaterialId" ColumnName="LiveStockStepMaterialId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Crops">
+      <EntityTypeMapping TypeName="TrickleUpModel.Crop">
+        <MappingFragment StoreEntitySet="Crop">
+          <ScalarProperty Name="AliasName" ColumnName="AliasName" />
+          <ScalarProperty Name="Title_Audio" ColumnName="Title_Audio" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+          <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Ready" ColumnName="Ready" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="CropName" ColumnName="CropName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -23,5 +23,6 @@ namespace TrickleUpPortal.Models
         public string category { get; set; }
         public string ResponseMessage { get; set; }
         public string MediaType { get; set; }
+        public string FieldType { get; set; }
     }
 }

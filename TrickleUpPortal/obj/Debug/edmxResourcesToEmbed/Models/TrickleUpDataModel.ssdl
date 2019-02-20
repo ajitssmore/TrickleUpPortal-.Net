@@ -39,6 +39,7 @@
     <Property Name="ActiveOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
     <Property Name="Title_Audio" Type="nvarchar(max)" />
+    <Property Name="AliasName" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="Crop_AudioAllocation">
     <Key>
@@ -367,7 +368,7 @@
     <Property Name="BreedId" Type="int" />
     <Property Name="Rate" Type="float" />
     <Property Name="Units" Type="float" />
-    <Property Name="Quanitity" Type="int" />
+    <Property Name="Quantity" Type="int" />
     <Property Name="CreatedBy" Type="int" />
     <Property Name="CreatedOn" Type="datetime" />
     <Property Name="UpdatedBy" Type="int" />
@@ -378,6 +379,21 @@
     <Property Name="Category" Type="nvarchar(max)" />
     <Property Name="ImageURL" Type="nvarchar(max)" />
     <Property Name="AudioURL" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="LiveStock_BreedCategory_AudioAllocation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LiveStockBreedCategoryId" Type="int" />
+    <Property Name="LangId" Type="int" />
+    <Property Name="FieldType" Type="nvarchar(max)" />
+    <Property Name="AudioId" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
   </EntityType>
   <EntityType Name="LiveStock_StepMaterial">
     <Key>
@@ -421,6 +437,37 @@
     <Property Name="ActiveBy" Type="int" />
     <Property Name="ActiveOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
+    <Property Name="AliesName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="LiveStock_Steps_AudioAllocation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LiveStockStepId" Type="int" />
+    <Property Name="LangId" Type="int" />
+    <Property Name="FieldType" Type="nvarchar(max)" />
+    <Property Name="AudioId" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="LiveStock_StepsMaterial_AudioAllocation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LiveStockStepMaterialId" Type="int" />
+    <Property Name="LangId" Type="int" />
+    <Property Name="FieldType" Type="nvarchar(max)" />
+    <Property Name="AudioId" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
   </EntityType>
   <EntityType Name="LiveStockBreed">
     <Key>
@@ -438,6 +485,21 @@
     <Property Name="Active" Type="bit" />
     <Property Name="ImageURL" Type="nvarchar(max)" />
     <Property Name="AudioURL" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="LiveStockBreed_AudioAllocation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LiveStockBreedId" Type="int" />
+    <Property Name="LangId" Type="int" />
+    <Property Name="FieldType" Type="nvarchar(max)" />
+    <Property Name="AudioId" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
+    <Property Name="Active" Type="bit" />
   </EntityType>
   <EntityType Name="MasterPassword">
     <Key>
@@ -1213,9 +1275,13 @@
     <EntitySet Name="LiveStock" EntityType="Self.LiveStock" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LiveStock_AudioAllocation" EntityType="Self.LiveStock_AudioAllocation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LiveStock_BreedCategory" EntityType="Self.LiveStock_BreedCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LiveStock_BreedCategory_AudioAllocation" EntityType="Self.LiveStock_BreedCategory_AudioAllocation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LiveStock_StepMaterial" EntityType="Self.LiveStock_StepMaterial" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LiveStock_Steps" EntityType="Self.LiveStock_Steps" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LiveStock_Steps_AudioAllocation" EntityType="Self.LiveStock_Steps_AudioAllocation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LiveStock_StepsMaterial_AudioAllocation" EntityType="Self.LiveStock_StepsMaterial_AudioAllocation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LiveStockBreed" EntityType="Self.LiveStockBreed" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LiveStockBreed_AudioAllocation" EntityType="Self.LiveStockBreed_AudioAllocation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MasterPassword" EntityType="Self.MasterPassword" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MaterialNeeded_History" EntityType="Self.MaterialNeeded_History" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MediaContent" EntityType="Self.MediaContent" Schema="dbo" store:Type="Tables" />

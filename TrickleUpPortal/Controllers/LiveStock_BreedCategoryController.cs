@@ -28,7 +28,7 @@ namespace TrickleUpPortal.Controllers
             var LiveStockBreedsCategory = from LiveStockBreedCategorys in db.LiveStock_BreedCategory
                                           join LiveStockBreed in db.LiveStockBreeds on LiveStockBreedCategorys.BreedId equals LiveStockBreed.Id
                                           join LiveStock in db.LiveStocks on LiveStockBreed.LiveStockId equals LiveStock.Id
-                                          select new { LiveStockBreedCategorys.Id, LiveStockBreedCategorys.CategoryName, LiveStockBreedCategorys.BreedId, LiveStockBreed.BreedName, LiveStockBreedCategorys.ImageURL, LiveStockBreedCategorys.Active, LiveStock.StockName, LiveStockBreed.LiveStockId };
+                                          select new { LiveStockBreedCategorys.Id, LiveStockBreedCategorys.CategoryName, LiveStockBreedCategorys.BreedId, LiveStockBreed.BreedName, LiveStockBreedCategorys.ImageURL, LiveStockBreedCategorys.Active, LiveStock.StockName, LiveStockBreed.LiveStockId, LiveStockBreedCategorys.Quantity, LiveStockBreedCategorys.Rate, LiveStockBreedCategorys.Units };
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { LiveStockBreedsCategory }, success = true, error = string.Empty });
         }
 
@@ -100,7 +100,7 @@ namespace TrickleUpPortal.Controllers
                 LiveStockBreedCategoryData.BreedId = liveStock_BreedCategory.BreedId;
                 LiveStockBreedCategoryData.Rate = liveStock_BreedCategory.Rate;
                 LiveStockBreedCategoryData.Units = liveStock_BreedCategory.Units;
-                LiveStockBreedCategoryData.Quanitity = liveStock_BreedCategory.Quanitity;
+                LiveStockBreedCategoryData.Quantity = liveStock_BreedCategory.Quantity;
                 LiveStockBreedCategoryData.Active = liveStock_BreedCategory.Active;
 
                 if (liveStock_BreedCategory.Active == true)

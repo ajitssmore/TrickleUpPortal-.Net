@@ -37,8 +37,8 @@ namespace TrickleUpPortal.Models
         public string VideoPath { get; set; }
         public string MediaFlag { get; set; }
     
-        public virtual Crop Crop { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CropSteps_Material> CropSteps_Material { get; set; }
+        public virtual Crop Crop { get; set; }
     }
 }
