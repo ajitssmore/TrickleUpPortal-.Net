@@ -24,7 +24,7 @@ namespace TrickleUpPortal.Models
         public string StepName { get; set; }
         public string StepDescription { get; set; }
         public Nullable<int> LiveStockId { get; set; }
-        public string StepImageURL { get; set; }
+        public string ImageURL { get; set; }
         public string StepAudioTitleURL { get; set; }
         public string StepAudioDesURL { get; set; }
         public Nullable<int> CreatedBy { get; set; }

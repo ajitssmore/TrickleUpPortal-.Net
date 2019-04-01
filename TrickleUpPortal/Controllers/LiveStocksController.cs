@@ -334,6 +334,122 @@ namespace TrickleUpPortal.Controllers
                             }
                         }
                         break;
+                    case "Santhali":
+                        foreach (LiveStock LiveData in LiveStock)
+                        {
+                            var removeLiveStockBreed = LiveData.LiveStockBreeds.Where(a => a.Active == false);
+                            foreach (var removeLiveStockBreedData in removeLiveStockBreed.ToList())
+                            {
+                                LiveData.LiveStockBreeds.Remove(removeLiveStockBreedData);
+                            }
+
+                            LiveData.StockName = !string.IsNullOrEmpty(LiveData.StockName) ? comObj.GetResxNameByValue_Hindi(LiveData.StockName) : string.Empty;
+                            LiveData.AudioURL = comObj.fetchAudioPahtLiveStock(LiveData.Id, LangCode);
+                            foreach (var LiveStockBreed in LiveData.LiveStockBreeds)
+                            {
+                                var removeLiveStockBreedCategory = LiveStockBreed.LiveStock_BreedCategory.Where(a => a.Active == false);
+                                foreach (var removeLiveStockBreedCategoryData in removeLiveStockBreedCategory.ToList())
+                                {
+                                    LiveStockBreed.LiveStock_BreedCategory.Remove(removeLiveStockBreedCategoryData);
+                                }
+                                LiveStockBreed.BreedName = !string.IsNullOrEmpty(LiveStockBreed.BreedName) ? comObj.GetResxNameByValue_Hindi(LiveStockBreed.BreedName) : string.Empty;
+                                LiveStockBreed.AudioURL = comObj.fetchAudioPahtLiveStockBreed(LiveStockBreed.Id, LangCode);
+                                foreach (var BreedCategory in LiveStockBreed.LiveStock_BreedCategory)
+                                {
+                                    BreedCategory.CategoryName = !string.IsNullOrEmpty(BreedCategory.CategoryName) ? comObj.GetResxNameByValue_Hindi(BreedCategory.CategoryName) : string.Empty;
+                                    BreedCategory.AudioURL = comObj.fetchAudioPahtLiveStockBreedCategory(BreedCategory.Id, LangCode);
+                                }
+                            }
+
+                            var removeLiveStock_Steps = LiveData.LiveStock_Steps.Where(a => a.Active == false);
+                            foreach (var removeLiveStock_StepsData in removeLiveStock_Steps.ToList())
+                            {
+                                LiveData.LiveStock_Steps.Remove(removeLiveStock_StepsData);
+                            }
+
+                            foreach (LiveStock_Steps StepData in LiveData.LiveStock_Steps)
+                            {
+                                StepData.StepName = !string.IsNullOrEmpty(StepData.StepName) ? comObj.GetResxNameByValue_Hindi(StepData.StepName) : string.Empty;
+                                StepData.StepAudioTitleURL = comObj.fetchAudioPahtLiveStockSteps(StepData.Id, LangCode);
+                                StepData.StepDescription = !string.IsNullOrEmpty(StepData.StepDescription) ? comObj.GetResxNameByValue_Hindi(StepData.StepDescription) : string.Empty;
+
+                                var removeLiveStock_StepMaterial = StepData.LiveStock_StepMaterial.Where(a => a.Active == false);
+                                foreach (var removeLiveStock_StepMaterialData in removeLiveStock_StepMaterial.ToList())
+                                {
+                                    StepData.LiveStock_StepMaterial.Remove(removeLiveStock_StepMaterialData);
+                                }
+                                foreach (var LiveStock_StepMaterials in StepData.LiveStock_StepMaterial)
+                                {
+                                    LiveStock_StepMaterials.LiveMaterialName = !string.IsNullOrEmpty(LiveStock_StepMaterials.LiveMaterialName) ? comObj.GetResxNameByValue_Hindi(LiveStock_StepMaterials.LiveMaterialName) : string.Empty;
+                                    LiveStock_StepMaterials.LiveMaterialDesc = !string.IsNullOrEmpty(LiveStock_StepMaterials.LiveMaterialDesc) ? comObj.GetResxNameByValue_Hindi(LiveStock_StepMaterials.LiveMaterialDesc) : string.Empty;
+                                    LiveStock_StepMaterials.TitleAudioURL = comObj.fetchAudioPahtLiveStockStepsMaterial(LiveStock_StepMaterials.Id, LangCode, "Title");
+                                    LiveStock_StepMaterials.DescriptionAudioURL = comObj.fetchAudioPahtLiveStockStepsMaterial(LiveStock_StepMaterials.Id, LangCode, "Description");
+                                }
+                                List<LiveStock_StepMaterial> AdultData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Adult").ToList();
+                                List<LiveStock_StepMaterial> ChildData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Child").ToList();
+                                StepData.Adult = AdultData;
+                                StepData.Child = ChildData;
+                            }
+                        }
+                        break;
+                    case "Ho":
+                        foreach (LiveStock LiveData in LiveStock)
+                        {
+                            var removeLiveStockBreed = LiveData.LiveStockBreeds.Where(a => a.Active == false);
+                            foreach (var removeLiveStockBreedData in removeLiveStockBreed.ToList())
+                            {
+                                LiveData.LiveStockBreeds.Remove(removeLiveStockBreedData);
+                            }
+
+                            LiveData.StockName = !string.IsNullOrEmpty(LiveData.StockName) ? comObj.GetResxNameByValue_Hindi(LiveData.StockName) : string.Empty;
+                            LiveData.AudioURL = comObj.fetchAudioPahtLiveStock(LiveData.Id, LangCode);
+                            foreach (var LiveStockBreed in LiveData.LiveStockBreeds)
+                            {
+                                var removeLiveStockBreedCategory = LiveStockBreed.LiveStock_BreedCategory.Where(a => a.Active == false);
+                                foreach (var removeLiveStockBreedCategoryData in removeLiveStockBreedCategory.ToList())
+                                {
+                                    LiveStockBreed.LiveStock_BreedCategory.Remove(removeLiveStockBreedCategoryData);
+                                }
+                                LiveStockBreed.BreedName = !string.IsNullOrEmpty(LiveStockBreed.BreedName) ? comObj.GetResxNameByValue_Hindi(LiveStockBreed.BreedName) : string.Empty;
+                                LiveStockBreed.AudioURL = comObj.fetchAudioPahtLiveStockBreed(LiveStockBreed.Id, LangCode);
+                                foreach (var BreedCategory in LiveStockBreed.LiveStock_BreedCategory)
+                                {
+                                    BreedCategory.CategoryName = !string.IsNullOrEmpty(BreedCategory.CategoryName) ? comObj.GetResxNameByValue_Hindi(BreedCategory.CategoryName) : string.Empty;
+                                    BreedCategory.AudioURL = comObj.fetchAudioPahtLiveStockBreedCategory(BreedCategory.Id, LangCode);
+                                }
+                            }
+
+                            var removeLiveStock_Steps = LiveData.LiveStock_Steps.Where(a => a.Active == false);
+                            foreach (var removeLiveStock_StepsData in removeLiveStock_Steps.ToList())
+                            {
+                                LiveData.LiveStock_Steps.Remove(removeLiveStock_StepsData);
+                            }
+
+                            foreach (LiveStock_Steps StepData in LiveData.LiveStock_Steps)
+                            {
+                                StepData.StepName = !string.IsNullOrEmpty(StepData.StepName) ? comObj.GetResxNameByValue_Hindi(StepData.StepName) : string.Empty;
+                                StepData.StepAudioTitleURL = comObj.fetchAudioPahtLiveStockSteps(StepData.Id, LangCode);
+                                StepData.StepDescription = !string.IsNullOrEmpty(StepData.StepDescription) ? comObj.GetResxNameByValue_Hindi(StepData.StepDescription) : string.Empty;
+
+                                var removeLiveStock_StepMaterial = StepData.LiveStock_StepMaterial.Where(a => a.Active == false);
+                                foreach (var removeLiveStock_StepMaterialData in removeLiveStock_StepMaterial.ToList())
+                                {
+                                    StepData.LiveStock_StepMaterial.Remove(removeLiveStock_StepMaterialData);
+                                }
+                                foreach (var LiveStock_StepMaterials in StepData.LiveStock_StepMaterial)
+                                {
+                                    LiveStock_StepMaterials.LiveMaterialName = !string.IsNullOrEmpty(LiveStock_StepMaterials.LiveMaterialName) ? comObj.GetResxNameByValue_Hindi(LiveStock_StepMaterials.LiveMaterialName) : string.Empty;
+                                    LiveStock_StepMaterials.LiveMaterialDesc = !string.IsNullOrEmpty(LiveStock_StepMaterials.LiveMaterialDesc) ? comObj.GetResxNameByValue_Hindi(LiveStock_StepMaterials.LiveMaterialDesc) : string.Empty;
+                                    LiveStock_StepMaterials.TitleAudioURL = comObj.fetchAudioPahtLiveStockStepsMaterial(LiveStock_StepMaterials.Id, LangCode, "Title");
+                                    LiveStock_StepMaterials.DescriptionAudioURL = comObj.fetchAudioPahtLiveStockStepsMaterial(LiveStock_StepMaterials.Id, LangCode, "Description");
+                                }
+                                List<LiveStock_StepMaterial> AdultData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Adult").ToList();
+                                List<LiveStock_StepMaterial> ChildData = StepData.LiveStock_StepMaterial.Where(a => a.Category.ToString() == "Child").ToList();
+                                StepData.Adult = AdultData;
+                                StepData.Child = ChildData;
+                            }
+                        }
+                        break;
                     default:
                         break;
                 }

@@ -64,6 +64,18 @@ namespace TrickleUpPortal.Controllers
                         questionObj.Active = item.Active;
                         question.Add(questionObj);
                         break;
+                    case "Santhali":
+                        questionObj.Id = item.Id;
+                        questionObj.Questions = item.Questions != null ? comObj.GetResxNameByValue_Hindi(item.Questions) : string.Empty;
+                        questionObj.Active = item.Active;
+                        question.Add(questionObj);
+                        break;
+                    case "Ho":
+                        questionObj.Id = item.Id;
+                        questionObj.Questions = item.Questions != null ? comObj.GetResxNameByValue_Hindi(item.Questions) : string.Empty;
+                        questionObj.Active = item.Active;
+                        question.Add(questionObj);
+                        break;
                     default:
                         break;
                 }

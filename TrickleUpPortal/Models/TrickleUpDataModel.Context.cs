@@ -31,7 +31,6 @@ namespace TrickleUpPortal.Models
         public virtual DbSet<Language> Languages { get; set; }
         public virtual DbSet<MediaContent> MediaContents { get; set; }
         public virtual DbSet<BulkUploadRef> BulkUploadRefs { get; set; }
-        public virtual DbSet<Video> Videos { get; set; }
         public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<VillageContact> VillageContacts { get; set; }
         public virtual DbSet<FeedBackQuestion> FeedBackQuestions { get; set; }
@@ -68,9 +67,10 @@ namespace TrickleUpPortal.Models
         public virtual DbSet<LiveStock_BreedCategory> LiveStock_BreedCategory { get; set; }
         public virtual DbSet<LiveStock_BreedCategory_AudioAllocation> LiveStock_BreedCategory_AudioAllocation { get; set; }
         public virtual DbSet<LiveStockBreed_AudioAllocation> LiveStockBreed_AudioAllocation { get; set; }
-        public virtual DbSet<LiveStock_Steps> LiveStock_Steps { get; set; }
         public virtual DbSet<LiveStock_Steps_AudioAllocation> LiveStock_Steps_AudioAllocation { get; set; }
         public virtual DbSet<LiveStock_StepsMaterial_AudioAllocation> LiveStock_StepsMaterial_AudioAllocation { get; set; }
         public virtual DbSet<Crop> Crops { get; set; }
+        public virtual DbSet<LiveStock_Steps> LiveStock_Steps { get; set; }
+        public virtual DbSet<Video> Videos { get; set; }
     }
 }

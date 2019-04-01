@@ -427,7 +427,7 @@
     <Property Name="StepName" Type="nvarchar(max)" />
     <Property Name="StepDescription" Type="nvarchar(max)" />
     <Property Name="LiveStockId" Type="int" />
-    <Property Name="StepImageURL" Type="nvarchar(max)" />
+    <Property Name="ImageURL" Type="nvarchar(max)" />
     <Property Name="StepAudioTitleURL" Type="nvarchar(max)" />
     <Property Name="StepAudioDesURL" Type="nvarchar(max)" />
     <Property Name="CreatedBy" Type="int" />
@@ -696,6 +696,8 @@
     <Property Name="CreatedBy" Type="int" />
     <Property Name="CreatedOn" Type="datetime" />
     <Property Name="Active" Type="bit" />
+    <Property Name="ActiveBy" Type="int" />
+    <Property Name="ActiveOn" Type="datetime" />
   </EntityType>
   <EntityType Name="Village">
     <Key>

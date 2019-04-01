@@ -152,6 +152,12 @@ namespace TrickleUpPortal.Controllers
                     case "Oriya":
                         ErrorMessage = comObj.GetResxNameByValue_Oriya("Your feedback is already submitted");
                         break;
+                    case "Santhali":
+                        ErrorMessage = comObj.GetResxNameByValue_Hindi("Your feedback is already submitted");
+                        break;
+                    case "Ho":
+                        ErrorMessage = comObj.GetResxNameByValue_Hindi("Your feedback is already submitted");
+                        break;
                     default:
                         ErrorMessage = "The UserName or Password is Incorrect.";
                         break;

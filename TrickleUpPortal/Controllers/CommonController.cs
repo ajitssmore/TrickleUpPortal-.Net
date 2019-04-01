@@ -322,17 +322,16 @@ namespace TrickleUpPortal.Controllers
             return Exceptionid;
         }
 
-        public string SendPushNotification(PushNotificationDataModel PushNotificationData, string[] deviceIDs)
+        public string LiveStockSendPushNotification(LiveStockPushNotificationDataModel PushNotificationData, string[] deviceIDs)
         {
             string response;
 
             try
             {
-                //var UserFCMTokendata = db.UserFCMTokens.Where(x => x.Registered == true).Select(a => new { a.FCMToken }).ToList();
-                //string[] deviceIDs = db.UserFCMTokens
-                // .Where(x => x.Registered == true)
-                // .Select(x => x.FCMToken).ToArray();
-                string serverKey = "AAAABp-OKPA:APA91bGsf8As5tEhemJ1GRIBtEs4hy2OSzY9YcbLoaUNzdghuQkH7Fdnh3m6gUwXt1QbbNddFeTHenJkMsLCse_4kLL4z4UBMGv1hgwE9YkG4S9_tFY0wgYxR6Y8k43N90taY5sdKpIi";
+                //Development Key
+                    //string serverKey = "AAAABp-OKPA:APA91bGsf8As5tEhemJ1GRIBtEs4hy2OSzY9YcbLoaUNzdghuQkH7Fdnh3m6gUwXt1QbbNddFeTHenJkMsLCse_4kLL4z4UBMGv1hgwE9YkG4S9_tFY0wgYxR6Y8k43N90taY5sdKpIi";
+                //Client Key
+                    string serverKey = "AAAAWvGupZs:APA91bGJz6Fb1xrUXMPlT_JGba1a4oJzfQfQlDaxL0q5CrtOyw7GFNKnoIxb1n1qLUB-2IokqD0D8qDfVF03zFK6SOqSEUo6IrzfioejpHVJb0EYh1F6Ecdjo4jzEDsFs8_U8N0rclnt";
                 WebRequest tRequest = WebRequest.Create("https://fcm.googleapis.com/fcm/send");
                 string[] tokens = deviceIDs;
                 tRequest.Method = "post";
@@ -380,6 +379,339 @@ namespace TrickleUpPortal.Controllers
             }
 
             return response;
+        }
+
+        public string SendPushNotification(PushNotificationDataModel PushNotificationData, string[] deviceIDs)
+        {
+            string response;
+
+            try
+            {
+                //Development Key
+                    //string serverKey = "AAAABp-OKPA:APA91bGsf8As5tEhemJ1GRIBtEs4hy2OSzY9YcbLoaUNzdghuQkH7Fdnh3m6gUwXt1QbbNddFeTHenJkMsLCse_4kLL4z4UBMGv1hgwE9YkG4S9_tFY0wgYxR6Y8k43N90taY5sdKpIi";
+                //Client Key
+                string serverKey = "AAAAWvGupZs:APA91bGJz6Fb1xrUXMPlT_JGba1a4oJzfQfQlDaxL0q5CrtOyw7GFNKnoIxb1n1qLUB-2IokqD0D8qDfVF03zFK6SOqSEUo6IrzfioejpHVJb0EYh1F6Ecdjo4jzEDsFs8_U8N0rclnt";
+                WebRequest tRequest = WebRequest.Create("https://fcm.googleapis.com/fcm/send");
+                string[] tokens = deviceIDs;
+                tRequest.Method = "post";
+                tRequest.ContentType = "application/json";
+                string jsondata = JsonConvert.SerializeObject(PushNotificationData);
+                var message = new
+                {
+                    registration_ids = tokens,
+                    notification = new
+                    {
+                        body = PushNotificationData.Body,
+                        title = PushNotificationData.Title,
+                    },
+                    data = new
+                    {
+                        jsondata
+                    }
+
+                };
+                var serializer = new JavaScriptSerializer();
+                var json = serializer.Serialize(message);
+                Byte[] byteArray = Encoding.UTF8.GetBytes(json);
+                tRequest.Headers.Add(string.Format("Authorization: key={0}", serverKey));
+                tRequest.ContentLength = byteArray.Length;
+
+                using (Stream dataStream = tRequest.GetRequestStream())
+                {
+                    dataStream.Write(byteArray, 0, byteArray.Length);
+                    using (WebResponse tResponse = tRequest.GetResponse())
+                    {
+                        using (Stream dataStreamResponse = tResponse.GetResponseStream())
+                        {
+                            using (StreamReader tReader = new StreamReader(dataStreamResponse))
+                            {
+                                String sResponseFromServer = tReader.ReadToEnd();
+                                response = sResponseFromServer;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+
+            return response;
+        }
+
+        [HttpPost]
+        public HttpResponseMessage SendLiveStockNotification(NotificationModel NotificationModelData)
+        {
+            LiveStockPushNotificationDataModel objPushNotification = new LiveStockPushNotificationDataModel();
+            List<int> UserId;
+            string titlemessage = string.Empty;
+            LanguageName = fetchLang(NotificationModelData.languageId);
+            switch (NotificationModelData.notificationContext)
+            {
+                case "liveStocks":
+                    objPushNotification.LiveStockName = db.LiveStocks.Where(x => x.Id == NotificationModelData.contextId).Select(x => x.StockName).FirstOrDefault();
+                    titlemessage = NotificationModelData.Active ? "" + System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(NotificationModelData.category.ToLower()) + " has been uploaded" : "" + NotificationModelData.category + " has been Removed";
+                        switch (LanguageName)
+                        {
+                            case "Hindi":
+                                objPushNotification.Title = GetResxNameByValue_Hindi(titlemessage);
+                                objPushNotification.Body = GetResxNameByValue_Hindi(objPushNotification.LiveStockName) + " " + GetResxNameByValue_Hindi("For");
+                                break;
+                            case "English":
+                                objPushNotification.Title = titlemessage;
+                                objPushNotification.Body = "For" + " " + objPushNotification.LiveStockName;
+                                break;
+                            case "Oriya":
+                                objPushNotification.Title = GetResxNameByValue_Oriya(titlemessage);
+                                objPushNotification.Body = GetResxNameByValue_Oriya(objPushNotification.LiveStockName) + " " + GetResxNameByValue_Oriya("For");
+                                break;
+                            default:
+                                break;
+                        }
+                        objPushNotification.LiveStockId = Convert.ToInt32(NotificationModelData.contextId);
+                        objPushNotification.LangCode = Convert.ToInt32(NotificationModelData.languageId);
+                        objPushNotification.notificationContext = NotificationModelData.notificationContext;
+                        switch (NotificationModelData.category)
+                        {
+                            case "image":
+                                objPushNotification.ImageURL = db.LiveStocks.Where(x => x.Id == NotificationModelData.contextId).Select(x => x.ImageURL).FirstOrDefault();
+                                break;
+                            case "audio":
+                                int AudioId = Convert.ToInt32(db.LiveStock_AudioAllocation.Where(x => x.LiveStockId == NotificationModelData.contextId && x.LangId == objPushNotification.LangCode && x.Active == true).Select(x => x.AudioId).FirstOrDefault());
+                                objPushNotification.AudioURL = AudioId != 0 ? db.Audios.Where(q => q.Id == AudioId).Select(q => q.FilePath).FirstOrDefault() : string.Empty;
+                                break;
+                            //case "video":
+                            //    int VideoId = Convert.ToInt32(db.Crop_VideoAllocation.Where(x => x.CropId == NotificationModelData.contextId && x.LangId == objPushNotification.LangCode && x.Active == true).Select(x => x.VideoId).FirstOrDefault());
+                            //    objPushNotification.VideoURL = VideoId != 0 ? db.Videos.Where(q => q.Id == VideoId).Select(q => q.FilePath).FirstOrDefault() : string.Empty; ;
+                            //    break;
+                            default:
+                                break;
+                        }
+                    break;
+                case "liveStockBreed":
+                        objPushNotification.LiveStockBreedName = db.LiveStockBreeds.Where(x => x.Id == NotificationModelData.contextId).Select(x => x.BreedName).FirstOrDefault();
+                        objPushNotification.LiveStockName = (from LiveStockBreed in db.LiveStockBreeds
+                                                             join LiveStock in db.LiveStocks on LiveStockBreed.LiveStockId equals LiveStock.Id
+                                                             where LiveStockBreed.Id == NotificationModelData.contextId
+                                                             select (LiveStock.StockName)).FirstOrDefault().ToString();
+                        titlemessage = NotificationModelData.Active ? "" + System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(NotificationModelData.category.ToLower()) + " has been uploaded" : "" + NotificationModelData.category + " has been Removed";
+                        switch (LanguageName)
+                        {
+                            case "Hindi":
+                                objPushNotification.Title = GetResxNameByValue_Hindi(titlemessage);
+                                objPushNotification.Body = GetResxNameByValue_Hindi(objPushNotification.LiveStockName) + " -->" + " " + GetResxNameByValue_Hindi(objPushNotification.LiveStockBreedName) + " " + GetResxNameByValue_Hindi("For");
+                                break;
+                            case "English":
+                                objPushNotification.Title = titlemessage;
+                                objPushNotification.Body = "For" + " " + objPushNotification.LiveStockName + " -->" + " " + objPushNotification.LiveStockBreedName;
+                                break;
+                            case "Oriya":
+                                objPushNotification.Title = GetResxNameByValue_Oriya(titlemessage);
+                                objPushNotification.Body = GetResxNameByValue_Oriya(objPushNotification.LiveStockName) + " -->" + " " + GetResxNameByValue_Oriya(objPushNotification.LiveStockBreedName) + " " + GetResxNameByValue_Oriya("For");
+                                break;
+                            default:
+                                break;
+                        }
+                        objPushNotification.LiveStockBreedId = Convert.ToInt32(NotificationModelData.contextId);
+                        objPushNotification.LiveStockId = (int)db.LiveStockBreeds.Where(a => a.Id == NotificationModelData.contextId).Select(a => a.LiveStockId).FirstOrDefault();
+                        objPushNotification.LangCode = Convert.ToInt32(NotificationModelData.languageId);
+                        objPushNotification.notificationContext = NotificationModelData.notificationContext;
+                        switch (NotificationModelData.category)
+                        {
+                            case "image":
+                                objPushNotification.ImageURL = db.LiveStockBreeds.Where(x => x.Id == NotificationModelData.contextId).Select(x => x.ImageURL).FirstOrDefault();
+                                break;
+                            case "audio":
+                                int AudioId = Convert.ToInt32(db.LiveStockBreed_AudioAllocation.Where(x => x.LiveStockBreedId == NotificationModelData.contextId && x.LangId == objPushNotification.LangCode && x.Active == true).Select(x => x.AudioId).FirstOrDefault());
+                                objPushNotification.AudioURL = AudioId != 0 ? db.Audios.Where(q => q.Id == AudioId).Select(q => q.FilePath).FirstOrDefault() : string.Empty;
+                                break;
+                            //case "video":
+                            //    int VideoId = Convert.ToInt32(db.Crop_VideoAllocation.Where(x => x.CropId == NotificationModelData.contextId && x.LangId == objPushNotification.LangCode && x.Active == true).Select(x => x.VideoId).FirstOrDefault());
+                            //    objPushNotification.VideoURL = VideoId != 0 ? db.Videos.Where(q => q.Id == VideoId).Select(q => q.FilePath).FirstOrDefault() : string.Empty; ;
+                            //    break;
+                            default:
+                                break;
+                        }
+                    break;
+                case "liveStockBreedCategory":
+                        objPushNotification.LiveStockCatBreedName = db.LiveStock_BreedCategory.Where(a => a.Id == NotificationModelData.contextId).Select(a => a.CategoryName).FirstOrDefault();
+                        objPushNotification.LiveStockBreedName = (from LiveStock_BreedCategorys in db.LiveStock_BreedCategory
+                                    join LiveStockBreed in db.LiveStockBreeds on LiveStock_BreedCategorys.BreedId equals LiveStockBreed.Id
+                                    where LiveStock_BreedCategorys.Id == NotificationModelData.contextId
+                                    select (LiveStockBreed.BreedName)).FirstOrDefault().ToString();
+                        objPushNotification.LiveStockBreedId = (int)db.LiveStock_BreedCategory.Where(b => b.Id == NotificationModelData.contextId).Select(b => b.BreedId).FirstOrDefault();
+
+                        objPushNotification.LiveStockName = (from LiveStockBreed in db.LiveStockBreeds
+                                                             join LiveStock in db.LiveStocks on LiveStockBreed.LiveStockId equals LiveStock.Id
+                                                             where LiveStockBreed.Id == objPushNotification.LiveStockBreedId
+                                                             select (LiveStock.StockName)).FirstOrDefault().ToString();
+                        titlemessage = NotificationModelData.Active ? "" + System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(NotificationModelData.category.ToLower()) + " has been uploaded" : "" + NotificationModelData.category + " has been Removed";
+                        switch (LanguageName)
+                        {
+                            case "Hindi":
+                                objPushNotification.Title = GetResxNameByValue_Hindi(titlemessage);
+                                objPushNotification.Body = GetResxNameByValue_Hindi(objPushNotification.LiveStockName) + " -->" + " " + GetResxNameByValue_Hindi(objPushNotification.LiveStockBreedName) + " -->" + " " + GetResxNameByValue_Hindi(objPushNotification.LiveStockCatBreedName) + " " + GetResxNameByValue_Hindi("For");
+                                break;
+                            case "English":
+                                objPushNotification.Title = titlemessage;
+                                objPushNotification.Body = "For" + " " + objPushNotification.LiveStockName + " -->" + " " + objPushNotification.LiveStockBreedName + " -->" + " " + objPushNotification.LiveStockCatBreedName;
+                                break;
+                            case "Oriya":
+                                objPushNotification.Title = GetResxNameByValue_Oriya(titlemessage);
+                                objPushNotification.Body = GetResxNameByValue_Oriya(objPushNotification.LiveStockName) + " -->" + " " + GetResxNameByValue_Oriya(objPushNotification.LiveStockBreedName) + " -->" + " " + GetResxNameByValue_Oriya(objPushNotification.LiveStockCatBreedName) + " " + GetResxNameByValue_Oriya("For");
+                                break;
+                            default:
+                                break;
+                        }
+                        objPushNotification.LiveStockId = (int)db.LiveStockBreeds.Where(a => a.Id == objPushNotification.LiveStockBreedId).Select(a => a.LiveStockId).FirstOrDefault();
+                        objPushNotification.LangCode = Convert.ToInt32(NotificationModelData.languageId);
+                        objPushNotification.notificationContext = NotificationModelData.notificationContext;
+                        switch (NotificationModelData.category)
+                        {
+                            case "image":
+                                objPushNotification.ImageURL = db.LiveStock_BreedCategory.Where(x => x.Id == NotificationModelData.contextId).Select(x => x.ImageURL).FirstOrDefault();
+                                break;
+                            case "audio":
+                                int AudioId = Convert.ToInt32(db.LiveStock_BreedCategory_AudioAllocation.Where(x => x.LiveStockBreedCategoryId == NotificationModelData.contextId && x.LangId == objPushNotification.LangCode && x.Active == true).Select(x => x.AudioId).FirstOrDefault());
+                                objPushNotification.AudioURL = db.Audios.Where(q => q.Id == AudioId).Select(q => q.FilePath).FirstOrDefault();
+                                break;
+                            //case "video":
+                            //    int VideoId = Convert.ToInt32(db.CropStepMaterial_VideoAllocation.Where(x => x.MaterialId == NotificationModelData.contextId && x.LangId == objPushNotification.LangCode && x.Active == true).Select(x => x.VideoId).FirstOrDefault());
+                            //    objPushNotification.VideoURL = db.Videos.Where(q => q.Id == VideoId).Select(q => q.FilePath).FirstOrDefault();
+                            //    break;
+                            default:
+                                break;
+                        }
+                    break;
+                case "liveStockStep":
+                    objPushNotification.LiveStockStepsName = db.LiveStock_Steps.Where(x => x.Id == NotificationModelData.contextId).Select(x => x.StepName).FirstOrDefault();
+                    objPushNotification.LiveStockName = (from LiveStock_Step in db.LiveStock_Steps
+                                                         join LiveStock in db.LiveStocks on LiveStock_Step.LiveStockId equals LiveStock.Id
+                                                         where LiveStock_Step.Id == NotificationModelData.contextId
+                                                         select (LiveStock.StockName)).FirstOrDefault().ToString();
+                    titlemessage = NotificationModelData.Active ? "" + System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(NotificationModelData.category.ToLower()) + " has been uploaded" : "" + NotificationModelData.category + " has been Removed";
+                    switch (LanguageName)
+                    {
+                        case "Hindi":
+                            objPushNotification.Title = GetResxNameByValue_Hindi(titlemessage);
+                            objPushNotification.Body = GetResxNameByValue_Hindi(objPushNotification.LiveStockName) + " -->" + " " + GetResxNameByValue_Hindi(objPushNotification.LiveStockStepsName) + " " + GetResxNameByValue_Hindi("For");
+                            break;
+                        case "English":
+                            objPushNotification.Title = titlemessage;
+                            objPushNotification.Body = "For" + " " + objPushNotification.LiveStockName + " -->" + " " + objPushNotification.LiveStockStepsName;
+                            break;
+                        case "Oriya":
+                            objPushNotification.Title = GetResxNameByValue_Oriya(titlemessage);
+                            objPushNotification.Body = GetResxNameByValue_Oriya(objPushNotification.LiveStockName) + " -->" + " " + GetResxNameByValue_Oriya(objPushNotification.LiveStockStepsName) + " " + GetResxNameByValue_Oriya("For");
+                            break;
+                        default:
+                            break;
+                    }
+                    objPushNotification.LiveStockStepsId = Convert.ToInt32(NotificationModelData.contextId);
+                    objPushNotification.LiveStockId = (int)db.LiveStockBreeds.Where(a => a.Id == NotificationModelData.contextId).Select(a => a.LiveStockId).FirstOrDefault();
+                    objPushNotification.LangCode = Convert.ToInt32(NotificationModelData.languageId);
+                    objPushNotification.notificationContext = NotificationModelData.notificationContext;
+                    switch (NotificationModelData.category)
+                    {
+                        case "image":
+                            objPushNotification.ImageURL = db.LiveStock_Steps.Where(x => x.Id == NotificationModelData.contextId).Select(x => x.ImageURL).FirstOrDefault();
+                            break;
+                        case "audio":
+                            int AudioId = Convert.ToInt32(db.LiveStock_Steps_AudioAllocation.Where(x => x.LiveStockStepId == NotificationModelData.contextId && x.LangId == objPushNotification.LangCode && x.Active == true).Select(x => x.AudioId).FirstOrDefault());
+                            objPushNotification.AudioURL = AudioId != 0 ? db.Audios.Where(q => q.Id == AudioId).Select(q => q.FilePath).FirstOrDefault() : string.Empty;
+                            break;
+                        //case "video":
+                        //    int VideoId = Convert.ToInt32(db.Crop_VideoAllocation.Where(x => x.CropId == NotificationModelData.contextId && x.LangId == objPushNotification.LangCode && x.Active == true).Select(x => x.VideoId).FirstOrDefault());
+                        //    objPushNotification.VideoURL = VideoId != 0 ? db.Videos.Where(q => q.Id == VideoId).Select(q => q.FilePath).FirstOrDefault() : string.Empty; ;
+                        //    break;
+                        default:
+                            break;
+                    }
+                    break;
+                case "liveStockMaterial":
+                    objPushNotification.LiveStockMaterialName = db.LiveStock_StepMaterial.Where(a => a.Id == NotificationModelData.contextId).Select(a => a.LiveMaterialName).FirstOrDefault();
+                    objPushNotification.LiveStockStepsName = (from LiveStock_StepMaterials in db.LiveStock_StepMaterial
+                                                              join LiveStock_Step in db.LiveStock_Steps on LiveStock_StepMaterials.LiveStock_StepId equals LiveStock_Step.Id
+                                                              where LiveStock_StepMaterials.Id == NotificationModelData.contextId
+                                                              select (LiveStock_Step.StepName)).FirstOrDefault().ToString();
+
+                    objPushNotification.LiveStockStepsId = (int)db.LiveStock_StepMaterial.Where(b => b.Id == NotificationModelData.contextId).Select(b => b.LiveStock_StepId).FirstOrDefault();
+
+                    objPushNotification.LiveStockName = (from LiveStock_Step in db.LiveStock_Steps
+                                                         join LiveStock in db.LiveStocks on LiveStock_Step.LiveStockId equals LiveStock.Id
+                                                         where LiveStock_Step.Id == objPushNotification.LiveStockStepsId
+                                                         select (LiveStock.StockName)).FirstOrDefault().ToString();
+
+                    titlemessage = NotificationModelData.Active ? "" + System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(NotificationModelData.category.ToLower()) + " has been uploaded" : "" + NotificationModelData.category + " has been Removed";
+                    switch (LanguageName)
+                    {
+                        case "Hindi":
+                            objPushNotification.Title = GetResxNameByValue_Hindi(titlemessage);
+                            objPushNotification.Body = GetResxNameByValue_Hindi(objPushNotification.LiveStockName) + " -->" + " " + GetResxNameByValue_Hindi(objPushNotification.LiveStockStepsName) + " -->" + " " + GetResxNameByValue_Hindi(objPushNotification.LiveStockMaterialName) + " " + GetResxNameByValue_Hindi("For");
+                            break;
+                        case "English":
+                            objPushNotification.Title = titlemessage;
+                            objPushNotification.Body = "For" + " " + objPushNotification.LiveStockName + " -->" + " " + objPushNotification.LiveStockStepsName + " -->" + " " + objPushNotification.LiveStockMaterialName;
+                            break;
+                        case "Oriya":
+                            objPushNotification.Title = GetResxNameByValue_Oriya(titlemessage);
+                            objPushNotification.Body = GetResxNameByValue_Oriya(objPushNotification.LiveStockName) + " -->" + " " + GetResxNameByValue_Oriya(objPushNotification.LiveStockStepsName) + " -->" + " " + GetResxNameByValue_Oriya(objPushNotification.LiveStockMaterialName) + " " + GetResxNameByValue_Oriya("For");
+                            break;
+                        default:
+                            break;
+                    }
+                    objPushNotification.LiveStockId = (int)db.LiveStock_Steps.Where(a => a.Id == objPushNotification.LiveStockStepsId).Select(a => a.LiveStockId).FirstOrDefault();
+                    objPushNotification.LangCode = Convert.ToInt32(NotificationModelData.languageId);
+                    objPushNotification.notificationContext = NotificationModelData.notificationContext;
+                    switch (NotificationModelData.category)
+                    {
+                        case "image":
+                            objPushNotification.ImageURL = db.LiveStock_StepMaterial.Where(x => x.Id == NotificationModelData.contextId).Select(x => x.ImageURL).FirstOrDefault();
+                            break;
+                        case "audio":
+                            int AudioId = Convert.ToInt32(db.LiveStock_StepsMaterial_AudioAllocation.Where(x => x.LiveStockStepMaterialId == NotificationModelData.contextId && x.LangId == objPushNotification.LangCode && x.Active == true).Select(x => x.AudioId).FirstOrDefault());
+                            objPushNotification.AudioURL = db.Audios.Where(q => q.Id == AudioId).Select(q => q.FilePath).FirstOrDefault();
+                            break;
+                        //case "video":
+                        //    int VideoId = Convert.ToInt32(db.CropStepMaterial_VideoAllocation.Where(x => x.MaterialId == NotificationModelData.contextId && x.LangId == objPushNotification.LangCode && x.Active == true).Select(x => x.VideoId).FirstOrDefault());
+                        //    objPushNotification.VideoURL = db.Videos.Where(q => q.Id == VideoId).Select(q => q.FilePath).FirstOrDefault();
+                        //    break;
+                        default:
+                            break;
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            string StateCode = Convert.ToString(NotificationModelData.stateId);
+            string DistrictCode = Convert.ToString(NotificationModelData.districtId);
+            string GrampanchayatCode = Convert.ToString(NotificationModelData.grampanchayatId);
+
+            UserId = db.Users.Where(a => a.Language == NotificationModelData.languageId && a.Active == true ||
+            ((StateCode != "" && a.State == NotificationModelData.stateId) || (DistrictCode != "" && a.District == NotificationModelData.districtId) ||
+                (GrampanchayatCode != "" && a.Grampanchayat == NotificationModelData.grampanchayatId) || (NotificationModelData.villageIdList.Count != 0 && NotificationModelData.villageIdList.Contains(a.Village.Value))
+            )).Select(a => a.Id).ToList();
+
+            string[] deviceIDs = db.UserFCMTokens
+                 .Where(x => x.Registered == true && UserId.Contains(x.UserId.Value))
+                 .Select(x => x.FCMToken).ToArray();
+
+            if (deviceIDs.Length == 0)
+            {
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = string.Empty, success = false, error = "There are no any Users to send a notification" });
+            }
+            objPushNotification.CategorySubject = "LiveStock";
+            objPushNotification.CreatedOn = DateTime.Now.ToString("yyyy-MM-dd h:mm tt");
+            objPushNotification.MediaType = NotificationModelData.category;
+            objPushNotification.FieldType = NotificationModelData.fieldType;
+            //string message = string.Empty;
+            string message = LiveStockSendPushNotification(objPushNotification, deviceIDs);
+            objPushNotification.ResponseMessage = message;
+            LiveStockStoreNotificationData(objPushNotification);
+
+            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { message }, success = true, error = string.Empty });
         }
 
         [HttpPost]
@@ -537,8 +869,7 @@ namespace TrickleUpPortal.Controllers
                 default:
                     break;
             }
-
-            //UserId = db.Users.Where(a => a.Language == NotificationModelData.languageId).Select(a=>a.Id).ToList();
+            objPushNotification.CategorySubject = "CropCultivation";
             string StateCode = Convert.ToString(NotificationModelData.stateId);
             string DistrictCode = Convert.ToString(NotificationModelData.districtId);
             string GrampanchayatCode = Convert.ToString(NotificationModelData.grampanchayatId);
@@ -547,11 +878,7 @@ namespace TrickleUpPortal.Controllers
             ((StateCode != "" && a.State == NotificationModelData.stateId) || (DistrictCode != "" && a.District == NotificationModelData.districtId) ||
                 (GrampanchayatCode != "" && a.Grampanchayat == NotificationModelData.grampanchayatId) || (NotificationModelData.villageIdList.Count != 0 && NotificationModelData.villageIdList.Contains(a.Village.Value))
             )).Select(a => a.Id).ToList();
-
-            //string[] deviceIDs = db.UserFCMTokens
-            //     .Where(x => x.Registered == true)
-            //     .Select(x => x.FCMToken).ToArray();
-
+            
             string[] deviceIDs = db.UserFCMTokens
                  .Where(x => x.Registered == true && UserId.Contains(x.UserId.Value))
                  .Select(x => x.FCMToken).ToArray();
@@ -569,10 +896,21 @@ namespace TrickleUpPortal.Controllers
             StoreNotificationData(objPushNotification);
 
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data= new { message }, success = true, error = string.Empty });
-            //return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { string.Empty, success = true, error = string.Empty });
         }
 
         public void StoreNotificationData(PushNotificationDataModel PushNotificationData)
+        {
+            PushNotification objPushNotification = new PushNotification();
+            objPushNotification.PushNotificationTitle = PushNotificationData.Title;
+            objPushNotification.PushNotificationBody = PushNotificationData.Body;
+            //objPushNotification.PushNotificationData = "{CropId:" + PushNotificationData.CropId + ", StepId:" + PushNotificationData.StepId + ", langCode:" + PushNotificationData.LangCode + ", Message:" + PushNotificationData.ResponseMessage + " }";
+            objPushNotification.PushNotificationData = JsonConvert.SerializeObject(PushNotificationData);
+            objPushNotification.CreatedOn = System.DateTime.Now;
+            db.PushNotifications.Add(objPushNotification);
+            db.SaveChanges();
+        }
+
+        public void LiveStockStoreNotificationData(LiveStockPushNotificationDataModel PushNotificationData)
         {
             PushNotification objPushNotification = new PushNotification();
             objPushNotification.PushNotificationTitle = PushNotificationData.Title;

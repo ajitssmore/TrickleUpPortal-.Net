@@ -91,36 +91,37 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            var CropAudioData = db.Crop_AudioAllocation.Where(q => q.AudioId == audio.Id).Any();
-            var StepAudioData = db.CropStepAudio_Allocation.Where(q => q.AudioId == audio.Id).Any();
-            var MaterialAudioData = db.CropMaterial_AudioAllocation.Where(q => q.AudioId == audio.Id).Any();
-            if (CropAudioData == true || StepAudioData == true || MaterialAudioData == true)
+            if (audio.Active == false)
             {
-                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "You can't delete the file, because file has been allocated." });
-            }
-            else
-            {
-                try
+                var CropAudioData = db.Crop_AudioAllocation.Where(q => q.AudioId == audio.Id).Any();
+                var StepAudioData = db.CropStepAudio_Allocation.Where(q => q.AudioId == audio.Id).Any();
+                var MaterialAudioData = db.CropMaterial_AudioAllocation.Where(q => q.AudioId == audio.Id).Any();
+                if (CropAudioData == true || StepAudioData == true || MaterialAudioData == true)
                 {
-                    Audio audiodata = db.Audios.Where(a => a.Id == audio.Id).FirstOrDefault();
-                    audiodata.Active = audio.Active;
-                    audiodata.ActiveBy = audio.ActiveBy;
-                    audiodata.ActiveOn = audio.ActiveOn;
-                    db.SaveChanges();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AudioExists(id))
-                    {
-                        return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "You can't delete the file, because file has been allocated." });
                 }
             }
-
+                
+            try
+            {
+                Audio audiodata = db.Audios.Where(a => a.Id == audio.Id).FirstOrDefault();
+                audiodata.Active = audio.Active;
+                audiodata.ActiveBy = audio.ActiveBy;
+                audiodata.ActiveOn = audio.ActiveOn;
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!AudioExists(id))
+                {
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { audio }, success = true, error = string.Empty });
         }
 

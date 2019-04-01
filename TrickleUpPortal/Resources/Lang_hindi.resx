@@ -165,6 +165,9 @@
   <data name="आपकी प्रतिक्रिया पहले ही सबमिट की जा चुकी है" xml:space="preserve">
     <value>Your feedback is already submitted</value>
   </data>
+  <data name="आम तौर पर सुअर के खिलाने का कोई निश्चित समय नहीं होता है। वे रसोई के कचरे को खाते हैं, सब्जी बर्बाद करते हैं, फल बर्बाद करते हैं और अन्य जो मानव उपभोग के लिए फिट नहीं होते हैं उन्हें सुअर को भी खिलाया जा सकता है, मिश्रित फ़ीड को मिलाते हैं जो फ़ीड लागत के 30-40% को कम कर सकते हैं" xml:space="preserve">
+    <value>Generally pig has no definite time of feeding. They eat kitchen waste, waste vegetable, fruits  change waste and others not fit for human consumption can also be fed to pig, mixing compounded feed which may curtail 30-40% of feed cost</value>
+  </data>
   <data name="आर आई आर" xml:space="preserve">
     <value>RIR</value>
   </data>
@@ -191,6 +194,15 @@
   </data>
   <data name="आड़ी़ और नाली तथा पौधे से पौधे के बीच में 2 फीट की दूरी होनी चाहिए. आड़ी़ के मिट्टी में हादरी एवं खाद डालें." xml:space="preserve">
     <value>Spacing between Ridges and furrow should be 2 feet and spacing between plant to plant should be 2 feet. Put Hadri and Compost mix in the soil of ridges</value>
+  </data>
+  <data name="इसमें एक निश्चित सीमा में तापमान और एक निश्चित समयावधि पर टीकाकरण की आवश्यकता होती है। अधिक जानकारी के लिए कृपया जानकारी पर क्लिक करें" xml:space="preserve">
+    <value>It requires temperature in a given range and vaccination on a given time period. Please click on info for more details</value>
+  </data>
+  <data name="इसमें कैस्ट्रेशन, पशुओं का पानी, स्वास्थ्य देखभाल और शेड्यूल टाइम पर बकरी का टीकाकरण शामिल है। कृपया अधिक जानकारी के लिए जानकारी पर क्लिक करें" xml:space="preserve">
+    <value>It involves Castration, Watering of animal, Health care and Vaccination of Goat on schedule time.Please click on info for more details</value>
+  </data>
+  <data name="इसमें सूअरों के लिए टीकाकरण, डीवर्मिंग और बीमा शामिल हैं। कृपया अधिक जानकारी के लिए जानकारी पर क्लिक करें" xml:space="preserve">
+    <value>It involves Vaccination, Deworming, and Insurance for Pigs.Please click on info for more details</value>
   </data>
   <data name="ऍफ़ ऍम डी" xml:space="preserve">
     <value>FMD</value>
@@ -224,6 +236,9 @@
   </data>
   <data name="कीड़ो की व्यवस्था और पोषण का प्रयोग" xml:space="preserve">
     <value>Use of Nutrition and Pest Management</value>
+  </data>
+  <data name="कुल मुर्गी पालन के लिए 4 महीने = 6 किलोग्राम / पक्षी की आवश्यकता होती है, जिसमें से आधी राशि यानि 3 किलोग्राम पक्षी को पिछवाड़े से एकत्र किया जाएगा। तो प्रति दिन प्रति पक्षी 3 किलो संतुलित राशन / मुर्गी चारा उपलब्ध कराया जाना है" xml:space="preserve">
+    <value>Total poultry feed required up to 4 months  = 6 kg/bird of which half of the amount i.e. 3 kg  will be collected by bird from backyard. So 3 kg balanced ration/poultry feed to be provided per bird per day</value>
   </data>
   <data name="के लिये" xml:space="preserve">
     <value>For</value>
@@ -506,6 +521,9 @@
   </data>
   <data name="भिन्डी" xml:space="preserve">
     <value>Lady finger</value>
+  </data>
+  <data name="भोजन की आवश्यकता को पूरा करने के लिए रोजाना 8-9 बजे चराई करने की आवश्यकता होगी। यदि उपलब्ध नहीं है तो वयस्क के लिए 250 ग्राम और युवा को 100 ग्राम ध्यान के साथ 1 किलो हरी घास फ़ीड की आवश्यकता को पूरा करेगी। ध्यान घर पर तैयार किया जा सकता है। 1 वर्गमीटर भूमि 1-2 किलोग्राम घास / दिन का उत्पादन करेगी" xml:space="preserve">
+    <value>Pasture grazing 8-9 hrs daily will meet the food requirement. If not available 1 kg green grass with 250 gms of concentrate to to adult and 100 gm to young will serve the feed requirement. Concentrate can be prepared at home. 1sqmt land will produce 1-2 kg grass/day</value>
   </data>
   <data name="मध्य सफेद यॉर्कशायर" xml:space="preserve">
     <value>Middle White Yorkshire</value>

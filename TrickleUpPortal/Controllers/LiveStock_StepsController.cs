@@ -28,7 +28,7 @@ namespace TrickleUpPortal.Controllers
             //return db.LiveStock_Steps;
             var LiveStock_Steps = from LiveStock_Step in db.LiveStock_Steps
                                           join LiveStock in db.LiveStocks on LiveStock_Step.LiveStockId equals LiveStock.Id
-                                          select new { LiveStock_Step.Id, LiveStock_Step.StepName, LiveStock_Step.StepDescription, LiveStock_Step.Active, LiveStock_Step.LiveStockId, LiveStock.StockName, LiveStock_Step.StepImageURL };
+                                          select new { LiveStock_Step.Id, LiveStock_Step.StepName, LiveStock_Step.StepDescription, LiveStock_Step.Active, LiveStock_Step.LiveStockId, LiveStock.StockName, LiveStock_Step.ImageURL };
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { LiveStock_Steps }, success = true, error = string.Empty });
         }
 
@@ -197,7 +197,7 @@ namespace TrickleUpPortal.Controllers
             try
             {
                 LiveStock_Steps LiveStock_StepskData = db.LiveStock_Steps.Where(a => a.Id == liveStock_Steps.Id).FirstOrDefault();
-                LiveStock_StepskData.StepImageURL = liveStock_Steps.StepImageURL;
+                LiveStock_StepskData.ImageURL = liveStock_Steps.ImageURL;
 
                 if (liveStock_Steps.UpdatedBy != null)
                 {

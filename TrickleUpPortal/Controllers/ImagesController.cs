@@ -56,29 +56,39 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            var ImageData = db.Crops.Where(q => q.FilePath.ToUpper() == image.FilePath.ToUpper()).Any();
-            if (ImageData == true)
+            //if (image.Active == true)
+            //{
+            //    var ImageFileData = db.Images.Where(q => q.FilePath.ToUpper() == image.FilePath.ToUpper()).Any();
+            //    if (ImageFileData == true)
+            //    {
+            //        return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "You can't active the file, FileName is already exists." });
+            //    }
+            //}
+            //else 
+            if (image.Active == false)
             {
-                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "You can't delete the file, because file has been allocated." });
-            }
-            else
-            {
-                try
+                var ImageData = db.Crops.Where(q => q.FilePath.ToUpper() == image.FilePath.ToUpper()).Any();
+                if (ImageData == true)
                 {
-                    Image imagedata = db.Images.Where(a => a.Id == image.Id).FirstOrDefault();
-                    imagedata.Active = image.Active;
-                    db.SaveChanges();
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "You can't delete the file, because file has been allocated." });
                 }
-                catch (DbUpdateConcurrencyException)
+            }
+
+            try
+            {
+                Image imagedata = db.Images.Where(a => a.Id == image.Id).FirstOrDefault();
+                imagedata.Active = image.Active;
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ImageExists(id))
                 {
-                    if (!ImageExists(id))
-                    {
-                        return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
+                }
+                else
+                {
+                    throw;
                 }
             }
 

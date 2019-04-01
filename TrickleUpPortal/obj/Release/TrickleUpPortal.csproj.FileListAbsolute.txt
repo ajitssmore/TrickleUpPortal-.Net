@@ -52,3 +52,4 @@ D:\Trickle Up\Trickleup\SourceCode\TrickleUpPortal\TrickleUpPortal\obj\Release\T
 D:\Trickle Up\Trickleup\SourceCode\TrickleUpPortal\TrickleUpPortal\obj\Release\TrickleUpPortal.csproj.GenerateResource.Cache
 D:\Trickle Up\Trickleup\SourceCode\TrickleUpPortal\TrickleUpPortal\obj\Release\TrickleUpPortal.dll
 D:\Trickle Up\Trickleup\SourceCode\TrickleUpPortal\TrickleUpPortal\obj\Release\TrickleUpPortal.pdb
+D:\Trickle Up\Trickleup\SourceCode\TrickleUpPortal\TrickleUpPortal\obj\Release\TrickleUpPortal.csprojResolveAssemblyReference.cache

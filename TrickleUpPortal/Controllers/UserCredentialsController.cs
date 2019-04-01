@@ -84,6 +84,12 @@ namespace TrickleUpPortal.Controllers
                         case "Oriya":
                             errorMessage = "ଥେ ଉସେର୍ଣ୍ଣାମେ ଡ ପାସ୍ରେବୋର୍ଡ ଇସଃ ଇଂକରରସତ.";
                             break;
+                        case "Santhali":
+                            errorMessage = "यूजरनेम या पासवर्ड गलत है।";
+                            break;
+                        case "Ho":
+                            errorMessage = "यूजरनेम या पासवर्ड गलत है।";
+                            break;
                         default:
                             errorMessage = "The UserName or Password is Incorrect.";
                             break;

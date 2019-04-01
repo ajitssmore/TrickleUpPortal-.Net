@@ -190,6 +190,7 @@
     <Compile Include="Controllers\FileUploadController.cs" />
     <Compile Include="Controllers\GendersController.cs" />
     <Compile Include="Controllers\GrampanchayatsController.cs" />
+    <Compile Include="Controllers\GraphController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\LanguagesController.cs" />
@@ -279,6 +280,7 @@
     <Compile Include="Models\Grampanchayat.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GraphDataModel.cs" />
     <Compile Include="Models\Image.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
@@ -294,6 +296,7 @@
     <Compile Include="Models\LiveStockBreed_AudioAllocation.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LiveStockPushNotificationDataModel.cs" />
     <Compile Include="Models\LiveStock_AudioAllocation.cs">
       <DependentUpon>TrickleUpDataModel.tt</DependentUpon>
     </Compile>
@@ -387,6 +390,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\img\avatars\user.png" />
+    <Content Include="assets\img\brand\pop.png" />
+    <Content Include="assets\img\brand\popLogo.png" />
     <Content Include="assets\img\brand\trickleUpLogo.png" />
     <Content Include="assets\img\brand\Tup.jpg" />
     <Content Include="Content\bootstrap.css" />
@@ -1058,27 +1063,27 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="static\css\main.f46c3505.css" />
-    <Content Include="static\js\0.2dbf7fa4.chunk.js" />
-    <Content Include="static\js\1.acf3e005.chunk.js" />
-    <Content Include="static\js\10.7d093b65.chunk.js" />
-    <Content Include="static\js\11.22b7ec26.chunk.js" />
-    <Content Include="static\js\12.f65a9180.chunk.js" />
-    <Content Include="static\js\13.a6255cdb.chunk.js" />
-    <Content Include="static\js\14.cfb73902.chunk.js" />
-    <Content Include="static\js\15.55ad061d.chunk.js" />
-    <Content Include="static\js\16.2814e4c5.chunk.js" />
-    <Content Include="static\js\17.3f7391f5.chunk.js" />
-    <Content Include="static\js\18.0de619b1.chunk.js" />
-    <Content Include="static\js\2.d2f7522b.chunk.js" />
-    <Content Include="static\js\3.bc8c97f8.chunk.js" />
-    <Content Include="static\js\4.f2fff00f.chunk.js" />
-    <Content Include="static\js\5.dab0c5c9.chunk.js" />
-    <Content Include="static\js\6.5c0f56dd.chunk.js" />
-    <Content Include="static\js\7.371c6d11.chunk.js" />
-    <Content Include="static\js\8.5cba2ed5.chunk.js" />
-    <Content Include="static\js\9.5370ab09.chunk.js" />
-    <Content Include="static\js\main.afcccf43.js" />
+    <Content Include="static\css\main.d4a85845.css" />
+    <Content Include="static\js\0.b490433b.chunk.js" />
+    <Content Include="static\js\1.ac42d3bd.chunk.js" />
+    <Content Include="static\js\10.21cb2c3f.chunk.js" />
+    <Content Include="static\js\11.e41816cc.chunk.js" />
+    <Content Include="static\js\12.dfadd827.chunk.js" />
+    <Content Include="static\js\13.0e753a4b.chunk.js" />
+    <Content Include="static\js\14.c81c9dd5.chunk.js" />
+    <Content Include="static\js\15.07d77ee9.chunk.js" />
+    <Content Include="static\js\16.f92d653a.chunk.js" />
+    <Content Include="static\js\17.365f9db5.chunk.js" />
+    <Content Include="static\js\18.eadf3ae7.chunk.js" />
+    <Content Include="static\js\2.2f3fd7e7.chunk.js" />
+    <Content Include="static\js\3.d52fbdd5.chunk.js" />
+    <Content Include="static\js\4.fdab0c1a.chunk.js" />
+    <Content Include="static\js\5.5528b3bb.chunk.js" />
+    <Content Include="static\js\6.f639a8d2.chunk.js" />
+    <Content Include="static\js\7.76a4bc58.chunk.js" />
+    <Content Include="static\js\8.6d05b271.chunk.js" />
+    <Content Include="static\js\9.b88c9e04.chunk.js" />
+    <Content Include="static\js\main.09c676dc.js" />
     <Content Include="static\media\ad.4fc7c4c1.svg" />
     <Content Include="static\media\ad.c2b27649.svg" />
     <Content Include="static\media\ae.7847726d.svg" />
@@ -1455,6 +1460,7 @@
     <Content Include="static\media\pm.89993b1f.svg" />
     <Content Include="static\media\pn.2d4ce209.svg" />
     <Content Include="static\media\pn.3b9532b7.svg" />
+    <Content Include="static\media\popLogo.c4e34b8a.png" />
     <Content Include="static\media\pr.1d278b02.svg" />
     <Content Include="static\media\pr.b55721a5.svg" />
     <Content Include="static\media\ps.07005a7f.svg" />
@@ -1610,27 +1616,27 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="static\css\main.f46c3505.css.map" />
-    <Content Include="static\js\0.2dbf7fa4.chunk.js.map" />
-    <Content Include="static\js\1.acf3e005.chunk.js.map" />
-    <Content Include="static\js\10.7d093b65.chunk.js.map" />
-    <Content Include="static\js\11.22b7ec26.chunk.js.map" />
-    <Content Include="static\js\12.f65a9180.chunk.js.map" />
-    <Content Include="static\js\13.a6255cdb.chunk.js.map" />
-    <Content Include="static\js\14.cfb73902.chunk.js.map" />
-    <Content Include="static\js\15.55ad061d.chunk.js.map" />
-    <Content Include="static\js\16.2814e4c5.chunk.js.map" />
-    <Content Include="static\js\17.3f7391f5.chunk.js.map" />
-    <Content Include="static\js\18.0de619b1.chunk.js.map" />
-    <Content Include="static\js\2.d2f7522b.chunk.js.map" />
-    <Content Include="static\js\3.bc8c97f8.chunk.js.map" />
-    <Content Include="static\js\4.f2fff00f.chunk.js.map" />
-    <Content Include="static\js\5.dab0c5c9.chunk.js.map" />
-    <Content Include="static\js\6.5c0f56dd.chunk.js.map" />
-    <Content Include="static\js\7.371c6d11.chunk.js.map" />
-    <Content Include="static\js\8.5cba2ed5.chunk.js.map" />
-    <Content Include="static\js\9.5370ab09.chunk.js.map" />
-    <Content Include="static\js\main.afcccf43.js.map" />
+    <Content Include="static\css\main.d4a85845.css.map" />
+    <Content Include="static\js\0.b490433b.chunk.js.map" />
+    <Content Include="static\js\1.ac42d3bd.chunk.js.map" />
+    <Content Include="static\js\10.21cb2c3f.chunk.js.map" />
+    <Content Include="static\js\11.e41816cc.chunk.js.map" />
+    <Content Include="static\js\12.dfadd827.chunk.js.map" />
+    <Content Include="static\js\13.0e753a4b.chunk.js.map" />
+    <Content Include="static\js\14.c81c9dd5.chunk.js.map" />
+    <Content Include="static\js\15.07d77ee9.chunk.js.map" />
+    <Content Include="static\js\16.f92d653a.chunk.js.map" />
+    <Content Include="static\js\17.365f9db5.chunk.js.map" />
+    <Content Include="static\js\18.eadf3ae7.chunk.js.map" />
+    <Content Include="static\js\2.2f3fd7e7.chunk.js.map" />
+    <Content Include="static\js\3.d52fbdd5.chunk.js.map" />
+    <Content Include="static\js\4.fdab0c1a.chunk.js.map" />
+    <Content Include="static\js\5.5528b3bb.chunk.js.map" />
+    <Content Include="static\js\6.f639a8d2.chunk.js.map" />
+    <Content Include="static\js\7.76a4bc58.chunk.js.map" />
+    <Content Include="static\js\8.6d05b271.chunk.js.map" />
+    <Content Include="static\js\9.b88c9e04.chunk.js.map" />
+    <Content Include="static\js\main.09c676dc.js.map" />
     <Content Include="static\media\CoreUI-Icons-Linear-Free.0087dce4.woff" />
     <Content Include="static\media\CoreUI-Icons-Linear-Free.089ab3c1.eot" />
     <Content Include="static\media\CoreUI-Icons-Linear-Free.1bc37648.ttf" />

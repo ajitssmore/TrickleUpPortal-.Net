@@ -70,6 +70,24 @@ namespace TrickleUpPortal.Controllers
                         cropObj.AliasName = item.AliasName;
                         Crops.Add(cropObj);
                         break;
+                    case "Santhali":
+                        cropObj.Id = item.Id;
+                        cropObj.CropName = item.CropName != null ? comObj.GetResxNameByValue_Hindi(item.CropName) : string.Empty;
+                        cropObj.FilePath = item.FilePath != null ? item.FilePath : string.Empty;
+                        cropObj.Ready = item.Ready != null ? (bool)item.Ready : false;
+                        cropObj.AudioTitle_Path = comObj.fetchAudioPahtCrops(item.Id, langCode);
+                        cropObj.AliasName = item.AliasName;
+                        Crops.Add(cropObj);
+                        break;
+                    case "Ho":
+                        cropObj.Id = item.Id;
+                        cropObj.CropName = item.CropName != null ? comObj.GetResxNameByValue_Hindi(item.CropName) : string.Empty;
+                        cropObj.FilePath = item.FilePath != null ? item.FilePath : string.Empty;
+                        cropObj.Ready = item.Ready != null ? (bool)item.Ready : false;
+                        cropObj.AudioTitle_Path = comObj.fetchAudioPahtCrops(item.Id, langCode);
+                        cropObj.AliasName = item.AliasName;
+                        Crops.Add(cropObj);
+                        break;
                     default:
                         break;
                 }
@@ -210,7 +228,7 @@ namespace TrickleUpPortal.Controllers
                                     {
                                         itemMat.Material_Name = itemMat.Material_Name != null ? comObj.GetResxNameByValue_Hindi(itemMat.Material_Name) : string.Empty;
                                         itemMat.Audio_Path = comObj.fetchAudioPahtMaterials(itemMat.Id, langId);
-                                        itemMat.Image_Path = @"\Images\Steps\PlougingofLand.jpg";
+                                        itemMat.Image_Path = itemMat.Image_Path != null ? itemMat.Image_Path : string.Empty;
                                     }
                                 }
                             }
@@ -234,7 +252,7 @@ namespace TrickleUpPortal.Controllers
                                     foreach (var itemMat in item.CropSteps_Material)
                                     {
                                         itemMat.Audio_Path = comObj.fetchAudioPahtMaterials(itemMat.Id, langId);
-                                        itemMat.Image_Path = @"\Images\Steps\PlougingofLand.jpg";
+                                        itemMat.Image_Path = itemMat.Image_Path != null ? itemMat.Image_Path : string.Empty;
                                     }
                                 }
                             }
@@ -246,7 +264,7 @@ namespace TrickleUpPortal.Controllers
                         break;
                     case "Oriya":
                         crop.CropName = crop.CropName != null ? comObj.GetResxNameByValue_Oriya(crop.CropName) : string.Empty;
-                        //crop.Title_Audio = @"MediaContent\Audios\BitterGourd_ENG.mp3";
+                        crop.Title_Audio = comObj.fetchAudioPahtCrops(id, langId);
                         if (crop.Cultivation_Steps.Count > 0)
                         {
                             foreach (var item in crop.Cultivation_Steps)
@@ -258,8 +276,8 @@ namespace TrickleUpPortal.Controllers
                                     foreach (var itemMat in item.CropSteps_Material)
                                     {
                                         itemMat.Material_Name = itemMat.Material_Name != null ? comObj.GetResxNameByValue_Oriya(itemMat.Material_Name) : string.Empty;
-                                        //itemMat.Audio_Path = @"MediaContent\Audios\BitterGourd_ENG.mp3";
-                                        itemMat.Image_Path = @"\Images\Steps\PlougingofLand.jpg";
+                                        itemMat.Audio_Path = comObj.fetchAudioPahtMaterials(itemMat.Id, langId);
+                                        itemMat.Image_Path = itemMat.Image_Path != null ? itemMat.Image_Path : string.Empty;
                                     }
                                 }
                             }
@@ -267,6 +285,60 @@ namespace TrickleUpPortal.Controllers
                         else
                         {
                             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty } , success = false, error = "There are no steps and Material for this Crop" });
+                        }
+                        break;
+                    case "Santhali":
+                        crop.CropName = crop.CropName != null ? comObj.GetResxNameByValue_Hindi(crop.CropName) : string.Empty;
+                        crop.Title_Audio = comObj.fetchAudioPahtCrops(id, langId);
+                        if (crop.Cultivation_Steps.Count > 0)
+                        {
+                            foreach (var item in crop.Cultivation_Steps)
+                            {
+                                item.Step_Name = item.Step_Name != null ? comObj.GetResxNameByValue_Hindi(item.Step_Name) : string.Empty;
+                                item.Step_Description = item.Step_Description != null ? comObj.GetResxNameByValue_Hindi(item.Step_Description) : string.Empty;
+                                item.Title_Audio = comObj.fetchAudioPahtSteps(item.Id, langId, "Title");
+                                item.Description_audio = comObj.fetchAudioPahtSteps(item.Id, langId, "Description");
+                                if (item.CropSteps_Material.Count > 0)
+                                {
+                                    foreach (var itemMat in item.CropSteps_Material)
+                                    {
+                                        itemMat.Material_Name = itemMat.Material_Name != null ? comObj.GetResxNameByValue_Hindi(itemMat.Material_Name) : string.Empty;
+                                        itemMat.Audio_Path = comObj.fetchAudioPahtMaterials(itemMat.Id, langId);
+                                        itemMat.Image_Path = itemMat.Image_Path != null ? itemMat.Image_Path : string.Empty;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "There are no steps and Material for this Crop" });
+                        }
+                        break;
+                    case "Ho":
+                        crop.CropName = crop.CropName != null ? comObj.GetResxNameByValue_Hindi(crop.CropName) : string.Empty;
+                        crop.Title_Audio = comObj.fetchAudioPahtCrops(id, langId);
+                        if (crop.Cultivation_Steps.Count > 0)
+                        {
+                            foreach (var item in crop.Cultivation_Steps)
+                            {
+                                item.Step_Name = item.Step_Name != null ? comObj.GetResxNameByValue_Hindi(item.Step_Name) : string.Empty;
+                                item.Step_Description = item.Step_Description != null ? comObj.GetResxNameByValue_Hindi(item.Step_Description) : string.Empty;
+                                item.Title_Audio = comObj.fetchAudioPahtSteps(item.Id, langId, "Title");
+                                item.Description_audio = comObj.fetchAudioPahtSteps(item.Id, langId, "Description");
+                                if (item.CropSteps_Material.Count > 0)
+                                {
+                                    foreach (var itemMat in item.CropSteps_Material)
+                                    {
+                                        itemMat.Material_Name = itemMat.Material_Name != null ? comObj.GetResxNameByValue_Hindi(itemMat.Material_Name) : string.Empty;
+                                        itemMat.Audio_Path = comObj.fetchAudioPahtMaterials(itemMat.Id, langId);
+                                        itemMat.Image_Path = itemMat.Image_Path != null ? itemMat.Image_Path : string.Empty;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "There are no steps and Material for this Crop" });
                         }
                         break;
                     default:

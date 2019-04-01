@@ -168,6 +168,18 @@
   <data name="ଆର୨ବି" xml:space="preserve">
     <value>R2B</value>
   </data>
+  <data name="ଇଟା ଇନବୋଳବେଶ ବାକସିନସନ, ଦେବୋର୍ମିଙ୍ଗ, ଆଣ୍ଡ ଇନ୍ସୁରାନ୍ସ ଫୋର ପିଂସ. ପ୍ଲେଆସେ ସିଲିକଙ୍କ ଓଂ ଇନ୍ଫୋ ଫୋର ମୋର ଡଟାଇଲସ" xml:space="preserve">
+    <value>ଇଟା ଇନବୋଳବେଶ ବାକସିନସନ, ଦେବୋର୍ମିଙ୍ଗ, ଆଣ୍ଡ ଇନ୍ସୁରାନ୍ସ ଫୋର ପିଂସ. ପ୍ଲେଆସେ ସିଲିକଙ୍କ ଓଂ ଇନ୍ଫୋ ଫୋର ମୋର ଡଟାଇଲସ</value>
+  </data>
+  <data name="ଇଟା ଇନବୋଳବେଶ ବାକସିନସନ, ଦେବୋର୍ମିଙ୍ଗ, ଆଣ୍ଡ ଇନ୍ସୁରାନ୍ସ ଫୋର ପିଂସ.ପ୍ଲେଆସେ ସିଲିକଙ୍କ ଓଂ ଇନ୍ଫୋ ଫୋର ମୋର ଡଟାଇଲସ" xml:space="preserve">
+    <value>It involves Vaccination, Deworming, and Insurance for Pigs.Please click on info for more details</value>
+  </data>
+  <data name="ଇଟା ଇନବୋଳବେଶ ସିଅସ୍ତ୍ରସନ, ବଟରିଂ ଅ ଅନିମଲ, ହେଲଥ ଚରେ ଆଣ୍ଡ ବାକସିନସନ ଅ ଗାତ ଓଂ ସଚେଦୁଲେ ର୍ଟମେ.ପ୍ଲେଆସେ ସିଲିକଙ୍କ ଓଂ ଇନ୍ଫୋ ଫୋର ମୋର ଡଟାଇଲସ" xml:space="preserve">
+    <value>It involves Castration, Watering of animal, Health care and Vaccination of Goat on schedule time.Please click on info for more details</value>
+  </data>
+  <data name="ଇଟା ରେକଇଁରେସ ଟେଂପେରାତୁରେ ଇଂ ଏ ଜିବେନ ରଙ୍ଗ ଆଣ୍ଡ ବାକସିନସନ ଓଂ ଏ ଜିବେନ ର୍ଟମେ ପେରିଅଡ. ପ୍ଲେଆସେ ସିଲିକଙ୍କ ଓଂ ଇନ୍ଫୋ ଫୋର ମୋର ଡଟାଇଲସ" xml:space="preserve">
+    <value>It requires temperature in a given range and vaccination on a given time period. Please click on info for more details</value>
+  </data>
   <data name="ଈମାଗେ ହସ ବୀନ ଉପିଲଵାଡେଡ଼" xml:space="preserve">
     <value>Image has been uploaded</value>
   </data>
@@ -291,6 +303,9 @@
   <data name="ଜୀବମିରିତ  ସୋଲୁସନ" xml:space="preserve">
     <value>Jivamirita Solution</value>
   </data>
+  <data name="ଜେନେରାଲଲ୍ୟ ପିଜି ହସ ନ ଡେ଼ଫିନିଟିଏ ର୍ଟମେ ଅ ଫାଇଣ୍ଡିଙ୍ଗ. ଥେୟ ଇଏତ କୀଟାଚେଁ ଵସ୍ତୁ, ଵସ୍ତୁ ବେଜେଟାଵଲେ, ଫ୍ରୁଇଟ୍ସ  ଚାଙ୍ଗ ଵସ୍ତୁ ଆଣ୍ଡ ଓଠେର୍ସ ନୋଟ ଫିଟ ଫୋର ହୁମାନ କଂସଉଁପସନ ଚାଁ ଅଳସ ବେବ ଫେଡ଼ ତୋ ପିଜି, ମିକ୍ସଇଂ କମ୍ପୋଉଂଡେଡ଼ ଫଏଡ ଭିଛ ମେ ଚୂର୍ତ୍ତ ଇଲ ୩୦ -୪୦% ଅ ଫଏଡ କଷ୍ଟ" xml:space="preserve">
+    <value>Generally pig has no definite time of feeding. They eat kitchen waste, waste vegetable, fruits  change waste and others not fit for human consumption can also be fed to pig, mixing compounded feed which may curtail 30-40% of feed cost</value>
+  </data>
   <data name="ଟମାଟୋ" xml:space="preserve">
     <value>Tomato</value>
   </data>
@@ -299,6 +314,9 @@
   </data>
   <data name="ଟିଟାନସ ଟକସାଇଡ" xml:space="preserve">
     <value>Tetanus toxoid</value>
+  </data>
+  <data name="ଟୋଟାଲ ପୋୖଲଟ୍ରି ଫଏଡ ରକଇରଏଡ଼ ଉପ ତୋ ୪ ମୋଁଥ୍ସ  = ୬ କଂ/ବିରଡ଼ ଅ ଭିଛ ହଲ୍ଫ ଅ ଥେ ଆମୋଡ ଇ.ଏ. ୩  କଂ ବିଲ୍ଲ ବେ କଳଲେବଟେଡ଼ ବ୍ୟ ବିରଡ଼ ଫାର୍ମ ଵସ୍କ୍ୟାର୍ଡ. ସୋ ୩ କଂ ବଲନ୍ସଦ ରସନ/ପୋୖଲଟ୍ରି ଫଏଡ ତୋ ବେ ପ୍ରୋଭିଡେଡ଼ per ବିରଡ଼ ପେର ଦେ" xml:space="preserve">
+    <value>Total poultry feed required up to 4 months  = 6 kg/bird of which half of the amount i.e. 3 kg  will be collected by bird from backyard. So 3 kg balanced ration/poultry feed to be provided per bird per day</value>
   </data>
   <data name="ଡ  ବୀଜମୃତ  ସୋଲୁସନ" xml:space="preserve">
     <value>Or Beejamrita Solution</value>
@@ -422,6 +440,9 @@
   </data>
   <data name="ପ୍ରଥମ ଦିନ" xml:space="preserve">
     <value>1st day</value>
+  </data>
+  <data name="ପ୍ସତୁରେ ଗ୍ରାଜ଼ୀଙ୍ଗ ୮-୯  ହ୍ରସ୍ୱ ଡୈଲ୍ୟ ବିଲ୍ଲ ମେଡ ଥେ ଫୂଡ଼ ରେକଇଁରେମେଣ୍ଟ. ଇଫ ନୋଟ ଅଵିଲାଵଲେ ୧ କଂ ଗ୍ରୀନ ଗରସସ ବିଠ ୨୫୦ ଜିମ୍ସ ଅ କଂସେଣ୍ଟରଟେ ତୋ ତୋ ଡଉଲଟା ଆଣ୍ଡ ୧୦୦ ଗମ ତୋ ୟୌନଗ ବିଲ୍ଲ ସେରବେ ଥେ ଫଏଡ ରେକଇଁରେମେଣ୍ଟ. କଂସେଣ୍ଟରଟେ ଚାଁ ବେ ପ୍ରେପରେଡ ଅଟ ହୋମେ . 1sqmt  ଲଣ୍ଡ ବିଲ୍ଲ ପ୍ରଡୁଛେ ୧-୨ କଂ ଗରସସ/ଦେ" xml:space="preserve">
+    <value>Pasture grazing 8-9 hrs daily will meet the food requirement. If not available 1 kg green grass with 250 gms of concentrate to to adult and 100 gm to young will serve the feed requirement. Concentrate can be prepared at home. 1sqmt land will produce 1-2 kg grass/day</value>
   </data>
   <data name="ଫର୍ମ  ୱାର୍ଡ  ମାନୁର" xml:space="preserve">
     <value>Farm Yard Manure</value>

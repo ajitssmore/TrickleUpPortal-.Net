@@ -92,31 +92,39 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            var StepVideoData = db.Cultivation_Steps.Where(q => q.VideoPath.ToUpper() == video.FilePath.ToUpper()).Any();
-            if (StepVideoData == true)
+            if (video.Active == false)
             {
-                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "You can't delete the file, because file has been allocated." });
-            }
-            else
-            {
-                try
+                var CropVideoData = db.CropStep_VideoAllocation.Where(a => a.VideoId == video.Id).Any();
+                //var StepVideoData = db.Cultivation_Steps.Where(q => q.VideoPath.ToUpper() == video.FilePath.ToUpper()).Any();
+                var StepVideoData = db.CropStep_VideoAllocation.Where(a => a.VideoId == video.Id).Any();
+                var MaterialVideoData = db.CropStepMaterial_VideoAllocation.Where(a => a.VideoId == video.Id).Any();
+                if (CropVideoData == true || StepVideoData == true || MaterialVideoData==true)
                 {
-                    Video videodata = db.Videos.Where(a => a.Id == video.Id).FirstOrDefault();
-                    videodata.Active = video.Active;
-                    db.SaveChanges();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!VideoExists(id))
-                    {
-                        return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "You can't delete the file, because file has been allocated." });
                 }
             }
+            
+            
+            try
+            {
+                Video videodata = db.Videos.Where(a => a.Id == video.Id).FirstOrDefault();
+                videodata.Active = video.Active;
+                videodata.ActiveBy = video.ActiveBy;
+                videodata.ActiveOn = video.ActiveOn;
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!VideoExists(id))
+                {
+                    return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.NotFound, new { data = new { string.Empty }, success = false, error = string.Empty });
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            
 
             return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { video }, success = true, error = string.Empty });
         }

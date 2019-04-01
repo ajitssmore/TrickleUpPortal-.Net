@@ -432,7 +432,7 @@
           <Property Name="StepName" Type="nvarchar(max)" />
           <Property Name="StepDescription" Type="nvarchar(max)" />
           <Property Name="LiveStockId" Type="int" />
-          <Property Name="StepImageURL" Type="nvarchar(max)" />
+          <Property Name="ImageURL" Type="nvarchar(max)" />
           <Property Name="StepAudioTitleURL" Type="nvarchar(max)" />
           <Property Name="StepAudioDesURL" Type="nvarchar(max)" />
           <Property Name="CreatedBy" Type="int" />
@@ -701,6 +701,8 @@
           <Property Name="CreatedBy" Type="int" />
           <Property Name="CreatedOn" Type="datetime" />
           <Property Name="Active" Type="bit" />
+          <Property Name="ActiveBy" Type="int" />
+          <Property Name="ActiveOn" Type="datetime" />
         </EntityType>
         <EntityType Name="Village">
           <Key>
@@ -1491,7 +1493,6 @@
           </AssociationSet>
           <EntitySet Name="MediaContents" EntityType="TrickleUpModel.MediaContent" />
           <EntitySet Name="BulkUploadRefs" EntityType="TrickleUpModel.BulkUploadRef" />
-          <EntitySet Name="Videos" EntityType="TrickleUpModel.Video" />
           <EntitySet Name="Images" EntityType="TrickleUpModel.Image" />
           <EntitySet Name="VillageContacts" EntityType="TrickleUpModel.VillageContact" />
           <EntitySet Name="FeedBackQuestions" EntityType="TrickleUpModel.FeedBackQuestion" />
@@ -1684,6 +1685,13 @@
           </AssociationSet>
           <EntitySet Name="LiveStock_BreedCategory_AudioAllocation" EntityType="TrickleUpModel.LiveStock_BreedCategory_AudioAllocation" />
           <EntitySet Name="LiveStockBreed_AudioAllocation" EntityType="TrickleUpModel.LiveStockBreed_AudioAllocation" />
+          <EntitySet Name="LiveStock_Steps_AudioAllocation" EntityType="TrickleUpModel.LiveStock_Steps_AudioAllocation" />
+          <EntitySet Name="LiveStock_StepsMaterial_AudioAllocation" EntityType="TrickleUpModel.LiveStock_StepsMaterial_AudioAllocation" />
+          <EntitySet Name="Crops" EntityType="TrickleUpModel.Crop" />
+          <AssociationSet Name="FK_Cultivation_Steps_Crop" Association="TrickleUpModel.FK_Cultivation_Steps_Crop">
+            <End Role="Crop" EntitySet="Crops" />
+            <End Role="Cultivation_Steps" EntitySet="Cultivation_Steps" />
+          </AssociationSet>
           <EntitySet Name="LiveStock_Steps" EntityType="TrickleUpModel.LiveStock_Steps" />
           <AssociationSet Name="FK_LiveStock_Steps_LiveStock" Association="TrickleUpModel.FK_LiveStock_Steps_LiveStock">
             <End Role="LiveStock" EntitySet="LiveStocks" />
@@ -1693,13 +1701,7 @@
             <End Role="LiveStock_Steps" EntitySet="LiveStock_Steps" />
             <End Role="LiveStock_StepMaterial" EntitySet="LiveStock_StepMaterial" />
           </AssociationSet>
-          <EntitySet Name="LiveStock_Steps_AudioAllocation" EntityType="TrickleUpModel.LiveStock_Steps_AudioAllocation" />
-          <EntitySet Name="LiveStock_StepsMaterial_AudioAllocation" EntityType="TrickleUpModel.LiveStock_StepsMaterial_AudioAllocation" />
-          <EntitySet Name="Crops" EntityType="TrickleUpModel.Crop" />
-          <AssociationSet Name="FK_Cultivation_Steps_Crop" Association="TrickleUpModel.FK_Cultivation_Steps_Crop">
-            <End Role="Crop" EntitySet="Crops" />
-            <End Role="Cultivation_Steps" EntitySet="Cultivation_Steps" />
-          </AssociationSet>
+          <EntitySet Name="Videos" EntityType="TrickleUpModel.Video" />
           </EntityContainer>
         <EntityType Name="Gender">
           <Key>
@@ -1813,18 +1815,6 @@
           <Property Name="BulkUploadId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CreatedBy" Type="Int32" />
           <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="Video">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="VideoName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="FileSize" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-          <Property Name="Active" Type="Boolean" />
         </EntityType>
         <EntityType Name="Image">
           <Key>
@@ -2930,52 +2920,6 @@
           <Property Name="ActiveOn" Type="DateTime" Precision="3" />
           <Property Name="Active" Type="Boolean" />
         </EntityType>
-        <EntityType Name="LiveStock_Steps">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="StepName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="StepDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="LiveStockId" Type="Int32" />
-          <Property Name="StepImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="StepAudioTitleURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="StepAudioDesURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedBy" Type="Int32" />
-          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
-          <Property Name="ActiveBy" Type="Int32" />
-          <Property Name="ActiveOn" Type="DateTime" Precision="3" />
-          <Property Name="Active" Type="Boolean" />
-          <Property Name="AliesName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="LiveStock" Relationship="TrickleUpModel.FK_LiveStock_Steps_LiveStock" FromRole="LiveStock_Steps" ToRole="LiveStock" />
-          <NavigationProperty Name="LiveStock_StepMaterial" Relationship="TrickleUpModel.FK_LiveStock_StepMaterial_LiveStock_Steps" FromRole="LiveStock_Steps" ToRole="LiveStock_StepMaterial" />
-        </EntityType>
-        <Association Name="FK_LiveStock_Steps_LiveStock">
-          <End Type="TrickleUpModel.LiveStock" Role="LiveStock" Multiplicity="0..1" />
-          <End Type="TrickleUpModel.LiveStock_Steps" Role="LiveStock_Steps" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LiveStock">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="LiveStock_Steps">
-              <PropertyRef Name="LiveStockId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LiveStock_StepMaterial_LiveStock_Steps">
-          <End Type="TrickleUpModel.LiveStock_Steps" Role="LiveStock_Steps" Multiplicity="0..1" />
-          <End Type="TrickleUpModel.LiveStock_StepMaterial" Role="LiveStock_StepMaterial" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LiveStock_Steps">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="LiveStock_StepMaterial">
-              <PropertyRef Name="LiveStock_StepId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="LiveStock_Steps_AudioAllocation">
           <Key>
             <PropertyRef Name="Id" />
@@ -3037,6 +2981,66 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="LiveStock_Steps">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StepName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StepDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LiveStockId" Type="Int32" />
+          <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StepAudioTitleURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StepAudioDesURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ActiveBy" Type="Int32" />
+          <Property Name="ActiveOn" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="AliesName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LiveStock" Relationship="TrickleUpModel.FK_LiveStock_Steps_LiveStock" FromRole="LiveStock_Steps" ToRole="LiveStock" />
+          <NavigationProperty Name="LiveStock_StepMaterial" Relationship="TrickleUpModel.FK_LiveStock_StepMaterial_LiveStock_Steps" FromRole="LiveStock_Steps" ToRole="LiveStock_StepMaterial" />
+        </EntityType>
+        <Association Name="FK_LiveStock_Steps_LiveStock">
+          <End Type="TrickleUpModel.LiveStock" Role="LiveStock" Multiplicity="0..1" />
+          <End Type="TrickleUpModel.LiveStock_Steps" Role="LiveStock_Steps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LiveStock">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LiveStock_Steps">
+              <PropertyRef Name="LiveStockId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LiveStock_StepMaterial_LiveStock_Steps">
+          <End Type="TrickleUpModel.LiveStock_Steps" Role="LiveStock_Steps" Multiplicity="0..1" />
+          <End Type="TrickleUpModel.LiveStock_StepMaterial" Role="LiveStock_StepMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LiveStock_Steps">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LiveStock_StepMaterial">
+              <PropertyRef Name="LiveStock_StepId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VideoName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileSize" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="ActiveBy" Type="Int32" />
+          <Property Name="ActiveOn" Type="DateTime" Precision="3" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3126,19 +3130,6 @@
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="BulkUploadId" ColumnName="BulkUploadId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Videos">
-            <EntityTypeMapping TypeName="TrickleUpModel.Video">
-              <MappingFragment StoreEntitySet="Videos">
-                <ScalarProperty Name="Active" ColumnName="Active" />
-                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="FileSize" ColumnName="FileSize" />
-                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
-                <ScalarProperty Name="VideoName" ColumnName="VideoName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -3752,27 +3743,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LiveStock_Steps">
-            <EntityTypeMapping TypeName="TrickleUpModel.LiveStock_Steps">
-              <MappingFragment StoreEntitySet="LiveStock_Steps">
-                <ScalarProperty Name="AliesName" ColumnName="AliesName" />
-                <ScalarProperty Name="Active" ColumnName="Active" />
-                <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
-                <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="StepAudioDesURL" ColumnName="StepAudioDesURL" />
-                <ScalarProperty Name="StepAudioTitleURL" ColumnName="StepAudioTitleURL" />
-                <ScalarProperty Name="StepImageURL" ColumnName="StepImageURL" />
-                <ScalarProperty Name="LiveStockId" ColumnName="LiveStockId" />
-                <ScalarProperty Name="StepDescription" ColumnName="StepDescription" />
-                <ScalarProperty Name="StepName" ColumnName="StepName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="LiveStock_Steps_AudioAllocation">
             <EntityTypeMapping TypeName="TrickleUpModel.LiveStock_Steps_AudioAllocation">
               <MappingFragment StoreEntitySet="LiveStock_Steps_AudioAllocation">
@@ -3820,6 +3790,42 @@
                 <ScalarProperty Name="Ready" ColumnName="Ready" />
                 <ScalarProperty Name="FilePath" ColumnName="FilePath" />
                 <ScalarProperty Name="CropName" ColumnName="CropName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LiveStock_Steps">
+            <EntityTypeMapping TypeName="TrickleUpModel.LiveStock_Steps">
+              <MappingFragment StoreEntitySet="LiveStock_Steps">
+                <ScalarProperty Name="AliesName" ColumnName="AliesName" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+                <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="StepAudioDesURL" ColumnName="StepAudioDesURL" />
+                <ScalarProperty Name="StepAudioTitleURL" ColumnName="StepAudioTitleURL" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="LiveStockId" ColumnName="LiveStockId" />
+                <ScalarProperty Name="StepDescription" ColumnName="StepDescription" />
+                <ScalarProperty Name="StepName" ColumnName="StepName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Videos">
+            <EntityTypeMapping TypeName="TrickleUpModel.Video">
+              <MappingFragment StoreEntitySet="Videos">
+                <ScalarProperty Name="ActiveOn" ColumnName="ActiveOn" />
+                <ScalarProperty Name="ActiveBy" ColumnName="ActiveBy" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="VideoName" ColumnName="VideoName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

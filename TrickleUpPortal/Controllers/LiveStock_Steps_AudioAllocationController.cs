@@ -80,10 +80,10 @@ namespace TrickleUpPortal.Controllers
                 return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.BadRequest, new { data = new { string.Empty }, success = false, error = string.Empty });
             }
 
-            int recordCount = db.LiveStock_Steps_AudioAllocation.Where(a => a.LiveStockStepId == liveStock_Steps_AudioAllocation.LiveStockStepId && a.LangId == liveStock_Steps_AudioAllocation.LangId && a.Active == true).Count();
+            int recordCount = db.LiveStock_Steps_AudioAllocation.Where(a => a.LiveStockStepId == liveStock_Steps_AudioAllocation.LiveStockStepId && a.LangId == liveStock_Steps_AudioAllocation.LangId && a.FieldType == liveStock_Steps_AudioAllocation.FieldType && a.Active == true).Count();
             if (recordCount > 0)
             {
-                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Audio already allocated with this Live Stock Breed Category." });
+                return (HttpResponseMessage)Request.CreateResponse(HttpStatusCode.OK, new { data = new { string.Empty }, success = false, error = "Audio already allocated with this Live Stock Step." });
             }
 
             db.LiveStock_Steps_AudioAllocation.Add(liveStock_Steps_AudioAllocation);
